@@ -2,11 +2,12 @@
 
 ## Introduction
 
-Created Godot verstion of Welcome of Fate.
+This game is a port of Booga's Welcome of Fate to Godot.
+The game is a continuation of the Unity port of the game.
 
 ## Update
 
-Started a project as of 2019 December.
+This project started from 2019 December.
 
 ## License
 
