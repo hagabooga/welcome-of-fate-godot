@@ -1,4 +1,4 @@
-# Welcome-of-Fate-Godot
+# Booga's Welcome of Fate
 
 ## Introduction
 
