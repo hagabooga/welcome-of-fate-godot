@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tilesets/Objects/house/house.tres" type="TileSet" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 34 )
+
+[node name="PlayerHome" type="StaticBody2D"]
+
+[node name="wall" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -262141, 0, 0, -262140, 0, 1, -262139, 0, 1, -262138, 0, 1, -262137, 0, 2, -196605, 0, 65536, -196604, 0, 65537, -196603, 0, 65537, -196602, 0, 65537, -196601, 0, 65538, -131069, 0, 131072, -131068, 0, 131073, -131067, 0, 131073, -131066, 0, 131073, -131065, 0, 131074 )
+
+[node name="roof" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -393213, 2, 0, -393212, 2, 3, -393211, 2, 4, -393210, 2, 5, -393209, 2, 2, -327677, 2, 131072, -327676, 2, 131073, -327675, 2, 131073, -327674, 2, 131073, -327673, 2, 131074 )
+
+[node name="windows" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -196603, 3, 2, -131067, 3, 65538 )
+
+[node name="other" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -131067, 3, 1, -65531, 3, 65537 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 177, -146 )
+polygon = PoolVector2Array( -78, 39, 75, 40, 79, -35, 46, -46, -48, -46, -81, -35, -80, 18 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 222, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 130, -72 )
+shape = SubResource( 1 )
+
+[node name="WarpPoint" type="Node2D" parent="."]
+position = Vector2( 177, -30 )
+
