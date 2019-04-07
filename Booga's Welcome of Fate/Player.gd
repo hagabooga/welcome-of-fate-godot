@@ -39,4 +39,3 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide(velocity)
 	global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
-	print(global_position)
