@@ -1,7 +1,8 @@
 extends Node2D
 
-var seed_scene = preload("res://plants/Seeds.tscn")
+var seed_scene = preload("res://plants/Plant.tscn")
 var plants = []
+
 
 func get_player_facing_tile_pos():
 	var pos = $TileMaps/Soil.world_to_map($Player.global_position)
@@ -36,11 +37,17 @@ func _process(delta):
 						if !occupied:
 							var pos = $TileMaps/Soil.map_to_world(current_tile)
 							var new_seed = seed_scene.instance()
-							new_seed.global_position = pos;
+							new_seed.set_script(load("res://Turnip.gd"))
+							new_seed.global_position = pos
 							$Plants.add_child(new_seed)
-							new_seed.plant = "Turnip"
-							new_seed.tile_pos = current_tile;
+							new_seed.tile_pos = current_tile
 							plants.append(new_seed)
+							
+	if Input.is_action_just_pressed("ui_cancel"):
+		world_globals.emit_next_day()
+	if Input.is_action_just_pressed("v"):
+		print($Player/HurtArea.get_overlapping_areas())
+	
 
 func _on_WarpToInside_body_entered(body):
 	body.global_position = $Objects/InsidePlayerHome/WarpPoint.global_position

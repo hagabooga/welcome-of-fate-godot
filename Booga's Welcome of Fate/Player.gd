@@ -3,6 +3,9 @@ extends KinematicBody2D
 export (int) var speed = 200
 
 var velocity = Vector2()
+var facing = "down"
+var canMove = true
+
 
 func get_input():
 	velocity = Vector2()
@@ -26,7 +29,7 @@ func get_input():
 	if velocity.x == 0 and velocity.y == 1:
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.play("walk_down")
-	if velocity.x == 0 and velocity.y == 0:
+	if velocity.x == 0 and velocity.y == 0:	
 		if $AnimatedSprite.animation == "walk_up":
 			$AnimatedSprite.play("idle_up")
 		elif $AnimatedSprite.animation == "walk_side":
@@ -35,7 +38,37 @@ func get_input():
 			$AnimatedSprite.play("idle_down")
 	velocity = velocity.normalized() * speed
 
+
+func get_action_input():
+	var anim = $AnimatedSprite.animation.substr(0,4)
+	#print(anim)
+	if (Input.is_action_just_pressed("z") and (anim == "idle" or anim == "walk")):
+		if ($AnimatedSprite.animation == "walk_up" or $AnimatedSprite.animation == "idle_up"):
+			$AnimatedSprite.play("grab_up")
+			facing = "up"
+		elif ($AnimatedSprite.animation == "walk_side" or $AnimatedSprite.animation == "idle_side"):
+			$AnimatedSprite.play("grab_side")
+			facing = "side"
+		elif ($AnimatedSprite.animation == "walk_down" or $AnimatedSprite.animation == "idle_down"):
+			$AnimatedSprite.play("grab_down")
+			facing = "down"
+		var grabbables = $HurtArea.get_overlapping_areas()
+		if len(grabbables) > 0:
+			$HurtArea.get_overlapping_areas()[0].emit_signal("grabbing")
+		canMove = false
+		for x in inventory.items:
+			print(x.ming,x.cost)
+
 func _physics_process(delta):
-	get_input()
-	move_and_slide(velocity)
-	global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
+	get_action_input()
+	if canMove:
+		get_input()
+		move_and_slide(velocity)
+		global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
+	
+	
+func _on_AnimatedSprite_animation_finished():
+	if ($AnimatedSprite.animation.substr(0,4) == "grab"):
+		$AnimatedSprite.play("idle_"+facing)
+		canMove = true
+		
