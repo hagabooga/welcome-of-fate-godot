@@ -1,4 +1,4 @@
-extends Node
+extends StaticBody2D
 
 var ming
 var cost

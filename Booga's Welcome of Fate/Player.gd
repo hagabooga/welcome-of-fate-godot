@@ -11,11 +11,11 @@ func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed('ui_right'):
 		velocity.x = 1
-	if Input.is_action_pressed('ui_left'):
+	elif Input.is_action_pressed('ui_left'):
 		velocity.x = -1
 	if Input.is_action_pressed('ui_down'):
 		velocity.y = 1
-	if Input.is_action_pressed('ui_up'):
+	elif Input.is_action_pressed('ui_up'):
 		velocity.y = -1
 	if velocity.x == 1:
 		$AnimatedSprite.flip_h = true
@@ -41,8 +41,8 @@ func get_input():
 
 func get_action_input():
 	var anim = $AnimatedSprite.animation.substr(0,4)
-	#print(anim)
-	if (Input.is_action_just_pressed("z") and (anim == "idle" or anim == "walk")):
+	var grabbables = $HurtArea.get_overlapping_areas()
+	if (Input.is_action_just_pressed("z") and (anim == "idle" or anim == "walk") and len(grabbables) > 0):
 		if ($AnimatedSprite.animation == "walk_up" or $AnimatedSprite.animation == "idle_up"):
 			$AnimatedSprite.play("grab_up")
 			facing = "up"
@@ -52,12 +52,12 @@ func get_action_input():
 		elif ($AnimatedSprite.animation == "walk_down" or $AnimatedSprite.animation == "idle_down"):
 			$AnimatedSprite.play("grab_down")
 			facing = "down"
-		var grabbables = $HurtArea.get_overlapping_areas()
-		if len(grabbables) > 0:
-			$HurtArea.get_overlapping_areas()[0].emit_signal("grabbing")
+		$HurtArea.get_overlapping_areas()[0].emit_signal("action")
 		canMove = false
-		for x in inventory.items:
-			print(x.ming,x.cost)
+	if Input.is_action_just_pressed("action"):
+		$Tool.use()
+	if Input.is_action_just_pressed("ui_page_up"):
+		$Tool.set_script(load("res://hoe.gd"))
 
 func _physics_process(delta):
 	get_action_input()
