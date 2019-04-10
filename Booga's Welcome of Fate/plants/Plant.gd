@@ -29,13 +29,13 @@ func _on_Timer_timeout():
 			break
 		i += 1
 	queue_free()
-	print(inventory.items)
+	#print(inventory.items)
 
 
-func _on_Actionable_action():
-	$Sprite.texture = load("res://plants/" + ming.to_lower() + "/"+ "product"+ ".png")
+func _on_Actionable_action(user):
+	$Sprite.texture = load("res://sprites/items/" + ming.to_lower() + ".png")
+	user.find_node("ItemList").add(inventory.find_item(ming))
 	$CollisionShape2D.disabled = true
 	$Actionable/GrabArea.disabled = true
-	inventory.add_item(ming)
 	$AnimationPlayer.play("Pluck")
 	$Timer.start()

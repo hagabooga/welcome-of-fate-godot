@@ -52,7 +52,7 @@ func get_action_input():
 		elif ($AnimatedSprite.animation == "walk_down" or $AnimatedSprite.animation == "idle_down"):
 			$AnimatedSprite.play("grab_down")
 			facing = "down"
-		$HurtArea.get_overlapping_areas()[0].emit_signal("action")
+		$HurtArea.get_overlapping_areas()[0].emit_signal("action", self)
 		canMove = false
 	if Input.is_action_just_pressed("action"):
 		$Tool.use()

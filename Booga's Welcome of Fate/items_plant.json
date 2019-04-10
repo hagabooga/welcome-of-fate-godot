@@ -1,10 +1,11 @@
 {
     "Turnip":
     {
-        "cost": 100,
+        "tooltip": "A root vegetable grown in temperate climates.",
+        "cost": 100
     },
     "Beet":
     {
-        "cost": 100,
+        "cost": 100
     }
 }

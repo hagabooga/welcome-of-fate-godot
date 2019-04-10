@@ -22,7 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 world_globals="*res://world_globals.gd"
-inventory="*res://inventory.gd"
+inventory="*res://item_database.gd"
 
 [debug]
 

@@ -1,6 +1,4 @@
 extends Area2D
 
-signal action
+signal action(action_user)
 
-
-	
