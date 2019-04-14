@@ -1,5 +1,7 @@
 extends Node2D
 
+var energy_cost = 3
+
 func get_player_facing_tile_pos():
 	var pos = world_globals.tilemap_soil.world_to_map(global_position)
 	var anim = get_parent().get_node("AnimatedSprite").animation

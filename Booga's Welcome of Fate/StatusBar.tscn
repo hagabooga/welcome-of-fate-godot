@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://StatusBar.gd" type="Script" id=1]
+[ext_resource path="res://sprites/ui/health_bar.png" type="Texture" id=2]
+[ext_resource path="res://sprites/ui/health_bar_progress.png" type="Texture" id=3]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://sprites/ui/mana_bar.png" type="Texture" id=5]
+[ext_resource path="res://sprites/ui/mana_bar_progress.png" type="Texture" id=6]
+[ext_resource path="res://sprites/ui/energy_bar.png" type="Texture" id=7]
+[ext_resource path="res://sprites/ui/energy_bar_progress.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 4 )
+
+[node name="StatusBar" type="Panel"]
+margin_left = -480.0
+margin_top = 87.0
+margin_right = -280.0
+margin_bottom = 270.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+custom_constants/separation = 0
+
+[node name="HealthBar" type="TextureProgress" parent="VBoxContainer"]
+margin_right = 225.0
+margin_bottom = 60.0
+max_value = 500.0
+value = 200.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HealthBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -15.0
+custom_fonts/font = SubResource( 2 )
+text = "5000 / 1000"
+align = 2
+valign = 1
+
+[node name="ManaBar" type="TextureProgress" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 225.0
+margin_bottom = 120.0
+value = 25.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
+fill_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/ManaBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -15.0
+custom_fonts/font = SubResource( 2 )
+text = "75/100"
+align = 2
+valign = 1
+
+[node name="EnergyBar" type="TextureProgress" parent="VBoxContainer"]
+margin_top = 120.0
+margin_right = 225.0
+margin_bottom = 180.0
+value = 10.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+fill_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/EnergyBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -15.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "75/100"
+align = 2
+valign = 1
+
+[connection signal="changed" from="VBoxContainer/HealthBar" to="." method="_on_HealthBar_changed"]
+[connection signal="value_changed" from="VBoxContainer/HealthBar" to="." method="_on_HealthBar_value_changed"]
+[connection signal="changed" from="VBoxContainer/ManaBar" to="." method="_on_ManaBar_changed"]
+[connection signal="value_changed" from="VBoxContainer/ManaBar" to="." method="_on_ManaBar_value_changed"]
+[connection signal="changed" from="VBoxContainer/EnergyBar" to="." method="_on_EnergyBar_changed"]
+[connection signal="value_changed" from="VBoxContainer/EnergyBar" to="." method="_on_EnergyBar_value_changed"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PanelBrown.png-65a04f384375cbd7f3ee548f2f0abf12.stex"
+path="res://.import/energy_bar_progress.png-6a42df5c6bfbb12d7f84845ab3b29e03.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PanelBrown.png"
-dest_files=[ "res://.import/PanelBrown.png-65a04f384375cbd7f3ee548f2f0abf12.stex" ]
+source_file="res://sprites/ui/energy_bar_progress.png"
+dest_files=[ "res://.import/energy_bar_progress.png-6a42df5c6bfbb12d7f84845ab3b29e03.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -14,9 +14,6 @@ func add(item):
 	$ItemList.set_item_tooltip_enabled(i, false)
 	#var actual_item = get_item_metadata(i)
 
-
-
-
 func _on_ItemList_item_selected(index):
 	$ItemInfo/Inside.visible = true
 	var item = $ItemList.get_item_metadata(index)
@@ -25,13 +22,15 @@ func _on_ItemList_item_selected(index):
 	if (item.type == "Plant"):
 		$ItemInfo/Inside/StatsHolder.visible = false
 		$ItemInfo/Inside/EquipEffect.visible = false
-		$ItemInfo/Inside/Info/Effect/Desc.text = item.eff_desc
+		$ItemInfo/Inside/Info/Desc2.text = item.eff_desc
 
 	
 func _on_ItemList_item_activated(index):
 	var item = $ItemList.get_item_metadata(index)
 	item.activate()
 	$ItemList.remove_item(index)
+	$ItemInfo/Inside.visible = false
+	
 	
 
 

@@ -54,16 +54,19 @@ func get_action_input():
 		$HurtArea.get_overlapping_areas()[0].emit_signal("action", self)
 		can_move = false
 	if Input.is_action_just_pressed("action"):
-		$Tool.use()
+		if (player_stats.can_use($Tool.energy_cost)):
+			$Tool.use()
 	if Input.is_action_just_pressed("ui_page_up"):
-		$Tool.set_script(load("res://hoe.gd"))
+		$Tool.set_script(load("res://scripts/tools/hoe.gd"))
 
 func get_ui_input():
 	if (Input.is_action_just_pressed("inventory")):
-		$ItemList.visible = !$ItemList.visible
-
+		$UI/ItemList.visible = !$UI/ItemList.visible
 
 func _physics_process(delta):
+	var z = world_globals.tilemap_soil.world_to_map(global_position).y
+	if z >= 0:
+		z_index = world_globals.tilemap_soil.world_to_map(global_position).y
 	get_ui_input()
 	get_action_input()
 	if can_move:

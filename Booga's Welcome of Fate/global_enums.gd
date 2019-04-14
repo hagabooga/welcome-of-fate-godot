@@ -4,8 +4,6 @@ enum {  stren,
         intel,
         agi,
         lck,
-        maxhp,
-        maxmp,
         phys,
         magic,
         arm,
@@ -14,7 +12,10 @@ enum {  stren,
         dge,
         crt,
         critmulti,
-        atkspd}
+        atkspd,
+		maxhp,
+        maxmp,
+		energy}
 		
 enum {human, 
 reptile

@@ -1,4 +1,4 @@
-extends "res://tool.gd"
+extends "res://scripts/tools/tool.gd"
 
 func use():
 	if world_globals.tilemap_soil.get_cell_autotile_coord(get_player_facing_tile_pos().x,\

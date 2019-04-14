@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PanelBeige.png-5c102b716c889a0bf5690528ac68ddcd.stex"
+path="res://.import/energy_bar.png-d55b53e00b2d285fb74a77d407ecdba1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PanelBeige.png"
-dest_files=[ "res://.import/PanelBeige.png-5c102b716c889a0bf5690528ac68ddcd.stex" ]
+source_file="res://sprites/ui/energy_bar.png"
+dest_files=[ "res://.import/energy_bar.png-d55b53e00b2d285fb74a77d407ecdba1.stex" ]
 
 [params]
 

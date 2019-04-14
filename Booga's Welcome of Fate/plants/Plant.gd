@@ -5,6 +5,10 @@ var tile_pos
 var stages = {}
 var ming
 
+func _ready():
+	world_globals.connect("next_day", self, "_on_next_day")
+	z_index = world_globals.tilemap_soil.world_to_map(global_position).y
+	
 
 func _on_next_day():
 	days_elapsed += 1
@@ -16,11 +20,6 @@ func _on_next_day():
 		if (stage == "ready"):
 			$Actionable/GrabArea.disabled = false
 
-
-func _ready():
-	world_globals.connect("next_day", self, "_on_next_day")
-
-
 func _on_Timer_timeout():
 	var i = 0
 	for x in world_globals.plants:
@@ -29,7 +28,6 @@ func _on_Timer_timeout():
 			break
 		i += 1
 	queue_free()
-	#print(inventory.items)
 
 
 func _on_Actionable_action(user):

@@ -6,6 +6,8 @@ var plant_ming
 
 
 func use():
+	player_stats.energy -= 10
+	print("LOL")
 	var tile_soilobj = world_globals.tilemap_soil_objects
 	for i in range(-1,2):
 		for j in range(-1,2):

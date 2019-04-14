@@ -21,11 +21,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
+global_enums="*res://global_enums.gd"
 world_globals="*res://world_globals.gd"
 inventory="*res://item_database.gd"
-player_stats="*res://player_stats.gd"
 global_scripts="*res://global_scripts.gd"
 item_activations="*res://item_activations.gd"
+player_stats="*res://player_stats.gd"
 
 [debug]
 
