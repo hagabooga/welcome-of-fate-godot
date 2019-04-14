@@ -1,0 +1,14 @@
+{
+    "Turnip":
+    {
+        "desc": "A root vegetable grown in temperate climates.",
+        "eff_desc": "Consume item to restore 30 HP.",
+        "cost": 100,
+        "type": "Plant",
+        "activate": 0 
+    },
+    "Beet":
+    {
+        "cost": 130
+    }
+}

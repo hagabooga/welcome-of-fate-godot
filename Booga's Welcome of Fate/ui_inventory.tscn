@@ -1,15 +1,406 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://ui_inventory.gd" type="Script" id=1]
+[ext_resource path="res://PanelBrown.png" type="Texture" id=1]
+[ext_resource path="res://ui_inventory.gd" type="Script" id=2]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=3]
 
-[node name="ItemList" type="ItemList"]
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 8.0
+margin_right = 9.5
+margin_top = 9.5
+margin_bottom = 7.125
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 6.125
+margin_right = 5.875
+margin_top = 6.25
+margin_bottom = 6.125
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 28
+outline_size = 1
+outline_color = Color( 0, 1, 0, 0.403922 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+outline_size = 1
+outline_color = Color( 0, 0, 1, 0.403922 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 3 )
+
+[node name="Panel" type="Panel"]
+margin_right = 448.0
+margin_bottom = 236.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="ItemList" type="ItemList" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -672.0
-margin_bottom = -284.0
-rect_scale = Vector2( 0.995791, 1 )
-max_columns = 8
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_styles/bg = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+allow_rmb_select = true
+max_columns = 7
+same_column_width = true
+fixed_column_width = 48
 icon_mode = 0
-fixed_icon_size = Vector2( 32, 32 )
-script = ExtResource( 1 )
+fixed_icon_size = Vector2( 40, 40 )
+__meta__ = {
+"_edit_lock_": true
+}
 
+[node name="ItemInfo" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 298.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Inside" type="Panel" parent="ItemInfo"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Info" type="VBoxContainer" parent="ItemInfo/Inside"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 15.0
+custom_constants/separation = -3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ming" type="Label" parent="ItemInfo/Inside/Info"]
+margin_right = 428.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 6 )
+text = "Turnip"
+align = 1
+
+[node name="Desc" type="Label" parent="ItemInfo/Inside/Info"]
+margin_top = 41.0
+margin_right = 428.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 7 )
+text = "A root vegetable grown in temperate climates. (Plant)"
+align = 1
+
+[node name="Effect" type="Label" parent="ItemInfo/Inside/Info"]
+editor/display_folded = true
+margin_top = 61.0
+margin_right = 428.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Effect"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Desc" type="Label" parent="ItemInfo/Inside/Info/Effect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 32.0
+margin_bottom = 109.0
+custom_fonts/font = SubResource( 11 )
+custom_constants/line_spacing = -6
+text = "Consume item to restore 30 HP. 
+The same item type cannot be consumed a within 5 minutes.
+"
+align = 1
+autowrap = true
+
+[node name="StatsHolder" type="VBoxContainer" parent="ItemInfo/Inside"]
+editor/display_folded = true
+margin_left = 3.0
+margin_top = 62.0
+margin_right = 104.0
+margin_bottom = 299.0
+custom_constants/separation = -9
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Title" type="Label" parent="ItemInfo/Inside/StatsHolder"]
+margin_right = 101.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Stats"
+align = 1
+
+[node name="Stats" type="HBoxContainer" parent="ItemInfo/Inside/StatsHolder"]
+margin_top = 24.0
+margin_right = 101.0
+margin_bottom = 237.0
+custom_constants/separation = 1
+
+[node name="Names" type="VBoxContainer" parent="ItemInfo/Inside/StatsHolder/Stats"]
+editor/display_folded = true
+margin_right = 68.0
+margin_bottom = 213.0
+custom_constants/separation = -4
+
+[node name="Strength" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_right = 68.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Strength"
+
+[node name="Intelligence" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 19.0
+margin_right = 68.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Itelligence"
+
+[node name="Agility" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 38.0
+margin_right = 68.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Agility"
+
+[node name="Luck" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 57.0
+margin_right = 68.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Luck"
+
+[node name="Armor" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 76.0
+margin_right = 68.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Armor"
+
+[node name="Resist" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 95.0
+margin_right = 68.0
+margin_bottom = 118.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Resist"
+
+[node name="Hit" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 114.0
+margin_right = 68.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hit"
+
+[node name="Dodge" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 133.0
+margin_right = 68.0
+margin_bottom = 156.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Dodge"
+
+[node name="Crit" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 152.0
+margin_right = 68.0
+margin_bottom = 175.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Crit"
+
+[node name="CritMulti" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 171.0
+margin_right = 68.0
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Crit Multi"
+
+[node name="AttackSpeed" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
+margin_top = 190.0
+margin_right = 68.0
+margin_bottom = 213.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Atk Speed"
+
+[node name="Values" type="VBoxContainer" parent="ItemInfo/Inside/StatsHolder/Stats"]
+editor/display_folded = true
+margin_left = 69.0
+margin_right = 101.0
+margin_bottom = 213.0
+custom_constants/separation = -4
+
+[node name="StrengthValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_right = 32.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="IntelligenceValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 19.0
+margin_right = 32.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +15"
+
+[node name="AgilityValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 38.0
+margin_right = 32.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="LuckValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 57.0
+margin_right = 32.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="ArmorValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 76.0
+margin_right = 32.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="ResistValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 95.0
+margin_right = 32.0
+margin_bottom = 118.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="HitValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 114.0
+margin_right = 32.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="DodgeValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 133.0
+margin_right = 32.0
+margin_bottom = 156.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="CritValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 152.0
+margin_right = 32.0
+margin_bottom = 175.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="CritMultiValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 171.0
+margin_right = 32.0
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="AttackSpeedValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
+margin_top = 190.0
+margin_right = 32.0
+margin_bottom = 213.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ": +10"
+
+[node name="EquipEffect" type="Label" parent="ItemInfo/Inside"]
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -310.0
+margin_top = -79.0
+margin_right = 1.0
+margin_bottom = -46.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Effect"
+align = 1
+autowrap = true
+
+[node name="Desc" type="Label" parent="ItemInfo/Inside/EquipEffect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 28.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 11 )
+custom_constants/line_spacing = -6
+text = "Consume item to restore 30 HP. 
+The same item type cannot be consumed a within 5 minutes.
+"
+align = 1
+autowrap = true
+
+[connection signal="item_activated" from="ItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_ItemList_item_selected"]

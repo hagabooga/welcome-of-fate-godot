@@ -4,7 +4,7 @@ export (int) var speed = 200
 
 var velocity = Vector2()
 var facing = "down"
-var canMove = true
+var can_move = true
 
 
 func get_input():
@@ -38,7 +38,6 @@ func get_input():
 			$AnimatedSprite.play("idle_down")
 	velocity = velocity.normalized() * speed
 
-
 func get_action_input():
 	var anim = $AnimatedSprite.animation.substr(0,4)
 	var grabbables = $HurtArea.get_overlapping_areas()
@@ -53,22 +52,27 @@ func get_action_input():
 			$AnimatedSprite.play("grab_down")
 			facing = "down"
 		$HurtArea.get_overlapping_areas()[0].emit_signal("action", self)
-		canMove = false
+		can_move = false
 	if Input.is_action_just_pressed("action"):
 		$Tool.use()
 	if Input.is_action_just_pressed("ui_page_up"):
 		$Tool.set_script(load("res://hoe.gd"))
 
+func get_ui_input():
+	if (Input.is_action_just_pressed("inventory")):
+		$ItemList.visible = !$ItemList.visible
+
+
 func _physics_process(delta):
+	get_ui_input()
 	get_action_input()
-	if canMove:
+	if can_move:
 		get_input()
 		move_and_slide(velocity)
 		global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
-	
-	
+
 func _on_AnimatedSprite_animation_finished():
 	if ($AnimatedSprite.animation.substr(0,4) == "grab"):
 		$AnimatedSprite.play("idle_"+facing)
-		canMove = true
+		can_move = true
 		

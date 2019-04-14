@@ -18,7 +18,3 @@ func _on_WarpToInside_body_entered(body):
 
 func _on_WarpToOutsideHome_body_entered(body):
 	body.global_position = $Objects/PlayerHome/WarpPoint.global_position
-
-
-func _on_ItemList_item_selected(index):
-	print(index)

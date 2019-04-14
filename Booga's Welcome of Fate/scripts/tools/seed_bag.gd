@@ -3,8 +3,6 @@ extends "res://tool.gd"
 var seed_scene = preload("res://plants/Plant.tscn")
 var plant_ming
 
-
-
 func use():
 	var tile_soilobj = world_globals.tilemap_soil_objects
 	for i in range(-1,2):
