@@ -5,7 +5,7 @@ var desc
 var eff_desc
 var cost
 var type
-var activate
+var act
 enum {consume, equip}
 
 func _init(m, d, ef, c, t, a):
@@ -14,8 +14,8 @@ func _init(m, d, ef, c, t, a):
 	eff_desc = ef
 	cost = c
 	type = t
-	activate = a
+	act = a
 	
 func activate():
-	if activate == consume:
+	if act == consume:
 		item_activations.activate(ming)

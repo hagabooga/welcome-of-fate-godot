@@ -32,7 +32,7 @@ func _on_Timer_timeout():
 
 func _on_Actionable_action(user):
 	$Sprite.texture = load("res://sprites/items/" + ming.to_lower() + ".png")
-	user.find_node("ItemList").add(inventory.find_item(ming))
+	user.find_node("ItemList").add(item_database.find_item(ming))
 	$CollisionShape2D.disabled = true
 	$Actionable/GrabArea.disabled = true
 	$AnimationPlayer.play("Pluck")

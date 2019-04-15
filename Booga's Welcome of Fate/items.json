@@ -10,5 +10,29 @@
     "Beet":
     {
         "cost": 130
+    },
+    "Branch":
+    {
+        "desc": "A branch that fell of a tree.",
+        "eff_desc": "",
+        "cost": 10,
+        "type": "Misc.",
+        "activate": -1
+    },
+    "Rock":
+    {
+        "desc": "A rock found on the ground.",
+        "eff_desc": "",
+        "cost": 10,
+        "type": "Misc.",
+        "activate": -1
+    },
+    "Weed":
+    {
+        "desc": "A plant in the wrong place.",
+        "eff_desc": "",
+        "cost": 2,
+        "type": "Misc.",
+        "activate": -1
     }
 }

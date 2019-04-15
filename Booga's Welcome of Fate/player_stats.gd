@@ -22,9 +22,6 @@ func can_use(e):
 
 
 
-
-
-
 func set_hp_extra():
 	emit_signal("hp_change")
 func set_mp_extra():

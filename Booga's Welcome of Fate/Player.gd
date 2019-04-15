@@ -41,18 +41,26 @@ func get_input():
 func get_action_input():
 	var anim = $AnimatedSprite.animation.substr(0,4)
 	var grabbables = $HurtArea.get_overlapping_areas()
-	if (Input.is_action_just_pressed("z") and (anim == "idle" or anim == "walk") and len(grabbables) > 0):
-		if ($AnimatedSprite.animation == "walk_up" or $AnimatedSprite.animation == "idle_up"):
-			$AnimatedSprite.play("grab_up")
-			facing = "up"
-		elif ($AnimatedSprite.animation == "walk_side" or $AnimatedSprite.animation == "idle_side"):
-			$AnimatedSprite.play("grab_side")
-			facing = "side"
-		elif ($AnimatedSprite.animation == "walk_down" or $AnimatedSprite.animation == "idle_down"):
-			$AnimatedSprite.play("grab_down")
-			facing = "down"
-		$HurtArea.get_overlapping_areas()[0].emit_signal("action", self)
-		can_move = false
+	if (Input.is_action_just_pressed("z") and (anim == "idle" or anim == "walk")):
+		if (len(grabbables) > 0):
+			if ($AnimatedSprite.animation == "walk_up" or $AnimatedSprite.animation == "idle_up"):
+				$AnimatedSprite.play("grab_up")
+				facing = "up"
+			elif ($AnimatedSprite.animation == "walk_side" or $AnimatedSprite.animation == "idle_side"):
+				$AnimatedSprite.play("grab_side")
+				facing = "side"
+			elif ($AnimatedSprite.animation == "walk_down" or $AnimatedSprite.animation == "idle_down"):
+				$AnimatedSprite.play("grab_down")
+				facing = "down"
+			grabbables[0].emit_signal("action", self)
+			can_move = false
+		else:
+			var facing_tile = $Tool.get_player_facing_tile_pos()
+			if facing_tile in world_globals.tilemap_world_objects.get_used_cells():
+				var item = item_database.make_item(\
+				world_globals.dict_world_object_name[world_globals.tilemap_world_objects.get_cellv(facing_tile)])
+				$UI/ItemList.add(item)
+				world_globals.tilemap_world_objects.set_cellv(facing_tile, -1)
 	if Input.is_action_just_pressed("action"):
 		if (player_stats.can_use($Tool.energy_cost)):
 			$Tool.use()
