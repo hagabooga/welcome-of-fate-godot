@@ -1,6 +1,5 @@
 extends Node
 
-var base_stat = load("res://base_stat.gd")
 
 var stats = []
 
@@ -113,7 +112,7 @@ func get_energy():
 
 func _init():
 	for x in range(16):
-		stats.append(base_stat.new(x))
+		stats.append(BaseStat.new(x))
 
 func find_stat(type):
 	for x in stats:

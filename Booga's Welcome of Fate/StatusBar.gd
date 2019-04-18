@@ -19,7 +19,6 @@ func update_manaBar():
 	$VBoxContainer/ManaBar.max_value = player_stats.max_mp
 	
 func update_energyBar():
-	#print("LOL")
 	$VBoxContainer/EnergyBar.max_value = player_stats.max_energy
 	$VBoxContainer/EnergyBar.value = player_stats.energy
 	$VBoxContainer/EnergyBar/Label.text = "%s / %s"%[player_stats.energy, player_stats.max_energy]
@@ -30,24 +29,3 @@ func update_allBars():
 	update_manaBar()
 	update_energyBar()
 	
-func _on_HealthBar_changed():
-	update_healthBar()
-
-func _on_HealthBar_value_changed(value):
-	update_healthBar()
-
-
-func _on_ManaBar_changed():
-	update_manaBar()
-
-
-func _on_ManaBar_value_changed(value):
-	update_manaBar()
-
-
-func _on_EnergyBar_changed():
-	update_energyBar()
-
-
-func _on_EnergyBar_value_changed(value):
-	update_energyBar()

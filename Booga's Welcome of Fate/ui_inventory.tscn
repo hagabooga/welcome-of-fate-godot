@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=1]
 [ext_resource path="res://ui_inventory.gd" type="Script" id=2]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Equipment.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -77,6 +78,7 @@ custom_styles/bg = SubResource( 2 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+allow_reselect = true
 allow_rmb_select = true
 max_columns = 7
 same_column_width = true
@@ -88,6 +90,7 @@ __meta__ = {
 }
 
 [node name="ItemInfo" type="Panel" parent="."]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -395,5 +398,15 @@ The same item type cannot be consumed a within 5 minutes.
 align = 1
 autowrap = true
 
+[node name="Equipment" parent="." instance=ExtResource( 4 )]
+margin_left = 494.0
+margin_top = 27.0
+margin_right = 726.0
+margin_bottom = 362.0
+
 [connection signal="item_activated" from="ItemList" to="." method="_on_ItemList_item_activated"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="item_activated" from="Equipment/EquipList" to="." method="_on_EquipList_item_activated"]
+[connection signal="item_selected" from="Equipment/EquipList" to="." method="_on_EquipList_item_selected"]
+
+[editable path="Equipment"]

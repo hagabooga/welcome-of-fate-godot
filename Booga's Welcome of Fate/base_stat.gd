@@ -1,5 +1,7 @@
 extends Node
 
+class_name BaseStat
+
 var value setget ,get_final_value
 var bonuses
 var type

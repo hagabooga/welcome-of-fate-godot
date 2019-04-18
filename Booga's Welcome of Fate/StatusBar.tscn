@@ -73,7 +73,7 @@ valign = 1
 margin_top = 120.0
 margin_right = 225.0
 margin_bottom = 180.0
-value = 10.0
+value = 65.0
 texture_under = ExtResource( 7 )
 texture_progress = ExtResource( 8 )
 fill_mode = 1
@@ -88,9 +88,3 @@ text = "75/100"
 align = 2
 valign = 1
 
-[connection signal="changed" from="VBoxContainer/HealthBar" to="." method="_on_HealthBar_changed"]
-[connection signal="value_changed" from="VBoxContainer/HealthBar" to="." method="_on_HealthBar_value_changed"]
-[connection signal="changed" from="VBoxContainer/ManaBar" to="." method="_on_ManaBar_changed"]
-[connection signal="value_changed" from="VBoxContainer/ManaBar" to="." method="_on_ManaBar_value_changed"]
-[connection signal="changed" from="VBoxContainer/EnergyBar" to="." method="_on_EnergyBar_changed"]
-[connection signal="value_changed" from="VBoxContainer/EnergyBar" to="." method="_on_EnergyBar_value_changed"]

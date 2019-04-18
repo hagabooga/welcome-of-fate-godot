@@ -1,4 +1,6 @@
-extends StaticBody2D
+extends Node
+
+class_name Item
 
 var ming
 var desc
@@ -17,5 +19,7 @@ func _init(m, d, ef, c, t, a):
 	act = a
 	
 func activate():
-	if act == consume:
-		item_activations.activate(ming)
+	if act == consume: 
+		item_activations.activate(ming) 
+	elif act ==	equip:
+		player_equip.equip(self)

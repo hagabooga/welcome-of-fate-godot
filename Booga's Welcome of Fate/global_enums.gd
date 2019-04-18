@@ -16,7 +16,7 @@ enum {  stren,
 		maxhp,
         maxmp,
 		energy}
-		
+
 enum {human, 
 reptile
     }

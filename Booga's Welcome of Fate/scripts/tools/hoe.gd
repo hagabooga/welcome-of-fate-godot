@@ -1,6 +1,9 @@
 extends "res://scripts/tools/tool.gd"
 
 func use():
-	if world_globals.tilemap_soil.get_cell_autotile_coord(get_player_facing_tile_pos().x,\
-	(get_player_facing_tile_pos().y)) == Vector2(1,3):
-		world_globals.tilemap_soil_objects.set_cellv(get_player_facing_tile_pos(), 0)
+	var facing = get_player_facing_tile_pos()
+	if world_globals.tilemap_soil.get_cell_autotile_coord(facing.x,\
+	(facing.y)) == Vector2(1,3) and world_globals.tilemap_soil_objects.get_cellv(facing) == -1 and \
+	!(facing in world_globals.tilemap_world_objects.get_used_cells()):
+		#print("HOED")
+		world_globals.tilemap_soil_objects.set_cellv(facing, 0)

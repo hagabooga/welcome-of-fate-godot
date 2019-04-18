@@ -34,5 +34,37 @@
         "cost": 2,
         "type": "Misc.",
         "activate": -1
+    },
+    "Hoe":
+    {
+        "desc": "Loosen the soil.",
+        "eff_desc": "Allows you to dig the soil for seeds.",
+        "cost": 300,
+        "type": "Tool",
+        "activate": 1
+    },
+    "Watering Can":
+    {
+        "desc": "Water the soil.",
+        "eff_desc": "Allows you to water seeds in soil to grow the next day.",
+        "cost": 300,
+        "type": "Tool",
+        "activate": 1
+    },
+    "Sickle":
+    {
+        "desc": "Cut vegetation",
+        "eff_desc": "Cut vegetation to make room",
+        "cost": 300,
+        "type": "Tool",
+        "activate": 1
+    },
+    "Turnip Seedbag":
+    {
+        "desc": "Contains turnip seeds",
+        "eff_desc": "Throw turnip seeds in a 3x3 square",
+        "cost": 300,
+        "type": "Tool",
+        "activate": 1
     }
 }

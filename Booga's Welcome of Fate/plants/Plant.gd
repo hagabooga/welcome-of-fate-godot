@@ -15,18 +15,18 @@ func _on_next_day():
 	if days_elapsed in stages:
 		var stage = stages[days_elapsed]
 		var path = (ming.to_lower()) + "/" + stage
-		$Sprite.texture = load("res://plants/" + path + ".png")
+		$Sprite.texture = load("res://plants/" + path.to_lower() + ".png")
 		$CollisionShape2D.disabled = false
 		if (stage == "ready"):
 			$Actionable/GrabArea.disabled = false
 
 func _on_Timer_timeout():
-	var i = 0
-	for x in world_globals.plants:
-		if x.tile_pos == self.tile_pos:
-			world_globals.plants.remove(i)
-			break
-		i += 1
+	#var i = 0
+#	for x in world_globals.plants:
+#		if x.tile_pos == self.tile_pos:
+#			world_globals.plants.remove(i)
+#			break
+#		i += 1
 	queue_free()
 
 

@@ -5,13 +5,13 @@
 [ext_resource path="res://sprites/items/weed.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0.748341, 7.10388, 7.10388, 0.841804, 12.5248, 0.935267, 31.2175, 20.9365, 31.311, 26.5444, 26.7313, 31.0306, 18.7869, 30.9372, 10.6555, 19.1607, 1.21566, 18.8803 )
+points = PoolVector2Array( 1.68298, 1.49605, 30.8437, 1.02873, 30.8437, 31.1241, 0.561413, 28.694 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 11.8705, 6.63656, 19.2542, 6.63656, 28.0398, 15.0483, 28.0398, 22.9927, 20.0954, 28.9744, 11.964, 28.881, 3.92611, 22.8993, 4.01957, 15.1418 )
+points = PoolVector2Array( 2.51668, 7.63101, 29.4343, 7.09267, 26.8771, 28.7613, 4.13173, 28.8959 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 22.6189, 4.11304, 28.694, 8.03852, 30.8437, 20.0019, 26.1705, 25.9836, 14.1137, 28.1332, 5.60846, 25.7966, 1.02873, 21.3104, 1.02873, 14.6745, 7.01042, 5.98231 )
+points = PoolVector2Array( 2.2475, 5.88137, 29.9726, 3.45879, 31.9914, 28.4921, 0.901619, 26.6079 )
 
 [resource]
 0/name = "branch"
