@@ -7,6 +7,7 @@ var facing = "down"
 var can_move = true
 
 func _ready():
+	$Tool/AnimatedSprite.connect("animation_finished",$Tool ,"stop_anim")
 	player_equip.player = self
 	player_equip.player_equipment = $UI/ItemList/Equipment/EquipList
 	play_facing_anim('idle', true)
@@ -72,7 +73,6 @@ func get_action_input():
 				grabbables[0].emit_signal("action", self)
 			else:
 				var facing_tile = $Tool.get_player_facing_tile_pos()
-				print(facing)
 				if facing_tile in world_globals.tilemap_world_objects.get_used_cells():
 					play_facing_anim("grab", false)
 					var item = item_database.make_item(\

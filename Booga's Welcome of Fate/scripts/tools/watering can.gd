@@ -2,7 +2,7 @@ extends "res://scripts/tools/tool.gd"
 
 func _init():
 	$AnimatedSprite.frames = load("res://watering_can/watering_can_frames.tres")
-	$AnimatedSprite.connect("animation_finished",self ,"stop_anim")
+
 	
 func use():
 	var tile = get_player_facing_tile_pos()

@@ -2,7 +2,7 @@ extends Node
 
 
 var stats = []
-
+#warning-ignore-all:unused_variable
 var strength setget set_str,get_str
 var intelligence setget set_int, get_int
 var agility setget set_agi, get_agi

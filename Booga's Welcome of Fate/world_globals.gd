@@ -14,6 +14,9 @@ var dict_world_object_name = {0: "Branch", 1: "Rock", 2: "Weed"}
 signal next_day
 
 func next_day():
+	if day == 31:
+		day = 0
+		month += 1
 	day += 1
 	emit_signal("next_day")
 	
@@ -24,7 +27,7 @@ func create_world_objects():
 	var soil_tiles = tilemap_soil.get_used_cells()
 	for x in grass_tiles:
 		var i = randi()%20
-		if !(x in dirt_tiles) and 0 <= i and i <= 2:
+		if !(x in dirt_tiles) and 0 == i:
 			tilemap_world_objects.set_cellv(x,randi()%2)
 	for x in soil_tiles:
 		var i = randi()%20
