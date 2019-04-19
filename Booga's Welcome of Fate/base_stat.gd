@@ -13,9 +13,11 @@ func _init(t):
 
 func buff(value):
 	bonuses.append(value)
+	print(bonuses)
 
 func remove_buff(value):
 	bonuses.erase(value)
+	print(bonuses)
 	
 func get_final_value():
 	var final = value

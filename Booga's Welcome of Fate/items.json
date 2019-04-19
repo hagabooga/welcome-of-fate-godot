@@ -67,5 +67,14 @@
         "type": "Tool",
         "activate": 1,
         "color": 0
+    },
+    "Magic Wand":
+    {
+        "desc": "A magical wand",
+        "eff_desc": "Basic attacks shoots a magical projectile.",
+        "cost": 500,
+        "type": "Wand",
+        "activate": 1,
+        "stats": {"magical": 5}
     }
 }

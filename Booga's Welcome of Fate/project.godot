@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "Attributes",
+"language": "GDScript",
+"path": "res://attributes.gd"
+}, {
+"base": "Node",
 "class": "BaseStat",
 "language": "GDScript",
 "path": "res://base_stat.gd"
@@ -18,10 +23,17 @@ _global_script_classes=[ {
 "class": "Item",
 "language": "GDScript",
 "path": "res://item.gd"
+}, {
+"base": "Item",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://weapon.gd"
 } ]
 _global_script_class_icons={
+"Attributes": "",
 "BaseStat": "",
-"Item": ""
+"Item": "",
+"Weapon": ""
 }
 
 [application]

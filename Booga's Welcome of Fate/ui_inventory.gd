@@ -9,6 +9,7 @@ func _ready():
 	add(item_database.make_item("Watering Can"))
 	add(item_database.make_item("Hoe"))
 	add(item_database.make_item("Turnip Seedbag"))
+	add(item_database.make_item("Magic Wand"))
 	#add(item_database.make_item("Sickle"))
 
 func add(item):
@@ -22,7 +23,7 @@ func add(item):
 			$ItemList.set_item_tooltip_enabled(i, false)
 		else:
 			item_count[key] += 1
-		print(item_count)
+		#print(item_count)
 		var selected = $ItemList.get_selected_items()
 		if len(selected) > 0:
 			var item_selected = $ItemList.get_item_metadata(selected[0])
@@ -32,7 +33,7 @@ func add(item):
 
 func set_labels(item):
 	$ItemInfo/Inside.visible = true
-	if item_count[item.ming] > 1:
+	if item_count.has(item.ming) and item_count[item.ming] > 1:
 		$ItemInfo/Inside/Info/Ming.text = "%s x%d"%[item.ming, item_count[item.ming]]
 	else:
 		$ItemInfo/Inside/Info/Ming.text = "%s"%[item.ming]
@@ -68,7 +69,7 @@ func _on_ItemList_item_activated(index):
 			else:
 				item_count[key] -= 1
 				set_labels(item)
-	print(item_count)
+	#print(item_count)
 
 func _on_EquipList_item_selected(index):
 	var item = $Equipment/EquipList.get_item_metadata(index)
@@ -81,7 +82,9 @@ func _on_EquipList_item_activated(index):
 	if (item != null):
 		add(item)
 		var type = item.type.to_lower()
-		if (type == "tool"):
+		if (type == "tool" || type in item_database.weapons):
+			if type in item_database.weapons:
+				player_stats.remove_attrib(item.stats)
 			type = "weapon"
 		$Equipment/EquipList.set_item_icon(index, load("res://sprites/icons/%s.png"%type.to_lower()))
 		$Equipment/EquipList.set_item_metadata(index, null)

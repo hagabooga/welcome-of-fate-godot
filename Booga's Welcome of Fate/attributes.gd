@@ -1,8 +1,8 @@
 extends Node
 
+class_name Attributes
 
 var stats = []
-#warning-ignore-all:unused_variable
 var strength setget set_str,get_str
 var intelligence setget set_int, get_int
 var agility setget set_agi, get_agi
@@ -123,7 +123,23 @@ func buff_stat(type, val):
 	find_stat(type).buff(val)
 
 func remove_buff_stat(type, val):
-	find_stat(type).remove_buff_stat(val)
+	find_stat(type).remove_buff(val)
+
+func add_attrib(a):
+	for x in stats:
+		for y in a.stats:
+			if x.type == y.type and y.value != 0:
+				buff_stat(x.type, y.value)
+				print(x.bonuses)
+				break
+				
+func remove_attrib(a):
+	for x in stats:
+		for y in a.stats:
+			if x.type == y.type and y.value != 0:
+				remove_buff_stat(x.type, y.value)
+				print(x.bonuses)
+				break
 
 func update_stats():
 	pass
