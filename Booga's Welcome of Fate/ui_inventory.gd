@@ -1,6 +1,6 @@
 extends Panel
 
-
+var item_count = {}
 
 func _ready():
 	$ItemList.focus_mode = 0
@@ -13,15 +13,29 @@ func _ready():
 
 func add(item):
 	if (item != null):
-		$ItemList.add_item(item.ming, load("res://sprites/items/" + item.ming.to_lower() + ".png"))
-		var i = $ItemList.get_item_count()-1
-		$ItemList.set_item_metadata(i, item)
-		$ItemList.set_item_tooltip_enabled(i, false)
+		var key = item.ming
+		if !item_count.has(key):
+			item_count[key] = 1
+			$ItemList.add_item(item.ming, load("res://sprites/items/" + item.ming.to_lower() + ".png"))
+			var i = $ItemList.get_item_count()-1
+			$ItemList.set_item_metadata(i, item)
+			$ItemList.set_item_tooltip_enabled(i, false)
+		else:
+			item_count[key] += 1
+		print(item_count)
+		var selected = $ItemList.get_selected_items()
+		if len(selected) > 0:
+			var item_selected = $ItemList.get_item_metadata(selected[0])
+			if item_selected.ming == item.ming:
+				set_labels(item_selected)
 
 
 func set_labels(item):
 	$ItemInfo/Inside.visible = true
-	$ItemInfo/Inside/Info/Ming.text = item.ming
+	if item_count[item.ming] > 1:
+		$ItemInfo/Inside/Info/Ming.text = "%s x%d"%[item.ming, item_count[item.ming]]
+	else:
+		$ItemInfo/Inside/Info/Ming.text = "%s"%[item.ming]
 	$ItemInfo/Inside/Info/Desc.text = "%s (%s)" %[item.desc, item.type]
 	$ItemInfo/Inside/StatsHolder.visible = false
 	$ItemInfo/Inside/EquipEffect.visible = false
@@ -45,8 +59,16 @@ func _on_ItemList_item_activated(index):
 			if equip_item != null:
 				add(equip_item)
 		item.activate()
-		$ItemList.remove_item(index)
-		$ItemInfo/Inside.visible = false
+		var key = item.ming
+		if item_count.has(key):
+			if item_count[key] == 1:
+				$ItemList.remove_item(index)
+				item_count.erase(key)
+				$ItemInfo/Inside.visible = false
+			else:
+				item_count[key] -= 1
+				set_labels(item)
+	print(item_count)
 
 func _on_EquipList_item_selected(index):
 	var item = $Equipment/EquipList.get_item_metadata(index)

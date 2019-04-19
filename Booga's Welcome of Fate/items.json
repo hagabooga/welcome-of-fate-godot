@@ -65,6 +65,7 @@
         "eff_desc": "Throw turnip seeds in a 3x3 square",
         "cost": 300,
         "type": "Tool",
-        "activate": 1
+        "activate": 1,
+        "color": 0
     }
 }

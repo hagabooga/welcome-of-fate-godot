@@ -1,5 +1,9 @@
 extends "res://scripts/tools/tool.gd"
 
+func _init():
+	tool_anim = "rsls"
+	$AnimatedSprite.frames = load("res://frames/hoe/hoe_frames.tres")
+
 func use():
 	var facing = get_player_facing_tile_pos()
 	if world_globals.tilemap_soil.get_cell_autotile_coord(facing.x,\

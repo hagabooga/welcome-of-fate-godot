@@ -81,7 +81,7 @@ func get_action_input():
 					world_globals.tilemap_world_objects.set_cellv(facing_tile, -1)
 		if Input.is_action_just_pressed("action"):
 			if (player_stats.can_use($Tool.energy_cost)):
-				play_facing_anim("slash", false)
+				play_facing_anim($Tool.tool_anim, false)
 				$Tool.use()
 				$Tool/AnimatedSprite.play(facing)
 #		if Input.is_action_just_pressed("ui_accept"):
@@ -104,7 +104,7 @@ func _physics_process(delta):
 		global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func _on_AnimatedSprite_animation_finished():
-	var anims = ["grab", "slas"]
+	var anims = ["grab", "slas", "rsls"]
 	if ($AnimatedSprite.animation.substr(0,4) in anims):
 		$AnimatedSprite.play("idle_"+facing)
 		can_move = true

@@ -16,6 +16,7 @@ func equip(item):
 				if split_name[1] == "Seedbag":
 					player.find_node("Tool").set_script(load("res://scripts/tools/" + split_name[1].to_lower() + ".gd"))
 					player.find_node("Tool").plant_ming = split_name[0]
+					player.find_node("Tool").set_color(item.color)
 					player_equipment.set_item_icon(i, load("res://sprites/items/%s.png"%item.ming.to_lower()))
 					player_equipment.set_item_metadata(i,item)
 					return

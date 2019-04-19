@@ -14,7 +14,11 @@ func find_item(mingz):
 
 func make_item(ming):
 	var x = item_database[ming]
-	var i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate)
+	var i
+	if x.has("color"):
+		i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, x.color)
+	else:
+		i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, -1)
 	#var i = item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate)
 	return i
 

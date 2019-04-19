@@ -8,15 +8,17 @@ var eff_desc
 var cost
 var type
 var act
+var color
 enum {consume, equip}
 
-func _init(m, d, ef, c, t, a):
+func _init(m, d, ef, c, t, a, col):
 	ming = m
 	desc = d
 	eff_desc = ef
 	cost = c
 	type = t
 	act = a
+	color = col
 	
 func activate():
 	if act == consume: 

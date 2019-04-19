@@ -1,6 +1,7 @@
 extends Node2D
 
 var energy_cost = 0
+var tool_anim = "slash"
 
 	
 func get_player_facing_tile_pos():

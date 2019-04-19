@@ -2,6 +2,10 @@ extends "res://scripts/tools/tool.gd"
 
 var seed_scene = preload("res://plants/Plant.tscn")
 var plant_ming
+var color
+
+func set_color(x):
+	$AnimatedSprite.frames = load("res://frames/seedbag/%s.tres"%str(x))
 
 func use():
 	var tile_soilobj = world_globals.tilemap_soil_objects
