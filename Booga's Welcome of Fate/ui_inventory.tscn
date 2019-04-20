@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=1]
 [ext_resource path="res://ui_inventory.gd" type="Script" id=2]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Equipment.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -58,16 +57,13 @@ outline_size = 1
 outline_color = Color( 0, 0, 1, 0.403922 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=11]
-font_data = ExtResource( 3 )
-
-[node name="Panel" type="Panel"]
+[node name="Inventory" type="Panel"]
 margin_right = 448.0
 margin_bottom = 236.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="InventoryItemList" type="ItemList" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -90,7 +86,6 @@ __meta__ = {
 }
 
 [node name="ItemInfo" type="Panel" parent="."]
-editor/display_folded = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -112,6 +107,7 @@ __meta__ = {
 }
 
 [node name="Info" type="VBoxContainer" parent="ItemInfo/Inside"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 15.0
@@ -158,227 +154,37 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="StatsHolder" type="VBoxContainer" parent="ItemInfo/Inside"]
-editor/display_folded = true
-margin_left = 3.0
-margin_top = 62.0
-margin_right = 104.0
-margin_bottom = 299.0
-custom_constants/separation = -9
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Title" type="Label" parent="ItemInfo/Inside/StatsHolder"]
-margin_right = 101.0
-margin_bottom = 33.0
+[node name="Title" type="Label" parent="ItemInfo/Inside"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 128.0
+margin_bottom = 88.0
 custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Stats"
 align = 1
 
-[node name="Stats" type="HBoxContainer" parent="ItemInfo/Inside/StatsHolder"]
-margin_top = 24.0
-margin_right = 101.0
-margin_bottom = 237.0
-custom_constants/separation = 1
-
-[node name="Names" type="VBoxContainer" parent="ItemInfo/Inside/StatsHolder/Stats"]
-editor/display_folded = true
-margin_right = 68.0
-margin_bottom = 213.0
-custom_constants/separation = -4
-
-[node name="Strength" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_right = 68.0
-margin_bottom = 23.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Strength"
-
-[node name="Intelligence" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 19.0
-margin_right = 68.0
-margin_bottom = 42.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Itelligence"
-
-[node name="Agility" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 38.0
-margin_right = 68.0
-margin_bottom = 61.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Agility"
-
-[node name="Luck" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 57.0
-margin_right = 68.0
-margin_bottom = 80.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Luck"
-
-[node name="Armor" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 76.0
-margin_right = 68.0
-margin_bottom = 99.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Armor"
-
-[node name="Resist" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 95.0
-margin_right = 68.0
-margin_bottom = 118.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Resist"
-
-[node name="Hit" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 114.0
-margin_right = 68.0
-margin_bottom = 137.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Hit"
-
-[node name="Dodge" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 133.0
-margin_right = 68.0
-margin_bottom = 156.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Dodge"
-
-[node name="Crit" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 152.0
-margin_right = 68.0
-margin_bottom = 175.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Crit"
-
-[node name="CritMulti" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 171.0
-margin_right = 68.0
-margin_bottom = 194.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Crit Multi"
-
-[node name="AttackSpeed" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Names"]
-margin_top = 190.0
-margin_right = 68.0
-margin_bottom = 213.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Atk Speed"
-
-[node name="Values" type="VBoxContainer" parent="ItemInfo/Inside/StatsHolder/Stats"]
-editor/display_folded = true
-margin_left = 69.0
-margin_right = 101.0
-margin_bottom = 213.0
-custom_constants/separation = -4
-
-[node name="StrengthValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_right = 32.0
-margin_bottom = 23.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="IntelligenceValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 19.0
-margin_right = 32.0
-margin_bottom = 42.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +15"
-
-[node name="AgilityValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 38.0
-margin_right = 32.0
-margin_bottom = 61.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="LuckValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 57.0
-margin_right = 32.0
-margin_bottom = 80.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="ArmorValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 76.0
-margin_right = 32.0
-margin_bottom = 99.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="ResistValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 95.0
-margin_right = 32.0
-margin_bottom = 118.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="HitValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 114.0
-margin_right = 32.0
-margin_bottom = 137.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="DodgeValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 133.0
-margin_right = 32.0
-margin_bottom = 156.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="CritValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 152.0
-margin_right = 32.0
-margin_bottom = 175.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="CritMultiValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 171.0
-margin_right = 32.0
-margin_bottom = 194.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
-
-[node name="AttackSpeedValue" type="Label" parent="ItemInfo/Inside/StatsHolder/Stats/Values"]
-margin_top = 190.0
-margin_right = 32.0
-margin_bottom = 213.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = ": +10"
+[node name="StatsHolder" type="VBoxContainer" parent="ItemInfo/Inside/Title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 30.0
+margin_right = 1.0
+margin_bottom = 30.0
+custom_constants/separation = -5
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="EquipEffect" type="Label" parent="ItemInfo/Inside"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -310.0
+margin_left = -288.0
 margin_top = -79.0
 margin_right = 1.0
-margin_bottom = -46.0
+margin_bottom = -40.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Effect"
@@ -388,8 +194,9 @@ autowrap = true
 [node name="Desc" type="Label" parent="ItemInfo/Inside/EquipEffect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
 margin_top = 28.0
-margin_bottom = 69.0
+margin_bottom = 157.0
 custom_fonts/font = SubResource( 9 )
 custom_constants/line_spacing = -6
 text = "Consume item to restore 30 HP. 
@@ -398,21 +205,5 @@ The same item type cannot be consumed a within 5 minutes.
 align = 1
 autowrap = true
 
-[node name="Equipment" parent="." instance=ExtResource( 4 )]
-margin_left = 494.0
-margin_top = 27.0
-margin_right = 726.0
-margin_bottom = 362.0
-
-[node name="EquipList" parent="Equipment" index="0"]
-margin_left = 17.0
-margin_top = 15.0
-margin_right = 6.99998
-margin_bottom = 0.0
-
-[connection signal="item_activated" from="ItemList" to="." method="_on_ItemList_item_activated"]
-[connection signal="item_selected" from="ItemList" to="." method="_on_ItemList_item_selected"]
-[connection signal="item_activated" from="Equipment/EquipList" to="." method="_on_EquipList_item_activated"]
-[connection signal="item_selected" from="Equipment/EquipList" to="." method="_on_EquipList_item_selected"]
-
-[editable path="Equipment"]
+[connection signal="item_activated" from="InventoryItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="item_selected" from="InventoryItemList" to="." method="_on_ItemList_item_selected"]

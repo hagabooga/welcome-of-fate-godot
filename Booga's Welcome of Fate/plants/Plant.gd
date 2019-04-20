@@ -21,18 +21,12 @@ func _on_next_day():
 			$Actionable/GrabArea.disabled = false
 
 func _on_Timer_timeout():
-	#var i = 0
-#	for x in world_globals.plants:
-#		if x.tile_pos == self.tile_pos:
-#			world_globals.plants.remove(i)
-#			break
-#		i += 1
 	queue_free()
-
 
 func _on_Actionable_action(user):
 	$Sprite.texture = load("res://sprites/items/" + ming.to_lower() + ".png")
-	user.find_node("ItemList").add(item_database.find_item(ming))
+	user.find_node("UI").find_node("Inventory").add(item_database.make_item(ming))
+	print("LOL")
 	$CollisionShape2D.disabled = true
 	$Actionable/GrabArea.disabled = true
 	$AnimationPlayer.play("Pluck")

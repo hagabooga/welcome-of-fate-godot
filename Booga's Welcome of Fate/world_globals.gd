@@ -9,7 +9,7 @@ var tilemap_dirt
 var tilemap_soil_objects
 var tilemap_soil
 var tilemap_world_objects
-var dict_world_object_name = {0: "Branch", 1: "Rock", 2: "Weed"}
+var dict_world_object_name = {0: "branch", 1: "rock", 2: "weed"}
 
 signal next_day
 

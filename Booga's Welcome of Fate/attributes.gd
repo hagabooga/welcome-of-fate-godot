@@ -2,6 +2,7 @@ extends Node
 
 class_name Attributes
 
+
 var stats = []
 var strength setget set_str,get_str
 var intelligence setget set_int, get_int
@@ -45,70 +46,70 @@ func set_eng(val):
 	set_energy_extra()
 	
 func set_str(val):
-	find_stat(global_enums.stren).value = val
+	find_stat(0).value = val
 func set_int(val):
-	find_stat(global_enums.intel).value = val
+	find_stat(1).value = val
 func set_agi(val):
-	find_stat(global_enums.agi).value = val
+	find_stat(2).value = val
 func set_lck(val):
-	find_stat(global_enums.lck).value = val
+	find_stat(3).value = val
 func set_phys(val):
-	find_stat(global_enums.phys).value = val
+	find_stat(4).value = val
 func set_magic(val):
-	find_stat(global_enums.magic).value = val
+	find_stat(5).value = val
 func set_armor(val):
-	find_stat(global_enums.arm).value = val
+	find_stat(6).value = val
 func set_res(val):
-	find_stat(global_enums.res).value = val
+	find_stat(7).value = val
 func set_hit(val):
-	find_stat(global_enums.hi).value = val
+	find_stat(8).value = val
 func set_dodge(val):
-	find_stat(global_enums.dge).value = val
+	find_stat(9).value = val
 func set_crit(val):
-	find_stat(global_enums.crt).value = val
+	find_stat(10).value = val
 func set_critmulti(val):
-	find_stat(global_enums.critmulti).value = val
+	find_stat(11).value = val
 func set_atkspd(val):
-	find_stat(global_enums.atkspd).value = val
+	find_stat(12).value = val
 func set_maxhp(val):
-	find_stat(global_enums.maxhp).value = val
+	find_stat(13).value = val
 func set_maxmp(val):
-	find_stat(global_enums.maxmp).value = val
+	find_stat(14).value = val
 func set_energy(val):
-	find_stat(global_enums.energy).value = val
+	find_stat(15).value = val
 	
 func get_str():
-	return find_stat(global_enums.stren).get_final_value()
+	return find_stat(0).get_final_value()
 func get_int():
-	return find_stat(global_enums.intel).get_final_value()
+	return find_stat(1).get_final_value()
 func get_agi():
-	return find_stat(global_enums.agi).get_final_value()
+	return find_stat(2).get_final_value()
 func get_lck():
-	return find_stat(global_enums.lck).get_final_value()
+	return find_stat(3).get_final_value()
 func get_phys():
-	return find_stat(global_enums.phys).get_final_value()
+	return find_stat(4).get_final_value()
 func get_magic():
-	return find_stat(global_enums.magic).get_final_value()
+	return find_stat(5).get_final_value()
 func get_armor():
-	return find_stat(global_enums.arm).get_final_value()
+	return find_stat(6).get_final_value()
 func get_res():
-	return find_stat(global_enums.res).get_final_value()
+	return find_stat(7).get_final_value()
 func get_hit():
-	return find_stat(global_enums.hi).get_final_value()
+	return find_stat(8).get_final_value()
 func get_dodge():
-	return find_stat(global_enums.dge).get_final_value()
+	return find_stat(9).get_final_value()
 func get_crit():
-	return find_stat(global_enums.crt).get_final_value()
+	return find_stat(10).get_final_value()
 func get_critmulti():
-	return find_stat(global_enums.critmulti).get_final_value()
+	return find_stat(11).get_final_value()
 func get_atkspd():
-	return find_stat(global_enums.atkspd).get_final_value()
+	return find_stat(12).get_final_value()
 func get_maxhp():
-	return find_stat(global_enums.maxhp).get_final_value()
+	return find_stat(13).get_final_value()
 func get_maxmp():
-	return find_stat(global_enums.maxmp).get_final_value()
+	return find_stat(14).get_final_value()
 func get_energy():
-	return find_stat(global_enums.energy).get_final_value()
+	return find_stat(15).get_final_value()
 
 func _init():
 	for x in range(16):
@@ -118,6 +119,9 @@ func find_stat(type):
 	for x in stats:
 		if x.type == type:
 			return x
+			
+func set_stat(type, val):
+	find_stat(type).value = val
 
 func buff_stat(type, val):
 	find_stat(type).buff(val)
@@ -130,7 +134,7 @@ func add_attrib(a):
 		for y in a.stats:
 			if x.type == y.type and y.value != 0:
 				buff_stat(x.type, y.value)
-				print(x.bonuses)
+				#print(x.bonuses)
 				break
 				
 func remove_attrib(a):
@@ -138,8 +142,15 @@ func remove_attrib(a):
 		for y in a.stats:
 			if x.type == y.type and y.value != 0:
 				remove_buff_stat(x.type, y.value)
-				print(x.bonuses)
+				#print(x.bonuses)
 				break
-
+				
 func update_stats():
 	pass
+
+func print_stats():
+	for x in stats:
+		print("%s: %d"%[global_id.stat_idToName[x.type],x.value])
+func print_stats_bonuses():
+	for x in stats:
+		print("%s: %s"%[global_id.stat_idToName[x.type],x.bonuses])

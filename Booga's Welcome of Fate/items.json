@@ -1,80 +1,91 @@
 {
-    "Turnip":
+    "turnip":
     {
         "desc": "A root vegetable grown in temperate climates.",
         "eff_desc": "Consume item to restore 30 HP.",
         "cost": 100,
-        "type": "Plant",
-        "activate": 0 
+        "type": "plant",
+        "activate": 0
     },
-    "Beet":
+    "beet":
     {
         "cost": 130
     },
-    "Branch":
+    "branch":
     {
         "desc": "A branch that fell of a tree.",
         "eff_desc": "",
         "cost": 10,
-        "type": "Misc.",
+        "type": "misc.",
         "activate": -1
     },
-    "Rock":
+    "rock":
     {
         "desc": "A rock found on the ground.",
         "eff_desc": "",
         "cost": 10,
-        "type": "Misc.",
+        "type": "misc.",
         "activate": -1
     },
-    "Weed":
+    "weed":
     {
         "desc": "A plant in the wrong place.",
         "eff_desc": "",
         "cost": 2,
-        "type": "Misc.",
+        "type": "misc.",
         "activate": -1
     },
-    "Hoe":
+    "hoe":
     {
         "desc": "Loosen the soil.",
         "eff_desc": "Allows you to dig the soil for seeds.",
         "cost": 300,
-        "type": "Tool",
+        "type": "tool",
         "activate": 1
     },
-    "Watering Can":
+    "watering can":
     {
         "desc": "Water the soil.",
         "eff_desc": "Allows you to water seeds in soil to grow the next day.",
         "cost": 300,
-        "type": "Tool",
+        "type": "tool",
         "activate": 1
     },
-    "Sickle":
+    "sickle":
     {
         "desc": "Cut vegetation",
         "eff_desc": "Cut vegetation to make room",
         "cost": 300,
-        "type": "Tool",
+        "type": "tool",
         "activate": 1
     },
-    "Turnip Seedbag":
+    "turnip seedbag":
     {
         "desc": "Contains turnip seeds",
         "eff_desc": "Throw turnip seeds in a 3x3 square",
         "cost": 300,
-        "type": "Tool",
+        "type": "tool",
         "activate": 1,
-        "color": 0
+        "color": 0 
     },
-    "Magic Wand":
+    "magic wand":
     {
         "desc": "A magical wand",
         "eff_desc": "Basic attacks shoots a magical projectile.",
         "cost": 500,
-        "type": "Wand",
+        "base": "weapon",
+        "type": "wand",
         "activate": 1,
-        "stats": {"magical": 5}
+        "stats": {"intelligence": 3, "magical": 20}
+    },
+    "katana":
+    {
+        "desc": "A sharp sword",
+        "eff_desc": "",
+        "cost": 750,
+        "base": "weapon",
+        "type": "sword",
+        "activate": 1,
+        "stats": {"strength": 5, "physical": 75}
     }
 }
