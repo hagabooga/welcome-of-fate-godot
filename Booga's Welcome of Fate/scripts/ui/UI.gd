@@ -12,9 +12,12 @@ func _ready():
 	tool_action = $Tool
 	player_change_tool_sprite = $PlayerChangeToolSprite
 	equipment_itemList = $Equipment/EquipList
+	$Inventory.visible = false
+	$Equipment.visible = false
 
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("inventory"):
 		$Inventory.visible = !$Inventory.visible
+		$Equipment.visible = !$Equipment.visible

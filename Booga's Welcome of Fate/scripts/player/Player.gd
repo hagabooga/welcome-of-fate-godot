@@ -71,13 +71,7 @@ func get_action_input():
 				play_facing_anim("grab", false)
 				grabbables[0].emit_signal("action", self)
 			else:
-				var facing_tile = get_facing_tile_pos()
-				if facing_tile in world_globals.tilemap_world_objects.get_used_cells():
-					play_facing_anim("grab", false)
-					var item = item_database.make_item(\
-					world_globals.dict_world_object_name[world_globals.tilemap_world_objects.get_cellv(facing_tile)])
-					$UI/Inventory.add(item)
-					world_globals.tilemap_world_objects.set_cellv(facing_tile, -1)
+				create_world_object_grab()
 		if Input.is_action_just_pressed("action"):
 			if (player_stats.can_use($UI.tool_action.energy_cost)):
 				play_facing_anim($UI.tool_action.tool_anim, false)
@@ -100,10 +94,29 @@ func _input(event):
 		if Input.is_action_pressed("ctrl"):
 			if Input.is_action_pressed("switch_tool_up"):
 				$UI/Inventory.quick_change_tool(false)
-#			if Input.is_action_pressed("switch_tool_down"):
-#				$UI/Inventory.quick_change_tool(true)
 
 
+
+
+
+
+func create_world_object_grab():
+	var facing_tile = get_facing_tile_pos()
+	if facing_tile in world_globals.tilemap_world_objects.get_used_cells():
+		play_facing_anim("grab", false)
+		var world_object_name = world_globals.dict_world_object_name[world_globals.tilemap_world_objects.get_cellv(facing_tile)]
+		var item = item_database.make_item(world_object_name)
+		$UI/Inventory.add(item)
+		world_globals.tilemap_world_objects.set_cellv(facing_tile, -1)
+		var object_grab = load("res://WorldObject.tscn").instance()
+		object_grab.set_texture("res://sprites/items/%s.png"%item.ming)
+		object_grab.global_position = world_globals.tilemap_grass.map_to_world(facing_tile)
+		world_globals.world.add_child(object_grab)
+		object_grab.play_anim("grab")
+		if facing_tile.y >= 0:
+			object_grab.z_index = facing_tile.y
+		
+		
 func _on_AnimatedSprite_animation_finished():
 	var anims = ["grab", "slas", "rsls"]
 	if ($AnimatedSprite.animation.substr(0,4) in anims):

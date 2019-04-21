@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://StatusBar.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/StatusBar.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/health_bar.png" type="Texture" id=2]
 [ext_resource path="res://sprites/ui/health_bar_progress.png" type="Texture" id=3]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sprites/ui/mana_bar_progress.png" type="Texture" id=6]
 [ext_resource path="res://sprites/ui/energy_bar.png" type="Texture" id=7]
 [ext_resource path="res://sprites/ui/energy_bar_progress.png" type="Texture" id=8]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )

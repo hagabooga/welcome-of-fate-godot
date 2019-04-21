@@ -12,27 +12,33 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Attributes",
 "language": "GDScript",
-"path": "res://attributes.gd"
+"path": "res://scripts/player/stats/attributes.gd"
 }, {
 "base": "Node",
 "class": "BaseStat",
 "language": "GDScript",
-"path": "res://base_stat.gd"
+"path": "res://scripts/player/stats/base_stat.gd"
 }, {
 "base": "Node",
 "class": "Item",
 "language": "GDScript",
-"path": "res://item.gd"
+"path": "res://scripts/items/item.gd"
+}, {
+"base": "Attributes",
+"class": "Mage",
+"language": "GDScript",
+"path": "res://scripts/player/stats/mage.gd"
 }, {
 "base": "Item",
 "class": "Weapon",
 "language": "GDScript",
-"path": "res://weapon.gd"
+"path": "res://scripts/items/weapon.gd"
 } ]
 _global_script_class_icons={
 "Attributes": "",
 "BaseStat": "",
 "Item": "",
+"Mage": "",
 "Weapon": ""
 }
 
@@ -45,11 +51,12 @@ config/icon="res://icon.png"
 [autoload]
 
 world_globals="*res://world_globals.gd"
-item_database="*res://item_database.gd"
-item_activations="*res://item_activations.gd"
-player_stats="*res://player_stats.gd"
+item_database="*res://scripts/items/item_database.gd"
+item_activations="*res://scripts/items/item_activations.gd"
+player_stats="*res://scripts/player/player_stats.gd"
 global_id="*res://global_id.gd"
-player_equip="*res://player_equip.gd"
+player_equip="*res://scripts/player/player_equip.gd"
+DayNightCycle="*res://DayNightCycle.tscn"
 
 [debug]
 
@@ -187,6 +194,11 @@ ctrl={
 switch_tool_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+equipment={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
 

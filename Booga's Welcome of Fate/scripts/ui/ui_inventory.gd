@@ -3,7 +3,6 @@ extends Panel
 
 func _ready():
 	$InventoryItemList.focus_mode = 0
-	visible = false
 	$ItemInfo/Inside.visible = false
 	add(item_database.make_item("watering can"))
 	add(item_database.make_item("hoe"))
@@ -26,7 +25,6 @@ func find_type(type, rev):
 		r = range($InventoryItemList.get_item_count()-1,-1,-1)
 	else:
 		r = range($InventoryItemList.get_item_count())
-	print(r)
 	for x in r:
 		var item = $InventoryItemList.get_item_metadata(x)
 		if item.type == type:
@@ -75,7 +73,6 @@ func set_labels(item):
 			if x.value != 0:
 				var new_label = Label.new()
 				new_label.align = Label.ALIGN_CENTER
-				print(x.type)
 				var type = global_id.stat_idToName[x.type].capitalize()
 				if x.value > 0:
 					new_label.text = "%s: +%d"%[type, x.value]
@@ -105,7 +102,8 @@ func _on_ItemList_item_activated(index):
 	var item = $InventoryItemList.get_item_metadata(index)
 	if (item.act != -1):
 		item.activate()
-		print(player_equip.item_count)
+		if !player_equip.item_count.has(item.ming):
+			 $ItemInfo/Inside.visible = false
 
 
 func equip(item):

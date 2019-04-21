@@ -134,7 +134,6 @@ func add_attrib(a):
 		for y in a.stats:
 			if x.type == y.type and y.value != 0:
 				buff_stat(x.type, y.value)
-				#print(x.bonuses)
 				break
 				
 func remove_attrib(a):
@@ -142,7 +141,6 @@ func remove_attrib(a):
 		for y in a.stats:
 			if x.type == y.type and y.value != 0:
 				remove_buff_stat(x.type, y.value)
-				#print(x.bonuses)
 				break
 				
 func update_stats():

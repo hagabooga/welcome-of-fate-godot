@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://night_day_cycle.shader" type="Shader" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://DayNightCycle.gd" type="Script" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/color = Plane( 1, 1, 1, 0 )
+
+[node name="DayNightCycle" type="Sprite"]
+material = SubResource( 1 )
+position = Vector2( 228, 240 )
+scale = Vector2( 37.2, 21.2 )
+z_index = 300
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+

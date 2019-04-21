@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	world_globals.world = self
 	world_globals.tilemap_soil_objects = $TileMaps/SoilObjects
 	world_globals.tilemap_soil = $TileMaps/Soil
 	world_globals.plants_obj = $Plants

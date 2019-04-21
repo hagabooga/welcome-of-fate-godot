@@ -17,4 +17,3 @@ func remove_item_count(item):
 			#$ItemInfo/Inside.visible = false
 		else:
 			item_count[key] -= 1
-	#print(item_count)

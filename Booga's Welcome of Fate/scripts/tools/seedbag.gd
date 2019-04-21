@@ -21,7 +21,7 @@ func use():
 						occupied = true
 				if !occupied:
 					var new_seed = seed_scene.instance()
-					new_seed.set_script(load("res://%s.gd"%plant_ming))
+					new_seed.set_script(load("res://plants/%s/%s.gd"%[plant_ming,plant_ming]))
 					new_seed.global_position = world_globals.tilemap_soil.map_to_world(current_tile)
 					new_seed.tile_pos = current_tile
 					world_globals.plants_obj.add_child(new_seed)

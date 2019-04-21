@@ -1,4 +1,6 @@
-extends "res://attributes.gd"
+extends Attributes
+
+class_name Mage
 
 func _init():
 	job = "Mage"

@@ -1,4 +1,4 @@
-extends "res://mage.gd"
+extends Mage
 #var stats = load("res://mage.gd").new()
 
 signal hp_change
