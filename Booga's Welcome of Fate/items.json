@@ -87,5 +87,87 @@
         "type": "sword",
         "activate": 1,
         "stats": {"strength": 5, "physical": 75}
+    },
+    "leather hat":
+    {
+        "desc": "A simple leather hat",
+        "eff_desc": "",
+        "cost": 500,
+        "base": "armor",
+        "type": "head",
+        "activate": 1,
+        "stats": {"armor": 12, "resist": 40, "mp": 25 }
+    },
+    "leather robe":
+    {
+        "desc": "A simple leather robe",
+        "eff_desc": "",
+        "cost": 500,
+        "base": "armor",
+        "type": "neck",
+        "activate": 1,
+        "stats": {"intelligence": 2, "armor": 10, "resist": 45}
+    },
+    "leather gloves":
+    {
+        "desc": "Simple leather gloves",
+        "eff_desc": "",
+        "cost": 200,
+        "base": "armor",
+        "type": "gloves",
+        "activate": 1,
+        "stats": {"armor": 5, "resist": 10}
+    },
+    "blue blouse":
+    {
+        "desc": "A blue blouse",
+        "eff_desc": "",
+        "cost": 200,
+        "base": "armor",
+        "type": "body",
+        "activate": 1,
+        "stats": {"armor": 25, "resist": 30}
+    },
+    "intelligence necklace":
+    {
+        "desc": "Feel smart",
+        "eff_desc": "",
+        "cost": 1000,
+        "base": "armor",
+        "type": "accessory",
+        "activate": 1,
+        "stats": {"intelligence": 15}
+    },
+    "leather skirt":
+    {
+        "desc": "A simple leather skirt",
+        "eff_desc": "",
+        "cost": 300,
+        "base": "armor",
+        "type": "bottom",
+        "activate": 1,
+        "stats": {"armor": 20, "resist": 20}
+    },
+    "leather boots":
+    {
+        "desc": "Simple leather boots",
+        "eff_desc": "",
+        "cost": 300,
+        "base": "armor",
+        "type": "boots",
+        "activate": 1,
+        "stats": {"armor": 30, "resist": 16}
+    },
+    "wooden shield":
+    {
+        "desc": "A shield made out of wood",
+        "eff_desc": "",
+        "cost": 750,
+        "base": "armor",
+        "type": "shield",
+        "activate": 1,
+        "stats": {"armor": 35, "resist": 54}
     }
+}
+
 }

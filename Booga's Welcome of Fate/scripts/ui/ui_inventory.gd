@@ -10,6 +10,14 @@ func _ready():
 	add(item_database.make_item("magic wand"))
 	add(item_database.make_item("turnip"))
 	add(item_database.make_item("katana"))
+	add(item_database.make_item("leather hat"))
+	add(item_database.make_item("leather robe"))
+	add(item_database.make_item("leather gloves"))
+	add(item_database.make_item("blue blouse"))
+	add(item_database.make_item("intelligence necklace"))
+	add(item_database.make_item("leather skirt"))
+	add(item_database.make_item("leather boots"))
+	add(item_database.make_item("wooden shield"))
 	#add(item_database.make_item("Sickle"))
 
 
@@ -61,7 +69,7 @@ func set_labels(item):
 	else:
 		$ItemInfo/Inside/Info/Ming.text = "%s"%[item.ming.capitalize()]
 	$ItemInfo/Inside/Info/Desc.text = "%s (%s)" %[item.desc, item.type.capitalize()]
-	if item.base == "weapon":
+	if item.base == "weapon" || item.base == "armor":
 		$ItemInfo/Inside/Title.visible = true
 		$ItemInfo/Inside/EquipEffect.visible = true
 		$ItemInfo/Inside/Info/Effect.visible = false
@@ -107,6 +115,7 @@ func _on_ItemList_item_activated(index):
 
 
 func equip(item):
+	var index
 	if (item.type == "tool"):
 		unequip_tool()
 		var split_name = item.ming.split(" ")
@@ -122,10 +131,24 @@ func equip(item):
 				equip_tool(item)
 		else:
 			equip_tool(item)
-	elif item.base == "weapon":
-		unequip(3)
-		get_parent().equipment_itemList.set_item_icon(3, load("res://sprites/items/%s.png"%item.ming.to_lower()))
-		get_parent().equipment_itemList.set_item_metadata(3,item)
+	else:
+		if item.base == "weapon":
+			index = 3
+			get_parent().weapon.set_frames(item.ming)
+			get_parent().weapon.set_script(load("res://scripts/weapons/%s.gd"%item.ming))
+		elif item.base == "armor":
+			match item.type:
+				"accessory": index = 0
+				"head": index = 1
+				"neck": index = 2
+				"body": index = 4
+				"shield": index = 5
+				"boots": index = 6
+				"bottom": index = 7
+				"gloves": index = 8
+		unequip(index)
+		get_parent().equipment_itemList.set_item_icon(index, load("res://sprites/items/%s.png"%item.ming.to_lower()))
+		get_parent().equipment_itemList.set_item_metadata(index,item)
 		player_stats.add_attrib(item.stats)
 		player_stats.print_stats_bonuses()
 	player_equip.remove_item_count(item)

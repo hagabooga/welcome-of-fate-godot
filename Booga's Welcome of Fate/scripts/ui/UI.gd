@@ -5,6 +5,7 @@ var tool_action
 var player_change_tool_sprite
 var equipment_itemList
 var inventory
+var weapon
 
 func _ready():
 	inventory = $Inventory
@@ -14,6 +15,7 @@ func _ready():
 	equipment_itemList = $Equipment/EquipList
 	$Inventory.visible = false
 	$Equipment.visible = false
+	weapon = $Weapon
 
 
 

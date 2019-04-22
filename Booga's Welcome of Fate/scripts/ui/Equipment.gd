@@ -22,7 +22,10 @@ func _on_EquipList_item_activated(index):
 	var item = $EquipList.get_item_metadata(index)
 	if (item != null):
 		get_parent().inventory.unequip(index)
-		$EquipList.set_item_icon(index, load("res://sprites/icons/%s.png"%item.base))
+		var ming = item.type
+		if item.base == "weapon":
+			ming = item.base
+		$EquipList.set_item_icon(index, load("res://sprites/icons/%s.png"%ming))
 		$EquipList.set_item_metadata(index, null)
 		get_parent().inventory.find_node("ItemInfo").find_node("Inside").visible = false
 

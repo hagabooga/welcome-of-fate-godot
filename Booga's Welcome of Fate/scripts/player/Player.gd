@@ -23,23 +23,19 @@ func get_input():
 		velocity.y = -1
 	if velocity.x == 1:
 		facing = 'side'
-		$AnimatedSprite.flip_h = true
-		$UI/Tool/AnimatedSprite.flip_h = true
+		flip_h_all_sprites(true)
 		$AnimatedSprite.play("walk_side")
 	if velocity.x == -1:
 		facing = 'side'
-		$AnimatedSprite.flip_h = false
-		$UI/Tool/AnimatedSprite.flip_h = false
+		flip_h_all_sprites(false)
 		$AnimatedSprite.play("walk_side")
 	if velocity.x == 0 and velocity.y == -1:
 		facing = 'up'
-		$AnimatedSprite.flip_h = false
-		$UI/Tool/AnimatedSprite.flip_h = false
+		flip_h_all_sprites(false)
 		$AnimatedSprite.play("walk_up")
 	if velocity.x == 0 and velocity.y == 1:
 		facing = 'down'
-		$AnimatedSprite.flip_h = false
-		$UI/Tool/AnimatedSprite.flip_h = false
+		flip_h_all_sprites(false)
 		$AnimatedSprite.play("walk_down")
 	if velocity.x == 0 and velocity.y == 0:
 		if $AnimatedSprite.animation == "walk_up":
@@ -77,6 +73,10 @@ func get_action_input():
 				play_facing_anim($UI.tool_action.tool_anim, false)
 				$UI.tool_action.use()
 				$UI/Tool/AnimatedSprite.play(facing)
+		if Input.is_action_just_pressed("ui_accept"):
+			play_facing_anim("slash", false)
+			$UI/Weapon/AnimatedSprite.play(facing)
+			$UI/Weapon.attack_effect(facing, $AnimatedSprite.flip_h)
 
 func _physics_process(delta):
 	var z = world_globals.tilemap_soil.world_to_map(global_position).y
@@ -94,11 +94,6 @@ func _input(event):
 		if Input.is_action_pressed("ctrl"):
 			if Input.is_action_pressed("switch_tool_up"):
 				$UI/Inventory.quick_change_tool(false)
-
-
-
-
-
 
 func create_world_object_grab():
 	var facing_tile = get_facing_tile_pos()
@@ -135,3 +130,8 @@ func get_facing_tile_pos():
 	elif facing == "down":
 		pos.y += 1
 	return pos
+
+func flip_h_all_sprites(yes):
+	$AnimatedSprite.flip_h = yes
+	$UI/Tool/AnimatedSprite.flip_h = yes
+	$UI/Weapon/AnimatedSprite.flip_h = yes

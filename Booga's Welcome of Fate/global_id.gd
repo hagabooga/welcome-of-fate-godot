@@ -36,7 +36,7 @@ var stat_idToName = {
 	11:"crit multi",
 	12:"atk speed",
 	13:"hp",
-	14:"hp",
+	14:"mp",
 	15:"energy"}
 
 var item_base = {
