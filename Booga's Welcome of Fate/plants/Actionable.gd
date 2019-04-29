@@ -1,4 +1,8 @@
 extends Area2D
 
-signal action(action_user)
+class_name Actionable
 
+signal action(action_user)
+	
+func apply_action():
+	print("actioned")

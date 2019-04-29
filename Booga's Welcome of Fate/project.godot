@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Actionable",
+"language": "GDScript",
+"path": "res://plants/Actionable.gd"
+}, {
 "base": "Node",
 "class": "Attributes",
 "language": "GDScript",
@@ -40,6 +45,7 @@ _global_script_classes=[ {
 "path": "res://projectile.gd"
 } ]
 _global_script_class_icons={
+"Actionable": "",
 "Attributes": "",
 "BaseStat": "",
 "EquipItem": "",
@@ -210,5 +216,6 @@ equipment={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/shadows/filter_mode=0
 environment/default_environment="res://default_env.tres"

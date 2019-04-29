@@ -63,9 +63,11 @@ func get_action_input():
 	var grabbables = $HurtArea.get_overlapping_areas()
 	if (anim == "idle" or anim == "walk"):
 		if (Input.is_action_just_pressed("z")):
+			print(grabbables)
 			if (len(grabbables) > 0):
 				play_facing_anim("grab", false)
-				grabbables[0].emit_signal("action", self)
+				grabbables[0].apply_action()
+				#grabbables[0].emit_signal("action", self)
 			else:
 				create_world_object_grab()
 		if Input.is_action_just_pressed("action"):
