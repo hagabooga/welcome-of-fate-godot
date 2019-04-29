@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Grass/grass.tres" type="TileSet" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://tileset_objects/InsidePlayerHome.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/player/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://NPC.gd" type="Script" id=10]
-[ext_resource path="res://aCleanPlayer.png" type="Texture" id=11]
+[ext_resource path="res://clean booga.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 20 )
@@ -18,8 +18,11 @@ extents = Vector2( 12, 20 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11.9982, 10 )
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 192.666
+
 [sub_resource type="CircleShape2D" id=4]
-radius = 25.7517
+radius = 150.625
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -107,22 +110,24 @@ shape = SubResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( 950, 426 )
 
-[node name="NPC" type="Area2D" parent="."]
-position = Vector2( 1129.47, 396.363 )
-rotation = -1.5708
-scale = Vector2( 0.75, 0.75 )
+[node name="Clean Booga" type="Area2D" parent="."]
+position = Vector2( 1088, 385 )
+scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="StaticBody2D" type="Sprite" parent="NPC"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clean Booga"]
+shape = SubResource( 3 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Clean Booga"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Clean Booga/StaticBody2D2"]
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Clean Booga"]
 texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
-shape = SubResource( 4 )
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="NPC"]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/StaticBody2D2"]
-shape = SubResource( 4 )
 
 [connection signal="body_entered" from="Objects/PlayerHome/WarpToInside" to="." method="_on_WarpToInside_body_entered"]
 [connection signal="body_entered" from="Objects/InsidePlayerHome/WarpToOutsideHome" to="." method="_on_WarpToOutsideHome_body_entered"]

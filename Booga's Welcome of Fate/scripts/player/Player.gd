@@ -60,22 +60,29 @@ func play_facing_anim(anim, canmove):
 
 func get_action_input():
 	var anim = $AnimatedSprite.animation.substr(0,4)
-	var grabbables = $HurtArea.get_overlapping_areas()
+	var actionables = $HurtArea.get_overlapping_areas()
+	for x in actionables:
+		if !(x is Actionable):
+			actionables.erase(x)
 	if (anim == "idle" or anim == "walk"):
-		if (Input.is_action_just_pressed("z")):
-			print(grabbables)
-			if (len(grabbables) > 0):
+		if (len(actionables) > 0):
+			var todo_action = actionables[0]
+			show_action_ui(true, todo_action.action_string)
+			if (Input.is_action_just_pressed("z")):
 				play_facing_anim("grab", false)
-				grabbables[0].apply_action()
-				#grabbables[0].emit_signal("action", self)
-			else:
+				todo_action.apply_action(self)
+		elif get_facing_tile_pos() in world_globals.tilemap_world_objects.get_used_cells():
+			show_action_ui(true)
+			if (Input.is_action_just_pressed("z")):
 				create_world_object_grab()
+		else:
+			show_action_ui(false)
 		if Input.is_action_just_pressed("action"):
 			if (player_stats.can_use($UI.tool_action.energy_cost)):
 				play_facing_anim($UI.tool_action.tool_anim, false)
 				$UI.tool_action.use()
 				$UI/Tool/AnimatedSprite.play(facing)
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("attack"):
 			play_facing_anim("slash", false)
 			$UI/Weapon/AnimatedSprite.play(facing)
 			$UI/Weapon.attack_effect(facing, $AnimatedSprite.flip_h)
@@ -84,11 +91,12 @@ func _physics_process(delta):
 	var z = world_globals.tilemap_soil.world_to_map(global_position).y
 	if z >= 0:
 		z_index = world_globals.tilemap_soil.world_to_map(global_position).y
-	get_action_input()
-	if can_move:
-		get_input()
-		move_and_slide(velocity)
-		global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
+	if !$UI/Dialogue.visible:
+		get_action_input()
+		if can_move :
+			get_input()
+			move_and_slide(velocity)
+			global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func _input(event):
 	var anim = $AnimatedSprite.animation.substr(0,4)
@@ -133,7 +141,15 @@ func get_facing_tile_pos():
 		pos.y += 1
 	return pos
 
+func show_action_ui(yes, action = "Pick Up"):
+	$UI/Action.visible = yes
+	$UI/Action/Label.text = action
+
 func flip_h_all_sprites(yes):
 	$AnimatedSprite.flip_h = yes
 	$UI/Tool/AnimatedSprite.flip_h = yes
 	$UI/Weapon/AnimatedSprite.flip_h = yes
+	
+func start_dialogue(info):
+	$UI/Dialogue.visible = true
+	$UI/Dialogue.make_dialogue_options(info)

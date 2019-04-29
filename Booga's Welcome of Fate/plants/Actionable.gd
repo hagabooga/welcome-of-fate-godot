@@ -1,8 +1,8 @@
 extends Area2D
 
 class_name Actionable
+var action_string = "Activate"
 
-signal action(action_user)
 	
-func apply_action():
-	print("actioned")
+func apply_action(user):
+	print(user.name + ": actioned")

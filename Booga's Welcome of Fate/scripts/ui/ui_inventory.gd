@@ -112,6 +112,8 @@ func _on_ItemList_item_activated(index):
 		item.activate()
 		if !player_equip.item_count.has(item.ming):
 			 $ItemInfo/Inside.visible = false
+		else:
+			set_labels(item)
 
 
 func equip(item):

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/aCleanPlayer.png-baab90c3864936be7b9ef8326f504c7f.stex"
+path="res://.import/clean booga.png-7830165cd6bbdf56ab07fe9ca2efc631.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aCleanPlayer.png"
-dest_files=[ "res://.import/aCleanPlayer.png-baab90c3864936be7b9ef8326f504c7f.stex" ]
+source_file="res://clean booga.png"
+dest_files=[ "res://.import/clean booga.png-7830165cd6bbdf56ab07fe9ca2efc631.stex" ]
 
 [params]
 
