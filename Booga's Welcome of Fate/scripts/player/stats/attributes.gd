@@ -2,7 +2,6 @@ extends Node
 
 class_name Attributes
 
-
 var stats = []
 var strength setget set_str,get_str
 var intelligence setget set_int, get_int

@@ -134,8 +134,12 @@ func equip(item):
 	else:
 		if item.base == "weapon":
 			index = 3
+			var weapon_script = load("res://scripts/weapons/%s.gd"%item.ming)
+			if weapon_script != null:
+				get_parent().weapon.set_script(load("res://scripts/weapons/%s.gd"%item.ming))
+			else:
+				get_parent().weapon.set_script(load("res://scripts/player/player_weapon.gd"))
 			get_parent().weapon.set_frames(item.ming)
-			get_parent().weapon.set_script(load("res://scripts/weapons/%s.gd"%item.ming))
 		elif item.base == "armor":
 			match item.type:
 				"accessory": index = 0

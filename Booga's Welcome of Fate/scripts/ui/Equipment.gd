@@ -12,6 +12,7 @@ func _ready():
 	$EquipList.add_icon_item(load("res://sprites/icons/gloves.png"))
 	$Panel/Tool.add_icon_item(load("res://sprites/icons/shovel.png"))
 
+
 func _on_EquipList_item_selected(index):
 	var item = $EquipList.get_item_metadata(index)
 	if item != null:
