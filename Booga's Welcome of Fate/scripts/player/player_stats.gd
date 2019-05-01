@@ -4,6 +4,7 @@ extends Mage
 signal hp_change
 signal mp_change
 signal energy_change
+signal stats_change
 
 func _init():
 	level = 1
@@ -11,6 +12,7 @@ func _init():
 	self.hp = self.max_hp
 	self.mp = self.max_mp
 	self.energy = self.max_energy
+	
 
 
 
@@ -20,12 +22,21 @@ func can_use(e):
 		return true
 	return false
 
+func update_stats():
+	.update_stats()
+	add_hp(0)
+	add_mp(0)
+	add_energy(0)
+	emit_signal("stats_change")
+
 
 
 func set_hp_extra():
 	emit_signal("hp_change")
+	
 func set_mp_extra():
 	emit_signal("mp_change")
+	
 func set_energy_extra():
 	emit_signal("energy_change")
 	

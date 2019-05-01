@@ -1,7 +1,6 @@
 extends Node
 
 var npc_database
-var weapons = ["wand"]
 
 
 func _ready():

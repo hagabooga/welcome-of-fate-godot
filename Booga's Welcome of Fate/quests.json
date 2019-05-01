@@ -1,0 +1,17 @@
+{
+    "slay the gators":
+    {
+        "ask":  ["Hey, I need you to kill those Gators.", "There should be a lot on the right side.", "Compelete this quest and I'll reward you."],
+        "accept": ["OK. Let me teach you how to fight."],
+        "decline": ["Do you not want to progress in this game?"],
+        "in_prog": ["Go kill the Gators then come back to me."],
+		"complete": ["Nice job!", "Here's your reward", "I have opened a new portal to the north.", 
+		"Once you go in, you can never come back here.", "Make sure you are prepared for the real world."],
+		"reward": "100 Cash / 50 EXP",
+        "memory": "Clean Booga wants me to slay the Gators around here.",
+        "goals": 
+        [
+            ["gator", 5, 0, "Slay 5 Gators"]
+        ]
+    }
+}

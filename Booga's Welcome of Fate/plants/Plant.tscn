@@ -37,7 +37,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.5
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

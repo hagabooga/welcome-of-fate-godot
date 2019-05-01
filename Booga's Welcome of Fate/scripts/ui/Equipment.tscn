@@ -45,7 +45,7 @@ region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = -480.0
 margin_top = -269.0
 margin_right = -248.0
-margin_bottom = 66.0
+margin_bottom = -37.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
@@ -68,10 +68,16 @@ same_column_width = true
 fixed_icon_size = Vector2( 64, 64 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 232.0
-margin_right = 317.0
-margin_bottom = 85.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -94.0
+margin_top = 14.0
+margin_right = -9.0
+margin_bottom = 99.0
 custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Tool" type="ItemList" parent="Panel"]
 anchor_right = 1.0

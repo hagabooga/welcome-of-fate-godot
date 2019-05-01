@@ -1,7 +1,7 @@
 {
     "clean booga":
     {
-        "options": [[2,0]],
+        "quests": ["slay the gators"],
         "default": ["Welcome to Booga's Welcome of Fate."]
     }
 }

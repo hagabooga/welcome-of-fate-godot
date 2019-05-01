@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export (int) var speed = 200
+var speed_bonus = 0
 
 var velocity = Vector2()
 var facing = "down"
@@ -44,7 +45,7 @@ func get_input():
 			$AnimatedSprite.play("idle_side")
 		elif $AnimatedSprite.animation == "walk_down":
 			$AnimatedSprite.play("idle_down")
-	velocity = velocity.normalized() * speed
+	velocity = velocity.normalized() * (speed)
 
 func play_facing_anim(anim, canmove):
 	if ($AnimatedSprite.animation == "walk_up" or $AnimatedSprite.animation == "idle_up"):
@@ -151,5 +152,7 @@ func flip_h_all_sprites(yes):
 	$UI/Weapon/AnimatedSprite.flip_h = yes
 	
 func start_dialogue(info):
+	$UI.close_all_open_ui()
+	$UI.can_open_ui = false
 	$UI/Dialogue.visible = true
 	$UI/Dialogue.make_dialogue_options(info)

@@ -34,8 +34,6 @@ func next_color():
 		else:
 			i += 1
 		get_material().set_shader_param("color", cycle[i])
-		print(i)
 
 func _process(delta):
-	#print(i)
 	get_material().set_shader_param("color", cycle[i])

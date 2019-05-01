@@ -10,8 +10,8 @@ shader_param/color = Plane( 1, 1, 1, 0 )
 
 [node name="DayNightCycle" type="Sprite"]
 material = SubResource( 1 )
-position = Vector2( 228, 240 )
-scale = Vector2( 37.2, 21.2 )
+position = Vector2( 288, 224 )
+scale = Vector2( 88.3863, 50.3371 )
 z_index = 300
 texture = ExtResource( 2 )
 script = ExtResource( 3 )

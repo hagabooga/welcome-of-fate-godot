@@ -113,20 +113,41 @@ func get_energy():
 func _init():
 	for x in range(16):
 		stats.append(BaseStat.new(x))
+	hp = 0
+	mp = 0
+	energy = 0
 
 func find_stat(type):
 	for x in stats:
 		if x.type == type:
 			return x
-			
+
+func add_hp(val):
+	self.hp += val
+	if self.hp > self.max_hp:
+		self.hp = self.max_hp
+
+func add_mp(val):
+	self.mp += val
+	if self.mp > self.max_mp:
+		self.mp = self.max_mp
+
+func add_energy(val):
+	self.energy += val
+	if self.energy > self.max_energy:
+		self.energy = self.max_energy
+
 func set_stat(type, val):
 	find_stat(type).value = val
+	update_stats()
 
 func buff_stat(type, val):
 	find_stat(type).buff(val)
+	update_stats()
 
 func remove_buff_stat(type, val):
 	find_stat(type).remove_buff(val)
+	update_stats()
 
 func add_attrib(a):
 	for x in stats:
@@ -134,6 +155,7 @@ func add_attrib(a):
 			if x.type == y.type and y.value != 0:
 				buff_stat(x.type, y.value)
 				break
+	update_stats()
 				
 func remove_attrib(a):
 	for x in stats:
@@ -141,6 +163,7 @@ func remove_attrib(a):
 			if x.type == y.type and y.value != 0:
 				remove_buff_stat(x.type, y.value)
 				break
+	update_stats()
 				
 func update_stats():
 	pass
@@ -148,6 +171,7 @@ func update_stats():
 func print_stats():
 	for x in stats:
 		print("%s: %d"%[global_id.stat_idToName[x.type],x.value])
+		
 func print_stats_bonuses():
 	for x in stats:
 		print("%s: %s"%[global_id.stat_idToName[x.type],x.bonuses])

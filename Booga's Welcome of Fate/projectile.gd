@@ -20,7 +20,7 @@ func set_velocity(facing, flipped_h):
 			velocity = Vector2(-1,0)
 	elif facing == "down": 
 		velocity = Vector2(0,1)
-	print(speed)
+	#print(speed)
 
 func _on_Timer_timeout():
 	queue_free()

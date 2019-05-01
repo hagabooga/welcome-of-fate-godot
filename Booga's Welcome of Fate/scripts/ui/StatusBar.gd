@@ -4,6 +4,7 @@ func _ready():
 	player_stats.connect("hp_change",self, "update_healthBar")
 	player_stats.connect("mp_change",self, "update_manaBar")
 	player_stats.connect("energy_change",self, "update_energyBar")
+	player_stats.connect("stats_change",self, "update_allBars")
 	update_allBars()
 
 func update_healthBar():

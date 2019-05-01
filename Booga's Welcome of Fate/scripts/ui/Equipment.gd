@@ -1,6 +1,22 @@
 extends Panel
 
+
 func _ready():
+	add_equipment_slots()
+	player_stats.connect("stats_change", self, "update_stats_labels")
+	player_stats.update_stats()
+
+func update_stats_labels():
+	var node = $Stats/GridContainer
+	for i in range(node.get_child_count()):
+		var s = player_stats.find_stat(i)
+		var bonus_total = 0
+		for x in s.bonuses:
+			bonus_total += x
+		node.get_child(i).text = "%s: %d+(%d)=%d"%[global_id.stat_idToName[i].capitalize(),\
+			s.value, bonus_total, s.value+bonus_total]
+		
+func add_equipment_slots():
 	$EquipList.add_icon_item(load("res://sprites/icons/accessory.png"))
 	$EquipList.add_icon_item(load("res://sprites/icons/head.png"))
 	$EquipList.add_icon_item(load("res://sprites/icons/neck.png"))
@@ -11,7 +27,6 @@ func _ready():
 	$EquipList.add_icon_item(load("res://sprites/icons/bottom.png"))
 	$EquipList.add_icon_item(load("res://sprites/icons/gloves.png"))
 	$Panel/Tool.add_icon_item(load("res://sprites/icons/shovel.png"))
-
 
 func _on_EquipList_item_selected(index):
 	var item = $EquipList.get_item_metadata(index)
