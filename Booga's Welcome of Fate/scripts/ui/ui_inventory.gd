@@ -79,14 +79,14 @@ func set_labels(item):
 		for x in $ItemInfo/Inside/Title/StatsHolder.get_children():
 			x.queue_free()
 		for x in item.stats.stats:
-			if x.value != 0:
+			if x.final_val != 0:
 				var new_label = Label.new()
 				new_label.align = Label.ALIGN_CENTER
 				var type = global_id.stat_idToName[x.type].capitalize()
-				if x.value > 0:
-					new_label.text = "%s: +%d"%[type, x.value]
+				if x.final_val > 0:
+					new_label.text = "%s: +%d"%[type, x.final_val]
 				else:
-					new_label.text = "%s: %d"%[type, x.value]
+					new_label.text = "%s: %d"%[type, x.final_val]
 				var font = DynamicFont.new()
 				font.font_data = load("res://segoeuil.ttf")
 				font.size = 18

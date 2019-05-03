@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/player/stats/base_stat.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://enemy.gd"
+}, {
 "base": "Item",
 "class": "EquipItem",
 "language": "GDScript",
@@ -63,6 +68,7 @@ _global_script_class_icons={
 "Actionable": "",
 "Attributes": "",
 "BaseStat": "",
+"Enemy": "",
 "EquipItem": "",
 "Item": "",
 "Mage": "",

@@ -14,7 +14,7 @@ func update_stats_labels():
 		for x in s.bonuses:
 			bonus_total += x
 		node.get_child(i).text = "%s: %d+(%d)=%d"%[global_id.stat_idToName[i].capitalize(),\
-			s.value, bonus_total, s.value+bonus_total]
+			s.base, bonus_total, s.final_val]
 		
 func add_equipment_slots():
 	$EquipList.add_icon_item(load("res://sprites/icons/accessory.png"))

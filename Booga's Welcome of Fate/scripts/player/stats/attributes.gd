@@ -45,37 +45,37 @@ func set_eng(val):
 	set_energy_extra()
 	
 func set_str(val):
-	find_stat(0).value = val
+	find_stat(0).base = val
 func set_int(val):
-	find_stat(1).value = val
+	find_stat(1).base = val
 func set_agi(val):
-	find_stat(2).value = val
+	find_stat(2).base = val
 func set_lck(val):
-	find_stat(3).value = val
+	find_stat(3).base = val
 func set_phys(val):
-	find_stat(4).value = val
+	find_stat(4).base = val
 func set_magic(val):
-	find_stat(5).value = val
+	find_stat(5).base = val
 func set_armor(val):
-	find_stat(6).value = val
+	find_stat(6).base = val
 func set_res(val):
-	find_stat(7).value = val
+	find_stat(7).base = val
 func set_hit(val):
-	find_stat(8).value = val
+	find_stat(8).base = val
 func set_dodge(val):
-	find_stat(9).value = val
+	find_stat(9).base = val
 func set_crit(val):
-	find_stat(10).value = val
+	find_stat(10).base = val
 func set_critmulti(val):
-	find_stat(11).value = val
+	find_stat(11).base = val
 func set_atkspd(val):
-	find_stat(12).value = val
+	find_stat(12).base = val
 func set_maxhp(val):
-	find_stat(13).value = val
+	find_stat(13).base = val
 func set_maxmp(val):
-	find_stat(14).value = val
+	find_stat(14).base = val
 func set_energy(val):
-	find_stat(15).value = val
+	find_stat(15).base = val
 	
 func get_str():
 	return find_stat(0).get_final_value()
@@ -138,7 +138,7 @@ func add_energy(val):
 		self.energy = self.max_energy
 
 func set_stat(type, val):
-	find_stat(type).value = val
+	find_stat(type).base = val
 	update_stats()
 
 func buff_stat(type, val):
@@ -152,16 +152,16 @@ func remove_buff_stat(type, val):
 func add_attrib(a):
 	for x in stats:
 		for y in a.stats:
-			if x.type == y.type and y.value != 0:
-				buff_stat(x.type, y.value)
+			if x.type == y.type and y.final_val != 0:
+				buff_stat(x.type, y.final_val)
 				break
 	update_stats()
 				
 func remove_attrib(a):
 	for x in stats:
 		for y in a.stats:
-			if x.type == y.type and y.value != 0:
-				remove_buff_stat(x.type, y.value)
+			if x.type == y.type and y.final_val != 0:
+				remove_buff_stat(x.type, y.final_val)
 				break
 	update_stats()
 				
@@ -170,7 +170,7 @@ func update_stats():
 
 func print_stats():
 	for x in stats:
-		print("%s: %d"%[global_id.stat_idToName[x.type],x.value])
+		print("%s: %d"%[global_id.stat_idToName[x.type],x.final_val])
 		
 func print_stats_bonuses():
 	for x in stats:

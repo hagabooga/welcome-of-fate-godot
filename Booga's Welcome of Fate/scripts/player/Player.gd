@@ -156,3 +156,5 @@ func start_dialogue(info):
 	$UI.can_open_ui = false
 	$UI/Dialogue.visible = true
 	$UI/Dialogue.make_dialogue_options(info)
+
+
