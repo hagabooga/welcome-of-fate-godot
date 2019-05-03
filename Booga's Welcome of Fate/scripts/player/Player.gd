@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 export (int) var speed = 200
 var speed_bonus = 0
 
@@ -62,9 +64,11 @@ func play_facing_anim(anim, canmove):
 func get_action_input():
 	var anim = $AnimatedSprite.animation.substr(0,4)
 	var actionables = $HurtArea.get_overlapping_areas()
-	for x in actionables:
-		if !(x is Actionable):
-			actionables.erase(x)
+	var times = 0
+	for x in range(len(actionables)):
+		if !(actionables[x-times] is Actionable):
+			actionables.erase(actionables[x-times])
+			times += 1
 	if (anim == "idle" or anim == "walk"):
 		if (len(actionables) > 0):
 			var todo_action = actionables[0]

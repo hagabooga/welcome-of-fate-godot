@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Grass/grass.tres" type="TileSet" id=2]
@@ -11,8 +11,7 @@
 [ext_resource path="res://scripts/player/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://NPC.gd" type="Script" id=10]
 [ext_resource path="res://clean booga.png" type="Texture" id=11]
-[ext_resource path="res://Gator.gd" type="Script" id=12]
-[ext_resource path="res://Gator.png" type="Texture" id=13]
+[ext_resource path="res://Gator.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 20 )
@@ -25,12 +24,6 @@ radius = 192.666
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 150.625
-
-[sub_resource type="CircleShape2D" id=5]
-radius = 16.0
-
-[sub_resource type="CircleShape2D" id=6]
-radius = 14.0
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -139,32 +132,7 @@ shape = SubResource( 4 )
 [node name="Sprite" type="Sprite" parent="Clean Booga"]
 texture = ExtResource( 11 )
 
-[node name="Gator" type="KinematicBody2D" parent="."]
-position = Vector2( 1035, 411 )
-script = ExtResource( 12 )
-
-[node name="Sprite" type="Sprite" parent="Gator"]
-texture = ExtResource( 13 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Hurtbox" type="Area2D" parent="Gator"]
-position = Vector2( -1035, -411 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gator/Hurtbox"]
-position = Vector2( 1036, 415 )
-shape = SubResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gator"]
-position = Vector2( 1, 4 )
-shape = SubResource( 6 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Gator" parent="." instance=ExtResource( 12 )]
 
 [connection signal="body_entered" from="Objects/PlayerHome/WarpToInside" to="." method="_on_WarpToInside_body_entered"]
 [connection signal="body_entered" from="Objects/InsidePlayerHome/WarpToOutsideHome" to="." method="_on_WarpToOutsideHome_body_entered"]

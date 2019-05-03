@@ -1,7 +1,6 @@
 extends Enemy
-
-func _ready():
-	pass
 	
-func _process(delta):
-	pass
+func start_stats():
+	stats.max_hp = 100
+	stats.physical = 25
+

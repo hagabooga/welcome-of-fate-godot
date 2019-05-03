@@ -28,7 +28,7 @@ func _on_Timer_timeout():
 
 func _on_Hitbox_area_entered(area):
 	var area_par = area.get_parent()
-	if area_par is Enemy:
+	if area.name == "Hurtbox" and area_par is Enemy:
 		queue_free()
 		area_par.take_damage(damage)
 

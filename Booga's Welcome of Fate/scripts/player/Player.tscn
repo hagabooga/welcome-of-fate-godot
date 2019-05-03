@@ -9,45 +9,45 @@
 [ext_resource path="res://sprites/player/walk/female_walk25.png" type="Texture" id=7]
 [ext_resource path="res://sprites/player/walk/female_walk26.png" type="Texture" id=8]
 [ext_resource path="res://sprites/player/walk/female_walk27.png" type="Texture" id=9]
-[ext_resource path="res://sprites/player/slash/female_slash12.png" type="Texture" id=10]
-[ext_resource path="res://sprites/player/slash/female_slash11.png" type="Texture" id=11]
-[ext_resource path="res://sprites/player/slash/female_slash10.png" type="Texture" id=12]
-[ext_resource path="res://sprites/player/slash/female_slash8.png" type="Texture" id=13]
-[ext_resource path="res://sprites/player/slash/female_slash9.png" type="Texture" id=14]
-[ext_resource path="res://sprites/player/slash/female_slash2.png" type="Texture" id=15]
-[ext_resource path="res://sprites/player/slash/female_slash3.png" type="Texture" id=16]
-[ext_resource path="res://sprites/player/slash/female_slash4.png" type="Texture" id=17]
-[ext_resource path="res://sprites/player/slash/female_slash5.png" type="Texture" id=18]
-[ext_resource path="res://sprites/player/slash/female_slash6.png" type="Texture" id=19]
-[ext_resource path="res://sprites/player/slash/female_slash18.png" type="Texture" id=20]
-[ext_resource path="res://sprites/player/slash/female_slash17.png" type="Texture" id=21]
-[ext_resource path="res://sprites/player/slash/female_slash16.png" type="Texture" id=22]
-[ext_resource path="res://sprites/player/slash/female_slash14.png" type="Texture" id=23]
-[ext_resource path="res://sprites/player/slash/female_slash15.png" type="Texture" id=24]
-[ext_resource path="res://sprites/player/walk/female_walk10.png" type="Texture" id=25]
+[ext_resource path="res://sprites/player/walk/female_walk1.png" type="Texture" id=10]
+[ext_resource path="res://sprites/player/grab/grab_sheet13.png" type="Texture" id=11]
+[ext_resource path="res://sprites/player/grab/grab_sheet14.png" type="Texture" id=12]
+[ext_resource path="res://sprites/player/walk/female_walk19.png" type="Texture" id=13]
+[ext_resource path="res://sprites/player/walk/female_walk3.png" type="Texture" id=14]
+[ext_resource path="res://sprites/player/walk/female_walk4.png" type="Texture" id=15]
+[ext_resource path="res://sprites/player/walk/female_walk5.png" type="Texture" id=16]
+[ext_resource path="res://sprites/player/walk/female_walk6.png" type="Texture" id=17]
+[ext_resource path="res://sprites/player/walk/female_walk7.png" type="Texture" id=18]
+[ext_resource path="res://sprites/player/walk/female_walk8.png" type="Texture" id=19]
+[ext_resource path="res://sprites/player/walk/female_walk9.png" type="Texture" id=20]
+[ext_resource path="res://sprites/player/slash/female_slash14.png" type="Texture" id=21]
+[ext_resource path="res://sprites/player/slash/female_slash15.png" type="Texture" id=22]
+[ext_resource path="res://sprites/player/slash/female_slash16.png" type="Texture" id=23]
+[ext_resource path="res://sprites/player/slash/female_slash17.png" type="Texture" id=24]
+[ext_resource path="res://sprites/player/slash/female_slash18.png" type="Texture" id=25]
 [ext_resource path="res://sprites/player/grab/grab_sheet7.png" type="Texture" id=26]
 [ext_resource path="res://sprites/player/grab/grab_sheet8.png" type="Texture" id=27]
-[ext_resource path="res://sprites/player/grab/grab_sheet1.png" type="Texture" id=28]
-[ext_resource path="res://sprites/player/grab/grab_sheet2.png" type="Texture" id=29]
-[ext_resource path="res://sprites/player/grab/grab_sheet13.png" type="Texture" id=30]
-[ext_resource path="res://sprites/player/grab/grab_sheet14.png" type="Texture" id=31]
-[ext_resource path="res://sprites/player/walk/female_walk19.png" type="Texture" id=32]
-[ext_resource path="res://sprites/player/walk/female_walk11.png" type="Texture" id=33]
-[ext_resource path="res://sprites/player/walk/female_walk12.png" type="Texture" id=34]
-[ext_resource path="res://sprites/player/walk/female_walk13.png" type="Texture" id=35]
-[ext_resource path="res://sprites/player/walk/female_walk14.png" type="Texture" id=36]
-[ext_resource path="res://sprites/player/walk/female_walk15.png" type="Texture" id=37]
-[ext_resource path="res://sprites/player/walk/female_walk16.png" type="Texture" id=38]
-[ext_resource path="res://sprites/player/walk/female_walk17.png" type="Texture" id=39]
-[ext_resource path="res://sprites/player/walk/female_walk18.png" type="Texture" id=40]
-[ext_resource path="res://sprites/player/walk/female_walk3.png" type="Texture" id=41]
-[ext_resource path="res://sprites/player/walk/female_walk4.png" type="Texture" id=42]
-[ext_resource path="res://sprites/player/walk/female_walk5.png" type="Texture" id=43]
-[ext_resource path="res://sprites/player/walk/female_walk6.png" type="Texture" id=44]
-[ext_resource path="res://sprites/player/walk/female_walk7.png" type="Texture" id=45]
-[ext_resource path="res://sprites/player/walk/female_walk8.png" type="Texture" id=46]
-[ext_resource path="res://sprites/player/walk/female_walk9.png" type="Texture" id=47]
-[ext_resource path="res://sprites/player/walk/female_walk1.png" type="Texture" id=48]
+[ext_resource path="res://sprites/player/slash/female_slash8.png" type="Texture" id=28]
+[ext_resource path="res://sprites/player/slash/female_slash9.png" type="Texture" id=29]
+[ext_resource path="res://sprites/player/slash/female_slash10.png" type="Texture" id=30]
+[ext_resource path="res://sprites/player/slash/female_slash11.png" type="Texture" id=31]
+[ext_resource path="res://sprites/player/slash/female_slash12.png" type="Texture" id=32]
+[ext_resource path="res://sprites/player/slash/female_slash6.png" type="Texture" id=33]
+[ext_resource path="res://sprites/player/slash/female_slash5.png" type="Texture" id=34]
+[ext_resource path="res://sprites/player/slash/female_slash4.png" type="Texture" id=35]
+[ext_resource path="res://sprites/player/slash/female_slash2.png" type="Texture" id=36]
+[ext_resource path="res://sprites/player/slash/female_slash3.png" type="Texture" id=37]
+[ext_resource path="res://sprites/player/walk/female_walk10.png" type="Texture" id=38]
+[ext_resource path="res://sprites/player/walk/female_walk11.png" type="Texture" id=39]
+[ext_resource path="res://sprites/player/walk/female_walk12.png" type="Texture" id=40]
+[ext_resource path="res://sprites/player/walk/female_walk13.png" type="Texture" id=41]
+[ext_resource path="res://sprites/player/walk/female_walk14.png" type="Texture" id=42]
+[ext_resource path="res://sprites/player/walk/female_walk15.png" type="Texture" id=43]
+[ext_resource path="res://sprites/player/walk/female_walk16.png" type="Texture" id=44]
+[ext_resource path="res://sprites/player/walk/female_walk17.png" type="Texture" id=45]
+[ext_resource path="res://sprites/player/walk/female_walk18.png" type="Texture" id=46]
+[ext_resource path="res://sprites/player/grab/grab_sheet1.png" type="Texture" id=47]
+[ext_resource path="res://sprites/player/grab/grab_sheet2.png" type="Texture" id=48]
 [ext_resource path="res://scripts/ui/UI.gd" type="Script" id=49]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=50]
 [ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=51]
@@ -72,29 +72,29 @@ animations = [ {
 "name": "walk_down",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "rsls_side",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
-"loop": false,
-"name": "slash_up",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "rsls_down",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "idle_side",
+"name": "idle_up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": false,
-"name": "rsls_up",
+"name": "grab_down",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk_up",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "slash_down",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
@@ -102,52 +102,52 @@ animations = [ {
 "name": "grab_side",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ) ],
-"loop": false,
-"name": "grab_up",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": false,
 "name": "slash_side",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 30 ), ExtResource( 31 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": false,
-"name": "grab_down",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "slash_down",
+"name": "rsls_down",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 32 ) ],
+"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": false,
+"name": "rsls_up",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 33 ) ],
+"loop": false,
+"name": "slash_up",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 38 ) ],
 "loop": true,
-"name": "idle_down",
+"name": "idle_side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "walk_side",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ],
-"loop": true,
-"name": "walk_up",
-"speed": 8.0
+"frames": [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": false,
+"name": "rsls_side",
+"speed": 10.0
 }, {
-"frames": [ ExtResource( 48 ) ],
-"loop": true,
-"name": "idle_up",
-"speed": 5.0
+"frames": [ ExtResource( 47 ), ExtResource( 48 ) ],
+"loop": false,
+"name": "grab_up",
+"speed": 4.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 9.03796
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 10.3752
+radius = 11.0
 
 [sub_resource type="StyleBoxTexture" id=4]
 
@@ -221,11 +221,11 @@ font_data = ExtResource( 50 )
 size = 12
 font_data = ExtResource( 50 )
 
-[sub_resource type="DynamicFont" id=47]
+[sub_resource type="DynamicFont" id=19]
 size = 10
 font_data = ExtResource( 50 )
 
-[sub_resource type="StyleBoxTexture" id=35]
+[sub_resource type="StyleBoxTexture" id=20]
 texture = ExtResource( 51 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 23.0
@@ -233,7 +233,7 @@ margin_right = 34.0
 margin_top = 23.0
 margin_bottom = 20.0
 
-[sub_resource type="StyleBoxTexture" id=36]
+[sub_resource type="StyleBoxTexture" id=21]
 texture = ExtResource( 55 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 27.0
@@ -241,25 +241,25 @@ margin_right = 19.0
 margin_top = 23.0
 margin_bottom = 26.0
 
-[sub_resource type="DynamicFont" id=37]
+[sub_resource type="DynamicFont" id=22]
 size = 32
 font_data = ExtResource( 50 )
 
-[sub_resource type="StyleBoxTexture" id=38]
+[sub_resource type="StyleBoxTexture" id=23]
 
-[sub_resource type="StyleBoxTexture" id=39]
+[sub_resource type="StyleBoxTexture" id=24]
 
-[sub_resource type="DynamicFont" id=40]
+[sub_resource type="DynamicFont" id=25]
 size = 64
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 50 )
 
-[sub_resource type="DynamicFont" id=41]
+[sub_resource type="DynamicFont" id=26]
 size = 42
 font_data = ExtResource( 50 )
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=27]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -274,7 +274,7 @@ tracks/0/keys = {
 "values": [ Vector2( 872, 122 ), Vector2( 880, 122 ) ]
 }
 
-[sub_resource type="StyleBoxTexture" id=43]
+[sub_resource type="StyleBoxTexture" id=28]
 texture = ExtResource( 55 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 38.0
@@ -282,15 +282,15 @@ margin_right = 22.0
 margin_top = 32.0
 margin_bottom = 20.0
 
-[sub_resource type="DynamicFont" id=44]
+[sub_resource type="DynamicFont" id=29]
 size = 24
 font_data = ExtResource( 50 )
 
-[sub_resource type="DynamicFont" id=45]
+[sub_resource type="DynamicFont" id=30]
 size = 18
 font_data = ExtResource( 50 )
 
-[sub_resource type="StyleBoxTexture" id=46]
+[sub_resource type="StyleBoxTexture" id=31]
 texture = ExtResource( 51 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 24.0
@@ -316,7 +316,7 @@ position = Vector2( 0.148369, -1.23777 )
 shape = SubResource( 2 )
 
 [node name="HurtArea" type="Area2D" parent="."]
-position = Vector2( 0.0394993, -1.01308 )
+position = Vector2( 0, -1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -334,6 +334,7 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
 [node name="UI" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = 4096
 z_as_relative = false
 script = ExtResource( 49 )
@@ -609,7 +610,7 @@ columns = 3
 [node name="0" type="Label" parent="UI/Equipment/Stats/GridContainer"]
 margin_right = 58.0
 margin_bottom = 13.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -617,7 +618,7 @@ text = "Strength: 15"
 margin_left = 62.0
 margin_right = 107.0
 margin_bottom = 13.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -625,7 +626,7 @@ text = "Strength: 15"
 margin_left = 111.0
 margin_right = 189.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -633,7 +634,7 @@ text = "Strength: 15"
 margin_top = 18.0
 margin_right = 58.0
 margin_bottom = 31.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -642,7 +643,7 @@ margin_left = 62.0
 margin_top = 18.0
 margin_right = 107.0
 margin_bottom = 31.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -651,7 +652,7 @@ margin_left = 111.0
 margin_top = 18.0
 margin_right = 189.0
 margin_bottom = 31.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -659,7 +660,7 @@ text = "Strength: 15"
 margin_top = 35.0
 margin_right = 58.0
 margin_bottom = 48.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15123"
 
@@ -668,7 +669,7 @@ margin_left = 62.0
 margin_top = 35.0
 margin_right = 107.0
 margin_bottom = 48.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -677,7 +678,7 @@ margin_left = 111.0
 margin_top = 35.0
 margin_right = 189.0
 margin_bottom = 48.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -685,7 +686,7 @@ text = "Strength: 15"
 margin_top = 52.0
 margin_right = 58.0
 margin_bottom = 65.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -694,7 +695,7 @@ margin_left = 62.0
 margin_top = 52.0
 margin_right = 107.0
 margin_bottom = 65.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -703,7 +704,7 @@ margin_left = 111.0
 margin_top = 52.0
 margin_right = 189.0
 margin_bottom = 65.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 123132323"
 
@@ -711,7 +712,7 @@ text = "Strength: 123132323"
 margin_top = 69.0
 margin_right = 58.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 47 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
@@ -729,7 +730,7 @@ margin_left = -480.0
 margin_top = 96.0
 margin_right = 480.0
 margin_bottom = 271.0
-custom_styles/panel = SubResource( 35 )
+custom_styles/panel = SubResource( 20 )
 script = ExtResource( 59 )
 
 [node name="NPCTexture" type="TextureRect" parent="UI/Dialogue"]
@@ -746,7 +747,7 @@ margin_left = 15.0
 margin_top = -41.0
 margin_right = 239.0
 margin_bottom = 31.0
-custom_styles/panel = SubResource( 36 )
+custom_styles/panel = SubResource( 21 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -754,7 +755,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="UI/Dialogue/NamePanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 37 )
+custom_fonts/font = SubResource( 22 )
 text = "Clean Booga"
 align = 1
 valign = 1
@@ -767,9 +768,9 @@ margin_top = 61.0
 margin_right = -18.0
 margin_bottom = -20.0
 focus_mode = 1
-custom_styles/bg_focus = SubResource( 38 )
-custom_styles/bg = SubResource( 39 )
-custom_fonts/font = SubResource( 40 )
+custom_styles/bg_focus = SubResource( 23 )
+custom_styles/bg = SubResource( 24 )
+custom_fonts/font = SubResource( 25 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/icon_margin = 10
 items = [ "Quest", null, false ]
@@ -781,7 +782,7 @@ editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 41 )
+custom_fonts/font = SubResource( 26 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Welcome to Booga's Welcome of Fate. How can I help you?"
 align = 1
@@ -797,7 +798,7 @@ texture = ExtResource( 61 )
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Dialogue/DialogueText/TextureRect"]
-anims/moving = SubResource( 42 )
+anims/moving = SubResource( 27 )
 
 [node name="QuestAsk" type="Panel" parent="UI/Dialogue"]
 editor/display_folded = true
@@ -806,7 +807,7 @@ margin_left = 352.0
 margin_top = -224.0
 margin_right = 608.0
 margin_bottom = -31.0
-custom_styles/panel = SubResource( 43 )
+custom_styles/panel = SubResource( 28 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -819,7 +820,7 @@ custom_constants/separation = 0
 [node name="Name" type="Label" parent="UI/Dialogue/QuestAsk/VBoxContainer"]
 margin_right = 256.0
 margin_bottom = 33.0
-custom_fonts/font = SubResource( 44 )
+custom_fonts/font = SubResource( 29 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Slay The Gators"
 align = 1
@@ -829,7 +830,7 @@ valign = 1
 margin_top = 33.0
 margin_right = 256.0
 margin_bottom = 58.0
-custom_fonts/font = SubResource( 45 )
+custom_fonts/font = SubResource( 30 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Reward: 100 Cash / 50 EXP"
 align = 1
@@ -839,7 +840,7 @@ valign = 1
 margin_top = 58.0
 margin_right = 256.0
 margin_bottom = 83.0
-custom_fonts/font = SubResource( 45 )
+custom_fonts/font = SubResource( 30 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Slay 5 Gators"
 align = 1
@@ -859,7 +860,7 @@ shortcut_in_tooltip = false
 [node name="Reward2" type="Label" parent="UI/Dialogue/QuestAsk/QuestYes"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 45 )
+custom_fonts/font = SubResource( 30 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Yes"
 align = 1
@@ -881,7 +882,7 @@ shortcut_in_tooltip = false
 [node name="Reward2" type="Label" parent="UI/Dialogue/QuestAsk/QuestNo"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 45 )
+custom_fonts/font = SubResource( 30 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "No"
 align = 1
@@ -891,12 +892,12 @@ valign = 1
 editor/display_folded = true
 anchor_right = 1.0
 margin_top = -30.0
-custom_styles/panel = SubResource( 46 )
+custom_styles/panel = SubResource( 31 )
 
 [node name="Reward3" type="Label" parent="UI/Dialogue/QuestAsk/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 45 )
+custom_fonts/font = SubResource( 30 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Quest"
 align = 1
