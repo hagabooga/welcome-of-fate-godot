@@ -137,7 +137,7 @@ func equip(item):
 	else:
 		if item.base == "weapon":
 			index = 3
-			print(item.ming)
+			#print(item.ming)
 			var weapon_scene = load("res://scenes/%s.tscn"%item.ming)
 			if weapon_scene != null:
 				var weap = weapon_scene.instance()
@@ -162,6 +162,8 @@ func equip(item):
 func unequip(index):
 	var current_weapon = get_parent().equipment_itemList.get_item_metadata(index)
 	if current_weapon != null:
+		if current_weapon.base == "weapon":
+			get_parent().weapon.get_child(0).queue_free()
 		player_stats.remove_attrib(current_weapon.stats)
 		add(current_weapon)
 	

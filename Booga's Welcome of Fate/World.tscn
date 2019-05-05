@@ -118,38 +118,6 @@ shape = SubResource( 2 )
 [node name="Gator" parent="." instance=ExtResource( 9 )]
 collision_layer = 4
 
-[node name="Gator2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 672, 369 )
-collision_layer = 4
-
-[node name="Gator3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 672, 399 )
-collision_layer = 4
-
-[node name="Gator4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 718, 432 )
-collision_layer = 4
-
-[node name="Gator5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 727, 377 )
-collision_layer = 4
-
-[node name="Gator6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 733, 336 )
-collision_layer = 4
-
-[node name="Gator7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 799, 347 )
-collision_layer = 4
-
-[node name="Gator8" parent="." instance=ExtResource( 9 )]
-position = Vector2( 662, 301 )
-collision_layer = 4
-
-[node name="Gator9" parent="." instance=ExtResource( 9 )]
-position = Vector2( 619, 364 )
-collision_layer = 4
-
 [node name="Player" parent="." instance=ExtResource( 10 )]
 position = Vector2( 950, 426 )
 

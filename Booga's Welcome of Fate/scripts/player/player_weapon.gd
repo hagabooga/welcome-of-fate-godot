@@ -13,10 +13,9 @@ func _process(delta):
 	
 func _draw():
 	var col = Color.red
-	if $Hitbox/CollisionShape2D.disabled:
-		col = Color.silver
-	col.a = 0.5
-	draw_circle($Hitbox.position, $Hitbox/CollisionShape2D.shape.radius, col)
+	if !$Hitbox/CollisionShape2D.disabled:
+		col.a = 0.5
+		draw_circle($Hitbox.position, $Hitbox/CollisionShape2D.shape.radius, col)
 
 
 func get_damage():

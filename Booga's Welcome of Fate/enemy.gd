@@ -6,10 +6,14 @@ var stats = Attributes.new()
 var attack_in_range = false
 var target = null
 var move_speed = 35
+var alive = true
 
 var orig_playerRange
 var orig_hurtbox
 var orig_attackArea
+
+var try_timer = 0
+var current_try
 
 func _ready():
 	orig_playerRange = $PlayerRange.position.x
@@ -21,18 +25,19 @@ func _ready():
 #	detect_radius = $PlayerRange/CollisionShape2D.shape.radius
 
 func _process(delta):
-	if $AnimationPlayer.current_animation != "die":
-		var z = world_globals.tilemap_soil.world_to_map(global_position).y
-		if z >= 0:
-			z_index = world_globals.tilemap_soil.world_to_map(global_position).y
-		$Sprite.self_modulate = Color.white
-		if target:
-			if look(delta):
-				if (attack_in_range):
-					$AnimationPlayer.play("attack")
-			else:
-				$AnimationPlayer.play("idle")
-		update()
+	if alive:
+		if $AnimationPlayer.current_animation != "die":
+			var z = world_globals.tilemap_soil.world_to_map(global_position).y
+			if z >= 0:
+				z_index = world_globals.tilemap_soil.world_to_map(global_position).y
+			$Sprite.self_modulate = Color.white
+			if target:
+				if look(delta):
+					if (attack_in_range):
+						$AnimationPlayer.play("attack")
+				else:
+					$AnimationPlayer.play("idle")
+			update()
 
 
 var hit_pos
@@ -53,40 +58,32 @@ func look(delta):
 					follow_player(delta)
 			return true
 	return false
-			
-#
-#var detect_radius
-#var vis_color = Color(.867, .91,.247,.1)
-#var laser_color = Color.red
-#
-#func _draw():
-#	draw_circle(Vector2.ZERO,detect_radius, vis_color)
-#	if target:
-#		var pos = (hit_pos - position)
-#		draw_circle(pos, 5, laser_color)
-#		draw_line(Vector2.ZERO, pos, laser_color)
+		
 
 	
 func attack():
 	player_stats.add_hp(-stats.physical)
 
 func take_damage(val):
-	var final_val = stepify(-val,1)
-	stats.hp += final_val
-	var popup = ui_maker.make_damage_popup()
-	popup.set_text_and_play(final_val)
-	$AboveHeadPos.add_child(popup)
-	if stats.hp <= 0:
-		die()
+	if alive:
+		var final_val = stepify(-val,1)
+		stats.hp += final_val
+		var popup = ui_maker.make_damage_popup()
+		popup.set_text_and_play(final_val)
+		$AboveHeadPos.add_child(popup)
+		if stats.hp <= 0:
+			die()
 
 func die():
-	$Hurtbox/CollisionShape2D.disabled = true
-	$Sprite.position = $Sprite.offset
-	$Sprite.offset = Vector2.ZERO
-	$AnimationPlayer.play("die")
+	if alive:
+		alive = false
+		$CollisionShape2D.queue_free()
+		$Hurtbox/CollisionShape2D.queue_free()
+		$Sprite.position = $Sprite.offset
+		$Sprite.offset = Vector2.ZERO
+		$AnimationPlayer.play("die")
 
-var try_timer = 0
-var current_try
+
 func follow_player(delta):
 	face_player()
 	if (target and !attack_in_range):
@@ -164,10 +161,7 @@ func _on_AttackArea_area_exited(area):
 		attack_in_range = false
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "die":
-		queue_free()
-	else:
-		$AnimationPlayer.play("idle")
+	$AnimationPlayer.play("idle")
 
 func start_stats():
 	pass
@@ -175,3 +169,15 @@ func start_stats():
 func final_stats():
 	stats.hp = stats.max_hp
 	stats.mp = stats.max_mp
+
+
+#var detect_radius
+#var vis_color = Color(.867, .91,.247,.1)
+#var laser_color = Color.red
+#
+#func _draw():
+#	draw_circle(Vector2.ZERO,detect_radius, vis_color)
+#	if target:
+#		var pos = (hit_pos - position)
+#		draw_circle(pos, 5, laser_color)
+#		draw_line(Vector2.ZERO, pos, laser_color)

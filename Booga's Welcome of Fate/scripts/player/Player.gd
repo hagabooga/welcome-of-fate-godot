@@ -158,9 +158,11 @@ func show_action_ui(yes, action = "Pick Up"):
 
 func flip_h_all_sprites(yes):
 	$AnimatedSprite.flip_h = yes
-	$UI/Tool/AnimatedSprite.flip_h = yes
-	if $UI/Weapon.get_child_count() > 0: 
-		$UI/Weapon.get_child(0).flip_h = yes
+	if yes:
+		$UI/Weapon.scale.x = -1
+	else:
+		$UI/Weapon.scale.x = 1
+
 	
 func start_dialogue(info):
 	$UI.close_all_open_ui()
