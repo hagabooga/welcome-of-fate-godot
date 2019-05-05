@@ -74,13 +74,14 @@ __meta__ = {
 [node name="WorldObjects" type="TileMap" parent="TileMaps"]
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 32 )
-collision_layer = 6
+collision_mask = 2
 format = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Objects" type="Node2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -115,17 +116,39 @@ shape = SubResource( 2 )
 [node name="Plants" type="Node2D" parent="."]
 
 [node name="Gator" parent="." instance=ExtResource( 9 )]
-editor/display_folded = true
-rotation = -3.14159
-scale = Vector2( 1, -1 )
-collision_layer = 1
-collision_mask = 1
+collision_layer = 4
 
-[node name="CollisionShape2D" parent="Gator/PlayerRange" index="0"]
-modulate = Color( 1, 1, 1, 0.286275 )
+[node name="Gator2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 672, 369 )
+collision_layer = 4
 
-[node name="Sprite" parent="Gator" index="5"]
-modulate = Color( 1, 1, 1, 1 )
+[node name="Gator3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 672, 399 )
+collision_layer = 4
+
+[node name="Gator4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 718, 432 )
+collision_layer = 4
+
+[node name="Gator5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 727, 377 )
+collision_layer = 4
+
+[node name="Gator6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 733, 336 )
+collision_layer = 4
+
+[node name="Gator7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 799, 347 )
+collision_layer = 4
+
+[node name="Gator8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 662, 301 )
+collision_layer = 4
+
+[node name="Gator9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 619, 364 )
+collision_layer = 4
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
 position = Vector2( 950, 426 )
@@ -152,5 +175,3 @@ texture = ExtResource( 12 )
 
 [connection signal="body_entered" from="Objects/PlayerHome/WarpToInside" to="." method="_on_WarpToInside_body_entered"]
 [connection signal="body_entered" from="Objects/InsidePlayerHome/WarpToOutsideHome" to="." method="_on_WarpToOutsideHome_body_entered"]
-
-[editable path="Gator"]

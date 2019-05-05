@@ -137,12 +137,11 @@ func equip(item):
 	else:
 		if item.base == "weapon":
 			index = 3
-			var weapon_script = load("res://scripts/weapons/%s.gd"%item.ming)
-			if weapon_script != null:
-				get_parent().weapon.set_script(load("res://scripts/weapons/%s.gd"%item.ming))
-			else:
-				get_parent().weapon.set_script(load("res://scripts/player/player_weapon.gd"))
-			get_parent().weapon.set_frames(item.ming)
+			print(item.ming)
+			var weapon_scene = load("res://scenes/%s.tscn"%item.ming)
+			if weapon_scene != null:
+				var weap = weapon_scene.instance()
+				get_parent().weapon.add_child(weap)
 		elif item.base == "armor":
 			match item.type:
 				"accessory": index = 0
@@ -165,7 +164,6 @@ func unequip(index):
 	if current_weapon != null:
 		player_stats.remove_attrib(current_weapon.stats)
 		add(current_weapon)
-		#player_stats.print_stats_bonuses()
 	
 func equip_tool(item):
 	get_parent().tool_action.set_script(load("res://scripts/tools/" + item.ming + ".gd"))

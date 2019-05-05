@@ -88,10 +88,14 @@ func get_action_input():
 				play_facing_anim($UI.tool_action.tool_anim, false)
 				$UI.tool_action.use()
 				$UI/Tool/AnimatedSprite.play(facing)
+				$AnimatedSprite.speed_scale = 10
 		if Input.is_action_just_pressed("attack"):
-			play_facing_anim("slash", false)
-			$UI/Weapon/AnimatedSprite.play(facing)
-			$UI/Weapon.attack_effect(facing, $AnimatedSprite.flip_h)
+			if $UI/Weapon.get_child_count() > 0:
+				play_facing_anim("slash", false)
+				$UI/Weapon.get_child(0).reset()
+				$UI/Weapon.get_child(0).play_anim(facing,10 * player_stats.atk_spd)
+				$UI/Weapon.get_child(0).attack_effect(facing, $AnimatedSprite.flip_h)
+				$AnimatedSprite.speed_scale = 10 * player_stats.atk_spd
 
 func _physics_process(delta):
 	var z = world_globals.tilemap_soil.world_to_map(global_position).y
@@ -132,6 +136,7 @@ func _on_AnimatedSprite_animation_finished():
 	var anims = ["grab", "slas", "rsls"]
 	if ($AnimatedSprite.animation.substr(0,4) in anims):
 		$AnimatedSprite.play("idle_"+facing)
+		$AnimatedSprite.speed_scale = 1
 		can_move = true
 		
 func get_facing_tile_pos():
@@ -154,7 +159,8 @@ func show_action_ui(yes, action = "Pick Up"):
 func flip_h_all_sprites(yes):
 	$AnimatedSprite.flip_h = yes
 	$UI/Tool/AnimatedSprite.flip_h = yes
-	$UI/Weapon/AnimatedSprite.flip_h = yes
+	if $UI/Weapon.get_child_count() > 0: 
+		$UI/Weapon.get_child(0).flip_h = yes
 	
 func start_dialogue(info):
 	$UI.close_all_open_ui()

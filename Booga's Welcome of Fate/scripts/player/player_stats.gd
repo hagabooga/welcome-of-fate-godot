@@ -10,6 +10,7 @@ signal stats_change
 func _init():
 	level = 1
 	update_stats()
+	self.atk_spd = 1
 	self.hp = self.max_hp
 	self.mp = self.max_mp
 	self.energy = self.max_energy
