@@ -9,35 +9,35 @@
 [ext_resource path="res://sprites/player/walk/female_walk25.png" type="Texture" id=7]
 [ext_resource path="res://sprites/player/walk/female_walk26.png" type="Texture" id=8]
 [ext_resource path="res://sprites/player/walk/female_walk27.png" type="Texture" id=9]
-[ext_resource path="res://sprites/player/walk/female_walk1.png" type="Texture" id=10]
-[ext_resource path="res://sprites/player/grab/grab_sheet13.png" type="Texture" id=11]
-[ext_resource path="res://sprites/player/grab/grab_sheet14.png" type="Texture" id=12]
-[ext_resource path="res://sprites/player/walk/female_walk19.png" type="Texture" id=13]
-[ext_resource path="res://sprites/player/walk/female_walk3.png" type="Texture" id=14]
-[ext_resource path="res://sprites/player/walk/female_walk4.png" type="Texture" id=15]
-[ext_resource path="res://sprites/player/walk/female_walk5.png" type="Texture" id=16]
-[ext_resource path="res://sprites/player/walk/female_walk6.png" type="Texture" id=17]
-[ext_resource path="res://sprites/player/walk/female_walk7.png" type="Texture" id=18]
-[ext_resource path="res://sprites/player/walk/female_walk8.png" type="Texture" id=19]
-[ext_resource path="res://sprites/player/walk/female_walk9.png" type="Texture" id=20]
-[ext_resource path="res://sprites/player/slash/female_slash14.png" type="Texture" id=21]
-[ext_resource path="res://sprites/player/slash/female_slash15.png" type="Texture" id=22]
-[ext_resource path="res://sprites/player/slash/female_slash16.png" type="Texture" id=23]
-[ext_resource path="res://sprites/player/slash/female_slash17.png" type="Texture" id=24]
-[ext_resource path="res://sprites/player/slash/female_slash18.png" type="Texture" id=25]
-[ext_resource path="res://sprites/player/grab/grab_sheet7.png" type="Texture" id=26]
-[ext_resource path="res://sprites/player/grab/grab_sheet8.png" type="Texture" id=27]
-[ext_resource path="res://sprites/player/slash/female_slash8.png" type="Texture" id=28]
-[ext_resource path="res://sprites/player/slash/female_slash9.png" type="Texture" id=29]
-[ext_resource path="res://sprites/player/slash/female_slash10.png" type="Texture" id=30]
-[ext_resource path="res://sprites/player/slash/female_slash11.png" type="Texture" id=31]
-[ext_resource path="res://sprites/player/slash/female_slash12.png" type="Texture" id=32]
-[ext_resource path="res://sprites/player/slash/female_slash6.png" type="Texture" id=33]
+[ext_resource path="res://sprites/player/slash/female_slash18.png" type="Texture" id=10]
+[ext_resource path="res://sprites/player/slash/female_slash17.png" type="Texture" id=11]
+[ext_resource path="res://sprites/player/slash/female_slash16.png" type="Texture" id=12]
+[ext_resource path="res://sprites/player/slash/female_slash14.png" type="Texture" id=13]
+[ext_resource path="res://sprites/player/slash/female_slash15.png" type="Texture" id=14]
+[ext_resource path="res://sprites/player/walk/female_walk19.png" type="Texture" id=15]
+[ext_resource path="res://sprites/player/slash/female_slash12.png" type="Texture" id=16]
+[ext_resource path="res://sprites/player/slash/female_slash11.png" type="Texture" id=17]
+[ext_resource path="res://sprites/player/slash/female_slash10.png" type="Texture" id=18]
+[ext_resource path="res://sprites/player/slash/female_slash8.png" type="Texture" id=19]
+[ext_resource path="res://sprites/player/slash/female_slash9.png" type="Texture" id=20]
+[ext_resource path="res://sprites/player/grab/grab_sheet7.png" type="Texture" id=21]
+[ext_resource path="res://sprites/player/grab/grab_sheet8.png" type="Texture" id=22]
+[ext_resource path="res://sprites/player/walk/female_walk1.png" type="Texture" id=23]
+[ext_resource path="res://sprites/player/walk/female_walk3.png" type="Texture" id=24]
+[ext_resource path="res://sprites/player/walk/female_walk4.png" type="Texture" id=25]
+[ext_resource path="res://sprites/player/walk/female_walk5.png" type="Texture" id=26]
+[ext_resource path="res://sprites/player/walk/female_walk6.png" type="Texture" id=27]
+[ext_resource path="res://sprites/player/walk/female_walk7.png" type="Texture" id=28]
+[ext_resource path="res://sprites/player/walk/female_walk8.png" type="Texture" id=29]
+[ext_resource path="res://sprites/player/walk/female_walk9.png" type="Texture" id=30]
+[ext_resource path="res://sprites/player/slash/female_slash2.png" type="Texture" id=31]
+[ext_resource path="res://sprites/player/slash/female_slash3.png" type="Texture" id=32]
+[ext_resource path="res://sprites/player/slash/female_slash4.png" type="Texture" id=33]
 [ext_resource path="res://sprites/player/slash/female_slash5.png" type="Texture" id=34]
-[ext_resource path="res://sprites/player/slash/female_slash4.png" type="Texture" id=35]
-[ext_resource path="res://sprites/player/slash/female_slash2.png" type="Texture" id=36]
-[ext_resource path="res://sprites/player/slash/female_slash3.png" type="Texture" id=37]
-[ext_resource path="res://sprites/player/walk/female_walk10.png" type="Texture" id=38]
+[ext_resource path="res://sprites/player/slash/female_slash6.png" type="Texture" id=35]
+[ext_resource path="res://sprites/player/walk/female_walk10.png" type="Texture" id=36]
+[ext_resource path="res://sprites/player/grab/grab_sheet1.png" type="Texture" id=37]
+[ext_resource path="res://sprites/player/grab/grab_sheet2.png" type="Texture" id=38]
 [ext_resource path="res://sprites/player/walk/female_walk11.png" type="Texture" id=39]
 [ext_resource path="res://sprites/player/walk/female_walk12.png" type="Texture" id=40]
 [ext_resource path="res://sprites/player/walk/female_walk13.png" type="Texture" id=41]
@@ -46,8 +46,8 @@
 [ext_resource path="res://sprites/player/walk/female_walk16.png" type="Texture" id=44]
 [ext_resource path="res://sprites/player/walk/female_walk17.png" type="Texture" id=45]
 [ext_resource path="res://sprites/player/walk/female_walk18.png" type="Texture" id=46]
-[ext_resource path="res://sprites/player/grab/grab_sheet1.png" type="Texture" id=47]
-[ext_resource path="res://sprites/player/grab/grab_sheet2.png" type="Texture" id=48]
+[ext_resource path="res://sprites/player/grab/grab_sheet13.png" type="Texture" id=47]
+[ext_resource path="res://sprites/player/grab/grab_sheet14.png" type="Texture" id=48]
 [ext_resource path="res://scripts/ui/UI.gd" type="Script" id=49]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=50]
 [ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=51]
@@ -72,75 +72,75 @@ animations = [ {
 "name": "walk_down",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "idle_up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "grab_down",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "idle_down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "walk_up",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
-"loop": false,
-"name": "slash_down",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
-"loop": false,
-"name": "grab_side",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
-"loop": false,
-"name": "slash_side",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "rsls_down",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": false,
-"name": "rsls_up",
+"name": "rsls_side",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "grab_side",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "walk_up",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "slash_down",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "slash_up",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 38 ) ],
+"frames": [ ExtResource( 36 ) ],
 "loop": true,
 "name": "idle_side",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": false,
+"name": "grab_up",
+"speed": 4.0
 }, {
 "frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "walk_side",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ) ],
 "loop": false,
-"name": "rsls_side",
+"name": "slash_side",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 47 ), ExtResource( 48 ) ],
 "loop": false,
-"name": "grab_up",
+"name": "grab_down",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 32 ) ],
+"loop": false,
+"name": "rsls_up",
+"speed": 10.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -299,6 +299,7 @@ margin_top = 23.0
 margin_bottom = 16.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 3
 script = ExtResource( 1 )
 speed = 100
 
@@ -334,7 +335,6 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
 [node name="UI" type="Node2D" parent="."]
-editor/display_folded = true
 z_index = 4096
 z_as_relative = false
 script = ExtResource( 49 )

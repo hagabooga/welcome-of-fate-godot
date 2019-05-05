@@ -13,6 +13,7 @@ func _ready():
 	$UI/Tool/AnimatedSprite.connect("animation_finished",$UI/Tool ,"stop_anim")
 	player_equip.player_inventory = $UI/Inventory
 	play_facing_anim('idle', true)
+	player_stats.connect("on_add_hp", self, "make_damage_popup")
 
 func get_input():
 	velocity = Vector2()
@@ -161,4 +162,8 @@ func start_dialogue(info):
 	$UI/Dialogue.visible = true
 	$UI/Dialogue.make_dialogue_options(info)
 
-
+func make_damage_popup(val):
+	if val != 0:
+		var popup = ui_maker.make_damage_popup()
+		$UI/PlayerChangeToolSprite.add_child(popup)
+		popup.set_text_and_play(val)

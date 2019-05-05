@@ -1,6 +1,7 @@
 extends Mage
 #var stats = load("res://mage.gd").new()
 
+signal on_add_hp(val)
 signal hp_change
 signal mp_change
 signal energy_change
@@ -13,8 +14,6 @@ func _init():
 	self.mp = self.max_mp
 	self.energy = self.max_energy
 	
-
-
 
 func can_use(e):
 	if (self.energy >= e):
@@ -35,6 +34,7 @@ func add_hp(val):
 	if self.hp <= 0:
 		print("PLAYER HAS DIED RESETTING HP...")
 		self.hp = self.max_hp
+	emit_signal("on_add_hp", val)
 
 func set_hp_extra():
 	emit_signal("hp_change")
