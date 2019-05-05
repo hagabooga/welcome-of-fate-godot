@@ -138,7 +138,7 @@ func equip(item):
 		if item.base == "weapon":
 			index = 3
 			#print(item.ming)
-			var weapon_scene = load("res://scenes/%s.tscn"%item.ming)
+			var weapon_scene = load("res://scenes/weapons/%s.tscn"%item.ming)
 			if weapon_scene != null:
 				var weap = weapon_scene.instance()
 				get_parent().weapon.add_child(weap)

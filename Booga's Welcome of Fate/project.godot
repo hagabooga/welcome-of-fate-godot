@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://enemy.gd"
+"path": "res://scripts/enemies/enemy.gd"
 }, {
 "base": "Item",
 "class": "EquipItem",
@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Actionable",
 "class": "Npc",
 "language": "GDScript",
-"path": "res://NPC.gd"
+"path": "res://scripts/npc/NPC.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -57,17 +57,17 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Projectile",
 "language": "GDScript",
-"path": "res://projectile.gd"
+"path": "res://scripts/projectiles/projectile.gd"
 }, {
 "base": "Node",
 "class": "Quest",
 "language": "GDScript",
-"path": "res://quest.gd"
+"path": "res://scripts/quests/quest.gd"
 }, {
 "base": "Node",
 "class": "QuestGoal",
 "language": "GDScript",
-"path": "res://quest_goal.gd"
+"path": "res://scripts/quests/quest_goal.gd"
 } ]
 _global_script_class_icons={
 "Actionable": "",
@@ -92,16 +92,16 @@ config/icon="res://icon.png"
 
 [autoload]
 
-world_globals="*res://world_globals.gd"
+world_globals="*res://scripts/general/world_globals.gd"
 item_database="*res://scripts/items/item_database.gd"
 item_activations="*res://scripts/items/item_activations.gd"
 player_stats="*res://scripts/player/player_stats.gd"
-global_id="*res://global_id.gd"
+global_id="*res://scripts/general/global_id.gd"
 player_equip="*res://scripts/player/player_equip.gd"
-DayNightCycle="*res://DayNightCycle.tscn"
-npc_database="*res://npc_database.gd"
-quest_database="*res://quest_database.gd"
-ui_maker="*res://ui_maker.gd"
+DayNightCycle="*res://scenes/general/DayNightCycle.tscn"
+npc_database="*res://scripts/npc/npc_database.gd"
+quest_database="*res://scripts/quests/quest_database.gd"
+ui_maker="*res://scripts/general/ui_maker.gd"
 
 [debug]
 
@@ -119,7 +119,6 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=960
 window/size/height=540
-window/size/fullscreen=true
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"

@@ -1,6 +1,6 @@
 extends "res://scripts/player/player_weapon.gd"
 
-var projectile = load("res://MagicShot.tscn")
+var projectile = load("res://scenes/projectiles/MagicShot.tscn")
 
 
 

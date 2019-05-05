@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gator.png-b76cf6145d580f10372783f2aeb63c49.stex"
+path="res://.import/Gator.png-17820efa5b779c216862ead9f33c3b04.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gator.png"
-dest_files=[ "res://.import/Gator.png-b76cf6145d580f10372783f2aeb63c49.stex" ]
+source_file="res://sprites/enemies/Gator.png"
+dest_files=[ "res://.import/Gator.png-17820efa5b779c216862ead9f33c3b04.stex" ]
 
 [params]
 

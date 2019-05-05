@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/buttonBeige.png-24e94ffda61ed775afeed9a6c41b806b.stex"
+path="res://.import/Gator Attack.png-7d8a3f04ff0ca450f4da284d57cae2bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://buttonBeige.png"
-dest_files=[ "res://.import/buttonBeige.png-24e94ffda61ed775afeed9a6c41b806b.stex" ]
+source_file="res://sprites/enemies/Gator Attack.png"
+dest_files=[ "res://.import/Gator Attack.png-7d8a3f04ff0ca450f4da284d57cae2bf.stex" ]
 
 [params]
 

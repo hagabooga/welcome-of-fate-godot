@@ -1,6 +1,6 @@
 extends Panel
 
-var arrow_texture = load("res://Arrow Right.png")
+var arrow_texture = load("res://sprites/ui/Arrow Right.png")
 
 var current_info
 var showing_dialogue = false

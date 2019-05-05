@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/clean booga.png-7830165cd6bbdf56ab07fe9ca2efc631.stex"
+path="res://.import/buttonBeige.png-47a0a6fb54f61c19a8cc2adbddb71807.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clean booga.png"
-dest_files=[ "res://.import/clean booga.png-7830165cd6bbdf56ab07fe9ca2efc631.stex" ]
+source_file="res://sprites/ui/buttonBeige.png"
+dest_files=[ "res://.import/buttonBeige.png-47a0a6fb54f61c19a8cc2adbddb71807.stex" ]
 
 [params]
 

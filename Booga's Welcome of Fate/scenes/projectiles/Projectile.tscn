@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://projectile.gd" type="Script" id=1]
+[ext_resource path="res://scripts/projectiles/projectile.gd" type="Script" id=1]
+
 
 [node name="Projectile" type="KinematicBody2D"]
 scale = Vector2( 1.35568, 1.35568 )

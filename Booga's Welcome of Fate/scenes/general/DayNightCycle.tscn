@@ -2,7 +2,8 @@
 
 [ext_resource path="res://night_day_cycle.shader" type="Shader" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://DayNightCycle.gd" type="Script" id=3]
+[ext_resource path="res://scripts/general/DayNightCycle.gd" type="Script" id=3]
+
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )

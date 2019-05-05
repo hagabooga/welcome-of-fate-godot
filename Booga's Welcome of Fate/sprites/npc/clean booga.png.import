@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/midnight.png-00debe13b04bde13b16f86f06eef82f1.stex"
+path="res://.import/clean booga.png-a8306b9c623f018dee6d932935f48299.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://midnight.png"
-dest_files=[ "res://.import/midnight.png-00debe13b04bde13b16f86f06eef82f1.stex" ]
+source_file="res://sprites/npc/clean booga.png"
+dest_files=[ "res://.import/clean booga.png-a8306b9c623f018dee6d932935f48299.stex" ]
 
 [params]
 
