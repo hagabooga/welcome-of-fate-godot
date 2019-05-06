@@ -57,3 +57,5 @@ var item_type = {
 	1:"Misc.",
 	2:"Tool",
 	3:"Wand"}
+	
+var id_facing_string = {0:"up", 1:"left", 2:"down", 3:"right"}

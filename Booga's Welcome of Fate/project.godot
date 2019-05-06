@@ -106,7 +106,6 @@ ui_maker="*res://scripts/general/ui_maker.gd"
 [debug]
 
 settings/fps/force_fps=150
-settings/stdout/print_fps=true
 gdscript/warnings/unassigned_variable=false
 gdscript/warnings/unassigned_variable_op_assign=false
 gdscript/warnings/unused_variable=false

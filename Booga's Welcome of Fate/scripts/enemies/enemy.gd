@@ -53,7 +53,6 @@ func look(delta):
 		if result:
 			hit_pos = result.position
 			if result.collider.name == "Player":
-				#print(result)
 				if $AnimationPlayer.current_animation == "idle":
 					follow_player(delta)
 			return true

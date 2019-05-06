@@ -8,7 +8,8 @@ func set_text_and_play(text):
 			$Control/Label.add_color_override("font_color", Color.skyblue)
 	$Control/Label.text = str(text)
 	$AnimationPlayer.play("popup")
-	
+	position.x += randi()%40-20
+	position.y -= randi()%15
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()

@@ -9,7 +9,7 @@
 [ext_resource path="res://tileset_objects/PlayerHome.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tileset_objects/InsidePlayerHome.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemies/CombatDummy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scripts/player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/player/Player2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/npc/NPC.gd" type="Script" id=11]
 [ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=12]
 
@@ -119,7 +119,8 @@ shape = SubResource( 2 )
 position = Vector2( 879, 355 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-position = Vector2( 950, 426 )
+position = Vector2( 991, 411 )
+speed = 100
 
 [node name="Clean Booga" type="Area2D" parent="."]
 editor/display_folded = true
