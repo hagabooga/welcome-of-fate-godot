@@ -17,7 +17,7 @@ func _ready():
 
 
 func get_damage():
-	print("base player_weapon get_damage() called")
+	#print("base player_weapon get_damage() called")
 	return player_stats.physical
 	
 func reset():

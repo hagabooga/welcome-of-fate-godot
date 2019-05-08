@@ -76,10 +76,12 @@ func get_action_input():
 			if $UI/Weapon.get_child_count() > 0:
 				var anim_face = facing
 				anim_face = check_facing_side()
-				$UI/Weapon.get_child(0).reset()
-				$UI/Weapon.get_child(0).play_anim(anim_face,10)
-				$UI/Weapon.get_child(0).attack_effect(anim_face, $UI/Tool.scale.x)
+				#$UI/Weapon.get_child(0).reset()
+				#$UI/Weapon.get_child(0).play_anim(anim_face,10)
+				#$UI/Weapon.get_child(0).attack_effect(anim_face, $UI/Tool.scale.x)
 				$BodySprite.anim_speed = 10
+				$UI/Weapon.get_child(0).anim_speed = 10
+				$UI/Weapon.get_child(0).play_action_anim("slash",$BodySprite.current_direction,true)
 				$BodySprite.play_action_anim("slash",$BodySprite.current_direction,true)
 
 
@@ -144,11 +146,9 @@ func show_action_ui(yes, action = "Pick Up"):
 
 func flip_h_all_sprites(yes):
 	if yes:
-		$UI/Weapon.scale.x = -1
 		$UI/Tool.scale.x = -1
 	else:
 		$UI/Tool.scale.x = 1
-		$UI/Weapon.scale.x = 1
 
 	
 func start_dialogue(info):

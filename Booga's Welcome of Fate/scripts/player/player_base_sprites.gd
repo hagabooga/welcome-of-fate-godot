@@ -1,5 +1,7 @@
 extends Sprite
 
+class_name PlayerBaseSprite
+
 var actions = ["cast","thrust","walk","slash", "bow", "die"]
 var action_max_frame = {"cast":7,"thrust":8,"walk":9,"slash":6, "bow":13, "die":6}
 enum {up,left,down,right}
