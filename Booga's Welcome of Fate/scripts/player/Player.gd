@@ -8,13 +8,19 @@ var velocity = Vector2()
 var facing = "down"
 var can_move = true
 
+
 func _ready():
-	$UI/Tool/AnimatedSprite.connect("animation_finished",$UI/Tool ,"stop_anim")
 	player_equip.player_inventory = $UI/Inventory
 	#play_facing_anim('idle', true)
 	$BodySprite.play_idle(down)
 	player_stats.connect("on_add_hp", self, "make_damage_popup")
 	$BodySprite.connect("anim_finished",self,"body_anim_finished")
+
+
+func play_all_anims(action, dir, once = false):
+	$BodySprite.play_action_anim(action, dir, once)
+	for i in range($Equips.get_child_count()):
+		$Equips.get_child(i).play_action_anim(action, dir, once)
 
 func get_input():
 	velocity = Vector2()
@@ -29,26 +35,27 @@ func get_input():
 	if velocity.x == 1:
 		facing = 'right'
 		flip_h_all_sprites(true)
-		$BodySprite.play_action_anim("walk",right)
+		play_all_anims("walk",right)
 	elif velocity.x == -1:
 		facing = 'left'
 		flip_h_all_sprites(false)
-		$BodySprite.play_action_anim("walk",left)
+		play_all_anims("walk",left)
 	if velocity.x == 0 and velocity.y == -1:
 		facing = 'up'
 		flip_h_all_sprites(false)
-		$BodySprite.play_action_anim("walk",up)
+		play_all_anims("walk",up)
 	if velocity.x == 0 and velocity.y == 1:
 		facing = 'down'
 		flip_h_all_sprites(false)
-		$BodySprite.play_action_anim("walk",down)
+		play_all_anims("walk",down)
 	if velocity.x == 0 and velocity.y == 0:
 		facing = global_id.id_facing_string[$BodySprite.current_direction]
 		$BodySprite.play_idle($BodySprite.current_direction)
+		$Equips.get_child(0).play_idle($BodySprite.current_direction)
 	velocity = velocity.normalized() * (speed)
 
 func get_action_input():
-	var actionables = $HurtArea.get_overlapping_areas()
+	var actionables = $Hurtbox.get_overlapping_areas()
 	var times = 0
 	for x in range(len(actionables)):
 		if !(actionables[x-times] is Actionable):
@@ -73,16 +80,12 @@ func get_action_input():
 				$UI.tool_action.use()
 				$UI/Tool/AnimatedSprite.play(check_facing_side())
 		if Input.is_action_just_pressed("attack"):
-			if $UI/Weapon.get_child_count() > 0:
-				var anim_face = facing
-				anim_face = check_facing_side()
-				#$UI/Weapon.get_child(0).reset()
-				#$UI/Weapon.get_child(0).play_anim(anim_face,10)
-				#$UI/Weapon.get_child(0).attack_effect(anim_face, $UI/Tool.scale.x)
-				$BodySprite.anim_speed = 10
-				$UI/Weapon.get_child(0).anim_speed = 10
-				$UI/Weapon.get_child(0).play_action_anim("slash",$BodySprite.current_direction,true)
-				$BodySprite.play_action_anim("slash",$BodySprite.current_direction,true)
+			var anim_face = facing
+			play_all_anims("slash",$BodySprite.current_direction,true)
+			anim_face = check_facing_side()
+			$Equips.get_child(0).reset()
+			$BodySprite.anim_speed = 10
+			$Equips.get_child(0).anim_speed = 10
 
 
 func check_facing_side():
@@ -146,9 +149,9 @@ func show_action_ui(yes, action = "Pick Up"):
 
 func flip_h_all_sprites(yes):
 	if yes:
-		$UI/Tool.scale.x = -1
+		$Tool.scale.x = -1
 	else:
-		$UI/Tool.scale.x = 1
+		$Tool.scale.x = 1
 
 	
 func start_dialogue(info):

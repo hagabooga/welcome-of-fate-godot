@@ -4,6 +4,8 @@
 [ext_resource path="res://sprites/weapons/magic wand_animations.png" type="Texture" id=2]
 [ext_resource path="res://scripts/weapons/magic wand.gd" type="Script" id=3]
 
+
+
 [node name="MagicWand" index="0" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
 vframes = 21

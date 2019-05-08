@@ -29,7 +29,7 @@ func play_action_anim(action, dir, once = false):
 		fps = 0
 		current_action = action
 		current_direction = dir
-		current_action_frame = 1
+		current_action_frame = 0
 		
 func play_idle(dir):
 	frame = dir*13

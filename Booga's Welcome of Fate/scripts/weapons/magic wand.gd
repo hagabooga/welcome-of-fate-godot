@@ -1,21 +1,21 @@
-#extends "res://scripts/player/player_weapon.gd"
-#
-#var projectile = load("res://scenes/projectiles/MagicShot.tscn")
-#
-#
-#
-#func attack_effect(facing, flipped_h):
-#	var proj = projectile.instance()
-#	world_globals.world.add_child(proj)
-#	proj.global_position = global_position
-#	proj.set_velocity(facing, flipped_h)
-#	proj.damage = proj_damage()
-#
-#func proj_damage():
-#	return player_stats.magical * 0.2
+
 extends PlayerBaseSprite
 var damage setget ,get_damage
 var targets_hit = []
+
+
+var projectile = load("res://scenes/projectiles/MagicShot.tscn")
+
+func attack_effect(facing, flipped_h):
+	var proj = projectile.instance()
+	world_globals.world.add_child(proj)
+	proj.global_position = global_position
+	proj.set_velocity(facing, flipped_h)
+	proj.damage = proj_damage()
+
+func proj_damage():
+	return player_stats.magical * 0.2
+
 
 func _ready():
 	$Hitbox/CollisionShape2D.disabled = true
@@ -41,11 +41,6 @@ func play_anim(anim, speed):
 	$AnimationPlayer.play(anim)
 	targets_hit = []
 	
-	
-
-func attack_effect(facing, flipped_h):
-	pass
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if $AnimationPlayer.assigned_animation != "idle":
 		$AnimationPlayer.play("idle")

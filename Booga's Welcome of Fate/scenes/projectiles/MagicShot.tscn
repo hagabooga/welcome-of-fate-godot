@@ -3,8 +3,6 @@
 [ext_resource path="res://scenes/projectiles/Projectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/projectiles/Magic Shot.png" type="Texture" id=2]
 
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.37637
 

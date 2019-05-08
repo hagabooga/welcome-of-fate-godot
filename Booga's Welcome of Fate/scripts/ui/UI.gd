@@ -14,7 +14,7 @@ func _ready():
 	inventory = $Inventory
 	tool_itemList = $Equipment/Panel/Tool
 	tool_action = $Tool
-	player_change_tool_sprite = $PlayerChangeToolSprite
+	player_change_tool_sprite = $PxlayerChangeToolSprite
 	equipment_itemList = $Equipment/EquipList
 	$Inventory.visible = false
 	$Equipment.visible = false
