@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/weapons/Weapon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://sprites/weapons/magic wand slash.png" type="Texture" id=2]
+[ext_resource path="res://sprites/weapons/magic wand_animations.png" type="Texture" id=2]
 [ext_resource path="res://scripts/weapons/magic wand.gd" type="Script" id=3]
 
 [node name="MagicWand" index="0" instance=ExtResource( 1 )]

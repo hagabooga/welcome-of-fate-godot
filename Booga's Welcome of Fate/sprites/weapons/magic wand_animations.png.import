@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/magic wand slash.png-786303a50043850cf8d10faf936b16f1.stex"
+path="res://.import/magic wand_animations.png-13d74410ec6599b96650e66c2b4e3b7b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/weapons/magic wand slash.png"
-dest_files=[ "res://.import/magic wand slash.png-786303a50043850cf8d10faf936b16f1.stex" ]
+source_file="res://sprites/weapons/magic wand_animations.png"
+dest_files=[ "res://.import/magic wand_animations.png-13d74410ec6599b96650e66c2b4e3b7b.stex" ]
 
 [params]
 
