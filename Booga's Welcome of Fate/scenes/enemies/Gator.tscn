@@ -5,6 +5,8 @@
 [ext_resource path="res://sprites/enemies/Gator.png" type="Texture" id=3]
 [ext_resource path="res://sprites/enemies/Gator Attack.png" type="Texture" id=4]
 
+
+
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0
 

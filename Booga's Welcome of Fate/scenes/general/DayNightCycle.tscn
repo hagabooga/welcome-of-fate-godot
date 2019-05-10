@@ -5,6 +5,8 @@
 [ext_resource path="res://scripts/general/DayNightCycle.gd" type="Script" id=3]
 
 
+
+
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 shader_param/color = Plane( 1, 1, 1, 0 )

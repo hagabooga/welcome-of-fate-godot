@@ -5,22 +5,34 @@ export (int) var speed = 200
 var speed_bonus = 0
 enum {up,left,down,right}
 var velocity = Vector2()
-var facing = "down"
+var facing = down
 var can_move = true
 
 
 func _ready():
 	player_equip.player_inventory = $UI/Inventory
 	#play_facing_anim('idle', true)
-	$BodySprite.play_idle(down)
 	player_stats.connect("on_add_hp", self, "make_damage_popup")
-	$BodySprite.connect("anim_finished",self,"body_anim_finished")
 
-
-func play_all_anims(action, dir, once = false):
-	$BodySprite.play_action_anim(action, dir, once)
+func get_all_sprite_with_body_animation():
+	var all = []
+	all.append($SpriteWithBodyAnimation)
 	for i in range($Equips.get_child_count()):
-		$Equips.get_child(i).play_action_anim(action, dir, once)
+		all.append($Equips.get_child(i))
+	return all
+
+func play_all_anims(action, dir, speed_ratio = 8):
+	if dir != down:
+		$Equips.z_index = -1
+	else:
+		$Equips.z_index = 1
+	for x in get_all_sprite_with_body_animation():
+		x.play_anim(action,dir)
+		x.find_node("AnimationPlayer").playback_speed = speed_ratio
+
+func play_all_idle(dir):
+	for x in get_all_sprite_with_body_animation():
+		x.play_anim("idle", dir)
 
 func get_input():
 	velocity = Vector2()
@@ -33,26 +45,21 @@ func get_input():
 	elif Input.is_action_pressed('ui_up'):
 		velocity.y = -1
 	if velocity.x == 1:
-		facing = 'right'
-		flip_h_all_sprites(true)
+		facing = right
 		play_all_anims("walk",right)
 	elif velocity.x == -1:
-		facing = 'left'
-		flip_h_all_sprites(false)
+		facing = left
 		play_all_anims("walk",left)
 	if velocity.x == 0 and velocity.y == -1:
-		facing = 'up'
-		flip_h_all_sprites(false)
+		facing = up
 		play_all_anims("walk",up)
 	if velocity.x == 0 and velocity.y == 1:
-		facing = 'down'
-		flip_h_all_sprites(false)
+		facing = down
 		play_all_anims("walk",down)
 	if velocity.x == 0 and velocity.y == 0:
-		facing = global_id.id_facing_string[$BodySprite.current_direction]
-		$BodySprite.play_idle($BodySprite.current_direction)
-		$Equips.get_child(0).play_idle($BodySprite.current_direction)
+		play_all_idle(facing)
 	velocity = velocity.normalized() * (speed)
+	
 
 func get_action_input():
 	var actionables = $Hurtbox.get_overlapping_areas()
@@ -61,7 +68,7 @@ func get_action_input():
 		if !(actionables[x-times] is Actionable):
 			actionables.erase(actionables[x-times])
 			times += 1
-	if can_anim():
+	if can_move:
 		if (len(actionables) > 0):
 			var todo_action = actionables[0]
 			show_action_ui(true, todo_action.action_string)
@@ -76,22 +83,11 @@ func get_action_input():
 			show_action_ui(false)
 		if Input.is_action_just_pressed("action"):
 			if (player_stats.can_use($UI.tool_action.energy_cost)):
-				$BodySprite.play_action_anim($UI.tool_action.tool_anim, $BodySprite.current_direction,true)
+				$BodySprite.play_action_anim($UI.tool_action.tool_anim, $BodySprite.current_direction)
 				$UI.tool_action.use()
-				$UI/Tool/AnimatedSprite.play(check_facing_side())
 		if Input.is_action_just_pressed("attack"):
-			var anim_face = facing
-			play_all_anims("slash",$BodySprite.current_direction,true)
-			anim_face = check_facing_side()
-			$Equips.get_child(0).reset()
-			$BodySprite.anim_speed = 10
-			$Equips.get_child(0).anim_speed = 10
-
-
-func check_facing_side():
-	if facing == "left" or facing == "right":
-		return "side"
-	return facing
+			play_all_anims("slash", facing)
+			can_move = false
 
 func _physics_process(delta):
 	var z = world_globals.tilemap_soil.world_to_map(global_position).y
@@ -99,19 +95,16 @@ func _physics_process(delta):
 		z_index = world_globals.tilemap_soil.world_to_map(global_position).y
 	if !$UI/Dialogue.visible:
 		get_action_input()
-		if can_move and can_anim():
+		if can_move:
 			get_input()
 			move_and_slide(velocity)
 			global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func _input(event):
-	if can_anim():
+	if true:
 		if Input.is_action_pressed("ctrl"):
 			if Input.is_action_pressed("switch_tool_up"):
 				$UI/Inventory.quick_change_tool(false)
-
-func can_anim():
-	return $BodySprite.current_action == "idle" || $BodySprite.current_action == "walk"
 
 func create_world_object_grab():
 	var facing_tile = get_facing_tile_pos()
@@ -132,27 +125,19 @@ func create_world_object_grab():
 		
 func get_facing_tile_pos():
 	var pos = world_globals.tilemap_soil.world_to_map(global_position)
-	if check_facing_side() == "side":
-		if(facing == "right"):
+	if facing == right:
 			pos.x += 1
-		else:
+	elif facing == left:
 			pos.x += -1
-	elif facing == "up":
+	elif facing == up:
 		pos.y += -1
-	elif facing == "down":
+	elif facing == down:
 		pos.y += 1
 	return pos
 
 func show_action_ui(yes, action = "Pick Up"):
 	$UI/Action.visible = yes
 	$UI/Action/Label.text = action
-
-func flip_h_all_sprites(yes):
-	if yes:
-		$Tool.scale.x = -1
-	else:
-		$Tool.scale.x = 1
-
 	
 func start_dialogue(info):
 	$UI.close_all_open_ui()
@@ -166,5 +151,8 @@ func make_damage_popup(val):
 		$UI/PlayerChangeToolSprite.add_child(popup)
 		popup.set_text_and_play(val)
 
-func body_anim_finished():
-	$BodySprite.play_idle($BodySprite.current_direction)
+func _on_AnimationPlayer_animation_finished(anim_name):
+	var substr = anim_name.substr(0,4)
+	if substr != "walk" || substr != "idle":
+		play_all_idle(facing)
+		can_move = true

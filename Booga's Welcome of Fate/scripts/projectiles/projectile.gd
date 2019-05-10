@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 class_name Projectile
-
+enum {up,left,down,right}
 var velocity = Vector2.ZERO
 export(int) var speed = 20
 export(float) var travel_time = 1
@@ -12,14 +12,13 @@ func _physics_process(delta):
 	
 func set_velocity(facing, flipped_h):
 	$Timer.start(travel_time)
-	if facing == "up":
+	if facing == up:
 		velocity = Vector2(0,-1)
-	elif facing == "side":
-		if flipped_h == -1:
-			velocity = Vector2(1,0)
-		else:
-			velocity = Vector2(-1,0)
-	elif facing == "down": 
+	elif facing == left:
+		velocity = Vector2(-1,0)
+	elif facing == down:
+		velocity = Vector2(1,0)
+	else:
 		velocity = Vector2(0,1)
 
 func _on_Timer_timeout():

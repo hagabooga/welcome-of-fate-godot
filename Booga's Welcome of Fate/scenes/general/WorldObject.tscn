@@ -4,6 +4,8 @@
 [ext_resource path="res://sprites/items/branch.png" type="Texture" id=2]
 
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "grab"
 tracks/0/type = "value"

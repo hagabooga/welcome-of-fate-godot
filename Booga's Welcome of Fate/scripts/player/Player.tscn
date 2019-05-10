@@ -1,24 +1,23 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scripts/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://sprites/player/sara_body.png" type="Texture" id=2]
-[ext_resource path="res://scripts/player/player_base_sprites.gd" type="Script" id=3]
-[ext_resource path="res://scenes/weapons/magic wand.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/ui/PlayerChangeToolSprite.gd" type="Script" id=5]
-[ext_resource path="res://scripts/tools/tool.gd" type="Script" id=6]
-[ext_resource path="res://scripts/ui/UI.gd" type="Script" id=7]
-[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=9]
-[ext_resource path="res://scripts/player/Date.gd" type="Script" id=10]
-[ext_resource path="res://scripts/ui/StatusBar.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/player/Quests_ui.gd" type="Script" id=12]
-[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=13]
-[ext_resource path="res://sprites/ui/buttonBeige.png" type="Texture" id=14]
-[ext_resource path="res://scripts/ui/Equipment.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scripts/ui/ui_inventory.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/player/Dialogue.gd" type="Script" id=17]
-[ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=18]
-[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=19]
+[ext_resource path="res://scenes/SpriteWithBodyAnimation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/weapons/MagicWand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/ui/PlayerChangeToolSprite.gd" type="Script" id=4]
+[ext_resource path="res://scripts/tools/tool.gd" type="Script" id=5]
+[ext_resource path="res://scripts/ui/UI.gd" type="Script" id=6]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=8]
+[ext_resource path="res://scripts/player/Date.gd" type="Script" id=9]
+[ext_resource path="res://scripts/ui/StatusBar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/player/Quests_ui.gd" type="Script" id=11]
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=12]
+[ext_resource path="res://sprites/ui/buttonBeige.png" type="Texture" id=13]
+[ext_resource path="res://scripts/ui/Equipment.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/ui/ui_inventory.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scripts/player/Dialogue.gd" type="Script" id=16]
+[ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=17]
+[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=18]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.03796
@@ -32,20 +31,20 @@ radius = 11.0
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 100, 100 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 40
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 35.0
 margin_right = 17.0
@@ -54,10 +53,10 @@ margin_bottom = 24.0
 
 [sub_resource type="DynamicFont" id=8]
 size = 24
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 43.0
 margin_right = 30.0
@@ -65,7 +64,7 @@ margin_top = 23.0
 margin_bottom = 23.0
 
 [sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 24.0
 margin_right = 60.0
@@ -76,34 +75,34 @@ margin_bottom = 32.0
 
 [sub_resource type="DynamicFont" id=12]
 size = 14
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 10
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 22
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 20
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=16]
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=17]
 size = 12
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=18]
 size = 10
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxTexture" id=19]
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 23.0
 margin_right = 34.0
@@ -111,7 +110,7 @@ margin_top = 23.0
 margin_bottom = 20.0
 
 [sub_resource type="StyleBoxTexture" id=20]
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 27.0
 margin_right = 19.0
@@ -120,7 +119,7 @@ margin_bottom = 26.0
 
 [sub_resource type="DynamicFont" id=21]
 size = 32
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxTexture" id=22]
 
@@ -130,11 +129,11 @@ font_data = ExtResource( 8 )
 size = 64
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=25]
 size = 42
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=26]
 loop = true
@@ -152,7 +151,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="StyleBoxTexture" id=27]
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 38.0
 margin_right = 22.0
@@ -161,14 +160,14 @@ margin_bottom = 20.0
 
 [sub_resource type="DynamicFont" id=28]
 size = 24
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=29]
 size = 18
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxTexture" id=30]
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 24.0
 margin_right = 23.0
@@ -180,21 +179,21 @@ collision_layer = 3
 script = ExtResource( 1 )
 speed = 100
 
-[node name="BodySprite" type="Sprite" parent="."]
-z_index = 1
-texture = ExtResource( 2 )
+[node name="SpriteWithBodyAnimation" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 offset = Vector2( 0, -20 )
-vframes = 21
-hframes = 13
-region_enabled = true
-region_rect = Rect2( 0, 0, 832, 1344 )
-script = ExtResource( 3 )
+frame = 26
 
 [node name="Equips" type="Node2D" parent="."]
 position = Vector2( 0, -20 )
 z_index = 2
 
-[node name="MagicWand" parent="Equips" instance=ExtResource( 4 )]
+[node name="MagicWand" parent="Equips" instance=ExtResource( 3 )]
+z_index = -1
+vframes = 21
+hframes = 13
+region_enabled = true
+region_rect = Rect2( 0, 0, 832, 1344 )
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 modulate = Color( 1, 0.792157, 0, 1 )
@@ -221,14 +220,14 @@ drag_margin_bottom = 0.0
 
 [node name="PlayerChangeToolSprite" type="Sprite" parent="."]
 position = Vector2( 0, -52 )
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="PlayerChangeToolSprite"]
 wait_time = 0.5
 
 [node name="Tool" type="Node2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Tool"]
 position = Vector2( 0, -20 )
@@ -237,7 +236,7 @@ position = Vector2( 0, -20 )
 editor/display_folded = true
 z_index = 4096
 z_as_relative = false
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -289,7 +288,7 @@ margin_top = 204.0
 margin_right = 480.0
 margin_bottom = 270.0
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
 [node name="Date" type="Label" parent="UI/Date"]
 anchor_right = 1.0
@@ -309,7 +308,7 @@ text = "Spring 15"
 align = 1
 valign = 2
 
-[node name="StatusBar" parent="UI" instance=ExtResource( 11 )]
+[node name="StatusBar" parent="UI" instance=ExtResource( 10 )]
 
 [node name="Quests" type="Panel" parent="UI"]
 editor/display_folded = true
@@ -319,7 +318,7 @@ margin_top = -269.0
 margin_right = -160.0
 margin_bottom = 63.0
 custom_styles/panel = SubResource( 9 )
-script = ExtResource( 12 )
+script = ExtResource( 11 )
 
 [node name="ItemPanel" type="Panel" parent="UI/Quests"]
 editor/display_folded = true
@@ -368,7 +367,7 @@ editor/display_folded = true
 margin_top = -40.0
 margin_right = 59.0
 margin_bottom = -2.0
-texture_normal = ExtResource( 14 )
+texture_normal = ExtResource( 13 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -392,7 +391,7 @@ margin_left = 59.0
 margin_top = -40.0
 margin_right = 123.0
 margin_bottom = -2.0
-texture_normal = ExtResource( 14 )
+texture_normal = ExtResource( 13 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -486,7 +485,7 @@ text = "Slay 5 Gators"
 align = 1
 autowrap = true
 
-[node name="Equipment" parent="UI" instance=ExtResource( 15 )]
+[node name="Equipment" parent="UI" instance=ExtResource( 14 )]
 editor/display_folded = true
 visible = false
 margin_right = -160.0
@@ -617,7 +616,7 @@ custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
-[node name="Inventory" parent="UI" instance=ExtResource( 16 )]
+[node name="Inventory" parent="UI" instance=ExtResource( 15 )]
 visible = false
 margin_left = 64.0
 margin_top = -270.0
@@ -632,14 +631,14 @@ margin_top = 96.0
 margin_right = 480.0
 margin_bottom = 271.0
 custom_styles/panel = SubResource( 19 )
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 
 [node name="NPCTexture" type="TextureRect" parent="UI/Dialogue"]
 margin_left = 19.0
 margin_top = -255.0
 margin_right = 234.0
 margin_bottom = -40.0
-texture = ExtResource( 18 )
+texture = ExtResource( 17 )
 expand = true
 stretch_mode = 6
 
@@ -695,7 +694,7 @@ margin_left = 895.744
 margin_top = 122.0
 margin_right = 929.744
 margin_bottom = 158.0
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Dialogue/DialogueText/TextureRect"]
@@ -804,6 +803,7 @@ text = "Quest"
 align = 1
 valign = 1
 
+[connection signal="animation_finished" from="SpriteWithBodyAnimation/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="PlayerChangeToolSprite/Timer" to="PlayerChangeToolSprite" method="_on_Timer_timeout"]
 [connection signal="item_selected" from="UI/Quests/ItemPanel/InProgressQuests" to="UI/Quests" method="_on_InProgressQuests_item_selected"]
 [connection signal="item_selected" from="UI/Quests/ItemPanel/CompletedQuests" to="UI/Quests" method="_on_CompletedQuests_item_selected"]
@@ -812,3 +812,5 @@ valign = 1
 [connection signal="item_activated" from="UI/Dialogue/Options" to="UI/Dialogue" method="_on_Options_item_activated"]
 [connection signal="pressed" from="UI/Dialogue/QuestAsk/QuestYes" to="UI/Dialogue" method="_on_QuestYes_pressed"]
 [connection signal="pressed" from="UI/Dialogue/QuestAsk/QuestNo" to="UI/Dialogue" method="_on_QuestNo_pressed"]
+
+[editable path="SpriteWithBodyAnimation"]

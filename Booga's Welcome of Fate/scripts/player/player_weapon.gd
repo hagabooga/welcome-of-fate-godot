@@ -1,19 +1,5 @@
 extends Node2D
 
-var damage setget ,get_damage
-var targets_hit = []
-
-func _ready():
-	$Hitbox/CollisionShape2D.disabled = true
-
-#func _process(delta):
-#	update()
-#
-#func _draw():
-#	var col = Color.red
-#	if !$Hitbox/CollisionShape2D.disabled:
-#		col.a = 0.5
-#		draw_circle($Hitbox.position, $Hitbox/CollisionShape2D.shape.radius, col)
 
 
 func get_damage():

@@ -123,9 +123,10 @@ shape = SubResource( 2 )
 position = Vector2( 879, 355 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-position = Vector2( 950, 426 )
+position = Vector2( 1002, 402 )
 
 [node name="Clean Booga" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1133, 377 )
 scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 11 )
