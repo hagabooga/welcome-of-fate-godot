@@ -2,7 +2,6 @@ extends "res://scripts/tools/tool.gd"
 
 func _init():
 	tool_anim = "slash"
-	$AnimatedSprite.frames = load("res://frames/hoe/hoe_frames.tres")
 
 func use():
 	var facing = get_owner().get_facing_tile_pos()

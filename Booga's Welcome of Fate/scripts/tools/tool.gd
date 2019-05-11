@@ -1,4 +1,4 @@
-extends Node2D
+extends SpriteWithBodyAnimation
 
 var energy_cost = 0
 var tool_anim = "slash"
@@ -6,7 +6,3 @@ var tool_anim = "slash"
 
 func use():
 	pass
-	
-					
-func stop_anim():
-	$AnimatedSprite.play("default")

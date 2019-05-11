@@ -7,32 +7,38 @@ enum {up,left,down,right}
 var velocity = Vector2()
 var facing = down
 var can_move = true
-
+var equipped_weapon = null
 
 func _ready():
 	player_equip.player_inventory = $UI/Inventory
-	#play_facing_anim('idle', true)
 	player_stats.connect("on_add_hp", self, "make_damage_popup")
 
 func get_all_sprite_with_body_animation():
 	var all = []
 	all.append($SpriteWithBodyAnimation)
+	all.append($Tool)
 	for i in range($Equips.get_child_count()):
 		all.append($Equips.get_child(i))
 	return all
 
-func play_all_anims(action, dir, speed_ratio = 8):
+func change_equip_z(dir):
 	if dir != down:
 		$Equips.z_index = -1
 	else:
 		$Equips.z_index = 1
+
+func play_all_anims(action, dir, speed_ratio = 8, backwards = false):
+	change_equip_z(dir)
 	for x in get_all_sprite_with_body_animation():
-		x.play_anim(action,dir)
-		x.find_node("AnimationPlayer").playback_speed = speed_ratio
+		if x.get_script() != null:
+			x.play_anim(action,dir,backwards)
+			x.find_node("AnimationPlayer").playback_speed = speed_ratio
 
 func play_all_idle(dir):
+	change_equip_z(dir)
 	for x in get_all_sprite_with_body_animation():
-		x.play_anim("idle", dir)
+		if x.get_script() != null:
+			x.play_anim("idle", dir)
 
 func get_input():
 	velocity = Vector2()
@@ -73,21 +79,32 @@ func get_action_input():
 			var todo_action = actionables[0]
 			show_action_ui(true, todo_action.action_string)
 			if (Input.is_action_just_pressed("z")):
-				$BodySprite.play_action_anim("slash", $BodySprite.current_direction,true)
+				play_all_anims("slash", facing)
+				can_move = false
 				todo_action.apply_action(self)
 		elif get_facing_tile_pos() in world_globals.tilemap_world_objects.get_used_cells():
 			show_action_ui(true)
 			if (Input.is_action_just_pressed("z")):
+				play_all_anims("slash", facing)
+				can_move = false
 				create_world_object_grab()
 		else:
 			show_action_ui(false)
-		if Input.is_action_just_pressed("action"):
-			if (player_stats.can_use($UI.tool_action.energy_cost)):
-				$BodySprite.play_action_anim($UI.tool_action.tool_anim, $BodySprite.current_direction)
-				$UI.tool_action.use()
-		if Input.is_action_just_pressed("attack"):
+		if $Tool.get_script() != null and Input.is_action_just_pressed("action"):
+			if (player_stats.can_use($Tool.energy_cost)):
+				play_all_anims("slash", facing, 8, true)
+				can_move = false
+				$Tool.use()
+				$Tool.visible = true
+				if equipped_weapon != null:
+					equipped_weapon.visible = false
+		if equipped_weapon != null and Input.is_action_just_pressed("attack"):
 			play_all_anims("slash", facing)
+			equipped_weapon.attack_effect()
 			can_move = false
+			if equipped_weapon != null:
+				equipped_weapon.visible =true
+			$Tool.visible = false
 
 func _physics_process(delta):
 	var z = world_globals.tilemap_soil.world_to_map(global_position).y
@@ -109,7 +126,6 @@ func _input(event):
 func create_world_object_grab():
 	var facing_tile = get_facing_tile_pos()
 	if facing_tile in world_globals.tilemap_world_objects.get_used_cells():
-		#play_facing_anim("grab", false)
 		var world_object_name = world_globals.dict_world_object_name[world_globals.tilemap_world_objects.get_cellv(facing_tile)]
 		var item = item_database.make_item(world_object_name)
 		$UI/Inventory.add(item)
@@ -148,11 +164,12 @@ func start_dialogue(info):
 func make_damage_popup(val):
 	if val != 0:
 		var popup = ui_maker.make_damage_popup()
-		$UI/PlayerChangeToolSprite.add_child(popup)
+		$PlayerChangeToolSprite.add_child(popup)
 		popup.set_text_and_play(val)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	var substr = anim_name.substr(0,4)
 	if substr != "walk" || substr != "idle":
-		play_all_idle(facing)
 		can_move = true
+	$Tool.visible = false
+	equipped_weapon.visible =true

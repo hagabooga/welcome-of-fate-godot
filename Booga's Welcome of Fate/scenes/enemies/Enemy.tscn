@@ -2,8 +2,6 @@
 
 [ext_resource path="res://scripts/enemies/enemy.gd" type="Script" id=1]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
 
@@ -68,6 +66,8 @@ position = Vector2( 1, 4 )
 editor/display_folded = true
 modulate = Color( 1, 1, 0, 0.545098 )
 position = Vector2( 1, 4 )
+collision_layer = 4
+collision_mask = 4
 __meta__ = {
 "_edit_group_": true
 }

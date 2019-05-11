@@ -1,7 +1,9 @@
 extends Panel
 
+var player
 
 func _ready():
+	player = get_parent().get_parent()
 	$InventoryItemList.focus_mode = 0
 	$ItemInfo/Inside.visible = false
 	add(item_database.make_item("watering can"))
@@ -26,7 +28,7 @@ func _ready():
 func quick_change_tool(rev):
 	var item = find_type("tool",rev)
 	equip(item)
-	get_parent().player_change_tool_sprite.set_texture("res://sprites/items/%s.png"%item.ming)
+	player.find_node("PlayerChangeToolSprite").set_texture("res://sprites/items/%s.png"%item.ming)
 
 func find_type(type, rev):
 	var r
@@ -124,12 +126,12 @@ func equip(item):
 		var split_name = item.ming.split(" ")
 		if len(split_name) > 1:
 			if split_name[1] == "seedbag":
-				var tewl = get_parent().tool_action
+				var tewl = player.find_node("Tool")
 				tewl.set_script(load("res://scripts/tools/" + split_name[1] + ".gd"))
 				tewl.plant_ming = split_name[0]
-				tewl.set_color(item.color)
 				get_parent().tool_itemList.set_item_icon(0, load("res://sprites/items/%s.png"%item.ming))
 				get_parent().tool_itemList.set_item_metadata(0,item)
+				player.find_node("Tool").texture = load("res://sprites/body animations/%s/%s.png"%[item.ming,item.ming])
 			else:
 				equip_tool(item)
 		else:
@@ -137,11 +139,11 @@ func equip(item):
 	else:
 		if item.base == "weapon":
 			index = 3
-			#print(item.ming)
 			var weapon_scene = load("res://scenes/weapons/%s.tscn"%item.ming)
 			if weapon_scene != null:
 				var weap = weapon_scene.instance()
-				get_parent().weapon.add_child(weap)
+				get_parent().get_parent().equipped_weapon = weap
+				get_parent().get_parent().find_node("Equips").add_child(weap)
 		elif item.base == "armor":
 			match item.type:
 				"accessory": index = 0
@@ -163,12 +165,14 @@ func unequip(index):
 	var current_weapon = get_parent().equipment_itemList.get_item_metadata(index)
 	if current_weapon != null:
 		if current_weapon.base == "weapon":
-			get_parent().weapon.get_child(0).queue_free()
+			get_parent().get_parent().equipped_weapon.queue_free()
+			get_parent().get_parent().equipped_weapon = null
 		player_stats.remove_attrib(current_weapon.stats)
 		add(current_weapon)
 	
 func equip_tool(item):
-	get_parent().tool_action.set_script(load("res://scripts/tools/" + item.ming + ".gd"))
+	player.find_node("Tool").set_script(load("res://scripts/tools/" + item.ming + ".gd"))
+	player.find_node("Tool").texture = load("res://sprites/body animations/%s/%s.png"%[item.ming,item.ming])
 	get_parent().tool_itemList.set_item_icon(0, load("res://sprites/items/%s.png"%item.ming))
 	get_parent().tool_itemList.set_item_metadata(0,item)
 

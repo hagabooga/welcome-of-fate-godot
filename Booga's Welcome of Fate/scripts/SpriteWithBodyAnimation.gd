@@ -4,6 +4,7 @@ class_name SpriteWithBodyAnimation
 var current_dir
 enum {up,left,down,right}
 
+
 func dir_to_string(dir):
 	match dir:
 		up:
@@ -15,6 +16,9 @@ func dir_to_string(dir):
 		right:
 			return "right"
 
-func play_anim(anim, dir):
+func play_anim(anim, dir,backwards = false):
 	current_dir = dir
-	$AnimationPlayer.play("%s_%s"%[anim,dir_to_string(dir)])
+	if backwards:
+		$AnimationPlayer.play_backwards("%s_%s"%[anim,dir_to_string(dir)])
+	else:
+		$AnimationPlayer.play("%s_%s"%[anim,dir_to_string(dir)])
