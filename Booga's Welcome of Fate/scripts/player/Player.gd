@@ -172,4 +172,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if substr != "walk" || substr != "idle":
 		can_move = true
 	$Tool.visible = false
-	equipped_weapon.visible =true
+	if equipped_weapon != null:
+		equipped_weapon.visible = true
