@@ -789,10 +789,15 @@ valign = 1
 current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
+smoothing_enabled = true
 drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
+
+[node name="DashInterval" type="Timer" parent="."]
+wait_time = 0.14
+one_shot = true
 
 [connection signal="timeout" from="PlayerChangeToolSprite/Timer" to="PlayerChangeToolSprite" method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="SpriteWithBodyAnimation/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
@@ -803,5 +808,6 @@ drag_margin_bottom = 0.0
 [connection signal="item_activated" from="UI/Dialogue/Options" to="UI/Dialogue" method="_on_Options_item_activated"]
 [connection signal="pressed" from="UI/Dialogue/QuestAsk/QuestYes" to="UI/Dialogue" method="_on_QuestYes_pressed"]
 [connection signal="pressed" from="UI/Dialogue/QuestAsk/QuestNo" to="UI/Dialogue" method="_on_QuestNo_pressed"]
+[connection signal="timeout" from="DashInterval" to="." method="_on_DashInterval_timeout"]
 
 [editable path="SpriteWithBodyAnimation"]

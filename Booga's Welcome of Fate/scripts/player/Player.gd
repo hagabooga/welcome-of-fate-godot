@@ -8,8 +8,12 @@ var velocity = Vector2()
 var facing = down
 var can_move = true
 var equipped_weapon = null
+var dash_key = null
+var dash_current_time = 0
+var dash_time_interval
 
 func _ready():
+	dash_time_interval = $DashInterval.wait_time
 	player_equip.player_inventory = $UI/Inventory
 	player_stats.connect("on_add_hp", self, "make_damage_popup")
 
@@ -44,12 +48,16 @@ func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed('ui_right'):
 		velocity.x = 1
+		dash_current_time = 0
 	elif Input.is_action_pressed('ui_left'):
 		velocity.x = -1
+		dash_current_time = 0
 	if Input.is_action_pressed('ui_down'):
 		velocity.y = 1
+		dash_current_time = 0
 	elif Input.is_action_pressed('ui_up'):
 		velocity.y = -1
+		dash_current_time = 0
 	if velocity.x == 1:
 		facing = right
 		play_all_anims("walk",right)
@@ -107,16 +115,45 @@ func get_action_input():
 			$Tool.visible = false
 
 func _physics_process(delta):
+	print(dash_key)
 	var z = world_globals.tilemap_soil.world_to_map(global_position).y
 	if z >= 0:
 		z_index = world_globals.tilemap_soil.world_to_map(global_position).y
 	if !$UI/Dialogue.visible:
 		get_action_input()
 		if can_move:
-			get_input()
-			move_and_slide(velocity)
+			if $DashInterval.is_stopped():
+				get_input()
+			check_dash()
+			move_and_slide_player(delta)
 			global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
+
+func check_dash():
+	var inputs = ["ui_right", "ui_left", "ui_up", "ui_down"]
+	for x in inputs:
+		if Input.is_action_just_pressed(x):
+			if dash_key == x:
+				$DashInterval.start()
+			else:
+				dash_key = x
+
+func move_and_slide_player(delta):
+	if !$DashInterval.is_stopped():
+		if dash_key == 'ui_left':
+			velocity.x = -400 * (1 + $DashInterval.time_left - $DashInterval.wait_time * 1.1)
+		elif dash_key == 'ui_right':
+			velocity.x = 400 * (1 + $DashInterval.time_left - $DashInterval.wait_time * 1.1)
+		elif dash_key == 'ui_up':
+			velocity.y = -400 * (1 + $DashInterval.time_left - $DashInterval.wait_time * 1.1)
+		else:
+			velocity.y = 400 * (1 + $DashInterval.time_left - $DashInterval.wait_time * 1.1)
+	move_and_slide(velocity)
+	if dash_current_time != -1 and dash_current_time < dash_time_interval:
+		dash_current_time += delta
+	else:
+		dash_current_time = -1
+		dash_key = null
 func _input(event):
 	if true:
 		if Input.is_action_pressed("ctrl"):
@@ -174,3 +211,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	$Tool.visible = false
 	if equipped_weapon != null:
 		equipped_weapon.visible = true
+
+
+func _on_DashInterval_timeout():
+	dash_key = null
+	dash_current_time = 0
