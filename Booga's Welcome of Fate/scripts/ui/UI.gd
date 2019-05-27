@@ -16,6 +16,7 @@ func _ready():
 	equipment_itemList = $Equipment/EquipList
 	$Inventory.visible = false
 	$Equipment.visible = false
+	$Skills.visible = false
 
 
 
@@ -25,6 +26,8 @@ func _process(delta):
 	if (can_open_ui):
 		if Input.is_action_just_pressed("inventory"):
 			open_close_right_ui($Inventory)
+		if Input.is_action_just_pressed("skill"):
+			open_close_right_ui($Skills)
 		if Input.is_action_just_pressed("quest"):
 			open_close_left_ui($Quests)
 		if Input.is_action_just_pressed("equipment"):

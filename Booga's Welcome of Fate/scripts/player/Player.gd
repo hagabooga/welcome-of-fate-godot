@@ -13,9 +13,16 @@ var dash_current_time = 0
 var dash_time_interval
 var dash_speed = 725
 func _ready():
+	world_globals.player = self
 	dash_time_interval = 0.3
 	player_equip.player_inventory = $UI/Inventory
 	player_stats.connect("on_add_hp", self, "make_damage_popup")
+
+func create_projectile(proj_scene):
+	var proj = proj_scene.instance()
+	world_globals.world.add_child(proj)
+	proj.global_position = $ProjPos.get_child(facing).global_position
+	return proj
 
 func get_all_sprite_with_body_animation():
 	var all = []
@@ -112,7 +119,6 @@ func get_action_input():
 			$Tool.visible = false
 
 func _physics_process(delta):
-	print(velocity)
 	var z = world_globals.tilemap_soil.world_to_map(global_position).y
 	if z >= 0:
 		z_index = world_globals.tilemap_soil.world_to_map(global_position).y

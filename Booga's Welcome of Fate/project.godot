@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/quests/quest_goal.gd"
 }, {
+"base": "Node",
+"class": "Skill",
+"language": "GDScript",
+"path": "res://scripts/skill/skill.gd"
+}, {
 "base": "Sprite",
 "class": "SpriteWithBodyAnimation",
 "language": "GDScript",
@@ -98,6 +103,7 @@ _global_script_class_icons={
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
+"Skill": "",
 "SpriteWithBodyAnimation": "",
 "Weapon": ""
 }
@@ -120,6 +126,8 @@ DayNightCycle="*res://scenes/general/DayNightCycle.tscn"
 npc_database="*res://scripts/npc/npc_database.gd"
 quest_database="*res://scripts/quests/quest_database.gd"
 ui_maker="*res://scripts/general/ui_maker.gd"
+skill_database="*res://scripts/skill/skill_database.gd"
+player_skills="*res://scripts/skill/player_skills.gd"
 
 [debug]
 
@@ -277,6 +285,11 @@ equipment={
 shift={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"unicode":0,"echo":false,"script":null)
  ]
 }
 

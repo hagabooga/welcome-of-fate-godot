@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/projectiles/projectile.gd" type="Script" id=1]
+[ext_resource path="res://sprites/skill animations/summon fire lion.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 2.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hitbox/CollisionShape2D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 4.0, 15.0, 2.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 15 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -11, -1 ), Vector2( 0, 0 ), Vector2( 2, 11 ) ]
+}
+
+[node name="SummonFireLion" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 1 )
+speed = 175
+pierce = 20
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.443905, 0.443905 )
+z_index = 4096
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 4
+frame = 15
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 256 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 2, 11 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 2 )
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

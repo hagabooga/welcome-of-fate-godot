@@ -1,0 +1,12 @@
+{
+    "fireball":
+    {
+        "desc": "Shoot in a straight line a small ball of fire.",
+        "max_rank": 3
+    },
+    "summon fire lion":
+    {
+        "desc": "Summon a fire lion, burning all enemies in its path.",
+        "max_rank": 3
+    }
+}

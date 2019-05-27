@@ -6,26 +6,29 @@ var velocity = Vector2.ZERO
 export(int) var speed = 20
 export(float) var travel_time = 1
 var damage
-var pierce = 1
+export(int) var pierce = 1
 var targets_hit = []
 
 func _physics_process(delta):
 	move_and_slide(velocity.normalized() * speed)
 	
-func set_velocity(facing):
-	$Timer.start(travel_time)
+func set_velocity(facing, anim_speed = 1.5):
+	$AnimationPlayer.play("start")
+	$AnimationPlayer.playback_speed = anim_speed
 	if facing == up:
 		velocity = Vector2(0,-1)
+		rotate(-PI/2)
 	elif facing == left:
 		velocity = Vector2(-1,0)
+		$Sprite.flip_h = true
+		$Hitbox.scale.x = -1
 	elif facing == right:
 		velocity = Vector2(1,0)
+		$Sprite.flip_h = false
+		$Hitbox.scale.x = 1
 	else:
 		velocity = Vector2(0,1)
-
-
-func _on_Timer_timeout():
-	queue_free()
+		rotate(PI/2)
 
 func _on_Hitbox_area_entered(area):
 	var area_par = area.get_parent()
@@ -35,3 +38,6 @@ func _on_Hitbox_area_entered(area):
 			queue_free()
 		area_par.take_damage(damage)
 
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	queue_free()

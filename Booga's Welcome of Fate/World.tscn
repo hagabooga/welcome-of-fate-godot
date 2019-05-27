@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Grass/grass.tres" type="TileSet" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scripts/player/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/npc/NPC.gd" type="Script" id=11]
 [ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=12]
+[ext_resource path="res://scenes/enemies/Gator.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 20 )
@@ -144,6 +145,51 @@ shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Clean Booga"]
 texture = ExtResource( 12 )
+
+[node name="Gator" parent="." instance=ExtResource( 13 )]
+position = Vector2( 315, 380 )
+
+[node name="Gator2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 289, 435 )
+
+[node name="Gator3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 239, 391 )
+
+[node name="Gator4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 242, 350 )
+
+[node name="Gator5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 287, 324 )
+
+[node name="Gator6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 234, 301 )
+
+[node name="Gator7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 320, 266 )
+
+[node name="Gator8" parent="." instance=ExtResource( 13 )]
+position = Vector2( 363, 321 )
+
+[node name="Gator9" parent="." instance=ExtResource( 13 )]
+position = Vector2( 395, 378 )
+
+[node name="Gator10" parent="." instance=ExtResource( 13 )]
+position = Vector2( 383, 429 )
+
+[node name="Gator11" parent="." instance=ExtResource( 13 )]
+position = Vector2( 320, 490 )
+
+[node name="Gator12" parent="." instance=ExtResource( 13 )]
+position = Vector2( 246, 478 )
+
+[node name="Gator13" parent="." instance=ExtResource( 13 )]
+position = Vector2( 196, 434 )
+
+[node name="Gator14" parent="." instance=ExtResource( 13 )]
+position = Vector2( 153, 383 )
+
+[node name="Gator15" parent="." instance=ExtResource( 13 )]
+position = Vector2( 158, 323 )
 
 [connection signal="body_entered" from="Objects/PlayerHome/WarpToInside" to="." method="_on_WarpToInside_body_entered"]
 [connection signal="body_entered" from="Objects/InsidePlayerHome/WarpToOutsideHome" to="." method="_on_WarpToOutsideHome_body_entered"]

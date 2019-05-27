@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Respiration.png-2065d02e9925dea1b889e4fdf30c52db.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://sprites/skills/Respiration.png"
+dest_files=[ "res://.import/Respiration.png-2065d02e9925dea1b889e4fdf30c52db.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -24,6 +24,7 @@ signal hour_increased
 
 var time_delta = 5
 var time = time_delta
+var player
 
 
 
