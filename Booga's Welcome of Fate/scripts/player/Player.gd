@@ -11,7 +11,7 @@ var equipped_weapon = null
 var dash_key = null
 var dash_current_time = 0
 var dash_time_interval
-var dash_speed = 725
+var dash_speed = 1500
 func _ready():
 	world_globals.player = self
 	dash_time_interval = 0.3
@@ -75,8 +75,6 @@ func get_input():
 		play_all_anims("walk",down)
 	if velocity.x == 0 and velocity.y == 0:
 		play_all_idle(facing)
-	velocity = velocity.normalized() * speed
-	
 	
 
 func get_action_input():
@@ -155,7 +153,8 @@ func move_and_slide_player(delta):
 			velocity.y = -dash_speed * (1 + $DashInterval.time_left - $DashInterval.wait_time * decrease_scale)
 		else:
 			velocity.y = dash_speed * (1 + $DashInterval.time_left - $DashInterval.wait_time * decrease_scale)
-	move_and_slide(velocity)
+	print(velocity.normalized() * speed)
+	move_and_slide(velocity.normalized() * speed)
 	if (dash_current_time != -1 and dash_current_time < dash_time_interval) || !$DashInterval.is_stopped():
 		dash_current_time += delta
 	elif dash_current_time >= dash_current_time:
