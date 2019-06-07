@@ -11,7 +11,7 @@ var equipped_weapon = null
 var dash_key = null
 var dash_current_time = 0
 var dash_time_interval
-var dash_speed = 1500
+
 func _ready():
 	world_globals.player = self
 	dash_time_interval = 0.3
@@ -142,22 +142,16 @@ func check_dash():
 				dash_key = x
 
 func move_and_slide_player(delta):
+	var final_speed = speed
 	if !$DashInterval.is_stopped():
-		var decrease_scale = 4.1 * (1 - $DashInterval.wait_time - $DashInterval.time_left)
-		velocity = Vector2.ZERO
-		if dash_key == 'ui_left':
-			velocity.x = -dash_speed * (1 + $DashInterval.time_left - $DashInterval.wait_time * decrease_scale)
-		elif dash_key == 'ui_right':
-			velocity.x = dash_speed * (1 + $DashInterval.time_left - $DashInterval.wait_time * decrease_scale)
-		elif dash_key == 'ui_up':
-			velocity.y = -dash_speed * (1 + $DashInterval.time_left - $DashInterval.wait_time * decrease_scale)
+		if $DashInterval.time_left < $DashInterval.wait_time/3.0:
+			final_speed = speed*1.5
 		else:
-			velocity.y = dash_speed * (1 + $DashInterval.time_left - $DashInterval.wait_time * decrease_scale)
-	print(velocity.normalized() * speed)
-	move_and_slide(velocity.normalized() * speed)
+			final_speed = speed * 3.25
+	move_and_slide(velocity.normalized() * final_speed)
 	if (dash_current_time != -1 and dash_current_time < dash_time_interval) || !$DashInterval.is_stopped():
 		dash_current_time += delta
-	elif dash_current_time >= dash_current_time:
+	elif dash_current_time >= dash_time_interval:
 		dash_current_time = -1
 		dash_key = null
 		
