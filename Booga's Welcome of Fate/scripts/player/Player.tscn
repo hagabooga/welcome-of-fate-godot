@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://scripts/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/ui/PlayerChangeToolSprite.gd" type="Script" id=2]
@@ -8,17 +8,18 @@
 [ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=6]
 [ext_resource path="res://scripts/player/Date.gd" type="Script" id=7]
 [ext_resource path="res://scripts/ui/StatusBar.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scripts/player/Quests_ui.gd" type="Script" id=9]
-[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=10]
-[ext_resource path="res://sprites/ui/buttonBeige.png" type="Texture" id=11]
-[ext_resource path="res://scripts/ui/Equipment.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scripts/ui/ui_inventory.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scripts/ui/SkillsUI.gd" type="Script" id=14]
-[ext_resource path="res://chinese.otf" type="DynamicFontData" id=15]
-[ext_resource path="res://scenes/skills/MageFire.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/player/Dialogue.gd" type="Script" id=17]
-[ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=18]
-[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=19]
+[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=9]
+[ext_resource path="res://scripts/player/Quests_ui.gd" type="Script" id=10]
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=11]
+[ext_resource path="res://sprites/ui/buttonBeige.png" type="Texture" id=12]
+[ext_resource path="res://scripts/ui/Equipment.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/ui/ui_inventory.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/ui/SkillsUI.gd" type="Script" id=15]
+[ext_resource path="res://chinese.otf" type="DynamicFontData" id=16]
+[ext_resource path="res://scenes/skills/MageFire.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/player/Dialogue.gd" type="Script" id=18]
+[ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=19]
+[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=20]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.03796
@@ -65,7 +66,7 @@ margin_top = 23.0
 margin_bottom = 23.0
 
 [sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 24.0
 margin_right = 60.0
@@ -116,7 +117,7 @@ margin_bottom = 21.0
 size = 24
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 15 )
+font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=22]
 size = 40
@@ -133,7 +134,7 @@ margin_top = 23.0
 margin_bottom = 20.0
 
 [sub_resource type="StyleBoxTexture" id=24]
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 27.0
 margin_right = 19.0
@@ -174,7 +175,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="StyleBoxTexture" id=31]
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 38.0
 margin_right = 22.0
@@ -239,7 +240,6 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="UI" type="Node2D" parent="."]
-editor/display_folded = true
 z_index = 4096
 z_as_relative = false
 script = ExtResource( 4 )
@@ -316,6 +316,90 @@ valign = 2
 
 [node name="StatusBar" parent="UI" instance=ExtResource( 8 )]
 
+[node name="Nodes" type="GridContainer" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -236.0
+margin_top = 220.0
+margin_right = 364.0
+margin_bottom = 270.0
+custom_constants/hseparation = 0
+columns = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Node" type="TextureRect" parent="UI/Nodes"]
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node2" type="TextureRect" parent="UI/Nodes"]
+margin_left = 50.0
+margin_right = 100.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node3" type="TextureRect" parent="UI/Nodes"]
+margin_left = 100.0
+margin_right = 150.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node4" type="TextureRect" parent="UI/Nodes"]
+margin_left = 150.0
+margin_right = 200.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node5" type="TextureRect" parent="UI/Nodes"]
+margin_left = 200.0
+margin_right = 250.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node6" type="TextureRect" parent="UI/Nodes"]
+margin_left = 250.0
+margin_right = 300.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node7" type="TextureRect" parent="UI/Nodes"]
+margin_left = 300.0
+margin_right = 350.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node8" type="TextureRect" parent="UI/Nodes"]
+margin_left = 350.0
+margin_right = 400.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node9" type="TextureRect" parent="UI/Nodes"]
+margin_left = 400.0
+margin_right = 450.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node10" type="TextureRect" parent="UI/Nodes"]
+margin_left = 450.0
+margin_right = 500.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node11" type="TextureRect" parent="UI/Nodes"]
+margin_left = 500.0
+margin_right = 550.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
+[node name="Node12" type="TextureRect" parent="UI/Nodes"]
+margin_left = 550.0
+margin_right = 600.0
+margin_bottom = 50.0
+texture = ExtResource( 9 )
+
 [node name="Quests" type="Panel" parent="UI"]
 editor/display_folded = true
 visible = false
@@ -324,7 +408,7 @@ margin_top = -269.0
 margin_right = -160.0
 margin_bottom = 63.0
 custom_styles/panel = SubResource( 9 )
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="ItemPanel" type="Panel" parent="UI/Quests"]
 editor/display_folded = true
@@ -373,7 +457,7 @@ editor/display_folded = true
 margin_top = -40.0
 margin_right = 59.0
 margin_bottom = -2.0
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -397,7 +481,7 @@ margin_left = 59.0
 margin_top = -40.0
 margin_right = 123.0
 margin_bottom = -2.0
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -491,7 +575,7 @@ text = "Slay 5 Gators"
 align = 1
 autowrap = true
 
-[node name="Equipment" parent="UI" instance=ExtResource( 12 )]
+[node name="Equipment" parent="UI" instance=ExtResource( 13 )]
 editor/display_folded = true
 visible = false
 margin_right = -160.0
@@ -622,19 +706,22 @@ custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
-[node name="Inventory" parent="UI" instance=ExtResource( 13 )]
+[node name="Inventory" parent="UI" instance=ExtResource( 14 )]
+visible = false
 margin_left = 64.0
 margin_top = -270.0
 margin_right = 480.0
 margin_bottom = -30.0
 
 [node name="Skills" type="Panel" parent="UI"]
+editor/display_folded = true
+visible = false
 margin_left = 64.0
 margin_top = -270.0
 margin_right = 480.0
 margin_bottom = 270.0
 custom_styles/panel = SubResource( 19 )
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 
 [node name="Elements" type="Panel" parent="UI/Skills"]
 editor/display_folded = true
@@ -659,7 +746,7 @@ margin_left = -10.0
 margin_top = -24.5
 margin_right = 35.0
 margin_bottom = 24.5
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -682,7 +769,7 @@ margin_left = -90.25
 margin_top = -97.25
 margin_right = -45.25
 margin_bottom = -48.25
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -705,7 +792,7 @@ margin_left = -100.25
 margin_top = -24.5
 margin_right = -55.25
 margin_bottom = 24.5
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -728,7 +815,7 @@ margin_left = -90.25
 margin_top = 48.25
 margin_right = -45.25
 margin_bottom = 97.25
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -748,7 +835,7 @@ anchor_right = 0.5
 margin_left = -22.5
 margin_right = 22.5
 margin_bottom = 49.0
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -771,7 +858,7 @@ margin_left = -22.5
 margin_top = -24.5
 margin_right = 22.5
 margin_bottom = 24.5
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -794,7 +881,7 @@ margin_left = 45.25
 margin_top = -97.25
 margin_right = 90.25
 margin_bottom = -48.25
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -817,7 +904,7 @@ margin_left = 55.25
 margin_top = -24.5
 margin_right = 100.25
 margin_bottom = 24.5
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -840,7 +927,7 @@ margin_left = 45.25
 margin_top = 48.25
 margin_right = 90.25
 margin_bottom = 97.25
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -863,7 +950,7 @@ anchor_bottom = 1.0
 margin_left = -22.5
 margin_top = -49.0
 margin_right = 22.5
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -886,7 +973,7 @@ margin_left = -35.0
 margin_top = -24.5
 margin_right = 10.0
 margin_bottom = 24.5
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -901,7 +988,7 @@ valign = 1
 
 [node name="SkillTree" type="Control" parent="UI/Skills"]
 
-[node name="MageFireTree" parent="UI/Skills/SkillTree" instance=ExtResource( 16 )]
+[node name="MageFireTree" parent="UI/Skills/SkillTree" instance=ExtResource( 17 )]
 
 [node name="SP" type="Label" parent="UI/Skills"]
 anchor_left = 1.0
@@ -925,18 +1012,19 @@ margin_top = 96.0
 margin_right = 480.0
 margin_bottom = 271.0
 custom_styles/panel = SubResource( 23 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="NPCTexture" type="TextureRect" parent="UI/Dialogue"]
 margin_left = 19.0
 margin_top = -255.0
 margin_right = 234.0
 margin_bottom = -40.0
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 expand = true
 stretch_mode = 6
 
 [node name="NamePanel" type="Panel" parent="UI/Dialogue"]
+editor/display_folded = true
 margin_left = 15.0
 margin_top = -41.0
 margin_right = 239.0
@@ -988,7 +1076,7 @@ margin_left = 895.744
 margin_top = 122.0
 margin_right = 929.744
 margin_bottom = 158.0
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Dialogue/DialogueText/TextureRect"]
@@ -1111,6 +1199,7 @@ wait_time = 0.25
 one_shot = true
 
 [node name="ProjPos" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="up" type="Node2D" parent="ProjPos"]
 position = Vector2( 0, -45 )
