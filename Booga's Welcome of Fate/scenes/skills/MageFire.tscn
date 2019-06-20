@@ -17,18 +17,3 @@ margin_top = 160.0
 margin_right = 96.0
 margin_bottom = 224.0
 
-[node name="Labels" parent="SkillDescPanel" index="0"]
-mouse_filter = 2
-
-[node name="Ming" parent="SkillDescPanel/Labels" index="0"]
-valign = 1
-
-[node name="Rank" parent="SkillDescPanel/Labels" index="1"]
-valign = 1
-
-[node name="Desc" parent="SkillDescPanel/Labels" index="2"]
-valign = 1
-
-[node name="Detail" parent="SkillDescPanel/Labels" index="3"]
-valign = 1
-

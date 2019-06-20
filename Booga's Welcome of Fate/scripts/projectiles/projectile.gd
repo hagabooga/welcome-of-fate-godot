@@ -12,20 +12,21 @@ var targets_hit = []
 func _physics_process(delta):
 	move_and_slide(velocity.normalized() * speed)
 	
-func set_velocity(facing, anim_speed = 1.5):
+func set_velocity(facing):
 	$AnimationPlayer.play("start")
-	$AnimationPlayer.playback_speed = anim_speed
+	$AnimationPlayer.playback_speed = $AnimationPlayer.current_animation_length/travel_time
 	if facing == up:
 		velocity = Vector2(0,-1)
 		rotate(-PI/2)
 	elif facing == left:
 		velocity = Vector2(-1,0)
-		$Sprite.flip_h = true
-		$Hitbox.scale.x = -1
+		rotate(-PI)
+		$Sprite.flip_v = true
+		$Hitbox.scale.y = -1
 	elif facing == right:
 		velocity = Vector2(1,0)
 		$Sprite.flip_h = false
-		$Hitbox.scale.x = 1
+		$Hitbox.scale.y = 1
 	else:
 		velocity = Vector2(0,1)
 		rotate(PI/2)

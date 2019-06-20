@@ -128,6 +128,7 @@ quest_database="*res://scripts/quests/quest_database.gd"
 ui_maker="*res://scripts/general/ui_maker.gd"
 skill_database="*res://scripts/skill/skill_database.gd"
 player_skills="*res://scripts/skill/player_skills.gd"
+skill_activations="*res://skill_activations.gd"
 
 [debug]
 
@@ -290,6 +291,16 @@ shift={
 skill={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill0={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":49,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill1={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":50,"unicode":0,"echo":false,"script":null)
  ]
 }
 
