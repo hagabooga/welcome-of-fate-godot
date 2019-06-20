@@ -12,7 +12,8 @@ func _ready():
 
 func hotkey_map_press(x):
 	hotkey_skills_ui.map_skill(x, $LearnedSkills.get_item_metadata(current_selected).skill)
-
+	$SkillStuff/PickHotkey/Cancel.visible = false
+	$SkillStuff/PickHotkey.visible = false
 
 func learn_skill(node):
 	$LearnedSkills.add_icon_item(load("res://sprites/skills/%s.png"%node.skill.ming.to_lower()))
@@ -32,7 +33,6 @@ func _on_LearnedSkills_item_activated(index):
 
 func _on_HotkeyButton_pressed():
 	$SkillStuff/PickHotkey.visible = true
-
 
 func _on_HotkeyCancel_pressed():
 	$SkillStuff/PickHotkey.visible = false

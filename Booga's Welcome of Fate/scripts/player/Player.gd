@@ -14,6 +14,7 @@ var dash_time_interval
 
 func _ready():
 	world_globals.player = self
+	skill_activations.player = self
 	dash_time_interval = 0.3
 	player_equip.player_inventory = $UI/Inventory
 	player_stats.connect("on_add_hp", self, "make_damage_popup")

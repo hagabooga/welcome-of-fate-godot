@@ -1,6 +1,6 @@
 extends Weapon
 
-var projectile = load("res://scenes/projectiles/summon fire lion.tscn")
+var projectile = load("res://scenes/projectiles/fireball.tscn")
 
 func attack_effect():
 	var proj = world_globals.player.create_projectile(projectile)

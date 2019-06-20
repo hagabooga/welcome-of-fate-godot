@@ -6,12 +6,14 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 17.9992
 
-[node name="Fireball" instance=ExtResource( 1 )]
+[node name="Fireball" index="0" instance=ExtResource( 1 )]
 speed = 250
 
 [node name="Sprite" parent="." index="0"]
-rotation = -0.758129
 texture = ExtResource( 2 )
+
+[node name="Hitbox" parent="." index="1"]
+scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 2.57199, 0.714442 )

@@ -378,7 +378,6 @@ custom_constants/separation = 0
 script = ExtResource( 9 )
 
 [node name="Node" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
 margin_right = 50.0
 margin_bottom = 50.0
 texture = ExtResource( 10 )
@@ -389,6 +388,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 12 )
 expand = true
+
+[node name="TextureProgress" type="TextureProgress" parent="UI/HotkeyNodes/Node/TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+fill_mode = 4
 
 [node name="Node2" type="TextureRect" parent="UI/HotkeyNodes"]
 editor/display_folded = true
@@ -1188,6 +1192,7 @@ custom_styles/panel = SubResource( 25 )
 script = ExtResource( 21 )
 
 [node name="ExitLearnedSkillsButton" type="Panel" parent="UI/Skills/LearnedSkillsPanel"]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -189.0
@@ -1200,6 +1205,7 @@ __meta__ = {
 }
 
 [node name="ExitLearnedSkills Panel" type="TextureButton" parent="UI/Skills/LearnedSkillsPanel/ExitLearnedSkillsButton"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -1227,6 +1233,7 @@ icon_mode = 0
 fixed_icon_size = Vector2( 50, 50 )
 
 [node name="SkillStuff" type="Panel" parent="UI/Skills/LearnedSkillsPanel"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 250.0
@@ -1240,6 +1247,7 @@ margin_right = -225.0
 margin_bottom = -1.0
 
 [node name="Hotkey" type="Panel" parent="UI/Skills/LearnedSkillsPanel/SkillStuff"]
+editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1267,6 +1275,7 @@ align = 1
 valign = 1
 
 [node name="PickHotkey" type="Panel" parent="UI/Skills/LearnedSkillsPanel/SkillStuff"]
+editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1290,6 +1299,7 @@ valign = 1
 autowrap = true
 
 [node name="HotkeySelections" type="Control" parent="UI/Skills/LearnedSkillsPanel/SkillStuff/PickHotkey"]
+editor/display_folded = true
 margin_left = -70.0
 margin_right = -70.0
 

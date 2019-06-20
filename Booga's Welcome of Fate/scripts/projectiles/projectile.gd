@@ -20,13 +20,12 @@ func set_velocity(facing):
 		rotate(-PI/2)
 	elif facing == left:
 		velocity = Vector2(-1,0)
-		rotate(-PI)
-		$Sprite.flip_v = true
-		$Hitbox.scale.y = -1
+		$Sprite.flip_h = true
+		$Hitbox.scale.x = -1
 	elif facing == right:
 		velocity = Vector2(1,0)
 		$Sprite.flip_h = false
-		$Hitbox.scale.y = 1
+		$Hitbox.scale.x = 1
 	else:
 		velocity = Vector2(0,1)
 		rotate(PI/2)
