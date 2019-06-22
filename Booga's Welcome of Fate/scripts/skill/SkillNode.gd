@@ -2,6 +2,19 @@ extends Panel
 
 var skill
 
+var cooldown_left = 0
+
+func _process(delta):
+	if (cooldown_left >= 0):
+		cooldown_left -= delta
+
+func can_activate():
+	return cooldown_left < 0
+
+func go_on_cooldown():
+	cooldown_left = skill.cooldown
+
+
 func _ready():
 	skill = skill_database.make_skill(name.to_lower())
 	$TextureButton.texture_normal = load("res://sprites/skills/%s.png"%name.to_lower())

@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/skill/HotkeyNodes.gd" type="Script" id=1]
+[ext_resource path="res://scenes/skills/HotkeyNode.tscn" type="PackedScene" id=2]
+
+[node name="HotkeyNodes" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -236.0
+margin_top = 220.0
+margin_right = 364.0
+margin_bottom = 270.0
+custom_constants/separation = 0
+script = ExtResource( 1 )
+
+[node name="Node" parent="." instance=ExtResource( 2 )]
+
+[node name="Node2" parent="." instance=ExtResource( 2 )]
+margin_left = 50.0
+margin_right = 100.0
+
+[node name="Node3" parent="." instance=ExtResource( 2 )]
+margin_left = 100.0
+margin_right = 150.0
+
+[node name="Node4" parent="." instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_right = 200.0
+
+[node name="Node5" parent="." instance=ExtResource( 2 )]
+margin_left = 200.0
+margin_right = 250.0
+
+[node name="Node6" parent="." instance=ExtResource( 2 )]
+margin_left = 250.0
+margin_right = 300.0
+
+[node name="Node7" parent="." instance=ExtResource( 2 )]
+margin_left = 300.0
+margin_right = 350.0
+
+[node name="Node8" parent="." instance=ExtResource( 2 )]
+margin_left = 350.0
+margin_right = 400.0
+
+[node name="Node9" parent="." instance=ExtResource( 2 )]
+margin_left = 400.0
+margin_right = 450.0
+
+[node name="Node10" parent="." instance=ExtResource( 2 )]
+margin_left = 450.0
+margin_right = 500.0
+
+[node name="Node11" parent="." instance=ExtResource( 2 )]
+margin_left = 500.0
+margin_right = 550.0
+
+[node name="Node12" parent="." instance=ExtResource( 2 )]
+margin_left = 550.0
+margin_right = 600.0
+

@@ -5,11 +5,17 @@
         "eff_desc": "Consume item to restore 30 HP.",
         "cost": 100,
         "type": "plant",
-        "activate": 0
+        "activate": 0,
+        "stats": {"hp": 30}
     },
     "beet":
     {
-        "cost": 130
+        "desc": "A red vegtable",
+        "eff_desc": "Consume item to restore 50 HP.",
+        "cost": 130,
+        "type": "plant",
+        "activate": 0,
+        "stats": {"hp": 50}
     },
     "branch":
     {
@@ -167,7 +173,14 @@
         "type": "shield",
         "activate": 1,
         "stats": {"armor": 35, "resist": 54}
+    },
+    "mana potion":
+    {
+        "desc": "Blue potion",
+        "eff_desc": "Consume to restore 400 mana.",
+        "cost": 69,
+        "type": "potion",
+        "activate": 0,
+        "stats": {"mp": 400}
     }
-}
-
 }

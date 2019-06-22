@@ -11,7 +11,7 @@ func _ready():
 		hotkeys.get_child(x).connect("pressed",self,"hotkey_map_press",[x])
 
 func hotkey_map_press(x):
-	hotkey_skills_ui.map_skill(x, $LearnedSkills.get_item_metadata(current_selected).skill)
+	hotkey_skills_ui.map_skill(x, $LearnedSkills.get_item_metadata(current_selected))
 	$SkillStuff/PickHotkey/Cancel.visible = false
 	$SkillStuff/PickHotkey.visible = false
 

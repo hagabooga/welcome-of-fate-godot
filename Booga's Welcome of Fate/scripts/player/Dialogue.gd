@@ -14,8 +14,11 @@ func _ready():
 	$DialogueText/TextureRect/AnimationPlayer.play("moving")
 
 func _process(delta):
-	if (showing_dialogue and can_next_dialogue):
-		if (Input.is_action_just_pressed("ui_accept")):
+	if $Timer.time_left > 0:
+		visible = false
+	elif (showing_dialogue and can_next_dialogue):
+		if Input.is_action_just_pressed("z"):
+			print(dialogue_pos)
 			dialogue_pos += 1
 			if dialogue_pos <= len(current_dialogue) - 1:
 				if asking_quest and dialogue_pos == len(current_dialogue) - 1:
@@ -23,29 +26,29 @@ func _process(delta):
 				set_dialogue()
 			else:
 				close_dialogue()
-	
 
-					
 func make_dialogue_options(info):
-	$Options.visible = true
-	current_info = info
-	$Options.clear()
-	$Options.add_item("Talk",arrow_texture)
-	for x in current_info.quests:
-		var compq = get_parent().find_node("Quests").get_quests(false)
-		if not x in compq:
-			var q = Quest.new(current_info.ming, x)
-			$Options.add_item("Quest", arrow_texture)
-			$Options.set_item_metadata($Options.get_item_count()-1, q)
-	$Options.add_item("Exit",arrow_texture)
-	$Options.select(0)
-	$Options.grab_focus()
+	if (!$Timer.time_left > 0):
+		$Options/Timer.start()
+		$Options.visible = true
+		current_info = info
+		$Options.clear()
+		$Options.add_item("Talk",arrow_texture)
+		for x in current_info.quests:
+			var compq = get_parent().find_node("Quests").get_quests(false)
+			if not x in compq:
+				var q = Quest.new(current_info.ming, x)
+				$Options.add_item("Quest", arrow_texture)
+				$Options.set_item_metadata($Options.get_item_count()-1, q)
+		$Options.add_item("Exit",arrow_texture)
+		$Options.select(0)
+		$Options.grab_focus()
 
 
 func create_dialogue(text):
 	$Options.visible = false
 	current_dialogue = text
-	dialogue_pos = -1
+	dialogue_pos = 0
 	set_dialogue()
 	showing_dialogue = true
 	$DialogueText.visible = true
@@ -84,10 +87,11 @@ func _on_Options_item_activated(index):
 		
 func close_dialogue():
 	can_next_dialogue = false
-	get_parent().can_open_ui = true
 	visible = false
 	showing_dialogue = false
 	$DialogueText.visible = false
+	get_parent().can_open_ui = true
+	$Timer.start()
 
 func _on_QuestYes_pressed():
 	var q = $Options.get_item_metadata(quest_item_index)
@@ -108,4 +112,4 @@ func quest_ask_button_press():
 	can_next_dialogue = true
 	asking_quest = false
 	
-	
+

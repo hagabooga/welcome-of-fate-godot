@@ -12,6 +12,9 @@ var targets_hit = []
 func _physics_process(delta):
 	move_and_slide(velocity.normalized() * speed)
 	
+func _process(delta):
+	z_index = world_globals.tilemap_soil.world_to_map(global_position).y
+	
 func set_velocity(facing):
 	$AnimationPlayer.play("start")
 	$AnimationPlayer.playback_speed = $AnimationPlayer.current_animation_length/travel_time

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://scripts/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/ui/PlayerChangeToolSprite.gd" type="Script" id=2]
@@ -8,23 +8,21 @@
 [ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=6]
 [ext_resource path="res://scripts/player/Date.gd" type="Script" id=7]
 [ext_resource path="res://scripts/ui/StatusBar.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scripts/skill/HotkeyNodes.gd" type="Script" id=9]
-[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=10]
-[ext_resource path="res://scripts/skill/HotkeyNode.gd" type="Script" id=11]
-[ext_resource path="res://sprites/skills/fireball.png" type="Texture" id=12]
-[ext_resource path="res://scripts/player/Quests_ui.gd" type="Script" id=13]
-[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=14]
-[ext_resource path="res://sprites/ui/buttonBeige.png" type="Texture" id=15]
-[ext_resource path="res://scripts/ui/Equipment.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/ui/ui_inventory.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scripts/ui/SkillsUI.gd" type="Script" id=18]
-[ext_resource path="res://chinese.otf" type="DynamicFontData" id=19]
-[ext_resource path="res://scenes/skills/MageFire.tscn" type="PackedScene" id=20]
-[ext_resource path="res://scripts/skill/LearnedSkillsPanel.gd" type="Script" id=21]
-[ext_resource path="res://scenes/skills/Labels.tscn" type="PackedScene" id=22]
-[ext_resource path="res://scripts/player/Dialogue.gd" type="Script" id=23]
-[ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=24]
-[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=25]
+[ext_resource path="res://scenes/skills/HotkeyNodes.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/player/Quests_ui.gd" type="Script" id=10]
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=11]
+[ext_resource path="res://sprites/ui/buttonBeige.png" type="Texture" id=12]
+[ext_resource path="res://scripts/ui/Equipment.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/ui/ui_inventory.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/ui/SkillsUI.gd" type="Script" id=15]
+[ext_resource path="res://chinese.otf" type="DynamicFontData" id=16]
+[ext_resource path="res://scenes/skills/MageFire.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/skill/LearnedSkillsPanel.gd" type="Script" id=18]
+[ext_resource path="res://scenes/skills/Labels.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scripts/player/Dialogue.gd" type="Script" id=20]
+[ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=21]
+[ext_resource path="res://scripts/ui/DialogueOptions.gd" type="Script" id=22]
+[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=23]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.03796
@@ -71,7 +69,7 @@ margin_top = 23.0
 margin_bottom = 23.0
 
 [sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 24.0
 margin_right = 60.0
@@ -137,10 +135,10 @@ font_data = ExtResource( 5 )
 size = 24
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 19 )
+font_data = ExtResource( 16 )
 
 [sub_resource type="StyleBoxTexture" id=25]
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 35.0
 margin_right = 40.0
@@ -160,7 +158,7 @@ margin_top = 23.0
 margin_bottom = 26.0
 
 [sub_resource type="StyleBoxTexture" id=29]
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 30.0
 margin_right = 31.0
@@ -182,7 +180,7 @@ margin_top = 23.0
 margin_bottom = 20.0
 
 [sub_resource type="StyleBoxTexture" id=32]
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 27.0
 margin_right = 19.0
@@ -223,7 +221,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="StyleBoxTexture" id=39]
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 38.0
 margin_right = 22.0
@@ -290,8 +288,23 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 2 )
 
+[node name="ProjPos" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="up" type="Node2D" parent="ProjPos"]
+position = Vector2( 0, -45 )
+
+[node name="left" type="Node2D" parent="ProjPos"]
+position = Vector2( -25, -12 )
+
+[node name="down" type="Node2D" parent="ProjPos"]
+position = Vector2( 0, 16 )
+
+[node name="right" type="Node2D" parent="ProjPos"]
+position = Vector2( 25, -12 )
+
 [node name="UI" type="Node2D" parent="."]
-z_index = 4096
+z_index = 4092
 z_as_relative = false
 script = ExtResource( 4 )
 __meta__ = {
@@ -367,186 +380,7 @@ valign = 2
 
 [node name="StatusBar" parent="UI" instance=ExtResource( 8 )]
 
-[node name="HotkeyNodes" type="HBoxContainer" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -236.0
-margin_top = 220.0
-margin_right = 364.0
-margin_bottom = 270.0
-custom_constants/separation = 0
-script = ExtResource( 9 )
-
-[node name="Node" type="TextureRect" parent="UI/HotkeyNodes"]
-margin_right = 50.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="TextureProgress" type="TextureProgress" parent="UI/HotkeyNodes/Node/TextureRect"]
-margin_right = 40.0
-margin_bottom = 40.0
-fill_mode = 4
-
-[node name="Node2" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 50.0
-margin_right = 100.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node3" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 100.0
-margin_right = 150.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node4" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 150.0
-margin_right = 200.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node5" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 200.0
-margin_right = 250.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node6" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 250.0
-margin_right = 300.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node7" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 300.0
-margin_right = 350.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node8" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 350.0
-margin_right = 400.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node9" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 400.0
-margin_right = 450.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node10" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 450.0
-margin_right = 500.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node11" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 500.0
-margin_right = 550.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node11"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Node12" type="TextureRect" parent="UI/HotkeyNodes"]
-editor/display_folded = true
-margin_left = 550.0
-margin_right = 600.0
-margin_bottom = 50.0
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
-
-[node name="TextureRect" type="TextureRect" parent="UI/HotkeyNodes/Node12"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 12 )
-expand = true
+[node name="HotkeyNodes" parent="UI" instance=ExtResource( 9 )]
 
 [node name="Quests" type="Panel" parent="UI"]
 editor/display_folded = true
@@ -556,7 +390,7 @@ margin_top = -269.0
 margin_right = -160.0
 margin_bottom = 63.0
 custom_styles/panel = SubResource( 9 )
-script = ExtResource( 13 )
+script = ExtResource( 10 )
 
 [node name="ItemPanel" type="Panel" parent="UI/Quests"]
 editor/display_folded = true
@@ -605,7 +439,7 @@ editor/display_folded = true
 margin_top = -40.0
 margin_right = 59.0
 margin_bottom = -2.0
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -629,7 +463,7 @@ margin_left = 59.0
 margin_top = -40.0
 margin_right = 123.0
 margin_bottom = -2.0
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -723,7 +557,7 @@ text = "Slay 5 Gators"
 align = 1
 autowrap = true
 
-[node name="Equipment" parent="UI" instance=ExtResource( 16 )]
+[node name="Equipment" parent="UI" instance=ExtResource( 13 )]
 editor/display_folded = true
 visible = false
 margin_right = -160.0
@@ -854,7 +688,7 @@ custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strength: 15"
 
-[node name="Inventory" parent="UI" instance=ExtResource( 17 )]
+[node name="Inventory" parent="UI" instance=ExtResource( 14 )]
 visible = false
 margin_left = 64.0
 margin_top = -270.0
@@ -867,7 +701,7 @@ margin_top = -270.0
 margin_right = 480.0
 margin_bottom = 270.0
 custom_styles/panel = SubResource( 19 )
-script = ExtResource( 18 )
+script = ExtResource( 15 )
 
 [node name="Title" type="Panel" parent="UI/Skills"]
 editor/display_folded = true
@@ -914,7 +748,7 @@ margin_left = -10.0
 margin_top = -24.5
 margin_right = 35.0
 margin_bottom = 24.5
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -937,7 +771,7 @@ margin_left = -90.25
 margin_top = -97.25
 margin_right = -45.25
 margin_bottom = -48.25
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -960,7 +794,7 @@ margin_left = -100.25
 margin_top = -24.5
 margin_right = -55.25
 margin_bottom = 24.5
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -983,7 +817,7 @@ margin_left = -90.25
 margin_top = 48.25
 margin_right = -45.25
 margin_bottom = 97.25
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1003,7 +837,7 @@ anchor_right = 0.5
 margin_left = -22.5
 margin_right = 22.5
 margin_bottom = 49.0
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1026,7 +860,7 @@ margin_left = -22.5
 margin_top = -24.5
 margin_right = 22.5
 margin_bottom = 24.5
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1049,7 +883,7 @@ margin_left = 45.25
 margin_top = -97.25
 margin_right = 90.25
 margin_bottom = -48.25
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1072,7 +906,7 @@ margin_left = 55.25
 margin_top = -24.5
 margin_right = 100.25
 margin_bottom = 24.5
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1095,7 +929,7 @@ margin_left = 45.25
 margin_top = 48.25
 margin_right = 90.25
 margin_bottom = 97.25
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1118,7 +952,7 @@ anchor_bottom = 1.0
 margin_left = -22.5
 margin_top = -49.0
 margin_right = 22.5
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1141,7 +975,7 @@ margin_left = -35.0
 margin_top = -24.5
 margin_right = 10.0
 margin_bottom = 24.5
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1158,9 +992,10 @@ valign = 1
 editor/display_folded = true
 visible = false
 
-[node name="MageFireTree" parent="UI/Skills/SkillTree" instance=ExtResource( 20 )]
+[node name="MageFireTree" parent="UI/Skills/SkillTree" instance=ExtResource( 17 )]
 
 [node name="LearnedSkillsButtonPanel" type="Panel" parent="UI/Skills"]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -189.161
@@ -1186,10 +1021,11 @@ align = 1
 valign = 1
 
 [node name="LearnedSkillsPanel" type="Panel" parent="UI/Skills"]
+editor/display_folded = true
 margin_right = 416.0
 margin_bottom = 541.0
 custom_styles/panel = SubResource( 25 )
-script = ExtResource( 21 )
+script = ExtResource( 18 )
 
 [node name="ExitLearnedSkillsButton" type="Panel" parent="UI/Skills/LearnedSkillsPanel"]
 editor/display_folded = true
@@ -1240,7 +1076,7 @@ margin_top = 250.0
 margin_bottom = -70.0
 custom_styles/panel = SubResource( 28 )
 
-[node name="Labels" parent="UI/Skills/LearnedSkillsPanel/SkillStuff" instance=ExtResource( 22 )]
+[node name="Labels" parent="UI/Skills/LearnedSkillsPanel/SkillStuff" instance=ExtResource( 19 )]
 visible = false
 margin_left = 5.0
 margin_right = -225.0
@@ -1572,21 +1408,20 @@ align = 2
 valign = 2
 
 [node name="Dialogue" type="Panel" parent="UI"]
-editor/display_folded = true
 visible = false
 margin_left = -480.0
 margin_top = 96.0
 margin_right = 480.0
 margin_bottom = 271.0
 custom_styles/panel = SubResource( 31 )
-script = ExtResource( 23 )
+script = ExtResource( 20 )
 
 [node name="NPCTexture" type="TextureRect" parent="UI/Dialogue"]
 margin_left = 19.0
 margin_top = -255.0
 margin_right = 234.0
 margin_bottom = -40.0
-texture = ExtResource( 24 )
+texture = ExtResource( 21 )
 expand = true
 stretch_mode = 6
 
@@ -1625,6 +1460,12 @@ custom_constants/icon_margin = 10
 items = [ "Quest", null, false ]
 allow_reselect = true
 max_columns = 5
+script = ExtResource( 22 )
+
+[node name="Timer" type="Timer" parent="UI/Dialogue/Options"]
+wait_time = 0.1
+one_shot = true
+autostart = true
 
 [node name="DialogueText" type="Label" parent="UI/Dialogue"]
 editor/display_folded = true
@@ -1643,7 +1484,7 @@ margin_left = 895.744
 margin_top = 122.0
 margin_right = 929.744
 margin_bottom = 158.0
-texture = ExtResource( 25 )
+texture = ExtResource( 23 )
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Dialogue/DialogueText/TextureRect"]
@@ -1752,6 +1593,11 @@ text = "Quest"
 align = 1
 valign = 1
 
+[node name="Timer" type="Timer" parent="UI/Dialogue"]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 drag_margin_h_enabled = false
@@ -1764,21 +1610,6 @@ drag_margin_bottom = 0.0
 [node name="DashInterval" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
-
-[node name="ProjPos" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="up" type="Node2D" parent="ProjPos"]
-position = Vector2( 0, -45 )
-
-[node name="left" type="Node2D" parent="ProjPos"]
-position = Vector2( -25, -12 )
-
-[node name="down" type="Node2D" parent="ProjPos"]
-position = Vector2( 0, 16 )
-
-[node name="right" type="Node2D" parent="ProjPos"]
-position = Vector2( 25, -12 )
 
 [connection signal="timeout" from="PlayerChangeToolSprite/Timer" to="PlayerChangeToolSprite" method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="SpriteWithBodyAnimation/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
