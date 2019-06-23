@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/quests/quest_goal.gd"
 }, {
+"base": "Sprite",
+"class": "SingleSkillAttack",
+"language": "GDScript",
+"path": "res://scripts/skill/SingleSkillAttack.gd"
+}, {
 "base": "Node",
 "class": "Skill",
 "language": "GDScript",
@@ -103,6 +108,7 @@ _global_script_class_icons={
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
+"SingleSkillAttack": "",
 "Skill": "",
 "SpriteWithBodyAnimation": "",
 "Weapon": ""

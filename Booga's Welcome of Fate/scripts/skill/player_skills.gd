@@ -21,3 +21,7 @@ func update_skills():
 				x.damage = 250
 				x.mana = 150
 				x.cooldown = 2
+			"torrentacle":
+				x.damage = 75
+				x.mana = 100
+				x.cooldown = 3

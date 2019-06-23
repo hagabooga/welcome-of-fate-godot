@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/magic_torrentacle.png-89efdc7e74e7feb259280d808c038472.stex"
+path="res://.import/magic_torrentacle.png-d08ecfccb71e79e0c15eed41a9680c7e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test sprites/submission_daneeklu/magic/magic_torrentacle.png"
-dest_files=[ "res://.import/magic_torrentacle.png-89efdc7e74e7feb259280d808c038472.stex" ]
+source_file="res://sprites/skill animations/magic_torrentacle.png"
+dest_files=[ "res://.import/magic_torrentacle.png-d08ecfccb71e79e0c15eed41a9680c7e.stex" ]
 
 [params]
 

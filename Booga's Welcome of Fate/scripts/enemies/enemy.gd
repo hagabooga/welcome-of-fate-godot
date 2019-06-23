@@ -5,7 +5,7 @@ class_name Enemy
 var stats = Attributes.new()
 var attack_in_range = false
 var target = null
-var move_speed = 35
+export(int) var move_speed = 35
 var alive = true
 
 var orig_playerRange
@@ -15,6 +15,9 @@ var orig_attackArea
 var try_timer = 0
 var current_try
 
+
+signal on_death
+
 func _ready():
 	orig_playerRange = $PlayerRange.position.x
 	orig_hurtbox = $Hurtbox.position.x
@@ -23,6 +26,8 @@ func _ready():
 	final_stats()
 	$AnimationPlayer.play("idle")
 #	detect_radius = $PlayerRange/CollisionShape2D.shape.radius
+
+var can_move = true
 
 func _process(delta):
 	if alive:
@@ -74,6 +79,7 @@ func take_damage(val):
 			die()
 
 func die():
+	emit_signal("on_death")
 	if alive:
 		alive = false
 		$CollisionShape2D.queue_free()
@@ -85,7 +91,7 @@ func die():
 
 func follow_player(delta):
 	face_player()
-	if (target and !attack_in_range):
+	if (can_move and target and !attack_in_range):
 		var velocity = Vector2.ZERO
 		if !(target.position.x -5 <= position.x && position.x < target.position.x+5):
 			if position.x < target.position.x:

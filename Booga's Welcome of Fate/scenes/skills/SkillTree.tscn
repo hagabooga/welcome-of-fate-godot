@@ -29,10 +29,10 @@ custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CloseButton" type="TextureButton" parent="."]
-margin_left = 401.0
-margin_top = 6.0
-margin_right = 411.0
-margin_bottom = 16.0
+margin_left = 193.994
+margin_top = 491.84
+margin_right = 225.994
+margin_bottom = 520.84
 texture_normal = ExtResource( 3 )
 expand = true
 

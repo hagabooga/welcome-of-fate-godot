@@ -90,7 +90,6 @@ func close_dialogue():
 	visible = false
 	showing_dialogue = false
 	$DialogueText.visible = false
-	get_parent().can_open_ui = true
 	$Timer.start()
 
 func _on_QuestYes_pressed():

@@ -5,8 +5,6 @@
 [ext_resource path="res://sprites/enemies/Gator.png" type="Texture" id=3]
 [ext_resource path="res://sprites/enemies/Gator Attack.png" type="Texture" id=4]
 
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0
 
@@ -16,8 +14,8 @@ radius = 219.021
 [sub_resource type="CircleShape2D" id=3]
 radius = 18.0
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 10, 14 )
+[sub_resource type="CapsuleShape2D" id=8]
+height = 9.75146
 
 [sub_resource type="Animation" id=5]
 resource_name = "attack"
@@ -106,9 +104,10 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[node name="Gator" instance=ExtResource( 1 )]
+[node name="Gator" index="0" instance=ExtResource( 1 )]
 collision_layer = 1
 script = ExtResource( 2 )
+move_speed = 85
 
 [node name="AboveHeadPos" parent="." index="0"]
 position = Vector2( 1, -17 )
@@ -124,10 +123,11 @@ shape = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="AttackArea" parent="." index="4"]
+editor/display_folded = false
 position = Vector2( -13, 3 )
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="Sprite" parent="." index="5"]
 modulate = Color( 1, 1, 1, 1 )

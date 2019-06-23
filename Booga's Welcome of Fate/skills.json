@@ -2,11 +2,19 @@
     "fireball":
     {
         "desc": "Shoot in a straight line a small ball of fire.",
-        "max_rank": 3
+        "max_rank": 3,
+        "style": 0
     },
     "summon fire lion":
     {
         "desc": "Summon a fire lion, burning all enemies in its path.",
-        "max_rank": 3
+        "max_rank": 3,
+        "style": 0
+    },
+    "torrentacle":
+    {
+        "desc": "Create water tentacles, dealing damage and rooting the enemy.",
+        "max_rank": 3,
+        "style": 1
     }
 }
