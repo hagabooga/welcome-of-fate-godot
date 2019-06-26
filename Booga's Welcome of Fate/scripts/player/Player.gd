@@ -22,7 +22,7 @@ func _ready():
 func use_skill(skill):
 	if (can_move and player_stats.mp >= skill.mana):
 		play_all_anims("cast", facing)
-		skill_activations.activate_skill(skill, $RangeOfSight.get_first_enemy())
+		skill_activations.activate_skill(skill, $RangeOfSight.current_target)
 		player_stats.add_mp(-skill.mana)
 		return true
 	return false

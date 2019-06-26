@@ -6,11 +6,14 @@ var hit
 var knockback
 var stun
 var type
+var dealer
 
 enum {physical, magical}
 
-func init(dmg, typ, knck = 0, stn = 0):
+func init(dmg, typ, dler, typ, knck = 0, stn = 0):
 	damage = dmg
 	knockback = knck
 	stun = stn
+	type = typ
+	dealer = dler
 	type = typ

@@ -9,7 +9,6 @@
 [ext_resource path="res://sprites/ui/energy_bar.png" type="Texture" id=7]
 [ext_resource path="res://sprites/ui/energy_bar_progress.png" type="Texture" id=8]
 
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 

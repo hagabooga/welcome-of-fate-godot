@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 class_name Enemy
 
+var ming = "Enemy"
 var stats = Attributes.new()
 var attack_in_range = false
 var target = null

@@ -1,6 +1,7 @@
 extends Enemy
 
 func start_stats():
+	ming = "Combat Dummy"
 	stats.max_hp = 99999
 	
 var time = 0

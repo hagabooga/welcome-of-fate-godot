@@ -28,10 +28,12 @@ func update_stats():
 	add_mp(0)
 	add_energy(0)
 	emit_signal("stats_change")
+	
+func take_damage
 
 func add_hp(val):
 	.add_hp(val)
-	print("player took ", val)
+#	print("player took ", val)
 	if self.hp <= 0:
 		print("PLAYER HAS DIED RESETTING HP...")
 		self.hp = self.max_hp
