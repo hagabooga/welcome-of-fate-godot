@@ -29,7 +29,6 @@ func update_stats():
 	add_energy(0)
 	emit_signal("stats_change")
 	
-func take_damage
 
 func add_hp(val):
 	.add_hp(val)

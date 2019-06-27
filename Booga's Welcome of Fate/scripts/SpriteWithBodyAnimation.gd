@@ -2,7 +2,7 @@ extends Sprite
 
 class_name SpriteWithBodyAnimation
 var current_dir
-enum {up,left,down,right}
+enum {up,down,left,right}
 
 
 func dir_to_string(dir):

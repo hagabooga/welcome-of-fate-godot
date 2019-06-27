@@ -221,7 +221,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if equipped_weapon != null:
 		equipped_weapon.visible = true
 
-
 func _on_DashInterval_timeout():
 	dash_key = null
 	dash_current_time = 0
