@@ -16,9 +16,7 @@ func dir_to_string(dir):
 		right:
 			return "right"
 
-func play_anim(anim, dir,backwards = false):
+func play_anim(anim, dir, speed_ratio = 8):
 	current_dir = dir
-	if backwards:
-		$AnimationPlayer.play_backwards("%s_%s"%[anim,dir_to_string(dir)])
-	else:
-		$AnimationPlayer.play("%s_%s"%[anim,dir_to_string(dir)])
+	$AnimationPlayer.play("%s_%s"%[anim,dir_to_string(dir)])
+	$AnimationPlayer.playback_speed = speed_ratio

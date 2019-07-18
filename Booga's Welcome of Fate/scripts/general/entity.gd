@@ -2,8 +2,8 @@ extends Attributes
 
 class_name Entity
 
-var ming
-export(int) var move_speed
+var ming = "Entity No Name"
+export(int) var move_speed = 100
 var can_move
 var velocity = Vector2.ZERO
 

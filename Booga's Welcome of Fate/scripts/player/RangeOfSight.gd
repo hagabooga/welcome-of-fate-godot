@@ -21,7 +21,7 @@ func _process(delta):
 
 func take_damage_change_target(val):
 	if val < 0:
-		current_target = enemy
+		current_target = val.enemy
 	
 	
 func change_target(enemies):

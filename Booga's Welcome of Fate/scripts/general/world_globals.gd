@@ -1,5 +1,15 @@
 extends Node
 
+
+
+
+var current_map
+
+func get_tilemap() -> TileMap:
+	return current_map.tilemap_soil
+
+
+
 var season_list = ["spring","summer","fall","winter"]
 var season = 0
 var day = 1
@@ -66,17 +76,17 @@ func next_day():
 	
 func create_world_objects():
 	randomize()
-	var dirt_tiles = tilemap_dirt.get_used_cells()
-	var grass_tiles = tilemap_grass.get_used_cells()
-	var soil_tiles = tilemap_soil.get_used_cells()
+	var dirt_tiles = current_map.tilemap_dirt.get_used_cells()
+	var grass_tiles =  current_map.tilemap_grass.get_used_cells()
+	var soil_tiles =  current_map.tilemap_soil.get_used_cells()
 	for x in grass_tiles:
 		var i = randi()%20
 		if !(x in dirt_tiles) and !(x in soil_tiles) and 0 == i:
-			tilemap_world_objects.set_cellv(x,randi()%2)
+			current_map.tilemap_worldObjects.set_cellv(x,randi()%2)
 	for x in soil_tiles:
 		var i = randi()%20
-		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
+		if current_map.tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
 			if i == 0:
-				tilemap_world_objects.set_cellv(x,randi()%2)
-			elif !(x in tilemap_world_objects.get_used_cells()) and 1 <= i and i <= 8:
-				tilemap_world_objects.set_cellv(x,2)
+				current_map.tilemap_worldObjects.set_cellv(x,randi()%2)
+			elif !(x in current_map.tilemap_worldObjects.get_used_cells()) and 1 <= i and i <= 8:
+				current_map.tilemap_worldObjects.set_cellv(x,2)

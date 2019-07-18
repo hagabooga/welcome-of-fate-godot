@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/player/stats/mage.gd"
 }, {
+"base": "Node2D",
+"class": "Map",
+"language": "GDScript",
+"path": "res://New/Map.gd"
+}, {
 "base": "Actionable",
 "class": "Npc",
 "language": "GDScript",
@@ -114,6 +119,7 @@ _global_script_class_icons={
 "EquipItem": "",
 "Item": "",
 "Mage": "",
+"Map": "",
 "Npc": "",
 "Player": "",
 "PlayerBaseSprite": "",
@@ -129,7 +135,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Booga's Welcome of Fate"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Tutorial Island.tscn"
 config/icon="res://icon.png"
 
 [autoload]
