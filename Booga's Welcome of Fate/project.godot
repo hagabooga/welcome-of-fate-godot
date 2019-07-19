@@ -29,8 +29,13 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/damage/damage.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Entity",
 "class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts/enemies/enemy_new.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "EnemyOld",
 "language": "GDScript",
 "path": "res://scripts/enemies/enemy.gd"
 }, {
@@ -49,7 +54,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/items/item.gd"
 }, {
-"base": "Attributes",
+"base": "Player",
 "class": "Mage",
 "language": "GDScript",
 "path": "res://scripts/player/stats/mage.gd"
@@ -64,15 +69,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/npc/NPC.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Entity",
 "class": "Player",
 "language": "GDScript",
-"path": "res://scripts/player/Player.gd"
+"path": "res://scripts/entity/PlayerNew.gd"
 }, {
 "base": "Sprite",
 "class": "PlayerBaseSprite",
 "language": "GDScript",
 "path": "res://scripts/player/player_base_sprites.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "PlayerOld",
+"language": "GDScript",
+"path": "res://scripts/player/Player.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Projectile",
@@ -115,6 +125,7 @@ _global_script_class_icons={
 "BaseStat": "",
 "Damage": "",
 "Enemy": "",
+"EnemyOld": "",
 "Entity": "",
 "EquipItem": "",
 "Item": "",
@@ -123,6 +134,7 @@ _global_script_class_icons={
 "Npc": "",
 "Player": "",
 "PlayerBaseSprite": "",
+"PlayerOld": "",
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
@@ -143,7 +155,6 @@ config/icon="res://icon.png"
 world_globals="*res://scripts/general/world_globals.gd"
 item_database="*res://scripts/items/item_database.gd"
 item_activations="*res://scripts/items/item_activations.gd"
-player_stats="*res://scripts/player/player_stats.gd"
 global_id="*res://scripts/general/global_id.gd"
 player_equip="*res://scripts/player/player_equip.gd"
 DayNightCycle="*res://scenes/general/DayNightCycle.tscn"
@@ -153,6 +164,7 @@ ui_maker="*res://scripts/general/ui_maker.gd"
 skill_database="*res://scripts/skill/skill_database.gd"
 player_skills="*res://scripts/skill/player_skills.gd"
 skill_activations="*res://skill_activations.gd"
+player_stats="*res://scripts/player/player_stats.gd"
 
 [debug]
 

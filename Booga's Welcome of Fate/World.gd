@@ -8,7 +8,7 @@ func _ready():
 	world_globals.tilemap_grass = $TileMaps/Grass
 	world_globals.tilemap_world_objects = $TileMaps/WorldObjects
 	world_globals.tilemap_dirt = $TileMaps/Dirt
-	world_globals.create_world_objects()
+	#world_globals.create_world_objects()
 	
 
 

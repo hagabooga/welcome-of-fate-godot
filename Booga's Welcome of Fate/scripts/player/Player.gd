@@ -1,5 +1,6 @@
 extends KinematicBody2D
-class_name Player
+
+class_name PlayerOld
 
 export (int) var speed = 200
 var speed_bonus = 0

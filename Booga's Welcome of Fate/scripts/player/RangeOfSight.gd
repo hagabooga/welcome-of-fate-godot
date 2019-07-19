@@ -44,7 +44,7 @@ func show_indicator():
 		$TargetIndicator.z_index = current_target.z_index + 1
 		$TargetIndicator.global_position = current_target.find_node("AboveHeadPos").global_position
 		$TargetHealth/Name.text = current_target.ming
-		$TargetHealth.value = (current_target.stats.hp / current_target.stats.max_hp) * 100
+		#$TargetHealth.value = (current_target.stats.hp / current_target.stats.max_hp) * 100
 	
 		
 func get_first_enemy() -> Enemy: 

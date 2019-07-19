@@ -14,7 +14,7 @@ radius = 219.021
 [sub_resource type="CircleShape2D" id=3]
 radius = 18.0
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=4]
 height = 9.75146
 
 [sub_resource type="Animation" id=5]
@@ -104,8 +104,8 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[node name="Gator" index="0" instance=ExtResource( 1 )]
-collision_layer = 1
+[node name="Gator" instance=ExtResource( 1 )]
+collision_mask = 0
 script = ExtResource( 2 )
 move_speed = 85
 
@@ -127,7 +127,7 @@ editor/display_folded = false
 position = Vector2( -13, 3 )
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="Sprite" parent="." index="5"]
 modulate = Color( 1, 1, 1, 1 )
@@ -137,4 +137,3 @@ texture = ExtResource( 3 )
 anims/attack = SubResource( 5 )
 anims/die = SubResource( 6 )
 anims/idle = SubResource( 7 )
-

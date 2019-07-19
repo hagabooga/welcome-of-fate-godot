@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-class_name Enemy
+class_name EnemyOld
 
 var ming = "Enemy"
 var stats = Attributes.new()

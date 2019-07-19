@@ -3,7 +3,7 @@ extends KinematicBody2D
 class_name Attributes
 
 var stats = []
-var strength setget set_str,get_str
+var strength : int setget set_str,get_str 
 var intelligence setget set_int, get_int
 var agility setget set_agi, get_agi
 var luck setget set_lck, get_lck
@@ -22,8 +22,8 @@ var max_energy setget set_energy, get_energy
 var energy setget set_eng
 var hp setget set_hp
 var mp setget set_mp
-var level
-var job
+var level = 1
+var job = "Attributes: No Name"
 
 func set_hp_extra():
 	pass 

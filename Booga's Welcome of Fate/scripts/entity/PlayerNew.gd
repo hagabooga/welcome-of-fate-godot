@@ -1,21 +1,26 @@
 extends Entity
 
+
+class_name Player
 enum {up,down,left,right}
 var facing = down
 
+func _ready():
+	print($Camera2D.name)
 
 func _physics_process(delta):
 	movement_input()
+	#var lol = velocity.normalized() * move_speed
+	#print(lol)
 	move_and_slide(velocity.normalized() * move_speed)
-	global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
-	#print(owner.name)
+	#global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func movement_input() -> void:
-	velocity = Vector2()
+	velocity = Vector2.ZERO
 	if Input.is_action_pressed('ui_right'):
-		velocity.x = 1
+		velocity = Vector2.RIGHT
 	elif Input.is_action_pressed('ui_left'):
-		velocity.x = -1
+		velocity = Vector2.LEFT
 	if Input.is_action_pressed('ui_down'):
 		velocity.y = 1
 	elif Input.is_action_pressed('ui_up'):

@@ -174,7 +174,6 @@ drag_margin_bottom = 0.0
 [node name="DashInterval" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
-
 [connection signal="timeout" from="PlayerChangeToolSprite/Timer" to="PlayerChangeToolSprite" method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="SpriteWithBodyAnimation/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="DashInterval" to="." method="_on_DashInterval_timeout"]

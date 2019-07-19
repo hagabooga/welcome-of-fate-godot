@@ -96,7 +96,6 @@ __meta__ = {
 anims/attack = SubResource( 1 )
 anims/die = SubResource( 2 )
 anims/idle = SubResource( 3 )
-
 [connection signal="area_entered" from="PlayerRange" to="." method="_on_PlayerRange_area_entered"]
 [connection signal="area_exited" from="PlayerRange" to="." method="_on_PlayerRange_area_exited"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_AttackArea_area_entered"]
