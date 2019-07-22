@@ -10,6 +10,9 @@ func _init():
 	self.luck = 5
 	self.crit_multi = 225
 	self.max_energy = 100
+	update_stats()
+	hp = self.max_hp
+	move_speed = 150
 	
 func update_stats():
 	self.max_hp = 225 + self.strength * 28 + level * (32 + level)

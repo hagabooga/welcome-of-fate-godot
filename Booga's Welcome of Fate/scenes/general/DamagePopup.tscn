@@ -3,10 +3,8 @@
 [ext_resource path="res://scripts/general/DamagePopup.gd" type="Script" id=1]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=2]
 
-
-
 [sub_resource type="DynamicFont" id=1]
-size = 24
+size = 26
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
@@ -52,5 +50,4 @@ valign = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/popup = SubResource( 2 )
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -138,9 +138,8 @@ tracks/1/keys = {
 
 [sub_resource type="CircleShape2D" id=6]
 
-[node name="MagicWand" instance=ExtResource( 1 )]
+[node name="MagicWand" index="0" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
-frame = 197
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="0"]
@@ -151,8 +150,8 @@ anims/slash_right = SubResource( 4 )
 anims/slash_up = SubResource( 5 )
 
 [node name="Hitbox" parent="." index="1"]
-position = Vector2( 16, 13 )
+editor/display_folded = true
+position = Vector2( -20, -5 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 6 )
-

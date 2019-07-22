@@ -13,7 +13,7 @@ var dealer
 
 enum {physical, magical}
 
-func init(dmg, typ, dler, typ, knck = 0, hs_mutli = 1, stn = 0):
+func _init(dler , dmg = 0, typ = 0, knck = 0, hs_mutli = 1, stn = 0):
 	damage = dmg
 	knockback = knck
 	hitstun_multi = hs_mutli

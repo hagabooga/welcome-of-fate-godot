@@ -262,7 +262,7 @@ tracks/0/keys = {
 texture = ExtResource( 1 )
 vframes = 21
 hframes = 13
-frame = 30
+frame = 174
 region_enabled = true
 region_rect = Rect2( 0, 0, 832, 1344 )
 script = ExtResource( 2 )
@@ -284,4 +284,3 @@ anims/walk_down = SubResource( 13 )
 anims/walk_left = SubResource( 14 )
 anims/walk_right = SubResource( 15 )
 anims/walk_up = SubResource( 16 )
-

@@ -2,16 +2,15 @@ extends SpriteWithBodyAnimation
 
 class_name Weapon
 
-var damage setget ,get_damage
+var damage : Damage setget ,get_damage
 var targets_hit = []
 var pierce = 1
 
 func _ready():
 	$Hitbox/CollisionShape2D.disabled = true
 
-
-func get_damage():
-	return player_stats.physical
+func get_damage() -> Damage:
+	return null
 	
 func attack_effect():
 	pass
@@ -30,12 +29,6 @@ func _on_AnimationPlayer_animation_started(anim_name):
 	else:
 		$Hitbox/CollisionShape2D.disabled = true
 
-
-#func _process(delta):
-#	update()
-#
-#func _draw():
-#	var col = Color.red
-#	if !$Hitbox/CollisionShape2D.disabled:
-#		col.a = 0.5
-#		draw_circle($Hitbox.position, $Hitbox/CollisionShape2D.shape.radius, col)
+func _on_Hitbox_body_entered(body):
+	if body is Entity:
+		body.take_damage(self.damage)

@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/weapons/Weapon.gd" type="Script" id=2]
 
 [node name="Weapon" instance=ExtResource( 1 )]
-frame = 158
+frame = 32
 script = ExtResource( 2 )
 
 [node name="Hitbox" type="Area2D" parent="." index="1"]
@@ -15,6 +15,5 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
