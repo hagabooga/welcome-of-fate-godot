@@ -1,19 +1,22 @@
 extends KinematicBody2D
 
 class_name Projectile
-enum {up,left,down,right}
-var velocity = Vector2.ZERO
-export(int) var speed = 20
-export(float) var travel_time = 1
-var damage
-export(int) var pierce = 1
+
+enum {up,down,left,right}
+
+var velocity : Vector2 = Vector2.ZERO
+
+export(int) var speed : int = 20
+export(float) var travel_time : float = 1
+var damage : Damage
+export(int) var pierce : int = 1
 var targets_hit = []
 
 func _physics_process(delta):
 	move_and_slide(velocity.normalized() * speed)
 	
 func _process(delta):
-	z_index = world_globals.tilemap_soil.world_to_map(global_position).y
+	pass
 	
 func set_velocity(facing):
 	$AnimationPlayer.play("start")
@@ -33,14 +36,9 @@ func set_velocity(facing):
 		velocity = Vector2(0,1)
 		rotate(PI/2)
 
-func _on_Hitbox_area_entered(area):
-	var area_par = area.get_parent()
-	if area_par is Enemy:
-		targets_hit.append(area)
-		if len(targets_hit) == pierce:
-			queue_free()
-		area_par.take_damage(damage)
-
+func _on_Hitbox_body_entered(body):
+	if body is Entity:
+		body.take_damage(self.damage)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()

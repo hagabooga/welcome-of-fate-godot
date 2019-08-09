@@ -3,9 +3,6 @@
 [ext_resource path="res://scripts/general/WorldObject.gd" type="Script" id=1]
 [ext_resource path="res://sprites/items/branch.png" type="Texture" id=2]
 
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "grab"
 tracks/0/type = "value"
@@ -33,5 +30,4 @@ anims/grab = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

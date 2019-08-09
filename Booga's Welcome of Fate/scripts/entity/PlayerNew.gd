@@ -18,7 +18,7 @@ func _physics_process(delta):
 		movement_input()
 		move_and_slide(velocity.normalized() * move_speed)
 	if Input.is_action_just_pressed("attack"):
-		play_all_body_anims("slash", facing,8,false)
+		basic_attack()
 	#global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func movement_input() -> void:
@@ -85,7 +85,11 @@ func flip_hitboxes() -> void:
 #			self.equipped_weapon.flip_h = false
 	
 
-func set_facing(dir):
+func basic_attack() -> void:
+	play_all_body_anims("slash", facing,8,false)
+	self.equipped_weapon.attack_effect(facing)
+
+func set_facing(dir) -> void:
 	facing = dir
 	change_equip_z()
 	flip_hitboxes()

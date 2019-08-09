@@ -6,11 +6,14 @@ func get_damage() -> Damage:
 	return Damage.new(owner,69)
 
 
-func attack_effect():
+func attack_effect(facing) -> void:
 	var player : Entity = owner
-	var proj = world_globals.player.create_projectile(projectile)
-	#proj.set_velocity(current_dir)
-	proj.damage = proj_damage()
+	var proj = projectile.instance()
+	get_tree().get_root().add_child(proj)
+	proj.global_position = player.global_position
+	proj.damage = get_damage()
+	proj.set_velocity(facing)
+	
 
 func proj_damage():
 	return  0.3

@@ -12,7 +12,7 @@ func _ready():
 func get_damage() -> Damage:
 	return null
 	
-func attack_effect():
+func attack_effect(facing):
 	pass
 
 func _on_Hitbox_area_entered(area):
