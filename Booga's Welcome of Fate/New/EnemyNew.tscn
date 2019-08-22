@@ -49,7 +49,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "die"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -102,10 +102,9 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 
-[node name="Enemy" index="0" instance=ExtResource( 1 )]
+[node name="Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
@@ -137,8 +136,9 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 anims/attack = SubResource( 2 )
-anims/die = SubResource( 4 )
-anims/idle = SubResource( 3 )
+anims/die = SubResource( 3 )
+anims/idle = SubResource( 4 )
+
 [connection signal="input_event" from="." to="." method="_on_Enemy_input_event"]
 [connection signal="body_entered" from="RangeOfSight" to="." method="_on_RangeOfSight_body_entered"]
 [connection signal="body_exited" from="RangeOfSight" to="." method="_on_RangeOfSight_body_exited"]

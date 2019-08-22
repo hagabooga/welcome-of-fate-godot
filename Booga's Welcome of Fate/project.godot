@@ -80,11 +80,6 @@ _global_script_classes=[ {
 "path": "res://scripts/player/player_base_sprites.gd"
 }, {
 "base": "KinematicBody2D",
-"class": "PlayerOld",
-"language": "GDScript",
-"path": "res://scripts/player/Player.gd"
-}, {
-"base": "KinematicBody2D",
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://scripts/projectiles/projectile.gd"
@@ -134,7 +129,6 @@ _global_script_class_icons={
 "Npc": "",
 "Player": "",
 "PlayerBaseSprite": "",
-"PlayerOld": "",
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
@@ -147,7 +141,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Booga's Welcome of Fate"
-run/main_scene="res://Tutorial Island.tscn"
+run/main_scene="res://scenes/maps/Tutorial Island.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -164,7 +158,7 @@ ui_maker="*res://scripts/general/ui_maker.gd"
 skill_database="*res://scripts/skill/skill_database.gd"
 player_skills="*res://scripts/skill/player_skills.gd"
 skill_activations="*res://skill_activations.gd"
-player_stats="*res://scripts/player/player_stats.gd"
+world_objects_database="*res://world_objects/world_objects_database.gd"
 
 [debug]
 

@@ -17,9 +17,9 @@ func _physics_process(delta):
 	if can_move:
 		movement_input()
 		move_and_slide(velocity.normalized() * move_speed)
-	if Input.is_action_just_pressed("attack"):
-		basic_attack()
-	#global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
+		if Input.is_action_just_pressed("attack"):
+			basic_attack()
+	global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func movement_input() -> void:
 	velocity = Vector2.ZERO
