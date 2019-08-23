@@ -75,4 +75,10 @@ func next_day():
 	emit_signal("next_day")
 
 func is_adjacent(a,b) -> bool:
-	return a == b or (a.x == b.x and (a.y + 1 == b.y or a.y - 1 == b.y)) or (a.y == b.y and (a.x + 1 == b.x or a.x - 1 == b.x)) 
+	return a == b or \
+	(a.x == b.x and (a.y + 1 == b.y or a.y - 1 == b.y)) or \
+	(a.y == b.y and (a.x + 1 == b.x or a.x - 1 == b.x)) or \
+	(a.x + 1 == b.x and a.y + 1 == b.y) or \
+	(a.x - 1 == b.x and a.y - 1 == b.y) or \
+	(a.x + 1 == b.x and a.y - 1 == b.y) or \
+	(a.x - 1 == b.x and a.y + 1 == b.y)

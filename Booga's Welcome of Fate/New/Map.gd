@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Map
 
-var world_objects = {}
+var world_objects = []
 
 var tilemap_grass : TileMap
 var tilemap_dirt  : TileMap
@@ -16,7 +16,6 @@ func _ready():
 	tilemap_grass = $TileMaps/Grass
 	tilemap_dirt = $TileMaps/Dirt
 	tilemap_soil = $TileMaps/Soil
-	tilemap_soilObjects = $TileMaps/SoilObjects
 	tilemap_worldObjects = $TileMaps/WorldObjects
 	create_world_objects()
 	
@@ -31,9 +30,9 @@ func create_world_object(ming : String, pos : Vector2):
 	$WorldObjects.add_child(obj)
 	obj.global_position = tilemap_grass.map_to_world(pos)
 	obj.z_index = pos.y - 1
-	world_objects[pos] = obj
 	obj.connect("clicked", player, "click_obj", [obj])
 	obj.tile_pos = pos
+	world_objects.append(obj)
 	#print(world_objects)
 
 func create_world_objects():
@@ -48,5 +47,6 @@ func create_world_objects():
 	for x in tilemap_soil.get_used_cells():
 		var i = randi()%100
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
+			create_world_object("TilledSoil", x)
 			if !(x in tilemap_worldObjects.get_used_cells()) and i < 60:
 				create_world_object(names[randi() % names.size()], x)

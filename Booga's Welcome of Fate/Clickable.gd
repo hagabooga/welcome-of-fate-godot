@@ -5,5 +5,5 @@ class_name Clickable
 signal clicked
 
 
-func clicked():
+func clicked(tewl : Tool):
 	pass

@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/npc/NPC.gd"
 }, {
+"base": "WorldObject",
+"class": "PickableWorldObject",
+"language": "GDScript",
+"path": "res://pickable_world_object.gd"
+}, {
 "base": "Entity",
 "class": "Player",
 "language": "GDScript",
@@ -94,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/quests/quest_goal.gd"
 }, {
+"base": "Tool",
+"class": "Shovel",
+"language": "GDScript",
+"path": "res://shovel.gd"
+}, {
 "base": "Sprite",
 "class": "SingleSkillAttack",
 "language": "GDScript",
@@ -110,9 +120,24 @@ _global_script_classes=[ {
 "path": "res://scripts/SpriteWithBodyAnimation.gd"
 }, {
 "base": "SpriteWithBodyAnimation",
+"class": "Tool",
+"language": "GDScript",
+"path": "res://scripts/tools/tool.gd"
+}, {
+"base": "Tool",
+"class": "WateringCan",
+"language": "GDScript",
+"path": "res://WateringCan.gd"
+}, {
+"base": "SpriteWithBodyAnimation",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://scripts/weapons/Weapon.gd"
+}, {
+"base": "Clickable",
+"class": "WorldObject",
+"language": "GDScript",
+"path": "res://scripts/general/WorldObject.gd"
 } ]
 _global_script_class_icons={
 "Actionable": "",
@@ -127,15 +152,20 @@ _global_script_class_icons={
 "Mage": "",
 "Map": "",
 "Npc": "",
+"PickableWorldObject": "",
 "Player": "",
 "PlayerBaseSprite": "",
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
+"Shovel": "",
 "SingleSkillAttack": "",
 "Skill": "",
 "SpriteWithBodyAnimation": "",
-"Weapon": ""
+"Tool": "",
+"WateringCan": "",
+"Weapon": "",
+"WorldObject": ""
 }
 
 [application]

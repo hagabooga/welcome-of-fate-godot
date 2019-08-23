@@ -5,9 +5,12 @@ class_name Player
 enum {up,down,left,right}
 var facing = down setget set_facing
 var equipped_weapon : Weapon setget ,get_weapon
+var equipped_tool : Tool = Shovel.new()
 
 
 func _ready():
+	#print(equipped_tool)
+	#print(Shovel)
 	get_parent().player = self
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
@@ -24,17 +27,17 @@ func _physics_process(delta):
 
 func click_obj(obj : Clickable):
 	#print("clicked: ", obj.name, " ", obj.tile_pos)
-	var clickables = [] 
-	for x in $ClickableRange.get_overlapping_bodies():
-		if x is Clickable:
-			clickables.append(x)
-	print(clickables)
-#	var cheat = global_position
-#	cheat.y += 17
-#	var pos = get_parent().tilemap_grass.world_to_map(cheat)
-#	if (world_globals.is_adjacent(pos, obj.tile_pos)):
+#	var clickables = [] 
+#	for x in $ClickableRange.get_overlapping_bodies():
+#		if x is Clickable:
+#			clickables.append(x)
+#	if obj in clickables:
 #		obj.clicked()
-	return true
+	var pos = get_parent().tilemap_grass.world_to_map(global_position)
+	#print(get_parent().tilemap_soil.get_cell_autotile_coord(pos.x,pos.y) == Vector2(1,3)) 
+	if (world_globals.is_adjacent(pos, obj.tile_pos)):
+		print("keyi")
+		obj.clicked(equipped_tool)
 
 
 func movement_input() -> void:
