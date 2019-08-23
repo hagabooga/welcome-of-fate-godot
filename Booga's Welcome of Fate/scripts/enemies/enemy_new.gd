@@ -128,12 +128,12 @@ func target_still_in_range() -> bool:
 	return false
 
 func _on_RangeOfSight_body_entered(body):
-	print(body)
+	#print(body)
 	if target == null and body is Entity and body != self:
 		target = body
 
 func _on_RangeOfSight_body_exited(body):
-	print(body.name, " left range: ", name)
+	#print(body.name, " left range: ", name)
 	pass # Replace with function body.
 
 func _on_AttackRange_body_entered(body):

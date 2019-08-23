@@ -3,7 +3,7 @@ extends Node
 
 
 
-var current_map
+var current_map : Map
 
 func get_tilemap() -> TileMap:
 	return current_map.tilemap_soil
@@ -73,20 +73,6 @@ func next_day():
 		season += 1
 	day += 1
 	emit_signal("next_day")
-	
-func create_world_objects():
-	randomize()
-	var dirt_tiles = current_map.tilemap_dirt.get_used_cells()
-	var grass_tiles =  current_map.tilemap_grass.get_used_cells()
-	var soil_tiles =  current_map.tilemap_soil.get_used_cells()
-	for x in grass_tiles:
-		var i = randi()%20
-		if !(x in dirt_tiles) and !(x in soil_tiles) and 0 == i:
-			current_map.tilemap_worldObjects.set_cellv(x,randi()%2)
-	for x in soil_tiles:
-		var i = randi()%20
-		if current_map.tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
-			if i == 0:
-				current_map.tilemap_worldObjects.set_cellv(x,randi()%2)
-			elif !(x in current_map.tilemap_worldObjects.get_used_cells()) and 1 <= i and i <= 8:
-				current_map.tilemap_worldObjects.set_cellv(x,2)
+
+func is_adjacent(a,b) -> bool:
+	return a == b or (a.x == b.x and (a.y + 1 == b.y or a.y - 1 == b.y)) or (a.y == b.y and (a.x + 1 == b.x or a.x - 1 == b.x)) 

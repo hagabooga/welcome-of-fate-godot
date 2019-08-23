@@ -18,23 +18,10 @@ func _physics_process(delta):
 func _process(delta):
 	pass
 	
-func set_velocity(facing):
+func set_velocity(angle):
 	$AnimationPlayer.play("start")
 	$AnimationPlayer.playback_speed = $AnimationPlayer.current_animation_length/travel_time
-	if facing == up:
-		velocity = Vector2(0,-1)
-		rotate(-PI/2)
-	elif facing == left:
-		velocity = Vector2(-1,0)
-		$Sprite.flip_h = true
-		$Hitbox.scale.x = -1
-	elif facing == right:
-		velocity = Vector2(1,0)
-		$Sprite.flip_h = false
-		$Hitbox.scale.x = 1
-	else:
-		velocity = Vector2(0,1)
-		rotate(PI/2)
+	velocity = Vector2(cos(angle), sin(angle))
 
 func _on_Hitbox_body_entered(body):
 	if body is Entity:

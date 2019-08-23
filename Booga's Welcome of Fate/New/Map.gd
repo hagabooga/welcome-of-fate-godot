@@ -9,7 +9,7 @@ var tilemap_dirt  : TileMap
 var tilemap_soil : TileMap
 var tilemap_soilObjects : TileMap
 var tilemap_worldObjects : TileMap
-
+var player : Player
 
 func _ready():
 	world_globals.current_map = self
@@ -32,6 +32,8 @@ func create_world_object(ming : String, pos : Vector2):
 	obj.global_position = tilemap_grass.map_to_world(pos)
 	obj.z_index = pos.y - 1
 	world_objects[pos] = obj
+	obj.connect("clicked", player, "click_obj", [obj])
+	obj.tile_pos = pos
 	#print(world_objects)
 
 func create_world_objects():

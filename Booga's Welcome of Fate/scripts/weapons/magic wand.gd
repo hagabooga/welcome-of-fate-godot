@@ -6,13 +6,13 @@ func get_damage() -> Damage:
 	return Damage.new(owner,69)
 
 
-func attack_effect(facing) -> void:
+func attack_effect(angle) -> void:
 	var player : Entity = owner
 	var proj = projectile.instance()
 	get_tree().get_root().add_child(proj)
 	proj.global_position = player.global_position
 	proj.damage = get_damage()
-	proj.set_velocity(facing)
+	proj.set_velocity(angle)
 	
 
 func proj_damage():

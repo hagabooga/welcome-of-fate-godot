@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://New/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/maps/Tutorial Island.gd" type="Script" id=2]
-[ext_resource path="res://world_objects/WorldObject.tscn" type="PackedScene" id=3]
-[ext_resource path="res://New/GatorNew.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/player/PlayerNew.tscn" type="PackedScene" id=5]
+[ext_resource path="res://New/GatorNew.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/player/PlayerNew.tscn" type="PackedScene" id=4]
 
 [node name="Tutorial Island" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -18,15 +17,10 @@ tile_data = PoolIntArray( 131094, 0, 196609, 131095, 0, 65543, 131096, 0, 196610
 [node name="Soil" parent="TileMaps" index="2"]
 tile_data = PoolIntArray( 65547, 2, 131072, 65548, 2, 131073, 65549, 2, 131073, 65550, 2, 131073, 65551, 2, 131073, 65552, 2, 131073, 65553, 2, 131073, 65554, 2, 131073, 65555, 2, 131074, 131083, 2, 196608, 131084, 2, 196609, 131085, 2, 196609, 131086, 2, 196609, 131087, 2, 196609, 131088, 2, 196609, 131089, 2, 196609, 131090, 2, 196609, 131091, 2, 196610, 196619, 2, 196608, 196620, 2, 196609, 196621, 2, 196609, 196622, 2, 196609, 196623, 2, 196609, 196624, 2, 196609, 196625, 2, 196609, 196626, 2, 196609, 196627, 2, 196610, 262155, 2, 196608, 262156, 2, 196609, 262157, 2, 196609, 262158, 2, 196609, 262159, 2, 196609, 262160, 2, 196609, 262161, 2, 196609, 262162, 2, 196609, 262163, 2, 196610, 327691, 2, 196608, 327692, 2, 196609, 327693, 2, 196609, 327694, 2, 196609, 327695, 2, 196609, 327696, 2, 196609, 327697, 2, 196609, 327698, 2, 196609, 327699, 2, 196610, 393227, 2, 196608, 393228, 2, 196609, 393229, 2, 196609, 393230, 2, 196609, 393231, 2, 196609, 393232, 2, 196609, 393233, 2, 196609, 393234, 2, 196609, 393235, 2, 196610, 458763, 2, 262144, 458764, 2, 262145, 458765, 2, 262145, 458766, 2, 262145, 458767, 2, 262145, 458768, 2, 262145, 458769, 2, 262145, 458770, 2, 262145, 458771, 2, 262146, 851975, 2, 131072, 851976, 2, 131073, 851977, 2, 131073, 851978, 2, 131073, 851979, 2, 131073, 851980, 2, 131073, 851981, 2, 131073, 851982, 2, 131073, 851983, 2, 131073, 851984, 2, 131073, 851985, 2, 131073, 851986, 2, 131074, 917511, 2, 196608, 917512, 2, 196609, 917513, 2, 196609, 917514, 2, 196609, 917515, 2, 196609, 917516, 2, 196609, 917517, 2, 196609, 917518, 2, 196609, 917519, 2, 196609, 917520, 2, 196609, 917521, 2, 196609, 917522, 2, 196610, 983047, 2, 262144, 983048, 2, 262145, 983049, 2, 262145, 983050, 2, 262145, 983051, 2, 262145, 983052, 2, 262145, 983053, 2, 262145, 983054, 2, 262145, 983055, 2, 262145, 983056, 2, 262145, 983057, 2, 262145, 983058, 2, 262146 )
 
-[node name="WorldObjects" parent="." index="1"]
-editor/display_folded = true
-
-[node name="Branch" parent="WorldObjects" index="0" instance=ExtResource( 3 )]
-position = Vector2( 421, 338 )
-
-[node name="Gator" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Gator" parent="." index="2" instance=ExtResource( 3 )]
 position = Vector2( 761, 201 )
 
-[node name="Player" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Player" parent="." index="3" instance=ExtResource( 4 )]
 position = Vector2( 421, 338 )
+z_index = 1
 

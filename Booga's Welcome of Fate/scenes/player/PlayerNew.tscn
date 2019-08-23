@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/general/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/entity/PlayerNew.gd" type="Script" id=2]
@@ -11,6 +11,9 @@ radius = 12.0416
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 264.002
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 21.0238
 
 [node name="Player" index="0" instance=ExtResource( 1 )]
 position = Vector2( 503, 236 )
@@ -35,16 +38,19 @@ position = Vector2( 0, 17 )
 z_index = 1
 shape = SubResource( 1 )
 
-[node name="Hurtbox" parent="." index="4"]
-editor/display_folded = false
-
-[node name="RangeOfSight" parent="." index="5"]
-editor/display_folded = false
-
 [node name="CollisionShape2D" parent="RangeOfSight" index="0"]
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="6"]
+[node name="ClickableRange" type="Area2D" parent="." index="6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableRange" index="0"]
+position = Vector2( 0, 17 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="." index="7"]
 current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
@@ -54,12 +60,14 @@ drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 
-[node name="UI" type="Node2D" parent="." index="7"]
+[node name="UI" type="Node2D" parent="." index="8"]
 z_index = 4096
 
 [node name="InteractKey" parent="UI" index="0" instance=ExtResource( 5 )]
+visible = false
 margin_top = 150.0
 margin_bottom = 227.0
+mouse_filter = 2
 
 
 [editable path="RangeOfSight"]

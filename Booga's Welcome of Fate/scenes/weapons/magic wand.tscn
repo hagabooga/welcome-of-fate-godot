@@ -154,3 +154,4 @@ position = Vector2( -20, -5 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 6 )
+
