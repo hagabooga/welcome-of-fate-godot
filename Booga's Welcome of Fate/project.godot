@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/items/equip_item.gd"
 }, {
+"base": "Tool",
+"class": "Hoe",
+"language": "GDScript",
+"path": "res://hoe.gd"
+}, {
 "base": "Node",
 "class": "Item",
 "language": "GDScript",
@@ -109,11 +114,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Seedbag.gd"
 }, {
-"base": "Tool",
-"class": "Shovel",
-"language": "GDScript",
-"path": "res://shovel.gd"
-}, {
 "base": "Sprite",
 "class": "SingleSkillAttack",
 "language": "GDScript",
@@ -158,6 +158,7 @@ _global_script_class_icons={
 "Enemy": "",
 "Entity": "",
 "EquipItem": "",
+"Hoe": "",
 "Item": "",
 "Mage": "",
 "Map": "",
@@ -170,7 +171,6 @@ _global_script_class_icons={
 "Quest": "",
 "QuestGoal": "",
 "Seedbag": "",
-"Shovel": "",
 "SingleSkillAttack": "",
 "Skill": "",
 "SpriteWithBodyAnimation": "",
@@ -449,6 +449,11 @@ move_left={
 move_right={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 

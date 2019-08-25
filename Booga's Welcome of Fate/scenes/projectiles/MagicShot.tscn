@@ -6,9 +6,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.37637
 
-[node name="MagicShot" instance=ExtResource( 1 )]
-speed = 200
-travel_time = 1.35
+[node name="MagicShot" index="0" instance=ExtResource( 1 )]
+speed = 145
+travel_time = 0.85
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

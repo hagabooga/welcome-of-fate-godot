@@ -5,7 +5,7 @@ class_name Player
 enum {up,down,left,right}
 var facing = down setget set_facing
 var equipped_weapon : Weapon setget ,get_weapon
-var equipped_tool : Tool = Shovel.new()
+var equipped_tool : Tool = Hoe.new()
 
 
 func _ready():
@@ -17,6 +17,9 @@ func _ready():
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("quest"):
+		equipped_tool = Hoe.new()
+		print("tool now hoe")
 	if Input.is_action_just_pressed("equipment"):
 		equipped_tool = Seedbag.new()
 		print("tool now seedbag")
@@ -33,10 +36,11 @@ func _physics_process(delta):
 
 func click_obj(obj : Clickable):
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
+	#print(world_globals.is_adjacent(pos, obj.tile_pos))
+	print("clicked: ", obj.name, " | In range: ", world_globals.is_adjacent(pos, obj.tile_pos))
 	if (world_globals.is_adjacent(pos, obj.tile_pos)):
-		print("clicked: ", obj.name)
 		obj.clicked(equipped_tool)
-
+		turn_towards_mouse()
 
 func movement_input() -> void:
 	velocity = Vector2.ZERO

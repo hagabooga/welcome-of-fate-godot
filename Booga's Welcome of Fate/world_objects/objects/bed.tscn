@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world_objects/WorldObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world_objects/objects/bed.gd" type="Script" id=2]
+[ext_resource path="res://bed.png" type="Texture" id=3]
+
+[node name="Bed" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Area2D" parent="." index="0"]
+position = Vector2( 32, 0 )
+polygon = PoolVector2Array( -25, 0, -29, 3, -32, 26, -32, 87, -24, 96, 24, 96, 32, 87, 32, 25, 29, 3, 26, 0 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 3 )
