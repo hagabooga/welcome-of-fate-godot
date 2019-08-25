@@ -17,6 +17,12 @@ func _ready():
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("equipment"):
+		equipped_tool = Seedbag.new()
+		print("tool now seedbag")
+	if Input.is_action_just_pressed("inventory"):
+		equipped_tool = WateringCan.new()
+		print("tool now watering can")
 	change_equip_z()
 	if can_move:
 		movement_input()
@@ -26,17 +32,9 @@ func _physics_process(delta):
 	#global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func click_obj(obj : Clickable):
-	#print("clicked: ", obj.name, " ", obj.tile_pos)
-#	var clickables = [] 
-#	for x in $ClickableRange.get_overlapping_bodies():
-#		if x is Clickable:
-#			clickables.append(x)
-#	if obj in clickables:
-#		obj.clicked()
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
-	#print(get_parent().tilemap_soil.get_cell_autotile_coord(pos.x,pos.y) == Vector2(1,3)) 
 	if (world_globals.is_adjacent(pos, obj.tile_pos)):
-		print("keyi")
+		print("clicked: ", obj.name)
 		obj.clicked(equipped_tool)
 
 

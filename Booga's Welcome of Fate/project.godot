@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://pickable_world_object.gd"
 }, {
+"base": "Item",
+"class": "Plant",
+"language": "GDScript",
+"path": "res://plants/Plant.gd"
+}, {
 "base": "Entity",
 "class": "Player",
 "language": "GDScript",
@@ -98,6 +103,11 @@ _global_script_classes=[ {
 "class": "QuestGoal",
 "language": "GDScript",
 "path": "res://scripts/quests/quest_goal.gd"
+}, {
+"base": "Tool",
+"class": "Seedbag",
+"language": "GDScript",
+"path": "res://Seedbag.gd"
 }, {
 "base": "Tool",
 "class": "Shovel",
@@ -153,11 +163,13 @@ _global_script_class_icons={
 "Map": "",
 "Npc": "",
 "PickableWorldObject": "",
+"Plant": "",
 "Player": "",
 "PlayerBaseSprite": "",
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
+"Seedbag": "",
 "Shovel": "",
 "SingleSkillAttack": "",
 "Skill": "",
