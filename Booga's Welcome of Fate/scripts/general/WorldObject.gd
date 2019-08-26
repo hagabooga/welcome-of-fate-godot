@@ -11,7 +11,7 @@ func _on_WorldObject_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed:
 			emit_signal("clicked")
-			print(tile_pos, " ", get_sprite_map_size())
+			#print(tile_pos, " ", get_sprite_map_size())
 
 func get_sprite_map_size() -> Vector2:
 	if $Sprite.region_enabled:

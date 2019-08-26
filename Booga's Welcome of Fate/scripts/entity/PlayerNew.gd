@@ -37,10 +37,15 @@ func _physics_process(delta):
 func click_obj(obj : Clickable):
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	#print(world_globals.is_adjacent(pos, obj.tile_pos))
-	print("clicked: ", obj.name, " | In range: ", world_globals.is_adjacent(pos, obj.tile_pos))
-	if (world_globals.is_adjacent(pos, obj.tile_pos)):
+	print("clicked: ", obj.name)
+	if (obj.is_self_adjacent(pos)):
 		obj.clicked(equipped_tool)
 		turn_towards_mouse()
+		special_click_effects(obj)
+		
+func special_click_effects(obj : Clickable):
+	if obj is Bed:
+		$UIController.create_question_box("Do you wish to sleep until the next day?")
 
 func movement_input() -> void:
 	velocity = Vector2.ZERO

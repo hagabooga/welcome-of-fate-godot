@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=1]
+[ext_resource path="res://QuestionBox.gd" type="Script" id=2]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=3]
+
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 22.0
+margin_right = 41.0
+margin_top = 34.0
+margin_bottom = 25.0
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 27
+font_data = ExtResource( 3 )
+
+[node name="QuestionBox" type="Panel"]
+editor/display_folded = true
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = 150.0
+margin_right = 300.0
+margin_bottom = 270.0
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 2 )
+
+[node name="Question" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -57.0
+custom_fonts/font = SubResource( 6 )
+custom_constants/line_spacing = -6
+text = "Do you want to sleep for the rest of the day?
+"
+align = 1
+
+[node name="YesButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = 4.0
+margin_right = -32.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 7 )
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = 4.0
+margin_right = 96.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 7 )
+text = "No"

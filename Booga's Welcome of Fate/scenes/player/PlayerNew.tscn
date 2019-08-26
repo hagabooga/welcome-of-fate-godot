@@ -1,28 +1,53 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/general/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/entity/PlayerNew.gd" type="Script" id=2]
 [ext_resource path="res://scenes/SpriteWithBodyAnimation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/weapons/magic wand.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/ui/InteractKey.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/player/UIController.gd" type="Script" id=5]
+[ext_resource path="res://scenes/ui/InteractKey.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=7]
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=8]
+[ext_resource path="res://QuestionBox.gd" type="Script" id=9]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0416
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 14.0
 height = 24.0
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 264.002
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 38.0
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 22.0
+margin_right = 41.0
+margin_top = 34.0
+margin_bottom = 25.0
 
-[node name="Player" instance=ExtResource( 1 )]
-position = Vector2( 503, 236 )
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 22.0
+margin_right = 41.0
+margin_top = 34.0
+margin_bottom = 25.0
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 27
+font_data = ExtResource( 10 )
+
+[node name="Player" index="0" instance=ExtResource( 1 )]
 collision_layer = 3
-collision_mask = 0
+collision_mask = 16
 script = ExtResource( 2 )
 move_speed = 150
 
@@ -47,29 +72,16 @@ position = Vector2( 0, -20 )
 
 [node name="HurtboxShape" parent="Hurtbox" index="0"]
 position = Vector2( 0, 5 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="RangeOfSight" parent="." index="5"]
 position = Vector2( 0, -20 )
 
 [node name="CollisionShape2D" parent="RangeOfSight" index="0"]
 position = Vector2( 0, 20 )
-shape = SubResource( 2 )
-
-[node name="ClickableRange" type="Area2D" parent="." index="6"]
-position = Vector2( 0, -20 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableRange" index="0"]
-position = Vector2( 0, 17 )
 shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Camera2D" type="Camera2D" parent="." index="7"]
+[node name="Camera2D" type="Camera2D" parent="." index="6"]
 current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
@@ -79,14 +91,76 @@ drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 
-[node name="UI" type="Node2D" parent="." index="8"]
-editor/display_folded = true
+[node name="UIController" type="Node2D" parent="." index="7"]
 z_index = 4096
+script = ExtResource( 5 )
 
-[node name="InteractKey" parent="UI" index="0" instance=ExtResource( 5 )]
+[node name="InteractKey" parent="UIController" index="0" instance=ExtResource( 6 )]
 visible = false
 margin_top = 150.0
 margin_bottom = 227.0
 mouse_filter = 2
+
+[node name="Dialogue" type="Panel" parent="UIController" index="1"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = 150.0
+margin_right = 300.0
+margin_bottom = 270.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="QuestionBox" type="Panel" parent="UIController" index="2"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = 150.0
+margin_right = 300.0
+margin_bottom = 270.0
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 9 )
+
+[node name="Question" type="Label" parent="UIController/QuestionBox" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -57.0
+custom_fonts/font = SubResource( 6 )
+custom_constants/line_spacing = -6
+text = "Do you want to sleep for the rest of the day?
+"
+align = 1
+valign = 1
+
+[node name="YesButton" type="Button" parent="UIController/QuestionBox" index="1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = 4.0
+margin_right = -32.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 7 )
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="UIController/QuestionBox" index="2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = 4.0
+margin_right = 96.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 7 )
+text = "No"
+[connection signal="pressed" from="UIController/QuestionBox/YesButton" to="UIController/QuestionBox" method="_on_YesButton_pressed"]
+[connection signal="pressed" from="UIController/QuestionBox/NoButton" to="UIController/QuestionBox" method="_on_NoButton_pressed"]
 
 [editable path="RangeOfSight"]
