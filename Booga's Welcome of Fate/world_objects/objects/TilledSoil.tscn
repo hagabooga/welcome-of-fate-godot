@@ -1,17 +1,58 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://world_objects/WorldObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world_objects/objects/TilledSoil.gd" type="Script" id=2]
 [ext_resource path="res://tilesets/SoilObjects/tilled_hole.png" type="Texture" id=3]
 [ext_resource path="res://plants/seed.png" type="Texture" id=4]
 
-[node name="TilledSoil" instance=ExtResource( 1 )]
+[sub_resource type="Animation" id=1]
+resource_name = "plant_pickup"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plant:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -32 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "plant_pickup"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plant:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="TilledSoil" index="0" instance=ExtResource( 1 )]
 collision_layer = 32
 collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Area2D" parent="." index="0"]
-polygon = PoolVector2Array( -16, -16, -16, 16, 16, 16, 16, -16, -16, -16 )
+polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 3 )
@@ -19,7 +60,12 @@ vframes = 3
 region_enabled = true
 region_rect = Rect2( 0, -32, 32, 96 )
 
+[node name="AnimationPlayer" parent="." index="2"]
+anims/plant_pickup = SubResource( 1 )
+
 [node name="Seed" type="Sprite" parent="." index="3"]
 visible = false
 texture = ExtResource( 4 )
 centered = false
+
+[node name="Plant" type="Node2D" parent="." index="4"]

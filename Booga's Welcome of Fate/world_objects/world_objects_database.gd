@@ -22,7 +22,7 @@ func dir_contents(path):
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
-	print(world_objects_database)
+	#print(world_objects_database)
 
 func instance_object(mingz):
 	return world_objects_database[mingz].instance()

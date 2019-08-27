@@ -14,7 +14,7 @@ var season_list = ["spring","summer","fall","winter"]
 var season = 0
 var day = 1
 var day_of_week = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
-var hour = 12
+var hour = 6
 var minute = 0
 
 
@@ -26,7 +26,6 @@ var tilemap_dirt
 var tilemap_soil_objects
 var tilemap_soil
 var tilemap_world_objects
-var dict_world_object_name = {0: "branch", 1: "rock", 2: "weed"}
 
 signal next_day
 signal time_increased
@@ -36,9 +35,15 @@ var time_delta = 5
 var time = time_delta
 var player
 
+var time_stop = false
 
 
 func _process(delta):
+	if Input.is_action_just_pressed("ctrl"):
+		next_day()
+	#print(time)
+	if time_stop:
+		return
 	time -= delta
 	if time <= 0:
 		time = time_delta
@@ -72,5 +77,9 @@ func next_day():
 		day = 0
 		season += 1
 	day += 1
+	hour = 6
+	minute = 0
+	time = 5
+	time_stop = true
 	emit_signal("next_day")
 

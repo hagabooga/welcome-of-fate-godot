@@ -84,7 +84,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://pickable_world_object.gd"
 }, {
-"base": "Item",
+"base": "Sprite",
 "class": "Plant",
 "language": "GDScript",
 "path": "res://plants/Plant.gd"
@@ -128,6 +128,11 @@ _global_script_classes=[ {
 "class": "Skill",
 "language": "GDScript",
 "path": "res://scripts/skill/skill.gd"
+}, {
+"base": "Plant",
+"class": "Soil_Turnip",
+"language": "GDScript",
+"path": "res://plants/turnip/Soil_Turnip.gd"
 }, {
 "base": "Sprite",
 "class": "SpriteWithBodyAnimation",
@@ -179,6 +184,7 @@ _global_script_class_icons={
 "Seedbag": "",
 "SingleSkillAttack": "",
 "Skill": "",
+"Soil_Turnip": "",
 "SpriteWithBodyAnimation": "",
 "Tool": "",
 "WateringCan": "",
@@ -211,6 +217,7 @@ world_objects_database="*res://world_objects/world_objects_database.gd"
 [debug]
 
 settings/fps/force_fps=150
+settings/stdout/print_fps=true
 gdscript/warnings/unassigned_variable=false
 gdscript/warnings/unassigned_variable_op_assign=false
 gdscript/warnings/unused_variable=false
@@ -223,6 +230,7 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=960
 window/size/height=540
+window/size/resizable=false
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"

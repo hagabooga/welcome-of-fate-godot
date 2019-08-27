@@ -25,6 +25,7 @@ func _physics_process(delta):
 		print("tool now hoe")
 	if Input.is_action_just_pressed("equipment"):
 		equipped_tool = Seedbag.new()
+		equipped_tool.plant = load("res://plants/turnip/Soil_Turnip.tscn")
 		print("tool now seedbag")
 	if Input.is_action_just_pressed("inventory"):
 		equipped_tool = WateringCan.new()
@@ -38,6 +39,8 @@ func _physics_process(delta):
 	#global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func click_obj(obj : Clickable):
+	if $AnimationPlayer.is_playing():
+		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	#print(world_globals.is_adjacent(pos, obj.tile_pos))
 	print("clicked: ", obj.name)
@@ -52,6 +55,7 @@ func special_click_effects(obj : Clickable):
 		
 func sleep():
 	$AnimationPlayer.play("fade_in")
+	
 
 func movement_input() -> void:
 	velocity = Vector2.ZERO
@@ -138,3 +142,4 @@ func turn_towards_mouse() -> float:
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_in":
 		$AnimationPlayer.play("fade_out")
+		world_globals.next_day()

@@ -54,7 +54,7 @@ func create_world_objects():
 	# Put world objects on grass thats not on dirt or soil
 	for x in tilemap_grass.get_used_cells():
 		var i = randi()%100
-		if !(x in tilemap_dirt.get_used_cells()) and !(x in tilemap_soil.get_used_cells()) and i < 10 and !(x in used_cells):
+		if !(x in tilemap_dirt.get_used_cells()) and !(x in tilemap_soil.get_used_cells()) and i < 17 and !(x in used_cells):
 			create_world_object(names[randi() % names.size()], x)
 	# Put world objects on soil (not on edges of soil)
 	for x in tilemap_soil.get_used_cells():

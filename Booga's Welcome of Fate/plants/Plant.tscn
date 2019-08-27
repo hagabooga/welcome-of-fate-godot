@@ -44,10 +44,10 @@ one_shot = true
 anims/Pluck = SubResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 16, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 3 )
 disabled = true
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
