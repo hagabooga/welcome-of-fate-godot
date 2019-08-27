@@ -16,11 +16,13 @@ func dir_contents(path):
 			if dir.current_is_dir():
 				("Found directory: " + file_name)
 			else:
-				var key = file_name.substr(0, len(file_name) - 5)
-				world_objects_database[key] = load("res://world_objects/objects/" + file_name)
+				if file_name.substr(len(file_name) - 5, len(file_name)) == ".tscn":
+					var key = file_name.substr(0, len(file_name) - 5)
+					world_objects_database[key] = load("res://world_objects/objects/" + file_name)
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
+	print(world_objects_database)
 
 func instance_object(mingz):
 	return world_objects_database[mingz].instance()

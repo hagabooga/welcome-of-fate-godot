@@ -17,6 +17,9 @@ func _ready():
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
 
 func _physics_process(delta):
+	if $UIController/QuestionBox.visible || $AnimationPlayer.is_playing():
+		play_all_idle("")
+		return
 	if Input.is_action_just_pressed("quest"):
 		equipped_tool = Hoe.new()
 		print("tool now hoe")
@@ -45,7 +48,10 @@ func click_obj(obj : Clickable):
 		
 func special_click_effects(obj : Clickable):
 	if obj is Bed:
-		$UIController.create_question_box("Do you wish to sleep until the next day?")
+		$UIController.create_question_box("Do you wish to sleep until the next day?", self, "sleep")
+		
+func sleep():
+	$AnimationPlayer.play("fade_in")
 
 func movement_input() -> void:
 	velocity = Vector2.ZERO
@@ -127,3 +133,8 @@ func turn_towards_mouse() -> float:
 	#print(angle)
 	return rad_angle + PI
 
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "fade_in":
+		$AnimationPlayer.play("fade_out")

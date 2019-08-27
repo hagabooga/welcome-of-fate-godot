@@ -18,13 +18,13 @@ func clicked(tewl : Tool):
 func is_self_adjacent(pos : Vector2) -> bool:
 	var size = get_sprite_map_size()
 	var current_pos = tile_pos
-	print("target pos: ", pos)
-	print(name, " pos ", tile_pos)
+	#print("target pos: ", pos)
+	#print(name, " pos ", tile_pos)
 	for col in range(size.x):
 		for row in range(size.y):
 			current_pos.x += col
 			current_pos.y += row
-			print(current_pos)
+			#print(current_pos)
 			if is_pos_adjacent(current_pos, pos):
 				return true
 			current_pos = tile_pos

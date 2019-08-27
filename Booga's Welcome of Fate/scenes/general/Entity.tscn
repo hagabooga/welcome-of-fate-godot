@@ -34,4 +34,3 @@ __meta__ = {
 }
 
 [node name="RangeOfSight" parent="." instance=ExtResource( 3 )]
-

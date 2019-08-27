@@ -1,15 +1,16 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/general/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/entity/PlayerNew.gd" type="Script" id=2]
 [ext_resource path="res://scenes/SpriteWithBodyAnimation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/weapons/magic wand.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/player/UIController.gd" type="Script" id=5]
-[ext_resource path="res://scenes/ui/InteractKey.tscn" type="PackedScene" id=6]
-[ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=7]
-[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=8]
-[ext_resource path="res://QuestionBox.gd" type="Script" id=9]
-[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=5]
+[ext_resource path="res://scenes/player/UIController.gd" type="Script" id=6]
+[ext_resource path="res://scenes/ui/InteractKey.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=8]
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=9]
+[ext_resource path="res://QuestionBox.gd" type="Script" id=10]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0416
@@ -21,14 +22,6 @@ height = 24.0
 [sub_resource type="CircleShape2D" id=3]
 radius = 264.002
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 100, 100 )
-margin_left = 22.0
-margin_right = 41.0
-margin_top = 34.0
-margin_bottom = 25.0
-
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 100, 100 )
@@ -37,13 +30,53 @@ margin_right = 41.0
 margin_top = 34.0
 margin_bottom = 25.0
 
-[sub_resource type="DynamicFont" id=6]
-size = 24
-font_data = ExtResource( 10 )
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 22.0
+margin_right = 41.0
+margin_top = 34.0
+margin_bottom = 25.0
 
 [sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=8]
 size = 27
-font_data = ExtResource( 10 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Camera2D/Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Camera2D/Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Player" index="0" instance=ExtResource( 1 )]
 collision_layer = 3
@@ -91,11 +124,18 @@ drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 
+[node name="Fade" type="Sprite" parent="Camera2D" index="0"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -4.18596, -4.64757 )
+scale = Vector2( 22.3419, 14.5761 )
+z_index = 200
+texture = ExtResource( 5 )
+
 [node name="UIController" type="Node2D" parent="." index="7"]
 z_index = 4096
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
-[node name="InteractKey" parent="UIController" index="0" instance=ExtResource( 6 )]
+[node name="InteractKey" parent="UIController" index="0" instance=ExtResource( 7 )]
 visible = false
 margin_top = 150.0
 margin_bottom = 227.0
@@ -110,9 +150,10 @@ margin_left = -300.0
 margin_top = 150.0
 margin_right = 300.0
 margin_bottom = 270.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 5 )
 
 [node name="QuestionBox" type="Panel" parent="UIController" index="2"]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -120,8 +161,8 @@ margin_left = -300.0
 margin_top = 150.0
 margin_right = 300.0
 margin_bottom = 270.0
-custom_styles/panel = SubResource( 5 )
-script = ExtResource( 9 )
+custom_styles/panel = SubResource( 6 )
+script = ExtResource( 10 )
 
 [node name="Question" type="Label" parent="UIController/QuestionBox" index="0"]
 anchor_right = 1.0
@@ -130,37 +171,48 @@ margin_left = 10.0
 margin_top = 5.0
 margin_right = -10.0
 margin_bottom = -57.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_constants/line_spacing = -6
 text = "Do you want to sleep for the rest of the day?
 "
 align = 1
 valign = 1
 
-[node name="YesButton" type="Button" parent="UIController/QuestionBox" index="1"]
+[node name="Buttons" type="Control" parent="UIController/QuestionBox" index="1"]
+editor/display_folded = true
+margin_left = 300.0
+margin_top = -150.0
+margin_right = 340.0
+margin_bottom = -110.0
+
+[node name="YesButton" type="Button" parent="UIController/QuestionBox/Buttons" index="0"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.0
-margin_top = 4.0
-margin_right = -32.0
-margin_bottom = 47.0
-custom_fonts/font = SubResource( 7 )
+margin_left = -116.0
+margin_top = 194.0
+margin_right = -52.0
+margin_bottom = 237.0
+custom_fonts/font = SubResource( 8 )
 text = "Yes"
 
-[node name="NoButton" type="Button" parent="UIController/QuestionBox" index="2"]
+[node name="NoButton" type="Button" parent="UIController/QuestionBox/Buttons" index="1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 32.0
-margin_top = 4.0
-margin_right = 96.0
-margin_bottom = 47.0
-custom_fonts/font = SubResource( 7 )
+margin_left = 12.0
+margin_top = 194.0
+margin_right = 76.0
+margin_bottom = 237.0
+custom_fonts/font = SubResource( 8 )
 text = "No"
-[connection signal="pressed" from="UIController/QuestionBox/YesButton" to="UIController/QuestionBox" method="_on_YesButton_pressed"]
-[connection signal="pressed" from="UIController/QuestionBox/NoButton" to="UIController/QuestionBox" method="_on_NoButton_pressed"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+root_node = NodePath("../UIController")
+anims/fade_in = SubResource( 9 )
+anims/fade_out = SubResource( 4 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="RangeOfSight"]
