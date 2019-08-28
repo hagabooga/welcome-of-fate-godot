@@ -18,6 +18,8 @@ func _ready():
 	tilemap_soil = $TileMaps/Soil
 	tilemap_worldObjects = $TileMaps/WorldObjects
 	create_world_objects()
+	world_globals.connect("next_day", self, "create_world_objects")
+	create_tilled_soils()
 	
 func _process(delta):
 	pass
@@ -32,7 +34,8 @@ func create_world_object(ming : String, pos : Vector2):
 	obj.z_index = pos.y - 1
 	obj.connect("clicked", player, "click_obj", [obj])
 	obj.tile_pos = pos
-	used_cells.append(obj.tile_pos)
+	if ming != "TilledSoil":
+		used_cells.append(obj.tile_pos)
 	#world_objects.append(obj)
 	#print(world_objects)
 
@@ -58,9 +61,14 @@ func create_world_objects():
 			create_world_object(names[randi() % names.size()], x)
 	# Put world objects on soil (not on edges of soil)
 	for x in tilemap_soil.get_used_cells():
-		var i = randi()%100
-		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3) :
-			create_world_object("TilledSoil", x)
-			if !(x in tilemap_worldObjects.get_used_cells()) and i < 60:
+		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
+			var i = randi()%100
+			print(x in used_cells)
+			if !(x in used_cells) and i < 60:
 				create_world_object(names[randi() % names.size()], x)
 	#print(used_cells)
+	
+func create_tilled_soils():
+	for x in tilemap_soil.get_used_cells():
+		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3) :
+			create_world_object("TilledSoil", x)

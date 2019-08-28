@@ -17,6 +17,7 @@ func _ready():
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
 
 func _physics_process(delta):
+	#$Camera2D.position = position
 	if $UIController/QuestionBox.visible || $AnimationPlayer.is_playing():
 		play_all_idle("")
 		return
