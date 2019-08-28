@@ -14,6 +14,7 @@ func clicked(tewl : Tool):
 		$Plant.add_child(pl)
 		plant = pl
 		print("plant seeded: ", pl.ming)
+		$Plant.modulate.a = 1
 	elif plant != null and !$Seed.visible and plant.current_stage == len(plant.stages) - 1:
 		plant.frame += 1
 		$AnimationPlayer.play("plant_pickup")

@@ -14,7 +14,7 @@ func find_item(mingz):
 		if x == mingz:
 			return(make_item(x))
 
-func make_item(ming):
+func make_item(ming) -> Item:
 	var x = item_database[ming]
 	var i
 	if x.has("base"):

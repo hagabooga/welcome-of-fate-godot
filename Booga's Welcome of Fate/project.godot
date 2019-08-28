@@ -64,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/items/item.gd"
 }, {
+"base": "TextureButton",
+"class": "ItemHolder",
+"language": "GDScript",
+"path": "res://InventoryUI/ItemHolder.gd"
+}, {
 "base": "Player",
 "class": "Mage",
 "language": "GDScript",
@@ -171,6 +176,7 @@ _global_script_class_icons={
 "EquipItem": "",
 "Hoe": "",
 "Item": "",
+"ItemHolder": "",
 "Mage": "",
 "Map": "",
 "Npc": "",
@@ -217,7 +223,6 @@ world_objects_database="*res://world_objects/world_objects_database.gd"
 [debug]
 
 settings/fps/force_fps=150
-settings/stdout/print_fps=true
 gdscript/warnings/unassigned_variable=false
 gdscript/warnings/unassigned_variable_op_assign=false
 gdscript/warnings/unused_variable=false
