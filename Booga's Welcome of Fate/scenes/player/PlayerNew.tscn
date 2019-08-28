@@ -41,7 +41,7 @@ margin_right = 37.0
 margin_top = 36.0
 margin_bottom = 29.0
 
-[sub_resource type="StyleBoxTexture" id=8]
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 30.0
@@ -49,19 +49,19 @@ margin_right = 37.0
 margin_top = 36.0
 margin_bottom = 29.0
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=8]
 size = 13
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=9]
 size = 18
 font_data = ExtResource( 12 )
 
-[sub_resource type="StyleBoxTexture" id=9]
+[sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 29.9169
@@ -69,19 +69,19 @@ margin_right = 26.0
 margin_top = 38.0
 margin_bottom = 31.0
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=11]
 size = 20
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 13
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 32
 font_data = ExtResource( 12 )
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Camera2D/Fade:modulate")
@@ -96,7 +96,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Camera2D/Fade:modulate")
@@ -125,7 +125,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 collision_layer = 3
 collision_mask = 16
 script = ExtResource( 2 )
@@ -210,19 +210,21 @@ margin_left = -165.0
 margin_top = 27.0
 margin_right = 165.0
 margin_bottom = 270.0
+mouse_filter = 2
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="InventoryList" type="Panel" parent="UIController/Inventory" index="0"]
-editor/display_folded = true
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -165.0
 margin_top = -1.0
 margin_right = 165.0
 margin_bottom = 201.0
+mouse_filter = 1
 custom_styles/panel = SubResource( 5 )
 
 [node name="GridContainer" type="GridContainer" parent="UIController/Inventory/InventoryList" index="0"]
@@ -235,6 +237,7 @@ margin_left = -160.0
 margin_top = -96.0
 margin_right = 160.0
 margin_bottom = 96.0
+mouse_filter = 2
 custom_constants/vseparation = 0
 custom_constants/hseparation = 0
 columns = 10
@@ -668,6 +671,8 @@ margin_right = 320.0
 margin_bottom = 32.0
 
 [node name="Tooltip" type="Panel" parent="UIController/Inventory" index="2"]
+editor/display_folded = true
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -676,7 +681,7 @@ margin_top = -216.0
 margin_right = -98.0
 margin_bottom = -66.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UIController/Inventory/Tooltip" index="0"]
 editor/display_folded = true
@@ -692,7 +697,7 @@ __meta__ = {
 [node name="Ming" type="Label" parent="UIController/Inventory/Tooltip/VBoxContainer" index="0"]
 margin_right = 188.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 7 )
 custom_constants/line_spacing = 0
 text = "Turnip"
 align = 1
@@ -701,7 +706,7 @@ align = 1
 margin_top = 28.0
 margin_right = 188.0
 margin_bottom = 61.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 8 )
 custom_constants/line_spacing = -5
 text = "A root vegtable grown in temperate climates. (Plant)"
 autowrap = true
@@ -710,7 +715,7 @@ autowrap = true
 margin_top = 61.0
 margin_right = 188.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 8 )
 custom_constants/line_spacing = -5
 text = "Cost: $100"
 autowrap = true
@@ -719,7 +724,7 @@ autowrap = true
 margin_top = 80.0
 margin_right = 188.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 9 )
 custom_constants/line_spacing = -5
 text = "Consume item to restore 30 HP. "
 align = 1
@@ -733,7 +738,7 @@ margin_left = 352.0
 margin_top = 193.0
 margin_right = 480.0
 margin_bottom = 270.0
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
@@ -748,7 +753,7 @@ custom_constants/separation = -5
 [node name="Date" type="Label" parent="UIController/Date/VBoxContainer" index="0"]
 margin_right = 128.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Aug 15 2019"
 align = 1
@@ -758,7 +763,7 @@ valign = 3
 margin_top = 23.0
 margin_right = 128.0
 margin_bottom = 42.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Aug 15 2019"
 align = 1
@@ -768,7 +773,7 @@ valign = 2
 margin_top = 37.0
 margin_right = 128.0
 margin_bottom = 81.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "99:99"
 align = 1
@@ -776,8 +781,8 @@ valign = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 root_node = NodePath("../UIController")
-anims/fade_in = SubResource( 13 )
-anims/fade_out = SubResource( 14 )
+anims/fade_in = SubResource( 14 )
+anims/fade_out = SubResource( 15 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="RangeOfSight"]

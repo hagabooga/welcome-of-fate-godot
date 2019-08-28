@@ -1,5 +1,7 @@
 extends WorldObject
 
+class_name TilledSoil
+
 var plant : Plant = null
 
 func _ready():
@@ -15,7 +17,7 @@ func clicked(tewl : Tool):
 		plant = pl
 		print("plant seeded: ", pl.ming)
 		$Plant.modulate.a = 1
-	elif plant != null and !$Seed.visible and plant.current_stage == len(plant.stages) - 1:
+	elif ready_to_harvest():
 		plant.frame += 1
 		$AnimationPlayer.play("plant_pickup")
 	else:
@@ -33,6 +35,9 @@ func grow():
 			plant.grow_one_day()
 			if plant.current_stage != -1:
 				$Seed.visible = false
+
+func ready_to_harvest() -> bool:
+	return plant != null and !$Seed.visible and plant.current_stage == len(plant.stages) - 1
 
 func plant_pickup():
 	$Plant.get_child(0).queue_free()

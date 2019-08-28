@@ -2,7 +2,7 @@ extends Clickable
 
 class_name WorldObject
 
-
+var ming : String
 
 func clicked(tewl : Tool):
 	pass
@@ -10,6 +10,7 @@ func clicked(tewl : Tool):
 func _on_WorldObject_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed:
+			print("clicked: ", name)
 			emit_signal("clicked")
 			#print(tile_pos, " ", get_sprite_map_size())
 

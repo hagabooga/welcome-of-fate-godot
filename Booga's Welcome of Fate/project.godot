@@ -144,6 +144,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/SpriteWithBodyAnimation.gd"
 }, {
+"base": "WorldObject",
+"class": "TilledSoil",
+"language": "GDScript",
+"path": "res://world_objects/objects/TilledSoil.gd"
+}, {
 "base": "SpriteWithBodyAnimation",
 "class": "Tool",
 "language": "GDScript",
@@ -192,6 +197,7 @@ _global_script_class_icons={
 "Skill": "",
 "Soil_Turnip": "",
 "SpriteWithBodyAnimation": "",
+"TilledSoil": "",
 "Tool": "",
 "WateringCan": "",
 "Weapon": "",
