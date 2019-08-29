@@ -6,6 +6,7 @@ func _process(delta):
 		$Inventory/InventoryList.visible = !$Inventory/InventoryList.visible
 
 func create_question_box(question : String, target : Object, yes_func : String = "", no_func : String = ""):
+	$QuestionBox/Buttons/NoButton.emit_signal("pressed")
 	$Inventory/InventoryList.visible = false
 	$QuestionBox.visible = true
 	$QuestionBox/Question.text = question

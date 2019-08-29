@@ -4,13 +4,14 @@ extends Entity
 class_name Player
 enum {up,down,left,right}
 var facing = down setget set_facing
-var equipped_weapon : Weapon setget ,get_weapon
-var equipped_tool : Tool = Hoe.new()
 
+func get_hotkey_item():
+	return $UIController/Inventory.get_hotkey_item()
 
 func _ready():
 	#print(equipped_tool)
 	#print(Shovel)
+	#equipped_hotkey = Hoe.new()
 	get_parent().player = self
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
@@ -20,37 +21,39 @@ func _physics_process(delta):
 	#$Camera2D.position = position
 	if $UIController/QuestionBox.visible || $AnimationPlayer.is_playing():
 		play_all_idle("")
+		print("cant do anything")
 		return
-	if Input.is_action_just_pressed("quest"):
-		equipped_tool = Hoe.new()
-		print("tool now hoe")
-	if Input.is_action_just_pressed("equipment"):
-		equipped_tool = Seedbag.new()
-		equipped_tool.plant = load("res://plants/turnip/Soil_Turnip.tscn")
-		print("tool now seedbag")
-	if Input.is_action_just_pressed("inventory"):
-		equipped_tool = WateringCan.new()
-		print("tool now watering can")
-	change_equip_z()
+#	change_equip_z()
 	if can_move:
 		movement_input()
 		move_and_slide(velocity.normalized() * move_speed)
-		if Input.is_action_just_pressed("attack"):
-			basic_attack(turn_towards_mouse())
+		#if Input.is_action_just_pressed("attack"):
+			#play_all_body_anims("slash",facing,8,false)
+			#basic_attack(turn_towards_mouse())
 	#global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
-func click_obj(obj : Clickable):
+func left_click_obj(obj : Clickable):
 	if $AnimationPlayer.is_playing():
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
-	#print(world_globals.is_adjacent(pos, obj.tile_pos))
-	#print("clicked: ", obj.name)
 	if (obj.is_self_adjacent(pos)):
-		obj.clicked(equipped_tool)
+		obj.clicked(get_hotkey_item())
 		turn_towards_mouse()
 		special_click_effects(obj)
 		
+func right_click_obj(obj : Clickable):
+	if $AnimationPlayer.is_playing():
+		return
+	var pos = get_parent().tilemap_grass.world_to_map(global_position)
+	if (obj.is_self_adjacent(pos)):
+		obj.right_clicked(null)
+		turn_towards_mouse()
+		special_right_click_effects(obj)
+		
 func special_click_effects(obj : Clickable):
+	pass
+		
+func special_right_click_effects(obj : Clickable):
 	if obj is PickableWorldObject:
 		$UIController/Inventory.add_item(item_database.make_item(obj.ming))
 	elif obj is TilledSoil and obj.ready_to_harvest():
@@ -101,12 +104,12 @@ func get_weapon() -> Weapon:
 			return x
 	return null
 
-func change_equip_z() -> void:
-	if self.equipped_weapon != null:
-		if facing == up:
-			self.equipped_weapon.z_index = -1
-		else:
-			self.equipped_weapon.z_index = 1
+#func change_equip_z() -> void:
+#	if self.equipped_weapon != null:
+#		if facing == up:
+#			self.equipped_weapon.z_index = -1
+#		else:
+#			self.equipped_weapon.z_index = 1
 
 func flip_hitboxes() -> void:
 	var flip
@@ -121,7 +124,7 @@ func basic_attack(angle) -> void:
 
 func set_facing(dir) -> void:
 	facing = dir
-	change_equip_z()
+#	change_equip_z()
 	flip_hitboxes()
 	
 func turn_towards(dir) -> void:
@@ -141,9 +144,7 @@ func turn_towards_mouse() -> float:
 		turn_towards(up)
 	#print(angle)
 	return rad_angle + PI
-
-
-
+	
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_in":
 		$AnimationPlayer.play("fade_out")

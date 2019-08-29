@@ -1,4 +1,4 @@
-extends Tool
+extends Item
 
 class_name Seedbag
 

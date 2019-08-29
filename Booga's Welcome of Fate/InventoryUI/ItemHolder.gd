@@ -8,9 +8,16 @@ var count = 0 setget set_count
 signal holding
 signal released
 
+
+
+func is_stackable():
+	if item.base != "tool":
+		return true
+	return false
+
 func set_count(val):
 	count = val
-	$Label.text = str(count)
+	$ItemCount.text = str(count)
 
 func _ready():
 	pass
@@ -20,7 +27,11 @@ func set_item(i : Item, amt = 1):
 	$ItemTexture.texture = load("res://sprites/items/" + item.ming + ".png")
 	self.count = amt
 	$ItemTexture.modulate.a = 1
-
+	if is_stackable():
+		$ItemCount.visible = true
+	else:
+		$ItemCount.visible = false
+		
 func holding():
 	$ItemTexture.modulate.a = 0.4
 	
@@ -30,7 +41,7 @@ func released():
 func clear_holder():
 	item = null
 	self.count = 0
-	$Label.text	= ""
+	$ItemCount.text	= ""
 	$ItemTexture.modulate.a = 1
 	$ItemTexture.texture = null
 

@@ -32,7 +32,8 @@ func create_world_object(ming : String, pos : Vector2):
 	$WorldObjects.add_child(obj)
 	obj.global_position = tilemap_grass.map_to_world(pos)
 	obj.z_index = pos.y - 1
-	obj.connect("clicked", player, "click_obj", [obj])
+	obj.connect("clicked", player, "left_click_obj", [obj])
+	obj.connect("right_clicked", player, "right_click_obj", [obj])
 	obj.tile_pos = pos
 	if ming != "TilledSoil":
 		used_cells.append(obj.tile_pos)
@@ -44,7 +45,9 @@ func create_world_objects():
 		var size : Vector2 = x.get_sprite_map_size()
 		var pos = tilemap_grass.world_to_map(x.global_position)
 		x.tile_pos = pos
-		x.connect("clicked", player, "click_obj", [x])
+		if len(x.get_signal_connection_list("clicked")) == 0:
+			x.connect("clicked", player, "left_click_obj", [x])
+			x.connect("right_clicked", player, "right_click_obj", [x])
 		for row in range(size.x):
 			for col in range(size.y):
 				pos.x += row
@@ -53,7 +56,7 @@ func create_world_objects():
 				pos = tilemap_grass.world_to_map(x.global_position)
 	#print(used_cells)
 	randomize()
-	var names = ["branch", "rock"]
+	var names = ["branch", "rock", "weed"]
 	# Put world objects on grass thats not on dirt or soil
 	for x in tilemap_grass.get_used_cells():
 		var i = randi()%100
@@ -63,7 +66,7 @@ func create_world_objects():
 	for x in tilemap_soil.get_used_cells():
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
 			var i = randi()%100
-			print(x in used_cells)
+			#print(x in used_cells)
 			if !(x in used_cells) and i < 60:
 				create_world_object(names[randi() % names.size()], x)
 	#print(used_cells)

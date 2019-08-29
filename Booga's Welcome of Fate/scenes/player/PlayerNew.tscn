@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/general/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/entity/PlayerNew.gd" type="Script" id=2]
 [ext_resource path="res://scenes/SpriteWithBodyAnimation.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/weapons/magic wand.tscn" type="PackedScene" id=4]
-[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=5]
-[ext_resource path="res://UIController.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=4]
+[ext_resource path="res://UIController.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0416
@@ -17,7 +16,7 @@ height = 24.0
 [sub_resource type="CircleShape2D" id=3]
 radius = 264.002
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=4]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Camera2D/Fade:modulate")
@@ -32,7 +31,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Camera2D/Fade:modulate")
@@ -68,13 +67,13 @@ script = ExtResource( 2 )
 move_speed = 150
 
 [node name="BodySprites" type="Node2D" parent="." index="0"]
-editor/display_folded = true
 position = Vector2( 0, -20 )
 
 [node name="CharacterBody" parent="BodySprites" index="0" instance=ExtResource( 3 )]
 frame = 26
 
-[node name="MagicWand" parent="BodySprites" index="1" instance=ExtResource( 4 )]
+[node name="HotkeyItem" parent="BodySprites" index="1" instance=ExtResource( 3 )]
+texture = null
 
 [node name="PosAboveHead" parent="." index="1"]
 position = Vector2( 0, -50 )
@@ -114,14 +113,14 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -17.8199, 9.67404 )
 scale = Vector2( 22.3419, 14.5761 )
 z_index = 200
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 root_node = NodePath("../UIController")
-anims/fade_in = SubResource( 14 )
-anims/fade_out = SubResource( 15 )
+anims/fade_in = SubResource( 4 )
+anims/fade_out = SubResource( 5 )
 
-[node name="UIController" parent="." index="8" instance=ExtResource( 6 )]
+[node name="UIController" parent="." index="8" instance=ExtResource( 5 )]
 position = Vector2( -90.2002, -26.7229 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

@@ -1,3 +1,3 @@
-extends Tool
+extends Item
 
 class_name WateringCan

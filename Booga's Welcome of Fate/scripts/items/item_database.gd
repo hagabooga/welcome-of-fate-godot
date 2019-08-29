@@ -18,7 +18,10 @@ func make_item(ming) -> Item:
 	var x = item_database[ming]
 	var i
 	if x.has("base"):
-		if x.base == "weapon" || x.base == "armor":
+		if x.base == "tool":
+				i = ToolItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1)
+		
+		elif x.base == "weapon" || x.base == "armor":
 			i = EquipItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.stats)
 	else:
 		if x.has("color"):

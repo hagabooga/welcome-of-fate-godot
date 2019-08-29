@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/player/UIController.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/InteractKey.tscn" type="PackedScene" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://scenes/player/InventoryUI.gd" type="Script" id=4]
 [ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=5]
 [ext_resource path="res://InventoryUI/ItemHolder.tscn" type="PackedScene" id=6]
-[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://QuestionBox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Date.gd" type="Script" id=9]
+[ext_resource path="res://sprites/ui/32blueoutline.png" type="Texture" id=7]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://QuestionBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Date.gd" type="Script" id=10]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
@@ -36,15 +37,15 @@ margin_bottom = 29.0
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 13
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 18
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 5 )
@@ -64,15 +65,15 @@ margin_bottom = 31.0
 
 [sub_resource type="DynamicFont" id=9]
 size = 20
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 13
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 32
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [node name="UIController" type="Node2D"]
 position = Vector2( -96, -6 )
@@ -109,9 +110,6 @@ margin_right = 165.0
 margin_bottom = 270.0
 mouse_filter = 2
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="InventoryList" type="Panel" parent="Inventory"]
 editor/display_folded = true
@@ -141,6 +139,7 @@ custom_constants/hseparation = 0
 columns = 10
 
 [node name="ItemHolder11" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
 margin_right = 32.0
 margin_bottom = 32.0
 stretch_mode = 3
@@ -191,6 +190,7 @@ margin_right = 320.0
 margin_bottom = 32.0
 
 [node name="ItemHolder26" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
 margin_top = 32.0
 margin_right = 32.0
 margin_bottom = 64.0
@@ -250,6 +250,7 @@ margin_right = 320.0
 margin_bottom = 64.0
 
 [node name="ItemHolder34" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
 margin_top = 64.0
 margin_right = 32.0
 margin_bottom = 96.0
@@ -309,6 +310,7 @@ margin_right = 320.0
 margin_bottom = 96.0
 
 [node name="ItemHolder44" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
 margin_top = 96.0
 margin_right = 32.0
 margin_bottom = 128.0
@@ -368,6 +370,7 @@ margin_right = 320.0
 margin_bottom = 128.0
 
 [node name="ItemHolder54" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
 margin_top = 128.0
 margin_right = 32.0
 margin_bottom = 160.0
@@ -427,6 +430,7 @@ margin_right = 320.0
 margin_bottom = 160.0
 
 [node name="ItemHolder64" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
 margin_top = 160.0
 margin_right = 32.0
 margin_bottom = 192.0
@@ -495,9 +499,6 @@ margin_left = -165.0
 margin_top = -42.0
 margin_right = 165.0
 custom_styles/panel = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Inventory/HotkeyList"]
 editor/display_folded = true
@@ -562,9 +563,19 @@ margin_left = 288.0
 margin_right = 320.0
 margin_bottom = 32.0
 
+[node name="HotkeySelection" type="TextureRect" parent="Inventory/HotkeyList"]
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 45.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
 [node name="Tooltip" type="Panel" parent="Inventory"]
 editor/display_folded = true
-visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -623,12 +634,16 @@ align = 1
 autowrap = true
 
 [node name="ItemHold" type="TextureRect" parent="Inventory"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 13.0297
+margin_top = 209.404
+margin_right = 53.0297
+margin_bottom = 249.404
 mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="QuestionBox" parent="." instance=ExtResource( 8 )]
+[node name="QuestionBox" parent="." instance=ExtResource( 9 )]
 custom_styles/panel = SubResource( 7 )
 
 [node name="Date" type="Panel" parent="."]
@@ -638,7 +653,7 @@ margin_top = 193.0
 margin_right = 480.0
 margin_bottom = 270.0
 custom_styles/panel = SubResource( 8 )
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }

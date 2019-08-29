@@ -10,6 +10,11 @@ var type
 var act
 var color
 var base
+
+enum  {BASE_MISC, BASE_TOOL, BASE_CONSUMABLE, BASE_WEAPON, BASE_ARMOR}
+
+
+
 enum {consume, equip}
 
 func _init(m, d, ef, c, t, a, col):

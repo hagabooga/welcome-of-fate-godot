@@ -7,7 +7,7 @@ func _ready():
 	$InventoryItemList.focus_mode = 0
 	$ItemInfo/Inside.visible = false
 	for x in item_database.item_database.keys():
-		print(x)
+		#print(x)
 		add(item_database.make_item(x))
 #	add(item_database.make_item("watering can"))
 #	add(item_database.make_item("hoe"))

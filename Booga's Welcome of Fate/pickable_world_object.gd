@@ -6,5 +6,6 @@ func _ready():
 	ming = $Sprite.texture.resource_path.substr(20, len($Sprite.texture.resource_path)-24)
 
 
-func clicked(tewl):
+func right_clicked(tewl : Item):
 	$AnimationPlayer.play("pick_up")
+	
