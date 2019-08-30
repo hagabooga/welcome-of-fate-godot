@@ -13,7 +13,7 @@ func set_hotkey_index(val):
 	hotkey_index = val
 	$HotkeyList/HotkeySelection.rect_global_position = $HotkeyList/HBoxContainer.get_child(hotkey_index).rect_global_position
 	
-
+	
 func get_hotkey_item() -> Item:
 	return $HotkeyList/HBoxContainer.get_child(hotkey_index).item
 

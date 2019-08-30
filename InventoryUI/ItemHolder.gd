@@ -6,9 +6,8 @@ var item : Item  = null setget set_item
 var count = 0 setget set_count
 
 signal holding
-signal released
 
-
+var dragging = false
 
 func is_stackable():
 	if item.base != "tool":
@@ -49,6 +48,7 @@ func get_drag_data(position):
 	return self
 
 func can_drop_data(position, data):
+
 	return data.item != null
 
 func drop_data(position, data):
