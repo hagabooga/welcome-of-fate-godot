@@ -19,13 +19,13 @@ radius = 264.002
 [sub_resource type="Animation" id=4]
 length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Camera2D/Fade:modulate")
+tracks/0/path = NodePath("Camera2D/Fade:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
@@ -34,19 +34,19 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Camera2D/Fade:modulate")
+tracks/0/path = NodePath("Camera2D/Fade:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 2.001 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Date")
+tracks/1/path = NodePath("UI/UIController")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -109,19 +109,28 @@ drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
 [node name="Fade" type="Sprite" parent="Camera2D" index="0"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -17.8199, 9.67404 )
 scale = Vector2( 22.3419, 14.5761 )
 z_index = 200
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
-root_node = NodePath("../UIController")
 anims/fade_in = SubResource( 4 )
 anims/fade_out = SubResource( 5 )
 
-[node name="UIController" parent="." index="8" instance=ExtResource( 5 )]
-position = Vector2( -90.2002, -26.7229 )
+[node name="UI" type="Node2D" parent="." index="8"]
+z_index = 4096
+
+[node name="UIController" parent="UI" index="0" instance=ExtResource( 5 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -570.0
+margin_top = -296.0
+margin_right = 390.0
+margin_bottom = 244.0
+mouse_filter = 2
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="RangeOfSight"]

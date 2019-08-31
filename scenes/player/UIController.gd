@@ -1,9 +1,13 @@
-extends Node2D
+extends Control
+
+class_name UIController
+
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("inventory") and !$QuestionBox.visible:
 		$Inventory/InventoryList.visible = !$Inventory/InventoryList.visible
+		$Inventory/OtherInventoryList.visible = false
 	# hotkey 1-9-0 keyboard
 	for x in range(48,58):
 		if Input.is_key_pressed(x):
@@ -28,3 +32,5 @@ func create_question_box(question : String, target : Object, yes_func : String =
 		x.connect("pressed", $QuestionBox, "delete_all_button_connections", [x, "pressed"])
 	#print($QuestionBox/YesButton.get_signal_connection_list("pressed"))
 
+func unfreeze_time():
+	$Date.unfreeze_time()

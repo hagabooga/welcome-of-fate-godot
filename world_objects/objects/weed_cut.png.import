@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/branch_chop.png-912a3c3bdee80a172ed812f8925ea658.stex"
+path="res://.import/weed_cut.png-e5a05e148ca644f181f808fd26850023.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/branch_chop.png"
-dest_files=[ "res://.import/branch_chop.png-912a3c3bdee80a172ed812f8925ea658.stex" ]
+source_file="res://world_objects/objects/weed_cut.png"
+dest_files=[ "res://.import/weed_cut.png-e5a05e148ca644f181f808fd26850023.stex" ]
 
 [params]
 

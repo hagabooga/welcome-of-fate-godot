@@ -16,6 +16,7 @@ func _on_WorldObject_input_event(viewport, event, shape_idx):
 
 func get_sprite_map_size() -> Vector2:
 	if $Sprite.region_enabled:
-		return Vector2($Sprite.region_rect.size.x/$Sprite.hframes/32, $Sprite.region_rect.size.y/32/$Sprite.vframes)
+		return Vector2(ceil($Sprite.region_rect.size.x/$Sprite.hframes/float(32)), \
+		ceil($Sprite.region_rect.size.y/float(32)/$Sprite.vframes))
 	else:
-		return Vector2($Sprite.texture.get_width()/32, $Sprite.texture.get_height()/32)
+		return Vector2(ceil($Sprite.texture.get_width()/float(32)), ceil($Sprite.texture.get_height()/float(32)))

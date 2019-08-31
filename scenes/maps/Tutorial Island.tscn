@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://New/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/maps/Tutorial Island.gd" type="Script" id=2]
 [ext_resource path="res://world_objects/objects/bed.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/player/PlayerNew.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world_objects/objects/chest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/player/PlayerNew.tscn" type="PackedScene" id=5]
 
 [node name="Tutorial Island" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -23,6 +24,12 @@ tile_data = PoolIntArray( 65547, 2, 131072, 65548, 2, 131073, 65549, 2, 131073, 
 [node name="Bed" parent="WorldObjects" index="0" instance=ExtResource( 3 )]
 position = Vector2( 224, 32 )
 
-[node name="Player" parent="." index="2" instance=ExtResource( 4 )]
-position = Vector2( 259.311, 176.946 )
+[node name="Chest" parent="WorldObjects" index="1" instance=ExtResource( 4 )]
+position = Vector2( 224, 160 )
+
+[node name="Chest2" parent="WorldObjects" index="2" instance=ExtResource( 4 )]
+position = Vector2( 224, 224 )
+
+[node name="Player" parent="." index="2" instance=ExtResource( 5 )]
+position = Vector2( 288, 256 )
 z_index = 1

@@ -1,65 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/general/WorldObject.gd" type="Script" id=1]
-[ext_resource path="res://sprites/branch_chopped.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "used"
-length = 0.2
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 2 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1.18921 ),
-"update": 1,
-"values": [ ExtResource( 2 ) ]
-}
 
 [sub_resource type="Animation" id=2]
-
-[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Area2D:disabled")
 tracks/0/interp = 1
@@ -122,7 +67,6 @@ position = Vector2( 16, 16 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fade_away = SubResource( 1 )
-anims/idle = SubResource( 2 )
-anims/pick_up = SubResource( 3 )
+anims/idle = SubResource( 1 )
+anims/pick_up = SubResource( 2 )
 [connection signal="input_event" from="." to="." method="_on_WorldObject_input_event"]

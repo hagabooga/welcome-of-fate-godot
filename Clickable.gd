@@ -7,6 +7,7 @@ signal right_clicked
 
 var tile_pos : Vector2 setget set_tile_pos
 
+enum {ADD_ITEM, CREATE_QUESTION_BOX, OPEN_OTHER_INVENTORY}
 
 func set_tile_pos(pos : Vector2):
 	tile_pos = pos
@@ -14,7 +15,7 @@ func set_tile_pos(pos : Vector2):
 func clicked(tewl : Item):
 	pass
 
-func right_clicked(tewl : Item):
+func right_clicked():
 	pass
 
 func is_self_adjacent(pos : Vector2) -> bool:
@@ -47,3 +48,11 @@ func get_sprite_map_size() -> Vector2:
 		return Vector2($Sprite.region_rect.size.x/$Sprite.hframes/32, $Sprite.region_rect.size.y/32/$Sprite.vframes)
 	else:
 		return Vector2($Sprite.texture.get_width()/32, $Sprite.texture.get_height()/32)
+		
+class ClickAction:
+	var action
+	var data
+	
+	func _init(a,d):
+		action = a
+		data = d

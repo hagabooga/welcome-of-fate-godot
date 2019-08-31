@@ -27,7 +27,7 @@ func clicked(tewl : Item):
 			$Sprite.frame += 1
 			print("asdasdas")
 
-func right_clicked(tewl: Item):
+func right_clicked():
 	if ready_to_harvest():
 		plant.frame += 1
 		$AnimationPlayer.play("plant_pickup")

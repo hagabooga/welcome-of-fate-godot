@@ -22,14 +22,15 @@ func _ready():
 	pass
 	
 func set_item(i : Item, amt = 1):
-	item = i
-	$ItemTexture.texture = load("res://sprites/items/" + item.ming + ".png")
-	self.count = amt
-	$ItemTexture.modulate.a = 1
-	if is_stackable():
-		$ItemCount.visible = true
-	else:
-		$ItemCount.visible = false
+	if i  != null:
+		item = i
+		$ItemTexture.texture = load("res://sprites/items/" + item.ming + ".png")
+		self.count = amt
+		$ItemTexture.modulate.a = 1
+		if is_stackable():
+			$ItemCount.visible = true
+		else:
+			$ItemCount.visible = false
 		
 func holding():
 	$ItemTexture.modulate.a = 0.4

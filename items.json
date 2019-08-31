@@ -204,5 +204,21 @@
         "type": "potion",
         "activate": 0,
         "stats": {"mp": 400}
+    },
+    "wooden plank":
+    {
+        "desc": "Chopped wood",
+        "eff_desc": "",
+        "cost": 15,
+        "type": "misc.",
+        "activate": -1
+    },
+    "stone":
+    {
+        "desc": "Broken rocks",
+        "eff_desc": "",
+        "cost": 15,
+        "type": "misc.",
+        "activate": -1
     }
 }

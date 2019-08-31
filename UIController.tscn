@@ -1,15 +1,13 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/player/UIController.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/InteractKey.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=3]
-[ext_resource path="res://scenes/player/InventoryUI.gd" type="Script" id=4]
-[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=5]
-[ext_resource path="res://InventoryUI/ItemHolder.tscn" type="PackedScene" id=6]
-[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://sprites/ui/32blueoutline.png" type="Texture" id=8]
-[ext_resource path="res://QuestionBox.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Date.gd" type="Script" id=10]
+[ext_resource path="res://Inventory.tscn" type="PackedScene" id=4]
+[ext_resource path="res://QuestionBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=6]
+[ext_resource path="res://Date.gd" type="Script" id=7]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
@@ -20,48 +18,14 @@ margin_top = 34.0
 margin_bottom = 25.0
 
 [sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 100, 100 )
-margin_left = 30.0
-margin_right = 37.0
-margin_top = 36.0
-margin_bottom = 29.0
-
-[sub_resource type="DynamicFont" id=12]
-size = 10
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 7 )
-
-[sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 100, 100 )
-margin_left = 30.0
-margin_right = 37.0
-margin_top = 36.0
-margin_bottom = 29.0
-
-[sub_resource type="DynamicFont" id=4]
-size = 20
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 13
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 18
-font_data = ExtResource( 7 )
-
-[sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 22.0
 margin_right = 41.0
 margin_top = 34.0
 margin_bottom = 25.0
 
-[sub_resource type="StyleBoxTexture" id=8]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 29.9169
@@ -69,21 +33,21 @@ margin_right = 26.0
 margin_top = 38.0
 margin_bottom = 31.0
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=4]
 size = 20
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=5]
 size = 13
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=6]
 size = 32
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
-[node name="UIController" type="Node2D"]
-position = Vector2( -96, -6 )
-z_index = 4096
+[node name="UIController" type="Control"]
+margin_right = 960.0
+margin_bottom = 540.0
 script = ExtResource( 1 )
 
 [node name="InteractKey" parent="." instance=ExtResource( 2 )]
@@ -106,653 +70,34 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Inventory" type="Control" parent="."]
+[node name="Inventory" parent="." instance=ExtResource( 4 )]
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -165.0
-margin_top = 27.0
-margin_right = 165.0
-margin_bottom = 270.0
-mouse_filter = 2
-script = ExtResource( 4 )
+margin_top = -243.0
+margin_bottom = 0.0
 
-[node name="InventoryList" type="Panel" parent="Inventory"]
+[node name="QuestionBox" parent="." instance=ExtResource( 5 )]
 visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -165.0
-margin_top = -1.0
-margin_right = 165.0
-margin_bottom = 201.0
-mouse_filter = 1
-custom_styles/panel = SubResource( 2 )
-
-[node name="GridContainer" type="GridContainer" parent="Inventory/InventoryList"]
-editor/display_folded = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -160.0
-margin_top = -96.0
-margin_right = 160.0
-margin_bottom = 96.0
-mouse_filter = 2
-custom_constants/vseparation = 0
-custom_constants/hseparation = 0
-columns = 10
-
-[node name="ItemHolder11" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 0.0
-margin_right = 32.0
-margin_bottom = 32.0
-stretch_mode = 3
-
-[node name="ItemHolder17" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 32.0
-margin_right = 64.0
-margin_bottom = 32.0
-
-[node name="ItemHolder18" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 32.0
-
-[node name="ItemHolder19" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 96.0
-margin_right = 128.0
-margin_bottom = 32.0
-
-[node name="ItemHolder20" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 128.0
-margin_right = 160.0
-margin_bottom = 32.0
-
-[node name="ItemHolder21" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 160.0
-margin_right = 192.0
-margin_bottom = 32.0
-
-[node name="ItemHolder22" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 192.0
-margin_right = 224.0
-margin_bottom = 32.0
-
-[node name="ItemHolder23" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 224.0
-margin_right = 256.0
-margin_bottom = 32.0
-
-[node name="ItemHolder24" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 256.0
-margin_right = 288.0
-margin_bottom = 32.0
-
-[node name="ItemHolder25" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 288.0
-margin_right = 320.0
-margin_bottom = 32.0
-
-[node name="ItemHolder26" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 0.0
-margin_top = 32.0
-margin_right = 32.0
-margin_bottom = 64.0
-
-[node name="ItemHolder27" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 32.0
-margin_top = 32.0
-margin_right = 64.0
-margin_bottom = 64.0
-
-[node name="ItemHolder28" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 64.0
-margin_top = 32.0
-margin_right = 96.0
-margin_bottom = 64.0
-
-[node name="ItemHolder29" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 96.0
-margin_top = 32.0
-margin_right = 128.0
-margin_bottom = 64.0
-
-[node name="ItemHolder30" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 128.0
-margin_top = 32.0
-margin_right = 160.0
-margin_bottom = 64.0
-
-[node name="ItemHolder12" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 160.0
-margin_top = 32.0
-margin_right = 192.0
-margin_bottom = 64.0
-
-[node name="ItemHolder13" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 192.0
-margin_top = 32.0
-margin_right = 224.0
-margin_bottom = 64.0
-
-[node name="ItemHolder31" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 224.0
-margin_top = 32.0
-margin_right = 256.0
-margin_bottom = 64.0
-
-[node name="ItemHolder32" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 256.0
-margin_top = 32.0
-margin_right = 288.0
-margin_bottom = 64.0
-
-[node name="ItemHolder33" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 288.0
-margin_top = 32.0
-margin_right = 320.0
-margin_bottom = 64.0
-
-[node name="ItemHolder34" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 0.0
-margin_top = 64.0
-margin_right = 32.0
-margin_bottom = 96.0
-
-[node name="ItemHolder35" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 32.0
-margin_top = 64.0
-margin_right = 64.0
-margin_bottom = 96.0
-
-[node name="ItemHolder36" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 64.0
-margin_top = 64.0
-margin_right = 96.0
-margin_bottom = 96.0
-
-[node name="ItemHolder37" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 96.0
-margin_top = 64.0
-margin_right = 128.0
-margin_bottom = 96.0
-
-[node name="ItemHolder38" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 128.0
-margin_top = 64.0
-margin_right = 160.0
-margin_bottom = 96.0
-
-[node name="ItemHolder39" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 160.0
-margin_top = 64.0
-margin_right = 192.0
-margin_bottom = 96.0
-
-[node name="ItemHolder40" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 192.0
-margin_top = 64.0
-margin_right = 224.0
-margin_bottom = 96.0
-
-[node name="ItemHolder41" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 224.0
-margin_top = 64.0
-margin_right = 256.0
-margin_bottom = 96.0
-
-[node name="ItemHolder42" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 256.0
-margin_top = 64.0
-margin_right = 288.0
-margin_bottom = 96.0
-
-[node name="ItemHolder43" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 288.0
-margin_top = 64.0
-margin_right = 320.0
-margin_bottom = 96.0
-
-[node name="ItemHolder44" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 0.0
-margin_top = 96.0
-margin_right = 32.0
-margin_bottom = 128.0
-
-[node name="ItemHolder45" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 32.0
-margin_top = 96.0
-margin_right = 64.0
-margin_bottom = 128.0
-
-[node name="ItemHolder46" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 64.0
-margin_top = 96.0
-margin_right = 96.0
-margin_bottom = 128.0
-
-[node name="ItemHolder47" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 96.0
-margin_top = 96.0
-margin_right = 128.0
-margin_bottom = 128.0
-
-[node name="ItemHolder48" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 128.0
-margin_top = 96.0
-margin_right = 160.0
-margin_bottom = 128.0
-
-[node name="ItemHolder49" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 160.0
-margin_top = 96.0
-margin_right = 192.0
-margin_bottom = 128.0
-
-[node name="ItemHolder50" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 192.0
-margin_top = 96.0
-margin_right = 224.0
-margin_bottom = 128.0
-
-[node name="ItemHolder51" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 224.0
-margin_top = 96.0
-margin_right = 256.0
-margin_bottom = 128.0
-
-[node name="ItemHolder52" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 256.0
-margin_top = 96.0
-margin_right = 288.0
-margin_bottom = 128.0
-
-[node name="ItemHolder53" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 288.0
-margin_top = 96.0
-margin_right = 320.0
-margin_bottom = 128.0
-
-[node name="ItemHolder54" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 0.0
-margin_top = 128.0
-margin_right = 32.0
-margin_bottom = 160.0
-
-[node name="ItemHolder55" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 32.0
-margin_top = 128.0
-margin_right = 64.0
-margin_bottom = 160.0
-
-[node name="ItemHolder56" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 64.0
-margin_top = 128.0
-margin_right = 96.0
-margin_bottom = 160.0
-
-[node name="ItemHolder57" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 96.0
-margin_top = 128.0
-margin_right = 128.0
-margin_bottom = 160.0
-
-[node name="ItemHolder58" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 128.0
-margin_top = 128.0
-margin_right = 160.0
-margin_bottom = 160.0
-
-[node name="ItemHolder59" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 160.0
-margin_top = 128.0
-margin_right = 192.0
-margin_bottom = 160.0
-
-[node name="ItemHolder60" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 192.0
-margin_top = 128.0
-margin_right = 224.0
-margin_bottom = 160.0
-
-[node name="ItemHolder61" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 224.0
-margin_top = 128.0
-margin_right = 256.0
-margin_bottom = 160.0
-
-[node name="ItemHolder62" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 256.0
-margin_top = 128.0
-margin_right = 288.0
-margin_bottom = 160.0
-
-[node name="ItemHolder63" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 288.0
-margin_top = 128.0
-margin_right = 320.0
-margin_bottom = 160.0
-
-[node name="ItemHolder64" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 0.0
-margin_top = 160.0
-margin_right = 32.0
-margin_bottom = 192.0
-
-[node name="ItemHolder65" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 32.0
-margin_top = 160.0
-margin_right = 64.0
-margin_bottom = 192.0
-
-[node name="ItemHolder66" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 64.0
-margin_top = 160.0
-margin_right = 96.0
-margin_bottom = 192.0
-
-[node name="ItemHolder67" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 96.0
-margin_top = 160.0
-margin_right = 128.0
-margin_bottom = 192.0
-
-[node name="ItemHolder68" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 128.0
-margin_top = 160.0
-margin_right = 160.0
-margin_bottom = 192.0
-
-[node name="ItemHolder69" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 160.0
-margin_top = 160.0
-margin_right = 192.0
-margin_bottom = 192.0
-
-[node name="ItemHolder70" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 192.0
-margin_top = 160.0
-margin_right = 224.0
-margin_bottom = 192.0
-
-[node name="ItemHolder14" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 224.0
-margin_top = 160.0
-margin_right = 256.0
-margin_bottom = 192.0
-
-[node name="ItemHolder15" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 256.0
-margin_top = 160.0
-margin_right = 288.0
-margin_bottom = 192.0
-
-[node name="ItemHolder16" parent="Inventory/InventoryList/GridContainer" instance=ExtResource( 6 )]
-margin_left = 288.0
-margin_top = 160.0
-margin_right = 320.0
-margin_bottom = 192.0
-
-[node name="HotkeyList" type="Panel" parent="Inventory"]
-anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -165.0
-margin_top = -42.0
-margin_right = 165.0
+margin_left = -250.0
+margin_top = -120.0
+margin_right = 250.0
+margin_bottom = 0.0
 custom_styles/panel = SubResource( 2 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/HotkeyList"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -160.0
-margin_top = -16.0
-margin_right = 160.0
-margin_bottom = 16.0
-custom_constants/separation = 0
-alignment = 1
-
-[node name="ItemHolder" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 0.0
-margin_right = 32.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "1"
-
-[node name="ItemHolder2" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 32.0
-margin_right = 64.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "2"
-
-[node name="ItemHolder3" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "3"
-
-[node name="ItemHolder4" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 96.0
-margin_right = 128.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "4"
-
-[node name="ItemHolder5" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 128.0
-margin_right = 160.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "5"
-
-[node name="ItemHolder6" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 160.0
-margin_right = 192.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "6"
-
-[node name="ItemHolder7" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 192.0
-margin_right = 224.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "7"
-
-[node name="ItemHolder8" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 224.0
-margin_right = 256.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "8"
-
-[node name="ItemHolder9" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 256.0
-margin_right = 288.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "9"
-
-[node name="ItemHolder10" parent="Inventory/HotkeyList/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 288.0
-margin_right = 320.0
-margin_bottom = 32.0
-
-[node name="Key" type="Label" parent="Inventory/HotkeyList/HBoxContainer/ItemHolder10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = -1.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "0"
-
-[node name="HotkeySelection" type="TextureRect" parent="Inventory/HotkeyList"]
-margin_left = 6.0
-margin_top = 5.0
-margin_right = 46.0
-margin_bottom = 45.0
-mouse_filter = 2
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Tooltip" type="Panel" parent="Inventory"]
-editor/display_folded = true
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 32.0
-margin_top = -216.0
-margin_right = -98.0
-margin_bottom = -66.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 3 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Inventory/Tooltip"]
-editor/display_folded = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 6.0
-margin_right = -6.0
-custom_constants/separation = 0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Ming" type="Label" parent="Inventory/Tooltip/VBoxContainer"]
-margin_right = 188.0
-margin_bottom = 28.0
-custom_fonts/font = SubResource( 4 )
-custom_constants/line_spacing = 0
-text = "Turnip"
-align = 1
-
-[node name="Desc" type="Label" parent="Inventory/Tooltip/VBoxContainer"]
-margin_top = 28.0
-margin_right = 188.0
-margin_bottom = 61.0
-custom_fonts/font = SubResource( 5 )
-custom_constants/line_spacing = -5
-text = "A root vegtable grown in temperate climates. (Plant)"
-autowrap = true
-
-[node name="Cost" type="Label" parent="Inventory/Tooltip/VBoxContainer"]
-margin_top = 61.0
-margin_right = 188.0
-margin_bottom = 80.0
-custom_fonts/font = SubResource( 5 )
-custom_constants/line_spacing = -5
-text = "Cost: $100"
-autowrap = true
-
-[node name="Eff_Desc" type="Label" parent="Inventory/Tooltip/VBoxContainer"]
-margin_top = 80.0
-margin_right = 188.0
-margin_bottom = 125.0
-custom_fonts/font = SubResource( 6 )
-custom_constants/line_spacing = -5
-text = "Consume item to restore 30 HP. "
-align = 1
-autowrap = true
-
-[node name="ItemHold" type="TextureRect" parent="Inventory"]
-margin_left = 13.0297
-margin_top = 209.404
-margin_right = 53.0297
-margin_bottom = 249.404
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="QuestionBox" parent="." instance=ExtResource( 9 )]
-custom_styles/panel = SubResource( 7 )
 
 [node name="Date" type="Panel" parent="."]
 editor/display_folded = true
-margin_left = 352.0
-margin_top = 193.0
-margin_right = 480.0
-margin_bottom = 270.0
-custom_styles/panel = SubResource( 8 )
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_lock_": true
-}
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -77.0
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 7 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Date"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = -5
@@ -760,7 +105,7 @@ custom_constants/separation = -5
 [node name="Date" type="Label" parent="Date/VBoxContainer"]
 margin_right = 128.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Aug 15 2019"
 align = 1
@@ -770,7 +115,7 @@ valign = 3
 margin_top = 23.0
 margin_right = 128.0
 margin_bottom = 42.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Aug 15 2019"
 align = 1
@@ -780,7 +125,7 @@ valign = 2
 margin_top = 37.0
 margin_right = 128.0
 margin_bottom = 81.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "99:99"
 align = 1
