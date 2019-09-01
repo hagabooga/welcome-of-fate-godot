@@ -6,8 +6,7 @@ var item : Item  = null setget set_item
 var count = 0 setget set_count
 
 signal holding
-
-var dragging = false
+signal hovering(i)
 
 func is_stackable():
 	if item.base != "tool":
@@ -19,10 +18,16 @@ func set_count(val):
 	$ItemCount.text = str(count)
 
 func _ready():
-	pass
+	connect("holding", ItemHoldTexture, "show_texture", [self])
+	connect("hovering", ItemHoldTexture, "hovering_item")
+	
+func _process(delta):
+	if is_hovered():
+		emit_signal("hovering", item)
+	
 	
 func set_item(i : Item, amt = 1):
-	if i  != null:
+	if i != null:
 		item = i
 		$ItemTexture.texture = load("res://sprites/items/" + item.ming + ".png")
 		self.count = amt
@@ -49,7 +54,6 @@ func get_drag_data(position):
 	return self
 
 func can_drop_data(position, data):
-
 	return data.item != null
 
 func drop_data(position, data):
@@ -57,9 +61,13 @@ func drop_data(position, data):
 		set_item(data.item, data.count)
 		data.clear_holder()
 	else:
-		var save = [item, count]
-		set_item(data.item, data.count)
-		data.set_item(save[0], save[1])
+		if data != self and data.item.ming == item.ming:
+			self.count += data.count
+			data.clear_holder()
+		else:
+			var save = [item, count]
+			set_item(data.item, data.count)
+			data.set_item(save[0], save[1])
 
 func _on_ItemHolder_gui_input(event):
 	if event is InputEventMouseButton:

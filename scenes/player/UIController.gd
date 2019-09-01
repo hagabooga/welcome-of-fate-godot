@@ -1,13 +1,9 @@
 extends Control
 
-class_name UIController
-
-
 
 func _process(delta):
-	if Input.is_action_just_pressed("inventory") and !$QuestionBox.visible:
+	if (Input.is_action_just_pressed("inventory") || Input.is_action_just_pressed("ui_cancel")) and !$QuestionBox.visible:
 		$Inventory/InventoryList.visible = !$Inventory/InventoryList.visible
-		$Inventory/OtherInventoryList.visible = false
 	# hotkey 1-9-0 keyboard
 	for x in range(48,58):
 		if Input.is_key_pressed(x):

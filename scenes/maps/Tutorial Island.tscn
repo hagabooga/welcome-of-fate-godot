@@ -28,8 +28,8 @@ position = Vector2( 224, 32 )
 position = Vector2( 224, 160 )
 
 [node name="Chest2" parent="WorldObjects" index="2" instance=ExtResource( 4 )]
-position = Vector2( 224, 224 )
+position = Vector2( 224, 320 )
 
 [node name="Player" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( 288, 256 )
+position = Vector2( 288, 288 )
 z_index = 1

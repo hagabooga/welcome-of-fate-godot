@@ -12,6 +12,7 @@ var tilemap_worldObjects : TileMap
 var player : Player
 
 func _ready():
+	world_globals.player = find_node("Player")
 	world_globals.current_map = self
 	tilemap_grass = $TileMaps/Grass
 	tilemap_dirt = $TileMaps/Dirt

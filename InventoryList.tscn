@@ -19,13 +19,17 @@ font_data = ExtResource( 3 )
 
 [node name="InventoryList" type="Panel"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -165.0
+margin_top = -85.0
 margin_right = 165.0
-margin_bottom = 42.0
+margin_bottom = 85.0
 mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
+list_name = "Inventory"
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_right = 1.0
@@ -41,9 +45,57 @@ columns = 10
 
 [node name="Label" type="Label" parent="."]
 margin_left = 7.0
-margin_top = 3.0
+margin_top = -14.0
 margin_right = 40.0
-margin_bottom = 14.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Chest"
+[connection signal="gui_input" from="GridContainer/ItemHolder" to="GridContainer/ItemHolder" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder2" to="GridContainer/ItemHolder2" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder3" to="GridContainer/ItemHolder3" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder4" to="GridContainer/ItemHolder4" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder5" to="GridContainer/ItemHolder5" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder6" to="GridContainer/ItemHolder6" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder7" to="GridContainer/ItemHolder7" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder8" to="GridContainer/ItemHolder8" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder9" to="GridContainer/ItemHolder9" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder10" to="GridContainer/ItemHolder10" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder11" to="GridContainer/ItemHolder11" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder12" to="GridContainer/ItemHolder12" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder13" to="GridContainer/ItemHolder13" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder14" to="GridContainer/ItemHolder14" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder15" to="GridContainer/ItemHolder15" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder16" to="GridContainer/ItemHolder16" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder17" to="GridContainer/ItemHolder17" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder18" to="GridContainer/ItemHolder18" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder19" to="GridContainer/ItemHolder19" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder20" to="GridContainer/ItemHolder20" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder21" to="GridContainer/ItemHolder21" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder22" to="GridContainer/ItemHolder22" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder23" to="GridContainer/ItemHolder23" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder24" to="GridContainer/ItemHolder24" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder25" to="GridContainer/ItemHolder25" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder26" to="GridContainer/ItemHolder26" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder27" to="GridContainer/ItemHolder27" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder28" to="GridContainer/ItemHolder28" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder29" to="GridContainer/ItemHolder29" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder30" to="GridContainer/ItemHolder30" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder31" to="GridContainer/ItemHolder31" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder32" to="GridContainer/ItemHolder32" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder33" to="GridContainer/ItemHolder33" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder34" to="GridContainer/ItemHolder34" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder35" to="GridContainer/ItemHolder35" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder36" to="GridContainer/ItemHolder36" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder37" to="GridContainer/ItemHolder37" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder38" to="GridContainer/ItemHolder38" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder39" to="GridContainer/ItemHolder39" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder40" to="GridContainer/ItemHolder40" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder41" to="GridContainer/ItemHolder41" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder42" to="GridContainer/ItemHolder42" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder43" to="GridContainer/ItemHolder43" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder44" to="GridContainer/ItemHolder44" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder45" to="GridContainer/ItemHolder45" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder46" to="GridContainer/ItemHolder46" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder47" to="GridContainer/ItemHolder47" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder48" to="GridContainer/ItemHolder48" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder49" to="GridContainer/ItemHolder49" method="_on_ItemHolder_gui_input"]
+[connection signal="gui_input" from="GridContainer/ItemHolder50" to="GridContainer/ItemHolder50" method="_on_ItemHolder_gui_input"]

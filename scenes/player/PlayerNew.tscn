@@ -121,7 +121,8 @@ anims/fade_in = SubResource( 4 )
 anims/fade_out = SubResource( 5 )
 
 [node name="UI" type="Node2D" parent="." index="8"]
-z_index = 4096
+z_index = 4094
+z_as_relative = false
 
 [node name="UIController" parent="UI" index="0" instance=ExtResource( 5 )]
 anchor_right = 1.0

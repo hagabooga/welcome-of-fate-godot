@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://world_objects/WorldObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world_objects/objects/chest.gd" type="Script" id=2]
 [ext_resource path="res://world_objects/objects/chest.png" type="Texture" id=3]
 [ext_resource path="res://InventoryList.tscn" type="PackedScene" id=4]
 
-[node name="Chest" instance=ExtResource( 1 )]
+[sub_resource type="CircleShape2D" id=1]
+radius = 36.0555
+
+[node name="Chest" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Area2D" parent="." index="0"]
@@ -14,9 +17,46 @@ polygon = PoolVector2Array( -15.9448, 15.9822, -16, -11, -11, -16, 3, -16, 8, -1
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 3 )
 
-[node name="InventoryList" parent="." index="3" instance=ExtResource( 4 )]
-margin_left = -158.0
-margin_top = -11.0
-margin_right = 172.0
-margin_bottom = 31.0
+[node name="Node2D" type="Node2D" parent="." index="3"]
+visible = false
+z_index = 4094
+
+[node name="Control" type="Control" parent="Node2D" index="0"]
+margin_top = -140.0
+margin_right = 24.0
+margin_bottom = 26.0
+mouse_filter = 2
+
+[node name="InventoryList" parent="Node2D/Control" index="0" instance=ExtResource( 4 )]
+margin_left = -53.0
+margin_top = -53.0
+margin_right = 53.0
+margin_bottom = 53.0
+list_name = "Chest"
 item_column_size = 3
+
+[node name="Button" type="Button" parent="Node2D/Control" index="1"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -37.0
+margin_top = -25.0
+margin_right = -17.0
+margin_bottom = -5.0
+button_mask = 3
+text = "X"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CloseInvArea" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloseInvArea" index="0"]
+position = Vector2( 11, 17 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="pressed" from="Node2D/Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="body_exited" from="CloseInvArea" to="." method="_on_CloseInvArea_body_exited"]

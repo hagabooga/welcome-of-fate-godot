@@ -1,10 +1,11 @@
 extends Control
 
 
+class_name InventoryUI
+
 var hotkey_selected_index = 0
 var inventory_items : Array
 var hotkey_items : Array
-var other_inventory_items : Array
 
 var holding_item : ItemHolder = null
 
@@ -19,11 +20,10 @@ func get_hotkey_item() -> Item:
 	return $HotkeyList/HBoxContainer.get_child(hotkey_index).item
 
 func _ready():
-	set_new_inventory_size(10)
+	set_new_inventory_size(30)
 	#set_other_inventory_size(10)
 	inventory_items = $InventoryList/GridContainer.get_children()
 	hotkey_items = $HotkeyList/HBoxContainer.get_children()
-	other_inventory_items = $OtherInventoryList/GridContainer.get_children()
 	add_item(item_database.make_item("turnip"))
 	add_item(item_database.make_item("rock"))
 	add_item(item_database.make_item("hoe"))
@@ -35,9 +35,9 @@ func _ready():
 	add_item(item_database.make_item("wooden plank"))
 	add_item(item_database.make_item("stone"))
 	add_item(item_database.make_item("weed"))
-	for items in [inventory_items, hotkey_items, other_inventory_items]:
-		for item in items:
-			item.connect("holding", self, "show_texture", [item])
+#	for items in [inventory_items, hotkey_items]:
+#		for item in items:
+#			item.connect("holding", self, "show_texture", [item])
 	for x in hotkey_items:
 		x.connect("holding", self, "set_hotkey_index", [x.get_index()])
 	
@@ -45,44 +45,17 @@ func _ready():
 func set_new_inventory_size(size):
 	$InventoryList.size = size
 	resize_inventory()
-	$OtherInventoryList.rect_position.y -= (42 + $InventoryList.rect_size.y)
 
 func resize_inventory():
 	$InventoryList.resize_to_holder_amount(Control.PRESET_CENTER_BOTTOM)
 	$InventoryList.rect_position.y -= 42
-	resize_other_inventory()
-
-func set_other_inventory_size(size):
-	$OtherInventoryList.size = size
-	resize_other_inventory()
-
-func resize_other_inventory():
-	print("yo")
-	$OtherInventoryList.resize_to_holder_amount(Control.PRESET_CENTER_BOTTOM)
-	$OtherInventoryList.rect_position.y -= (42 + $InventoryList.rect_size.y)
-	
 
 	
 func _process(delta):
-	if holding_item != null and Input.is_action_just_released("interact"):
-		remove_hold_texture()
-		holding_item.released()
-		holding_item = null
-	$Tooltip.visible = false
-	for items in [inventory_items, hotkey_items, other_inventory_items]:
-		for item in items:
-			if item != null and item.is_hovered() and item.item != null:
-				set_tooltip_labels(item)
-				break
-	if $Tooltip.visible:
-		var pos = get_local_mouse_position()
-		pos.y -= $Tooltip.rect_size.y
-		$Tooltip.rect_position = pos
-	if $ItemHold.visible:
-		var pos = get_local_mouse_position()
-		pos.x -= $ItemHold.rect_size.x/2
-		pos.y -= $ItemHold.rect_size.y/2
-		$ItemHold.rect_position = pos
+#	if holding_item != null and Input.is_action_just_released("interact"):
+#		remove_hold_texture()
+#		holding_item.released()
+#		holding_item = null
 	
 	if Input.is_action_just_released("scroll_down"):
 		if hotkey_index < $HotkeyList/HBoxContainer.get_child_count() - 1:
@@ -107,14 +80,14 @@ func add_item(item : Item):
 					return
 	first_null.set_item(item)
 
-func show_texture(holder : ItemHolder):
-	$ItemHold.visible = true
-	$ItemHold.texture = holder.find_node("ItemTexture").texture
-	holding_item = holder
-	
-func remove_hold_texture():
-	$ItemHold.visible = true
-	$ItemHold.texture = null
+#func show_texture(holder : ItemHolder):
+#	$ItemHold.visible = true
+#	$ItemHold.texture = holder.find_node("ItemTexture").texture
+#	holding_item = holder
+#
+#func remove_hold_texture():
+#	$ItemHold.visible = true
+#	$ItemHold.texture = null
 
 func set_tooltip_labels(holder : ItemHolder):
 	$Tooltip.visible = true

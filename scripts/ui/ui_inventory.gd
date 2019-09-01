@@ -59,7 +59,6 @@ func add(item):
 			$InventoryItemList.add_item(item.ming.capitalize(), load("res://sprites/items/" + item.ming + ".png"))
 			var i = $InventoryItemList.get_item_count()-1
 			$InventoryItemList.set_item_metadata(i, item)
-			$InventoryItemList.set_item_tooltip_enabled(i, false)
 		else:
 			player_equip.item_count[key] += 1
 		var selected = $InventoryItemList.get_selected_items()

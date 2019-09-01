@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://world_objects/objects/bed.gd"
 }, {
+"base": "WorldObject",
+"class": "Chest",
+"language": "GDScript",
+"path": "res://world_objects/objects/chest.gd"
+}, {
 "base": "CollisionObject2D",
 "class": "Clickable",
 "language": "GDScript",
@@ -68,6 +73,11 @@ _global_script_classes=[ {
 "class": "InventoryList",
 "language": "GDScript",
 "path": "res://InventoryList.gd"
+}, {
+"base": "Control",
+"class": "InventoryUI",
+"language": "GDScript",
+"path": "res://scenes/player/InventoryUI.gd"
 }, {
 "base": "Node",
 "class": "Item",
@@ -164,11 +174,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ToolItem.gd"
 }, {
-"base": "Control",
-"class": "UIController",
-"language": "GDScript",
-"path": "res://scenes/player/UIController.gd"
-}, {
 "base": "Item",
 "class": "WateringCan",
 "language": "GDScript",
@@ -189,6 +194,7 @@ _global_script_class_icons={
 "Attributes": "",
 "BaseStat": "",
 "Bed": "",
+"Chest": "",
 "Clickable": "",
 "Damage": "",
 "Enemy": "",
@@ -197,6 +203,7 @@ _global_script_class_icons={
 "GlobalEnums": "",
 "Hoe": "",
 "InventoryList": "",
+"InventoryUI": "",
 "Item": "",
 "ItemHolder": "",
 "Mage": "",
@@ -216,7 +223,6 @@ _global_script_class_icons={
 "SpriteWithBodyAnimation": "",
 "TilledSoil": "",
 "ToolItem": "",
-"UIController": "",
 "WateringCan": "",
 "Weapon": "",
 "WorldObject": ""
@@ -243,6 +249,7 @@ skill_database="*res://scripts/skill/skill_database.gd"
 player_skills="*res://scripts/skill/player_skills.gd"
 skill_activations="*res://skill_activations.gd"
 world_objects_database="*res://world_objects/world_objects_database.gd"
+ItemHoldTexture="*res://ItemHoldTexture.tscn"
 
 [debug]
 

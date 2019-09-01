@@ -25,7 +25,7 @@ func set_size(val):
 	for x in range(size):
 		$GridContainer.get_child(x).visible = true
 	for x in range(size, actual_slots):
-		print("YO")
+		#("YO")
 		$GridContainer.get_child(x).visible = false
 	resize_to_holder_amount(Control.PRESET_CENTER)
 
@@ -42,7 +42,7 @@ func add_item(item : Item):
 	for holder in $GridContainer.get_children():
 		if first_null == null and holder.item == null:
 			first_null = holder
-			print("wow")
+			#("wow")
 		else:
 			if holder.item != null and holder.item.ming == item.ming:
 				holder.count += 1

@@ -5,15 +5,10 @@ class_name Player
 enum {up,down,left,right}
 var facing = down setget set_facing
 
-
-
 func get_hotkey_item():
 	return $UI/UIController/Inventory.get_hotkey_item()
 
 func _ready():
-	#print(equipped_tool)
-	#print(Shovel)
-	#equipped_hotkey = Hoe.new()
 	get_parent().player = self
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
@@ -37,19 +32,8 @@ func _physics_process(delta):
 func click_action(click_action):
 	if click_action != null:
 		if click_action.action == Clickable.ADD_ITEM:
-			$UIController/Inventory.add_item(item_database.make_item(click_action.data[0]))
-		elif click_action.action == Clickable.OPEN_OTHER_INVENTORY:
-			#$UI/UIController/Inventory/OtherInventoryList.visible = true
-			$UI/UIController/Inventory/InventoryList.visible = true
-			click_action.data[1].visible = true
-			#$UI/UIController/Inventory.add_child(click_action.data[1])
-#			$UI/UIController/Inventory.set_other_inventory_size(click_action.data[0])
-#			print(click_action.data[0])
-#			var i = 0
-#			for holder in click_action.data[1]:
-#				$UI/UIController/Inventory/OtherInventoryList/GridContainer.get_child(i).set_item(holder.item, holder.count)
-#				i += 1
-#			$UI/UIController/Inventory.resize_other_inventory()
+			$UI/UIController/Inventory.add_item(item_database.make_item(click_action.data[0]))
+
 				
 func left_click_obj(obj : Clickable):
 	if $AnimationPlayer.is_playing():
@@ -79,6 +63,8 @@ func special_right_click_effects(obj : Clickable):
 		$UI/UIController/Inventory.add_item(item_database.make_item(obj.plant.ming))
 	elif obj is Bed:
 		$UI/UIController.create_question_box("Do you wish to sleep until the next day?", self, "sleep")
+	elif obj is Chest:
+		$UI/UIController/Inventory/InventoryList.visible = true
 		
 func sleep():
 	$AnimationPlayer.play("fade_in")
