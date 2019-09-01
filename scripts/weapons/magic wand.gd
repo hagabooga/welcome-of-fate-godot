@@ -7,10 +7,10 @@ func get_damage() -> Damage:
 
 
 func attack_effect(angle) -> void:
-	var player : Entity = owner
+	#var player : Entity = owner
 	var proj = projectile.instance()
 	get_tree().get_root().add_child(proj)
-	proj.global_position = player.global_position
+	proj.global_position = global_position
 	proj.damage = get_damage()
 	proj.set_velocity(angle)
 	

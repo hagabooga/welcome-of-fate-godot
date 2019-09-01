@@ -10,6 +10,15 @@ export(int) var move_speed
 var can_move : bool = true
 var velocity = Vector2.ZERO
 
+func _ready():
+	connect("on_hp_add", self, "make_damage_popup")
+
+func make_damage_popup(text):
+	var pop = ui_maker.make_damage_popup()
+	get_tree().get_root().add_child(pop)
+	pop.global_position = $PosAboveHead.global_position
+	pop.set_text_and_play(text)
+
 func _process(delta):
 	change_z_index_relative_to_tilemap()
 
@@ -27,10 +36,10 @@ func is_dead() -> bool:
 	
 func take_damage(dmg : Damage) -> void:
 	#print(dmg.dealer.name,dmg.damage)
-	hp -= dmg.damage
-	var dmgpop = damage_popup.instance()
-	dmgpop.set_text_and_play(dmg.damage)
-	add_child(dmgpop)
+	add_hp(-dmg.damage)
+	#var dmgpop = damage_popup.instance()
+	#dmgpop.set_text_and_play(dmg.damage)
+	#add_child(dmgpop)
 
 func update_stats() -> void:
 	pass

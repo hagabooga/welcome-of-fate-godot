@@ -5,7 +5,7 @@ var holding_item : ItemHolder = null
 
 func _process(delta):
 	$Tooltip.visible = false	
-	if holding_item != null and Input.is_action_just_released("interact"):
+	if holding_item != null and Input.is_action_just_released("use_item"):
 		remove_hold_texture()
 		holding_item.released()
 		holding_item = null

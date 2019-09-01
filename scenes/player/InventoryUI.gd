@@ -11,20 +11,29 @@ var holding_item : ItemHolder = null
 
 var hotkey_index = 0 setget set_hotkey_index
 
+signal on_hotkey_index_change
+
 func set_hotkey_index(val):
 	hotkey_index = val
 	$HotkeyList/HotkeySelection.rect_global_position = $HotkeyList/HBoxContainer.get_child(hotkey_index).rect_global_position
+	emit_signal("on_hotkey_index_change")
 	
+func get_hotkey_holder():
+	return $HotkeyList/HBoxContainer.get_child(hotkey_index)
 	
 func get_hotkey_item() -> Item:
 	return $HotkeyList/HBoxContainer.get_child(hotkey_index).item
 
 func _ready():
+	
 	set_new_inventory_size(30)
 	#set_other_inventory_size(10)
 	inventory_items = $InventoryList/GridContainer.get_children()
 	hotkey_items = $HotkeyList/HBoxContainer.get_children()
-	add_item(item_database.make_item("turnip"))
+
+	for x in range(30):
+		add_item(item_database.make_item("turnip"))
+	add_item(item_database.make_item("magic wand"))
 	add_item(item_database.make_item("rock"))
 	add_item(item_database.make_item("hoe"))
 	add_item(item_database.make_item("watering can"))
@@ -35,11 +44,14 @@ func _ready():
 	add_item(item_database.make_item("wooden plank"))
 	add_item(item_database.make_item("stone"))
 	add_item(item_database.make_item("weed"))
+
 #	for items in [inventory_items, hotkey_items]:
 #		for item in items:
 #			item.connect("holding", self, "show_texture", [item])
 	for x in hotkey_items:
 		x.connect("holding", self, "set_hotkey_index", [x.get_index()])
+		#x.connect("holding", self, "emit_signal", ["on_hotkey_index_change"])
+	self.hotkey_index = 0
 	
 	
 func set_new_inventory_size(size):
@@ -52,21 +64,27 @@ func resize_inventory():
 
 	
 func _process(delta):
-#	if holding_item != null and Input.is_action_just_released("interact"):
-#		remove_hold_texture()
-#		holding_item.released()
-#		holding_item = null
-	
+	if !owner.owner.can_move:
+		return
 	if Input.is_action_just_released("scroll_down"):
 		if hotkey_index < $HotkeyList/HBoxContainer.get_child_count() - 1:
 			self.hotkey_index += 1
 		else:
 			self.hotkey_index = 0
+		#emit_signal("on_hotkey_index_change")
 	if Input.is_action_just_released("scroll_up"):
 		if hotkey_index > 0:
 			self.hotkey_index -= 1
 		else:
 			self.hotkey_index = $HotkeyList/HBoxContainer.get_child_count() - 1
+		#emit_signal("on_hotkey_index_change")
+	for x in range(10):
+		if Input.is_action_just_pressed("inv_hotkey_" + str(x)):
+			if x == 0:
+				self.hotkey_index = 9
+			else:
+				self.hotkey_index = x - 1
+			#emit_signal("on_hotkey_index_change")
 
 func add_item(item : Item):
 	var first_null = null
@@ -79,19 +97,3 @@ func add_item(item : Item):
 					x.count += 1
 					return
 	first_null.set_item(item)
-
-#func show_texture(holder : ItemHolder):
-#	$ItemHold.visible = true
-#	$ItemHold.texture = holder.find_node("ItemTexture").texture
-#	holding_item = holder
-#
-#func remove_hold_texture():
-#	$ItemHold.visible = true
-#	$ItemHold.texture = null
-
-func set_tooltip_labels(holder : ItemHolder):
-	$Tooltip.visible = true
-	$Tooltip/VBoxContainer/Ming.text = holder.item.ming.capitalize() 
-	$Tooltip/VBoxContainer/Desc.text = "%s (%s)"%[holder.item.desc, holder.item.type.capitalize()]
-	$Tooltip/VBoxContainer/Cost.text = "Cost: $%d"%holder.item.cost
-	$Tooltip/VBoxContainer/Eff_Desc.text = holder.item.eff_desc

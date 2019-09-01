@@ -5,6 +5,8 @@ class_name Player
 enum {up,down,left,right}
 var facing = down setget set_facing
 
+var equipped_weapon : Weapon = null
+
 func get_hotkey_item():
 	return $UI/UIController/Inventory.get_hotkey_item()
 
@@ -13,30 +15,39 @@ func _ready():
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
-
+	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
+	
+func check_load_hotkey():
+	var item = get_hotkey_item()
+	if item != null and item.base == "weapon" and equipped_weapon == null:
+		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
+		$BodySprites.add_child(obj)
+		equipped_weapon = obj
+	elif item != null and item.base == "weapon" and equipped_weapon != null:
+		equipped_weapon.queue_free()
+		equipped_weapon = null
+		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
+		$BodySprites.add_child(obj)
+		equipped_weapon = obj
+	elif (item != null or item == null) and equipped_weapon != null:
+		equipped_weapon.queue_free()
+		equipped_weapon = null
+		
 func _physics_process(delta):
-	#$Camera2D.position = position
 	if $UI/UIController/QuestionBox.visible || $AnimationPlayer.is_playing():
 		play_all_idle("")
-		print("cant do anything")
 		return
-#	change_equip_z()
 	if can_move:
 		movement_input()
 		move_and_slide(velocity.normalized() * move_speed)
-		#if Input.is_action_just_pressed("attack"):
-			#play_all_body_anims("slash",facing,8,false)
-			#basic_attack(turn_towards_mouse())
-	#global_position = Vector2(stepify(global_position.x, 1), stepify(global_position.y, 1))
 
 func click_action(click_action):
 	if click_action != null:
 		if click_action.action == Clickable.ADD_ITEM:
 			$UI/UIController/Inventory.add_item(item_database.make_item(click_action.data[0]))
-
 				
 func left_click_obj(obj : Clickable):
-	if $AnimationPlayer.is_playing():
+	if $AnimationPlayer.is_playing() or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	if (obj.is_self_adjacent(pos)):
@@ -45,7 +56,7 @@ func left_click_obj(obj : Clickable):
 		special_click_effects(obj)
 		
 func right_click_obj(obj : Clickable):
-	if $AnimationPlayer.is_playing():
+	if $AnimationPlayer.is_playing() or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	if (obj.is_self_adjacent(pos)):
@@ -69,7 +80,6 @@ func special_right_click_effects(obj : Clickable):
 func sleep():
 	$AnimationPlayer.play("fade_in")
 	
-
 func movement_input() -> void:
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed('move_right'):
@@ -124,8 +134,9 @@ func flip_hitboxes() -> void:
 		flip = 1
 	
 func basic_attack(angle) -> void:
-	play_all_body_anims("slash", facing,8,false)
-	self.equipped_weapon.attack_effect(angle)
+	if equipped_weapon != null:
+		play_all_body_anims("slash", facing,8,false)
+		equipped_weapon.attack_effect(angle)
 
 func set_facing(dir) -> void:
 	facing = dir
@@ -140,13 +151,13 @@ func turn_towards_mouse() -> float:
 	var rad_angle = global_position.angle_to_point(get_global_mouse_position())
 	var angle = rad2deg(rad_angle)
 	if -30 < angle and angle < 30:
-		turn_towards(left)
+		facing = (left)
 	elif -150 < angle and angle <= -30:
-		turn_towards(down)
+		facing = (down)
 	elif (-180 <= angle and angle <= -150) or (150 < angle and angle <= 180):
-		turn_towards(right)
+		facing = (right)
 	elif 30 <= angle and angle <= 150:
-		turn_towards(up)
+		facing = (up)
 	#print(angle)
 	return rad_angle + PI
 	
@@ -154,3 +165,36 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_in":
 		$AnimationPlayer.play("fade_out")
 		world_globals.next_day()
+
+func _on_ClickableArea_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
+		var item = get_hotkey_item()
+		if item != null and can_move:
+			if item.type == "plant":
+				print("consumed: ", item.ming)
+				$UI/UIController/Inventory.get_hotkey_holder().consume()
+				print(hp)
+				item_activation(item.ming)
+				print(hp)
+			elif item.type == "misc.":
+				var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
+				if !(click_pos in get_parent().used_cells): 
+					var obj = get_parent().create_world_object(item.ming, click_pos)
+					var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
+					if click_pos != self_pos and obj.is_self_adjacent(self_pos):
+						$UI/UIController/Inventory.get_hotkey_holder().consume()
+					else:
+						obj.queue_free()
+			elif item.base == "weapon":
+				basic_attack(turn_towards_mouse())
+
+func item_activation(i):
+	var data = item_database.item_database
+	for x in data.keys():
+		if x == i:
+			var key_vals = data[x].stats
+			for v in key_vals.keys():
+				match v:
+					"hp": add_hp(key_vals[v])
+					"mp": add_mp(key_vals[v])
+					

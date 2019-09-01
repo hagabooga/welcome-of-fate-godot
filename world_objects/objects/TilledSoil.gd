@@ -18,14 +18,13 @@ func clicked(tewl : Item):
 		print("plant seeded: ", pl.ming)
 		$Plant.modulate.a = 1
 	else:
-		#print("WHAT")
-		var count = 0
-		for x in get_parent().get_children():
-			if x.tile_pos == tile_pos:
-				count += 1
-		if count < 2 and ($Sprite.frame == 0 and tewl.type == "hoe") or ($Sprite.frame == 1 and tewl.type == "watering can"):
+		var count = get_parent().get_parent().used_cells.count(tile_pos)
+		if count < 1 and (($Sprite.frame == 0 and tewl.type == "hoe") or ($Sprite.frame == 1 and tewl.type == "watering can")):
 			$Sprite.frame += 1
-			#print("asdasdas")
+
+func _process(delta):
+	if get_parent().get_parent().used_cells.count(tile_pos) >= 1:
+		$Sprite.frame = 0
 
 func right_clicked():
 	if ready_to_harvest():

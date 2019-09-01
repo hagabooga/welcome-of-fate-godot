@@ -5,12 +5,7 @@ func _process(delta):
 	if (Input.is_action_just_pressed("inventory") || Input.is_action_just_pressed("ui_cancel")) and !$QuestionBox.visible:
 		$Inventory/InventoryList.visible = !$Inventory/InventoryList.visible
 	# hotkey 1-9-0 keyboard
-	for x in range(48,58):
-		if Input.is_key_pressed(x):
-			if x == 48:
-				$Inventory.hotkey_index = 9
-			else:
-				$Inventory.hotkey_index = x - 49
+	
 
 func create_question_box(question : String, target : Object, yes_func : String = "", no_func : String = ""):
 	$QuestionBox/Buttons/NoButton.emit_signal("pressed")

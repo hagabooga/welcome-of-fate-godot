@@ -27,12 +27,10 @@ func is_self_adjacent(pos : Vector2) -> bool:
 		for row in range(size.y):
 			current_pos.x += col
 			current_pos.y += row
-			#print(current_pos)
 			if is_pos_adjacent(current_pos, pos):
 				return true
 			current_pos = tile_pos
 	return false
-
 	
 func is_pos_adjacent(a : Vector2, b : Vector2) -> bool:
 	return a == b or \

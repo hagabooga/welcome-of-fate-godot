@@ -38,6 +38,7 @@ margin_left = -226.0
 margin_top = -165.0
 margin_right = 226.0
 margin_bottom = 165.0
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="Control"]
 anchor_right = 1.0

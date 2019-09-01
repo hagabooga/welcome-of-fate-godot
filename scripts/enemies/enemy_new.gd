@@ -25,7 +25,7 @@ func _physics_process(delta):
 		look(delta)
 	elif attack_in_range and $AnimationPlayer.current_animation == "idle":
 		basic_attack()
-		print(target.hp)
+		#print(target.hp)
 	
 
 func die() -> void:

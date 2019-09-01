@@ -25,24 +25,16 @@ var mp setget set_mp
 var level = 1
 var job = "Attributes: No Name"
 
-func set_hp_extra():
-	pass 
-func set_mp_extra():
-	pass
-func set_energy_extra():
-	pass
+signal on_hp_add(value)
 
 func set_hp(val):
 	hp = val
-	set_hp_extra()
 	
 func set_mp(val):
 	mp = val
-	set_mp_extra()
 	
 func set_eng(val):
 	energy = val
-	set_energy_extra()
 	
 func set_str(val):
 	find_stat(0).base = val
@@ -126,6 +118,7 @@ func add_hp(val):
 	self.hp += val
 	if self.hp > self.max_hp:
 		self.hp = self.max_hp
+	emit_signal("on_hp_add", val)
 
 func add_mp(val):
 	self.mp += val

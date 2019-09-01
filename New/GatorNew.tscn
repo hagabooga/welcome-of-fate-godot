@@ -12,12 +12,15 @@ radius = 16.0
 [sub_resource type="CapsuleShape2D" id=3]
 height = 14.0
 
-[node name="Gator" index="0" instance=ExtResource( 1 )]
+[node name="Gator" instance=ExtResource( 1 )]
 input_pickable = true
 collision_layer = 3
 collision_mask = 7
 script = ExtResource( 2 )
 move_speed = 100
+
+[node name="PosAboveHead" parent="." index="1"]
+position = Vector2( 0, -20 )
 
 [node name="CollisionBox" parent="." index="3"]
 position = Vector2( 1, 3 )
@@ -32,7 +35,6 @@ position = Vector2( 1, 3 )
 shape = SubResource( 2 )
 
 [node name="RangeOfSight" parent="." index="5"]
-editor/display_folded = true
 position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" parent="RangeOfSight" index="0"]
@@ -43,6 +45,5 @@ position = Vector2( -12, 3 )
 
 [node name="CollisionShape2D" parent="AttackRange" index="0"]
 shape = SubResource( 3 )
-
 
 [editable path="RangeOfSight"]

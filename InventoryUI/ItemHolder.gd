@@ -9,7 +9,7 @@ signal holding
 signal hovering(i)
 
 func is_stackable():
-	if item.base != "tool":
+	if item.base != "tool" and item.base != "weapon":
 		return true
 	return false
 
@@ -75,3 +75,8 @@ func _on_ItemHolder_gui_input(event):
 			if event.pressed:
 				holding()
 				emit_signal("holding")
+				
+func consume():
+	self.count -= 1
+	if count <= 0:
+		clear_holder()
