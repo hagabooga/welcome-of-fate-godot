@@ -70,4 +70,5 @@ centered = false
 anims/idle = SubResource( 1 )
 anims/pick_up = SubResource( 2 )
 [connection signal="input_event" from="." to="." method="_on_WorldObject_input_event"]
+[connection signal="tree_exited" from="." to="." method="_on_WorldObject_tree_exited"]
 [connection signal="tree_exiting" from="." to="." method="_on_WorldObject_tree_exiting"]

@@ -1,7 +1,7 @@
 extends Entity
 class_name Enemy
 
-var target : Entity
+var target : Entity = null
 
 var orig_attackRange
 var orig_hurtbox
@@ -10,9 +10,15 @@ var try_timer = 0
 var current_try
 var hit_pos = null
 var attack_in_range : bool = false
+
+var player_script = load("res://scripts/entity/PlayerNew.gd")
+var item_spit_out_scene = load("res://ItemSpitOut.tscn")
+	
+	
+var item_drops = {}
 	
 func _ready():
-	$AnimationPlayer.play("idle")
+	
 	self.atk_spd = 1
 	orig_attackRange = $AttackRange.position.x
 	orig_hurtbox = $Hurtbox.position.x
@@ -20,8 +26,13 @@ func _ready():
 	starting_stats()
 	final_stats()
 	
+func _enter_tree():
+	modulate.a = 0
+	$AnimationPlayer.play("spawn")
+	
 func _physics_process(delta):
-	if $AnimationPlayer.current_animation == "idle" and target != null and target_still_in_range() and !attack_in_range:
+	get_target()
+	if $AnimationPlayer.current_animation == "idle" and target != null and !attack_in_range:
 		look(delta)
 	elif attack_in_range and $AnimationPlayer.current_animation == "idle":
 		basic_attack()
@@ -30,6 +41,7 @@ func _physics_process(delta):
 
 func die() -> void:
 	$AnimationPlayer.play("die")
+	
 
 func take_damage(dmg : Damage) -> void:
 	if $AnimationPlayer.current_animation != "die":
@@ -44,7 +56,8 @@ func basic_attack() -> void:
 func deal_damage_to_target() -> void:
 	if target == null:
 		print("target does not exist!!! cannot deal damage")
-	target.take_damage(Damage.new(self, self.physical))
+	if target != null and weakref(target).get_ref():
+		target.take_damage(Damage.new(self, self.physical))
 
 
 func look(delta):
@@ -122,19 +135,12 @@ func final_stats():
 	hp = self.max_hp
 	mp = self.max_mp
 
-func target_still_in_range() -> bool:
-	if target in $RangeOfSight.get_entities():
-		return true
-	return false
-
-func _on_RangeOfSight_body_entered(body):
-	#print(body)
-	if target == null and body is Entity and body != self:
-		target = body
-
-func _on_RangeOfSight_body_exited(body):
-	#print(body.name, " left range: ", name)
-	pass # Replace with function body.
+func get_target():
+	for x in $RangeOfSight.get_entities():
+		if x is player_script:
+			target = x
+			return
+	target = null
 
 func _on_AttackRange_body_entered(body):
 	if target == body:
@@ -144,10 +150,7 @@ func _on_AttackRange_body_entered(body):
 func _on_AttackRange_body_exited(body):
 	if target == body:
 		attack_in_range = false
-		
-#func _draw():
-#	if hit_pos != null:
-#		draw_line(Vector2(), (hit_pos - position).rotated(-rotation), Color.red)
+
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	$AnimationPlayer.play("idle")
@@ -158,3 +161,12 @@ func _on_Enemy_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed:
 			print(name, " clicked with mouse!")
+			
+func spit_out_item():
+	for x in item_drops.keys():
+		var i = 0 #randi()%100
+		if i < item_drops[x]:
+			var spit = item_spit_out_scene.instance()
+			get_parent().add_child(spit)
+			spit.set_item(x)
+			spit.play_spit_out(global_position)

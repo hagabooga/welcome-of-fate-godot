@@ -1,11 +1,11 @@
-
+tool
 extends Panel
 
 class_name InventoryList
 
 var item_holder = load("res://InventoryUI/ItemHolder.tscn")
 
-const actual_slots = 50
+export (int) var actual_slots = 50
 
 var size : int setget set_size
 export(String) var list_name : String

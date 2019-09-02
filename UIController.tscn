@@ -1,16 +1,18 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/player/UIController.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/InteractKey.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=3]
-[ext_resource path="res://Inventory.tscn" type="PackedScene" id=4]
-[ext_resource path="res://QuestionBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=6]
+[ext_resource path="res://Inventory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://QuestionBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=5]
+[ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=6]
 [ext_resource path="res://Date.gd" type="Script" id=7]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Dialogue.gd" type="Script" id=9]
+[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=10]
 
 [sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 22.0
 margin_right = 41.0
@@ -20,28 +22,44 @@ margin_bottom = 25.0
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 100, 100 )
-margin_left = 22.0
-margin_right = 41.0
-margin_top = 34.0
-margin_bottom = 25.0
-
-[sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 29.9169
 margin_right = 26.0
 margin_top = 38.0
 margin_bottom = 31.0
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 13
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 22.0
+margin_right = 41.0
+margin_top = 34.0
+margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 30.0
+margin_right = 24.0
+margin_top = 31.0
+margin_bottom = 26.0
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=9]
 size = 32
 font_data = ExtResource( 8 )
 
@@ -56,27 +74,13 @@ margin_top = 150.0
 margin_bottom = 227.0
 mouse_filter = 2
 
-[node name="Dialogue" type="Panel" parent="."]
-visible = false
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -300.0
-margin_top = 150.0
-margin_right = 300.0
-margin_bottom = 270.0
-custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Inventory" parent="." instance=ExtResource( 4 )]
+[node name="Inventory" parent="." instance=ExtResource( 3 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -243.0
 margin_bottom = 0.0
 
-[node name="QuestionBox" parent="." instance=ExtResource( 5 )]
+[node name="QuestionBox" parent="." instance=ExtResource( 4 )]
 visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -84,7 +88,7 @@ margin_left = -250.0
 margin_top = -120.0
 margin_right = 250.0
 margin_bottom = 0.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="Date" type="Panel" parent="."]
 editor/display_folded = true
@@ -94,8 +98,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -128.0
 margin_top = -77.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 2 )
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Date"]
 anchor_right = 1.0
@@ -105,7 +112,7 @@ custom_constants/separation = -5
 [node name="Date" type="Label" parent="Date/VBoxContainer"]
 margin_right = 128.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Aug 15 2019"
 align = 1
@@ -115,7 +122,7 @@ valign = 3
 margin_top = 23.0
 margin_right = 128.0
 margin_bottom = 42.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Aug 15 2019"
 align = 1
@@ -125,8 +132,60 @@ valign = 2
 margin_top = 37.0
 margin_right = 128.0
 margin_bottom = 81.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "99:99"
 align = 1
 valign = 2
+
+[node name="Dialogue" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -130.0
+margin_right = 300.0
+custom_styles/panel = SubResource( 6 )
+script = ExtResource( 9 )
+
+[node name="Name" type="Panel" parent="Dialogue"]
+editor/display_folded = true
+margin_left = 20.0
+margin_top = -20.0
+margin_right = 160.0
+margin_bottom = 20.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="Label" type="Label" parent="Dialogue/Name"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 8 )
+text = "Clean Booga"
+align = 1
+valign = 1
+
+[node name="Text" type="Label" parent="Dialogue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 46.0
+margin_top = 22.0
+margin_right = -55.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = -14
+text = "Hey, I need you to kill those Gators. "
+autowrap = true
+
+[node name="Button" type="Button" parent="Dialogue"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -60.0
+margin_top = -37.0
+margin_right = -26.0
+margin_bottom = -10.0
+focus_mode = 0
+icon = ExtResource( 10 )
+[connection signal="pressed" from="Dialogue/Button" to="Dialogue" method="_on_Button_pressed"]

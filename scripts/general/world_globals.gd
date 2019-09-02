@@ -82,3 +82,11 @@ func next_day():
 	time_stop = true
 	emit_signal("next_day")
 
+func is_pos_adjacent(a : Vector2, b : Vector2) -> bool:
+	return a == b or \
+	(a.x == b.x and (a.y + 1 == b.y or a.y - 1 == b.y)) or \
+	(a.y == b.y and (a.x + 1 == b.x or a.x - 1 == b.x)) or \
+	(a.x + 1 == b.x and a.y + 1 == b.y) or \
+	(a.x - 1 == b.x and a.y - 1 == b.y) or \
+	(a.x + 1 == b.x and a.y - 1 == b.y) or \
+	(a.x - 1 == b.x and a.y + 1 == b.y)

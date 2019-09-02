@@ -14,10 +14,10 @@ height = 14.0
 
 [node name="Gator" instance=ExtResource( 1 )]
 input_pickable = true
-collision_layer = 3
+collision_layer = 4
 collision_mask = 7
 script = ExtResource( 2 )
-move_speed = 100
+move_speed = 80
 
 [node name="PosAboveHead" parent="." index="1"]
 position = Vector2( 0, -20 )

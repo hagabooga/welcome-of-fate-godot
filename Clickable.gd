@@ -7,7 +7,7 @@ signal right_clicked
 
 var tile_pos : Vector2 setget set_tile_pos
 
-enum {ADD_ITEM, CREATE_QUESTION_BOX, OPEN_OTHER_INVENTORY}
+enum {ADD_ITEM, CREATE_QUESTION_BOX, OPEN_DIALOGUE}
 
 func set_tile_pos(pos : Vector2):
 	tile_pos = pos

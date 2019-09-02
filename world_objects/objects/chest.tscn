@@ -6,7 +6,7 @@
 [ext_resource path="res://InventoryList.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 36.0555
+radius = 67.0671
 
 [node name="Chest" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -19,7 +19,8 @@ texture = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D" parent="." index="3"]
 visible = false
-z_index = 4094
+z_index = 4092
+z_as_relative = false
 
 [node name="Control" type="Control" parent="Node2D" index="0"]
 margin_top = -140.0
@@ -32,6 +33,7 @@ margin_left = -53.0
 margin_top = -53.0
 margin_right = 53.0
 margin_bottom = 53.0
+actual_slots = 9
 list_name = "Chest"
 item_column_size = 3
 

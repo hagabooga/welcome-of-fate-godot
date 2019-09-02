@@ -4,6 +4,7 @@ class_name Map
 
 var used_cells = []
 
+
 var tilemap_grass : TileMap
 var tilemap_dirt  : TileMap
 var tilemap_soil : TileMap
@@ -88,4 +89,4 @@ func create_daily_objects():
 			if !(x in used_cells) and i < 10:
 				var rand_choice = names[randi() % names.size()]
 				create_world_object(rand_choice, x)
-	
+

@@ -220,5 +220,22 @@
         "cost": 15,
         "type": "misc.",
         "activate": -1
+    },
+    "chest":
+    {
+        "desc": "Put stuff in",
+        "eff_desc": "",
+        "cost": 250,
+        "type": "misc.",
+        "activate": -1
+    },
+    "gator skin":
+    {
+        "desc": "Thick but smooth",
+        "eff_desc": "",
+        "cost": 25,
+        "type": "misc.",
+        "activate": -1,
+        "placeable": false
     }
 }

@@ -20,7 +20,8 @@ func make_damage_popup(text):
 	pop.set_text_and_play(text)
 
 func _process(delta):
-	change_z_index_relative_to_tilemap()
+	pass
+	#change_z_index_relative_to_tilemap()
 
 func change_z_index_relative_to_tilemap() -> void:
 	var z = owner.tilemap_soil.world_to_map(global_position).y

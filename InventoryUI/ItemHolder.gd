@@ -13,6 +13,9 @@ func is_stackable():
 		return true
 	return false
 
+func get_texture():
+	return $ItemTexture.texture
+
 func set_count(val):
 	count = val
 	$ItemCount.text = str(count)

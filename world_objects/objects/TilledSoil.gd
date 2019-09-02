@@ -12,6 +12,7 @@ func clicked(tewl : Item):
 		return
 	if !$Seed.visible and plant == null and tewl.type == "seedbag" and ($Sprite.frame == 1 or $Sprite.frame == 2):
 		$Seed.visible = true
+		get_parent().get_parent().used_cells.append(tile_pos)
 		var pl = load("res://plants/turnip/Soil_Turnip.tscn").instance()
 		$Plant.add_child(pl)
 		plant = pl

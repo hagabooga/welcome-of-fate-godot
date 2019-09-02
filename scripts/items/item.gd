@@ -10,6 +10,7 @@ var type
 var act
 var color
 var base
+var placeable
 
 enum  {BASE_MISC, BASE_TOOL, BASE_CONSUMABLE, BASE_WEAPON, BASE_ARMOR}
 
@@ -17,14 +18,14 @@ enum  {BASE_MISC, BASE_TOOL, BASE_CONSUMABLE, BASE_WEAPON, BASE_ARMOR}
 
 enum {consume, equip}
 
-func _init(m, d, ef, c, t, a, col):
+func _init(m, d, ef, c, t, a, p):
 	ming = m
 	desc = d
 	eff_desc = ef
 	cost = c
 	type = t
 	act = a
-	color = col
+	placeable = p
 	base = null
 	
 func activate():

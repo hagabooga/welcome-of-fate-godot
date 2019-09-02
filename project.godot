@@ -104,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://New/Map.gd"
 }, {
+"base": "WorldObject",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://world_objects/NPC.gd"
+}, {
 "base": "Actionable",
 "class": "Npc",
 "language": "GDScript",
@@ -214,6 +219,7 @@ _global_script_class_icons={
 "ItemHolder": "",
 "Mage": "",
 "Map": "",
+"NPC": "",
 "Npc": "",
 "PickableWorldObject": "",
 "Plant": "",
@@ -256,6 +262,7 @@ player_skills="*res://scripts/skill/player_skills.gd"
 skill_activations="*res://skill_activations.gd"
 world_objects_database="*res://world_objects/world_objects_database.gd"
 ItemHoldTexture="*res://ItemHoldTexture.tscn"
+ItemHotkeyPreview="*res://ItemHotkeyPreview.tscn"
 
 [debug]
 

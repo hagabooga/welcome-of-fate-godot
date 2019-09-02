@@ -24,9 +24,9 @@ func make_item(ming) -> Item:
 		elif x.base == "weapon" || x.base == "armor":
 			i = EquipItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.stats)
 	else:
-		if x.has("color"):
-			i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, x.color)
+		if !x.has("placeable"):
+			i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, true)
 		else:
-			i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, -1)
+			i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, x.placeable)
 	return i
 

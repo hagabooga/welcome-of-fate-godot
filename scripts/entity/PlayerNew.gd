@@ -19,6 +19,7 @@ func _ready():
 	
 func check_load_hotkey():
 	var item = get_hotkey_item()
+	ItemHotkeyPreview.set_item_holder($UI/UIController/Inventory.get_hotkey_holder())
 	if item != null and item.base == "weapon" and equipped_weapon == null:
 		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
 		$BodySprites.add_child(obj)
@@ -33,6 +34,16 @@ func check_load_hotkey():
 		equipped_weapon.queue_free()
 		equipped_weapon = null
 		
+		
+func _process(delta):
+	ItemHotkeyPreview.visible = false
+	if get_hotkey_item() != null:
+		var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
+		var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
+		if get_hotkey_item().placeable and click_pos != self_pos and world_globals.is_pos_adjacent(click_pos, self_pos) and\
+		 !(click_pos in get_parent().used_cells) and get_hotkey_item().type == "misc." :
+			ItemHotkeyPreview.visible = true
+
 func _physics_process(delta):
 	if $UI/UIController/QuestionBox.visible || $AnimationPlayer.is_playing():
 		play_all_idle("")
@@ -41,10 +52,17 @@ func _physics_process(delta):
 		movement_input()
 		move_and_slide(velocity.normalized() * move_speed)
 
+func add_item(ming):
+	$UI/UIController/Inventory.add_item(item_database.make_item(ming))
+
 func click_action(click_action):
 	if click_action != null:
 		if click_action.action == Clickable.ADD_ITEM:
-			$UI/UIController/Inventory.add_item(item_database.make_item(click_action.data[0]))
+			for item_name in click_action.data:
+				$UI/UIController/Inventory.add_item(item_database.make_item(item_name))
+		if click_action.action == Clickable.ADD_ITEM:
+			for item_name in click_action.data:
+				$UI/UIController/Inventory.add_item(item_database.make_item(item_name))
 				
 func left_click_obj(obj : Clickable):
 	if $AnimationPlayer.is_playing() or !can_move:
@@ -178,13 +196,11 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 				print(hp)
 			elif item.type == "misc.":
 				var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
-				if !(click_pos in get_parent().used_cells): 
+				var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
+				if item.placeable and !(click_pos in get_parent().used_cells) and click_pos != self_pos and\
+				world_globals.is_pos_adjacent(click_pos, self_pos):
 					var obj = get_parent().create_world_object(item.ming, click_pos)
-					var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
-					if click_pos != self_pos and obj.is_self_adjacent(self_pos):
-						$UI/UIController/Inventory.get_hotkey_holder().consume()
-					else:
-						obj.queue_free()
+					$UI/UIController/Inventory.get_hotkey_holder().consume()
 			elif item.base == "weapon":
 				basic_attack(turn_towards_mouse())
 
