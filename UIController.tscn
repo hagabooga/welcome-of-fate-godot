@@ -139,6 +139,7 @@ align = 1
 valign = 2
 
 [node name="Dialogue" type="Panel" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

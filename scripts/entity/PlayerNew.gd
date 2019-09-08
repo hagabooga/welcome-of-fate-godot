@@ -60,9 +60,9 @@ func click_action(click_action):
 		if click_action.action == Clickable.ADD_ITEM:
 			for item_name in click_action.data:
 				$UI/UIController/Inventory.add_item(item_database.make_item(item_name))
-		if click_action.action == Clickable.ADD_ITEM:
-			for item_name in click_action.data:
-				$UI/UIController/Inventory.add_item(item_database.make_item(item_name))
+#		if click_action.action == Clickable.ADD_ITEM:
+#			for item_name in click_action.data:
+#				$UI/UIController/Inventory.add_item(item_database.make_item(item_name))
 				
 func left_click_obj(obj : Clickable):
 	if $AnimationPlayer.is_playing() or !can_move:

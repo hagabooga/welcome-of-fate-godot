@@ -3,6 +3,7 @@ extends Node2D
 class_name Map
 
 var used_cells = []
+var tilled_soil_objs = []
 
 
 var tilemap_grass : TileMap
@@ -60,6 +61,8 @@ func create_world_object(ming : String, pos : Vector2):
 				pos = tilemap_grass.world_to_map(obj.global_position)
 	if ming != "TilledSoil":
 		used_cells.append(obj.tile_pos)
+	else:
+		tilled_soil_objs.append(obj)
 	
 	#else:
 		#print(ming)
@@ -86,7 +89,13 @@ func create_daily_objects():
 		#print("show")
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
 			var i = randi()%100
-			if !(x in used_cells) and i < 10:
+			if !(x in used_cells) and i < 15 and is_tilled_soil_good_has_plant(x):
 				var rand_choice = names[randi() % names.size()]
 				create_world_object(rand_choice, x)
 
+func is_tilled_soil_good_has_plant(pos):
+	var plants = []
+	for x in tilled_soil_objs:
+		if pos == x.tile_pos and x.plant == null and x.find_node("Seed").visible == false:
+			return true
+	return false

@@ -12,7 +12,7 @@ func clicked(tewl : Item):
 		return
 	if !$Seed.visible and plant == null and tewl.type == "seedbag" and ($Sprite.frame == 1 or $Sprite.frame == 2):
 		$Seed.visible = true
-		get_parent().get_parent().used_cells.append(tile_pos)
+		#get_parent().get_parent().used_cells.append(tile_pos)
 		var pl = load("res://plants/turnip/Soil_Turnip.tscn").instance()
 		$Plant.add_child(pl)
 		plant = pl
@@ -20,15 +20,12 @@ func clicked(tewl : Item):
 		$Plant.modulate.a = 1
 	else:
 		var count = get_parent().get_parent().used_cells.count(tile_pos)
-		if count < 1 and (($Sprite.frame == 0 and tewl.type == "hoe") or ($Sprite.frame == 1 and tewl.type == "watering can")):
+		if (count < 1) and (($Sprite.frame == 0 and tewl.type == "hoe") or ($Sprite.frame == 1 and tewl.type == "watering can")):
 			$Sprite.frame += 1
-
-func _process(delta):
-	if get_parent().get_parent().used_cells.count(tile_pos) >= 1:
-		$Sprite.frame = 0
 
 func right_clicked():
 	if ready_to_harvest():
+		#get_parent().get_parent().used_cells.erase(tile_pos)
 		plant.frame += 1
 		$AnimationPlayer.play("plant_pickup")
 
