@@ -16,6 +16,8 @@ func can_drop_data(position, data):
 		else:
 			if !can_swap or !data.can_swap:
 				if item.ming == data.item.ming and is_stackable():
+					if data.cost_money_drop and inventory_ui.cash - data.item.cost < 0:
+						return false
 					return true
 				return false
 	return true
