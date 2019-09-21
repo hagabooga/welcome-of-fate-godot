@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/player/InventoryUI.gd" type="Script" id=1]
 [ext_resource path="res://InventoryList.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=3]
-[ext_resource path="res://InventoryUI/ItemHolder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://InventoryUI/InventoryItemHolder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://sprites/ui/32blueoutline.png" type="Texture" id=6]
 
@@ -21,6 +21,12 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 24
+outline_size = 1
+outline_color = Color( 1, 1, 0, 1 )
+font_data = ExtResource( 5 )
+
 [node name="Inventory" type="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -36,6 +42,7 @@ script = ExtResource( 1 )
 [node name="InventoryList" parent="." instance=ExtResource( 2 )]
 
 [node name="HotkeyList" type="Panel" parent="."]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -229,3 +236,12 @@ texture = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="CashAmount" type="Label" parent="."]
+margin_left = 655.587
+margin_top = 505.554
+margin_right = 734.587
+margin_bottom = 538.554
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "casdasd"

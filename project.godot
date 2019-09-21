@@ -90,9 +90,9 @@ _global_script_classes=[ {
 "path": "res://scripts/items/item.gd"
 }, {
 "base": "TextureButton",
-"class": "ItemHolder",
+"class": "ItemHolderBase",
 "language": "GDScript",
-"path": "res://InventoryUI/ItemHolder.gd"
+"path": "res://ItemHolderBase.gd"
 }, {
 "base": "Player",
 "class": "Mage",
@@ -153,6 +153,11 @@ _global_script_classes=[ {
 "class": "Seedbag",
 "language": "GDScript",
 "path": "res://Seedbag.gd"
+}, {
+"base": "NPC",
+"class": "ShopNPC",
+"language": "GDScript",
+"path": "res://world_objects/ShopNPC.gd"
 }, {
 "base": "Sprite",
 "class": "SingleSkillAttack",
@@ -216,7 +221,7 @@ _global_script_class_icons={
 "InventoryList": "",
 "InventoryUI": "",
 "Item": "",
-"ItemHolder": "",
+"ItemHolderBase": "",
 "Mage": "",
 "Map": "",
 "NPC": "",
@@ -229,6 +234,7 @@ _global_script_class_icons={
 "Quest": "",
 "QuestGoal": "",
 "Seedbag": "",
+"ShopNPC": "",
 "SingleSkillAttack": "",
 "Skill": "",
 "Soil_Turnip": "",

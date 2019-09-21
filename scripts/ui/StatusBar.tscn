@@ -17,10 +17,10 @@ size = 24
 font_data = ExtResource( 4 )
 
 [node name="StatusBar" type="Panel"]
-margin_left = -480.0
-margin_top = 87.0
-margin_right = -280.0
-margin_bottom = 270.0
+margin_left = 20.1422
+margin_top = 345.471
+margin_right = 220.142
+margin_bottom = 528.471
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -87,4 +87,3 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "75/100"
 align = 2
 valign = 1
-

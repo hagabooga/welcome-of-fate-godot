@@ -1,27 +1,32 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://world_objects/ShopNPC.tscn" type="PackedScene" id=1]
-[ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=2]
+[ext_resource path="res://world_objects/clean booga.gd" type="Script" id=2]
+[ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=3]
 
-[node name="ShopNPC" instance=ExtResource( 1 )]
+[node name="Clean Booga" instance=ExtResource( 1 )]
+z_index = 500
+script = ExtResource( 2 )
+item_list = [ "Weed", "", null ]
 
 [node name="Sprite" parent="." index="1"]
 scale = Vector2( 0.16, 0.134737 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Control" parent="Node2D" index="0"]
-margin_left = 11.9504
-margin_top = -113.181
-margin_right = 51.9504
-margin_bottom = -36.1814
+margin_left = 12.6674
+margin_top = -90.9548
+margin_right = 52.6674
+margin_bottom = -13.9552
 
-[node name="InventoryList" parent="Node2D/Control" index="0"]
-margin_left = -101.0
-margin_top = -69.0
-margin_right = 101.0
-margin_bottom = 69.0
-actual_slots = 24
-item_column_size = 6
+[node name="ShopList" parent="Node2D/Control" index="0"]
+margin_left = -53.0
+margin_top = -53.0
+margin_right = 53.0
+margin_bottom = 53.0
+actual_slots = 9
+list_name = "Booga's Shop"
+item_column_size = 3
 
 [node name="Button" parent="Node2D" index="1"]
 margin_left = -25.4441

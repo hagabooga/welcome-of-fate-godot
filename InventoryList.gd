@@ -3,22 +3,26 @@ extends Panel
 
 class_name InventoryList
 
-var item_holder = load("res://InventoryUI/ItemHolder.tscn")
+var item_holder = load("res://InventoryUI/InventoryItemHolder.tscn")
 
 export (int) var actual_slots = 50
-
 var size : int setget set_size
 export(String) var list_name : String
 export(int) var item_column_size = 10
 
 func _ready():
+	set_item_holder()
 	$GridContainer.columns = item_column_size
 	$Label.text = list_name
 	for x in range(actual_slots):
-		$GridContainer.add_child(item_holder.instance())
+		var holder = item_holder.instance()
+		$GridContainer.add_child(holder)
 	self.size = actual_slots
-	#add_item(item_database.make_item("weed"))
+	#print(list_name, "LIST FINISH")
+	#add_item(item_database.make_item("magic wand"))
 
+func set_item_holder():
+	item_holder = load("res://InventoryUI/InventoryItemHolder.tscn")
 
 func set_size(val):
 	size = val

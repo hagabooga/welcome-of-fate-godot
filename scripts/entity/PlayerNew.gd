@@ -4,13 +4,19 @@ extends Entity
 class_name Player
 enum {up,down,left,right}
 var facing = down setget set_facing
-
 var equipped_weapon : Weapon = null
+
+
+
+
+
+
 
 func get_hotkey_item():
 	return $UI/UIController/Inventory.get_hotkey_item()
 
 func _ready():
+	
 	get_parent().player = self
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
@@ -166,7 +172,7 @@ func turn_towards(dir) -> void:
 	play_all_body_anims("walk",dir)
 	
 func turn_towards_mouse() -> float:
-	var rad_angle = global_position.angle_to_point(get_global_mouse_position())
+	var rad_angle = $BodySprites.global_position.angle_to_point(get_global_mouse_position())
 	var angle = rad2deg(rad_angle)
 	if -30 < angle and angle < 30:
 		facing = (left)

@@ -2,7 +2,7 @@ extends Sprite
 
 var current_map : Map = null 
 
-var item_holder : ItemHolder = null
+var item_holder : ItemHolderBase = null
 
 func _ready():
 	for x in get_parent().get_children():

@@ -1,9 +1,12 @@
 extends TextureButton
 
-class_name ItemHolder
+class_name ItemHolderBase
 
 var item : Item  = null setget set_item
 var count = 0 setget set_count
+var can_swap : bool = true
+var cost_money_drop : bool = false
+
 
 signal holding
 signal hovering(i)
@@ -53,24 +56,6 @@ func clear_holder():
 	$ItemTexture.modulate.a = 1
 	$ItemTexture.texture = null
 
-func get_drag_data(position):
-	return self
-
-func can_drop_data(position, data):
-	return data.item != null
-
-func drop_data(position, data):
-	if item == null:
-		set_item(data.item, data.count)
-		data.clear_holder()
-	else:
-		if data != self and data.item.ming == item.ming:
-			self.count += data.count
-			data.clear_holder()
-		else:
-			var save = [item, count]
-			set_item(data.item, data.count)
-			data.set_item(save[0], save[1])
 
 func _on_ItemHolder_gui_input(event):
 	if event is InputEventMouseButton:
@@ -83,3 +68,6 @@ func consume():
 	self.count -= 1
 	if count <= 0:
 		clear_holder()
+
+func item_dropped_to_another():
+	print("item dropped to another")

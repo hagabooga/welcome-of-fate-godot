@@ -7,9 +7,19 @@ var hotkey_selected_index = 0
 var inventory_items : Array
 var hotkey_items : Array
 
-var holding_item : ItemHolder = null
+var holding_item : ItemHolderBase = null
 
 var hotkey_index = 0 setget set_hotkey_index
+
+var cash  : int setget set_cash
+
+func set_cash(x):
+	cash = x
+	$CashAmount.text = "Cash: %s"%cash
+
+func pay(value):
+	self.cash -= value
+
 
 signal on_hotkey_index_change
 
@@ -25,7 +35,7 @@ func get_hotkey_item() -> Item:
 	return $HotkeyList/HBoxContainer.get_child(hotkey_index).item
 
 func _ready():
-	
+	self.cash = 3500
 	set_new_inventory_size(30)
 	#set_other_inventory_size(10)
 	inventory_items = $InventoryList/GridContainer.get_children()
@@ -42,12 +52,11 @@ func _ready():
 	add_item(item_database.make_item("weed"))
 	for x in range(30):
 		add_item(item_database.make_item("turnip"))
-	
 
+	for items in [inventory_items, hotkey_items]:
+		for item in items:
+			item.inventory_ui = self
 
-#	for items in [inventory_items, hotkey_items]:
-#		for item in items:
-#			item.connect("holding", self, "show_texture", [item])
 	for x in hotkey_items:
 		x.connect("holding", self, "set_hotkey_index", [x.get_index()])
 		#x.connect("holding", self, "emit_signal", ["on_hotkey_index_change"])

@@ -33,29 +33,28 @@ position = Vector2( 224, 160 )
 [node name="Chest2" parent="WorldObjects" index="2" instance=ExtResource( 4 )]
 position = Vector2( 224, 320 )
 
-[node name="NPC" parent="WorldObjects" index="3" instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 64, 192 )
-z_index = 0
+[node name="Clean Booga" parent="WorldObjects" index="3" instance=ExtResource( 5 )]
+position = Vector2( 64, 256 )
+input_pickable = true
 
 [node name="Player" parent="." index="2" instance=ExtResource( 6 )]
 position = Vector2( 288, 288 )
 z_index = 3000
 
 [node name="GatorSpawner" parent="." index="3" instance=ExtResource( 7 )]
-position = Vector2( 800.153, 260.779 )
+position = Vector2( 929.627, 263.937 )
 scale = Vector2( 0.3, 0.3 )
 enemy_to_spawn = ExtResource( 8 )
 spawn_radius = 500.0
 
 [node name="GatorSpawner2" parent="." index="4" instance=ExtResource( 7 )]
-position = Vector2( 781.04, 155.661 )
+position = Vector2( 910.514, 158.819 )
 scale = Vector2( 0.3, 0.3 )
 enemy_to_spawn = ExtResource( 8 )
 spawn_radius = 500.0
 
 [node name="GatorSpawner3" parent="." index="5" instance=ExtResource( 7 )]
-position = Vector2( 732.17, 358.473 )
+position = Vector2( 861.644, 361.631 )
 scale = Vector2( 0.3, 0.3 )
 enemy_to_spawn = ExtResource( 8 )
 spawn_radius = 500.0
