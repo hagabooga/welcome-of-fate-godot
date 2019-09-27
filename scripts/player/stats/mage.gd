@@ -13,7 +13,7 @@ func _init():
 	update_stats()
 	hp = self.max_hp
 	move_speed = 150
-	
+
 func update_stats():
 	self.max_hp = 225 + self.strength * 28 + level * (32 + level)
 	self.max_mp = 475 + self.intelligence * (35 + level) + level * (55 * level)

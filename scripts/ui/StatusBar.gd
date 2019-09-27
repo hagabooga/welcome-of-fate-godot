@@ -8,24 +8,24 @@ func _ready():
 #	player_stats.connect("stats_change",self, "update_allBars")
 #	update_allBars()
 
-#func update_healthBar():
-#	$VBoxContainer/HealthBar.max_value = player_stats.max_hp
-#	$VBoxContainer/HealthBar.value = player_stats.hp
-#	$VBoxContainer/HealthBar/Label.text = "%s / %s"%[player_stats.hp, player_stats.max_hp]
-#	$VBoxContainer/HealthBar.max_value = player_stats.max_hp
-#
-#func update_manaBar():
-#	$VBoxContainer/ManaBar.max_value = player_stats.max_mp
-#	$VBoxContainer/ManaBar.value = player_stats.mp
-#	$VBoxContainer/ManaBar/Label.text = "%s / %s"%[player_stats.mp, player_stats.max_mp]
-#	$VBoxContainer/ManaBar.max_value = player_stats.max_mp
-#
-#func update_energyBar():
-#	$VBoxContainer/EnergyBar.max_value = player_stats.max_energy
-#	$VBoxContainer/EnergyBar.value = player_stats.energy
-#	$VBoxContainer/EnergyBar/Label.text = "%s / %s"%[player_stats.energy, player_stats.max_energy]
-#	$VBoxContainer/EnergyBar.max_value = player_stats.max_energy
-#
+func update_healthBar(max_hp , hp):
+	$VBoxContainer/HealthBar.max_value = max_hp
+	$VBoxContainer/HealthBar.value = hp
+	$VBoxContainer/HealthBar/Label.text = "%s / %s"%[hp, max_hp]
+	$VBoxContainer/HealthBar.max_value = max_hp
+
+func update_manaBar(max_mp, mp):
+	$VBoxContainer/ManaBar.max_value = max_mp
+	$VBoxContainer/ManaBar.value = mp
+	$VBoxContainer/ManaBar/Label.text = "%s / %s"%[mp, max_mp]
+	$VBoxContainer/ManaBar.max_value = max_mp
+
+func update_energyBar(max_energy,energy):
+	$VBoxContainer/EnergyBar.max_value = max_energy
+	$VBoxContainer/EnergyBar.value = energy
+	$VBoxContainer/EnergyBar/Label.text = "%s / %s"%[energy, max_energy]
+	$VBoxContainer/EnergyBar.max_value = max_energy
+
 #func update_allBars():
 #	update_healthBar()
 #	update_manaBar()

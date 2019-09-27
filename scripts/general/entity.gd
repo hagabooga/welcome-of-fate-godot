@@ -38,6 +38,7 @@ func is_dead() -> bool:
 func take_damage(dmg : Damage) -> void:
 	#print(dmg.dealer.name,dmg.damage)
 	add_hp(-dmg.damage)
+	#print("yo")
 	#var dmgpop = damage_popup.instance()
 	#dmgpop.set_text_and_play(dmg.damage)
 	#add_child(dmgpop)

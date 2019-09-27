@@ -7,21 +7,21 @@ var facing = down setget set_facing
 var equipped_weapon : Weapon = null
 
 
-
-
-
-
-
 func get_hotkey_item():
 	return $UI/UIController/Inventory.get_hotkey_item()
 
+
 func _ready():
-	
+	connect("on_hp_change", $UI/UIController/StatusBar, "update_healthBar")
+	connect("on_mp_change", $UI/UIController/StatusBar, "update_manaBar")
+	connect("on_energy_change", $UI/UIController/StatusBar, "update_energyBar")
 	get_parent().player = self
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
+	update_stats()
+#
 	
 func check_load_hotkey():
 	var item = get_hotkey_item()
@@ -197,9 +197,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 			if item.type == "plant":
 				print("consumed: ", item.ming)
 				$UI/UIController/Inventory.get_hotkey_holder().consume()
-				print(hp)
 				item_activation(item.ming)
-				print(hp)
 			elif item.type == "misc.":
 				var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
 				var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
