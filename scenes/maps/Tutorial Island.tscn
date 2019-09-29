@@ -9,7 +9,7 @@
 [ext_resource path="res://MonsterSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://New/GatorNew.tscn" type="PackedScene" id=8]
 
-[node name="Tutorial Island" instance=ExtResource( 1 )]
+[node name="Tutorial Island" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="TileMaps" parent="." index="0"]

@@ -73,10 +73,13 @@ func set_atkspd(val):
 	find_stat(12).base = val
 func set_maxhp(val):
 	find_stat(13).base = val
+	emit_signal("on_hp_change", self.max_hp, hp)
 func set_maxmp(val):
 	find_stat(14).base = val
+	emit_signal("on_mp_change", self.max_mp, mp)
 func set_energy(val):
 	find_stat(15).base = val
+	emit_signal("on_energy_change", self.max_energy, energy)
 	
 func get_str():
 	return find_stat(0).get_final_value()
