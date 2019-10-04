@@ -25,7 +25,9 @@ var mp setget set_mp
 var level = 1
 var job = "Attributes: No Name"
 
-signal on_hp_add(value)
+signal on_hp_add(value, color_pos, color_neg)
+signal on_mp_add(value, color_pos, color_neg)
+signal on_energy_add(value, color_pos, color_neg)
 signal on_hp_change(max_hp, current_hp)
 signal on_mp_change(max_mo, current_mp)
 signal on_energy_change(max_energy, current_energy)
@@ -130,19 +132,21 @@ func add_hp(val):
 	self.hp += val
 	if self.hp > self.max_hp:
 		self.hp = self.max_hp
-	emit_signal("on_hp_add", val)
+	emit_signal("on_hp_add", val, Color.green, Color.red)
 	emit_signal("on_hp_change", self.max_hp, hp)
 
 func add_mp(val):
 	self.mp += val
 	if self.mp > self.max_mp:
 		self.mp = self.max_mp
+	emit_signal("on_mp_add", val, Color.aqua, Color.purple)
 	emit_signal("on_mp_change", self.max_mp, mp)
 
 func add_energy(val):
 	self.energy += val
 	if self.energy > self.max_energy:
 		self.energy = self.max_energy
+	emit_signal("on_energy_add", val, Color.yellow, Color.darkolivegreen)
 	emit_signal("on_energy_change", self.max_energy, energy)
 
 func set_stat(type, val):

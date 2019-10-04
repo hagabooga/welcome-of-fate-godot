@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pot_hp.png-1a97da0df0b1ffe305d608a34e9f2ceb.stex"
+path="res://.import/spirit potion.png-7440d1cbaa9373aaf86d0de86e8fb493.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/items/pot_hp.png"
-dest_files=[ "res://.import/pot_hp.png-1a97da0df0b1ffe305d608a34e9f2ceb.stex" ]
+source_file="res://sprites/items/spirit potion.png"
+dest_files=[ "res://.import/spirit potion.png-7440d1cbaa9373aaf86d0de86e8fb493.stex" ]
 
 [params]
 

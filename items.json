@@ -237,5 +237,14 @@
         "type": "misc.",
         "activate": -1,
         "placeable": false
+    },
+    "spirit potion":
+    {
+        "desc": "Restore your spirit",
+        "eff_desc": "Consume item to restore 150 MP and 75 Energy",
+        "cost": 200,
+        "type": "potion",
+        "activate": 0,
+        "stats": {"mp": 150, "energy": 75}
     }
 }

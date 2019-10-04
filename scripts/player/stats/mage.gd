@@ -29,3 +29,4 @@ func update_stats():
 	self.dodge = 1 + int(self.agility / 4 + self.luck / 6)
 	self.crit = 2 + int(self.agility / 6 + self.luck / 6); 
 	self.max_energy = 100
+

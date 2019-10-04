@@ -13,7 +13,6 @@ func update_manaBar(max_mp, mp):
 	$VBoxContainer/ManaBar.max_value = max_mp
 
 func update_energyBar(max_energy,energy):
-	print(energy, max_energy)
 	$VBoxContainer/EnergyBar.max_value = max_energy
 	$VBoxContainer/EnergyBar.value = energy
 	$VBoxContainer/EnergyBar/Label.text = "%s / %s"%[energy, max_energy]
