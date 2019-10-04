@@ -7,6 +7,8 @@ func get_drag_data(position):
 	return self
 
 func can_drop_data(position, data):
+	if inventory_ui == null:
+		return false
 	if data.item == null:
 		return false
 	else:
