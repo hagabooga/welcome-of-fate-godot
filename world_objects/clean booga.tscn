@@ -13,6 +13,9 @@ item_list = [ "Weed", "", null ]
 scale = Vector2( 0.16, 0.134737 )
 texture = ExtResource( 3 )
 
+[node name="Node2D" parent="." index="4"]
+visible = false
+
 [node name="Control" parent="Node2D" index="0"]
 margin_left = 12.6674
 margin_top = -90.9548

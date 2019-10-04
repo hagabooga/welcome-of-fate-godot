@@ -37,7 +37,7 @@ position = Vector2( 224, 320 )
 position = Vector2( 64, 256 )
 
 [node name="Player" parent="." index="2" instance=ExtResource( 6 )]
-position = Vector2( 288, 288 )
+position = Vector2( 256, 256 )
 z_index = 3000
 
 [node name="GatorSpawner" parent="." index="3" instance=ExtResource( 7 )]
