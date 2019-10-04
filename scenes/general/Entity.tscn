@@ -34,3 +34,7 @@ __meta__ = {
 }
 
 [node name="RangeOfSight" parent="." instance=ExtResource( 3 )]
+
+[node name="RegenTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="RegenTimer" to="." method="_on_RegenTimer_timeout"]

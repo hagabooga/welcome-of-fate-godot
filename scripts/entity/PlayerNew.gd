@@ -42,6 +42,7 @@ func check_load_hotkey():
 		
 		
 func _process(delta):
+	
 	ItemHotkeyPreview.visible = false
 	if get_hotkey_item() != null:
 		var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
@@ -158,7 +159,7 @@ func flip_hitboxes() -> void:
 		flip = 1
 	
 func basic_attack(angle) -> void:
-	if equipped_weapon != null:
+	if equipped_weapon != null and use_energy(20):
 		play_all_body_anims("slash", facing,8,false)
 		equipped_weapon.attack_effect(angle)
 
@@ -194,7 +195,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		var item = get_hotkey_item()
 		if item != null and can_move:
-			if item.type == "plant":
+			if item.act == 0:
 				print("consumed: ", item.ming)
 				$UI/UIController/Inventory.get_hotkey_holder().consume()
 				item_activation(item.ming)
@@ -217,4 +218,4 @@ func item_activation(i):
 				match v:
 					"hp": add_hp(key_vals[v])
 					"mp": add_mp(key_vals[v])
-					
+					"energy": add_energy(key_vals[v])

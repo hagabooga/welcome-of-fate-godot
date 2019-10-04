@@ -50,8 +50,10 @@ func _ready():
 	add_item(item_database.make_item("wooden plank"))
 	add_item(item_database.make_item("stone"))
 	add_item(item_database.make_item("weed"))
+	
 	for x in range(30):
 		add_item(item_database.make_item("turnip"))
+		add_item(item_database.make_item("spirit potion"))
 
 	for items in [inventory_items, hotkey_items]:
 		for item in items:

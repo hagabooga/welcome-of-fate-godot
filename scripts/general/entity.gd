@@ -12,12 +12,15 @@ var velocity = Vector2.ZERO
 
 func _ready():
 	connect("on_hp_add", self, "make_damage_popup")
-
-func make_damage_popup(text):
+	connect("on_mp_add", self, "make_damage_popup")
+	connect("on_energy_add", self, "make_damage_popup")
+	
+	
+func make_damage_popup(text, color_pos, color_neg):
 	var pop = ui_maker.make_damage_popup()
 	get_tree().get_root().add_child(pop)
 	pop.global_position = $PosAboveHead.global_position
-	pop.set_text_and_play(text)
+	pop.set_text_and_play(text, color_pos, color_neg)
 
 func _process(delta):
 	pass
@@ -45,3 +48,15 @@ func take_damage(dmg : Damage) -> void:
 
 func update_stats() -> void:
 	pass
+
+func use_energy(cost) -> bool:
+	if cost > self.energy:
+		return false
+	self.energy -= cost
+	return true
+
+func _on_RegenTimer_timeout():
+	if self.energy < self.max_energy: 
+		self.energy += 1
+		if self.energy > self.max_energy:
+			self.energy = self.max_energy
