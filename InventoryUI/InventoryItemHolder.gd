@@ -7,14 +7,15 @@ func get_drag_data(position):
 	return self
 
 func can_drop_data(position, data):
-	if inventory_ui == null:
-		return false
 	if data.item == null:
 		return false
 	else:
 		if item == null:
-			if data.cost_money_drop and inventory_ui.cash - data.item.cost < 0:
-				return false
+			if data.cost_money_drop:
+				if inventory_ui == null or inventory_ui.cash - data.item.cost < 0:
+					return false
+				else:
+					return true
 		else:
 			if !can_swap or !data.can_swap:
 				if item.ming == data.item.ming and is_stackable():
