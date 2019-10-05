@@ -47,5 +47,4 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0 / 0"
 align = 2
 valign = 2
-
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

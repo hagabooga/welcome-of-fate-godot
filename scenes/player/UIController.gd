@@ -6,6 +6,8 @@ func _process(delta):
 		open_close_inventory(false)
 	if Input.is_action_just_pressed("inventory") and !$QuestionBox.visible:
 		open_close_inventory()
+	if Input.is_action_just_pressed("skill") and !$QuestionBox.visible:
+		open_close_skill()
 	# hotkey 1-9-0 keyboard
 	
 
@@ -31,6 +33,19 @@ func open_close_inventory(opposite = true, yes=false):
 	else:
 		$Inventory/InventoryList.visible = yes
 	$Inventory/CashAmount.visible = $Inventory/InventoryList.visible
+
+func open_close_skill(opposite = true, yes=false):
+	if opposite:
+		$Skills.visible = !$Skills.visible
+	else:
+		$Skills.visible = yes
+	if !$Skills.visible:
+		for x in $Skills/Pages.get_children():
+			var page = x.find_node("SkillTree")
+			if page.visible:
+				page.visible = false
+				break
+
 
 func unfreeze_time():
 	$Date.unfreeze_time()

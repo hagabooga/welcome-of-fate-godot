@@ -2,6 +2,8 @@ extends Panel
 
 var looking_skill = false
 
+
+
 func _ready():
 	$SkillDescPanel.visible = false
 	for i in range($Skills.get_child_count()):

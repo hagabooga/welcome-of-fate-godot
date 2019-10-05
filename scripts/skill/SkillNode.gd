@@ -1,8 +1,9 @@
 extends Panel
 
-var skill
-
+var skill : Skill
 var cooldown_left = 0
+var skill_page = null
+	
 
 func _process(delta):
 	if (cooldown_left >= 0):
@@ -16,6 +17,7 @@ func go_on_cooldown():
 
 
 func _ready():
+	skill_page = get_parent().get_parent().get_parent().get_parent().get_parent()
 	skill = skill_database.make_skill(name.to_lower())
 	$TextureButton.texture_normal = load("res://sprites/skills/%s.png"%name.to_lower())
 	update_rank_label()
@@ -28,11 +30,13 @@ func _on_TextureButton_pressed():
 	get_parent().get_parent().mouse_enter_skill_node(self)
 
 func rank_up():
+	if skill_page.sp <= 0:
+		return
+	skill_page.sp -= 1
 	if skill.rank == 0:
-		player_skills.learned_skills.append(skill)
-		player_skills.emit_signal("skill_learned", self)
+		skill_page.emit_signal("on_skill_learned", skill)
 	if skill.rank != skill.max_rank:
 		skill.rank += 1
 		update_rank_label()
-		player_skills.emit_signal("skill_changed")
+		skill_page.emit_signal("on_skill_changed")
 		

@@ -8,7 +8,7 @@ func _ready():
 	set_item_list()
 	for x in item_list:
 		$Node2D/Control/ShopList.add_item(item_database.make_item(x))
-		print("yo")
+		#print("yo")
 		
 func set_item_list():
 	pass

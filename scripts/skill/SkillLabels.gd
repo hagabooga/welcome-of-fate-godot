@@ -11,4 +11,4 @@ func set_labels(s):
 	else:
 		$Detail.text += "\nDamage: %d"%s.damage
 		$Detail.text += "\nMana Cost: %d"%s.mana
-		$Detail.text += "\nCooldown: %fs"%s.cooldown
+		$Detail.text += "\nCooldown: %0.2fs"%s.cooldown

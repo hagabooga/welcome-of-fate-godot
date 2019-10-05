@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/skill/Labels.gd" type="Script" id=1]
+[ext_resource path="res://scripts/skill/SkillLabels.gd" type="Script" id=1]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
@@ -59,4 +59,3 @@ text = "Shoot in a straight line a small ball of fire."
 align = 1
 valign = 1
 autowrap = true
-
