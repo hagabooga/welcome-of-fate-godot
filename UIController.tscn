@@ -81,10 +81,6 @@ anchor_bottom = 1.0
 margin_top = -243.0
 margin_bottom = 0.0
 
-[node name="InventoryList" parent="Inventory" index="0"]
-actual_slots = 50
-item_column_size = 10
-
 [node name="CashAmount" parent="Inventory" index="2"]
 margin_left = 654.277
 margin_top = 205.403

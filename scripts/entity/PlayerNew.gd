@@ -101,7 +101,7 @@ func special_right_click_effects(obj : Clickable):
 	elif obj is Bed:
 		$UI/UIController.create_question_box("Do you wish to sleep until the next day?", self, "sleep")
 	elif obj is Chest:
-		$UI/UIController/Inventory/InventoryList.visible = true
+		$UI/UIController.open_close_inventory(false, true)
 		
 func sleep():
 	$AnimationPlayer.play("fade_in")

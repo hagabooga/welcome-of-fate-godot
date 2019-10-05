@@ -82,6 +82,8 @@ func resize_inventory():
 func _process(delta):
 	if !owner.owner.can_move:
 		return
+	
+	
 	if Input.is_action_just_released("scroll_down"):
 		if hotkey_index < $HotkeyList/HBoxContainer.get_child_count() - 1:
 			self.hotkey_index += 1
