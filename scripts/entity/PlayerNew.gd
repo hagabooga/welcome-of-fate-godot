@@ -42,6 +42,7 @@ func check_load_hotkey():
 		
 		
 func _process(delta):
+	change_z_index_relative_to_tilemap() 
 	
 	ItemHotkeyPreview.visible = false
 	if get_hotkey_item() != null:
@@ -159,7 +160,7 @@ func flip_hitboxes() -> void:
 		flip = 1
 	
 func basic_attack(angle) -> void:
-	if equipped_weapon != null and use_energy(20):
+	if equipped_weapon != null and use_energy(5):
 		play_all_body_anims("slash", facing,8,false)
 		equipped_weapon.attack_effect(angle)
 

@@ -37,6 +37,9 @@ var player
 
 var time_stop = false
 
+func _ready():
+	pass
+
 func _process(delta):
 #	if Input.is_action_just_pressed("ctrl"):
 #		next_day()

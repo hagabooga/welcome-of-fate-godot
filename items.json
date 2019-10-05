@@ -196,15 +196,6 @@
         "activate": 1,
         "stats": {"armor": 35, "resist": 54}
     },
-    "mana potion":
-    {
-        "desc": "Blue potion",
-        "eff_desc": "Consume to restore 400 mana.",
-        "cost": 69,
-        "type": "potion",
-        "activate": 0,
-        "stats": {"mp": 400}
-    },
     "wooden plank":
     {
         "desc": "Chopped wood",
@@ -241,10 +232,56 @@
     "spirit potion":
     {
         "desc": "Restore your spirit",
-        "eff_desc": "Consume item to restore 150 MP and 75 Energy",
+        "eff_desc": "Consume item to restore 150 MP and 25 Energy.",
         "cost": 200,
         "type": "potion",
         "activate": 0,
-        "stats": {"mp": 150, "energy": 75}
+        "stats": {"mp": 150, "energy": 25}
+    },
+    "health potion":
+    {
+        "desc": "Restore your health",
+        "eff_desc": "Consume item to restore 250 HP.",
+        "cost": 100,
+        "type": "potion",
+        "activate": 0,
+        "stats": {"hp": 250}
+    },
+    "mana potion":
+    {
+        "desc": "Restore your mana",
+        "eff_desc": "Consume item to restore 400 MP.",
+        "cost": 100,
+        "type": "potion",
+        "activate": 0,
+        "stats": {"mp": 400}
+    },
+    "soul potion":
+    {
+        "desc": "Restore your soul",
+        "eff_desc": "Consume item to restore 350 HP and 450 MP.",
+        "cost": 200,
+        "type": "potion",
+        "activate": 0,
+        "stats": {"hp": 300, "mp": 300}
+    },
+    "energy potion":
+    {
+        "desc": "Restore your energy",
+        "eff_desc": "Consume item to restore 25 Energy.",
+        "cost": 100,
+        "type": "potion",
+        "activate": 0,
+        "stats": {"energy": 25}
+    },
+    "vitality potion":
+    {
+        "desc": "Restore your vitality",
+        "eff_desc": "Consume item to restore 300 HP and 30 Energy.",
+        "cost": 200,
+        "type": "potion",
+        "activate": 0,
+        "stats": {"hp": 300, "energy": 25}
     }
+
 }

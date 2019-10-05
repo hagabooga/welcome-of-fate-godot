@@ -7,7 +7,6 @@ var count = 0 setget set_count
 var can_swap : bool = true
 var cost_money_drop : bool = false
 
-
 signal holding
 signal hovering(i)
 

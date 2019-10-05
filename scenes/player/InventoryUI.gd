@@ -53,6 +53,11 @@ func _ready():
 	
 	for x in range(30):
 		add_item(item_database.make_item("turnip"))
+		add_item(item_database.make_item("health potion"))
+		add_item(item_database.make_item("mana potion"))
+		add_item(item_database.make_item("energy potion"))
+		add_item(item_database.make_item("soul potion"))
+		add_item(item_database.make_item("vitality potion"))
 		add_item(item_database.make_item("spirit potion"))
 
 	for items in [inventory_items, hotkey_items]:

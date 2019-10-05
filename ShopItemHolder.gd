@@ -6,3 +6,6 @@ func _ready():
 
 func get_drag_data(position):
 	return self
+
+func is_stackable():
+	return false

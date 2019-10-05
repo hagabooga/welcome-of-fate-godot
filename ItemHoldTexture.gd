@@ -15,6 +15,8 @@ func _process(delta):
 		position -= $TextureRect.rect_size/2
 		
 func show_texture(holder : ItemHolderBase):
+	print("LOALSD")
+	Input.set_custom_mouse_cursor(holder.get_texture(),7)
 	$TextureRect.visible = true
 	$TextureRect.texture = holder.find_node("ItemTexture").texture
 	holding_item = holder
