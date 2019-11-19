@@ -41,8 +41,8 @@ func _ready():
 	pass
 
 func _process(delta):
-#	if Input.is_action_just_pressed("ctrl"):
-#		next_day()
+	if Input.is_action_just_pressed("ctrl"):
+		next_day()
 	#i(time)
 	if time_stop:
 		return
@@ -93,3 +93,5 @@ func is_pos_adjacent(a : Vector2, b : Vector2) -> bool:
 	(a.x - 1 == b.x and a.y - 1 == b.y) or \
 	(a.x + 1 == b.x and a.y - 1 == b.y) or \
 	(a.x - 1 == b.x and a.y + 1 == b.y)
+	
+

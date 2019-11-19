@@ -16,3 +16,6 @@ func grow_one_day():
 			current_stage = x
 			frame = current_stage
 			return
+
+func has_grown() -> bool:
+	return current_stage != -1

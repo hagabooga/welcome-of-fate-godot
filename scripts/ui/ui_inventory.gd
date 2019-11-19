@@ -9,25 +9,6 @@ func _ready():
 	for x in item_database.item_database.keys():
 		#print(x)
 		add(item_database.make_item(x))
-#	add(item_database.make_item("watering can"))
-#	add(item_database.make_item("hoe"))
-#	add(item_database.make_item("turnip seedbag"))
-#	add(item_database.make_item("magic wand"))
-#	for x in range(30):
-#		add(item_database.make_item("turnip"))
-#	add(item_database.make_item("katana"))
-#	add(item_database.make_item("leather hat"))
-#	add(item_database.make_item("leather robe"))
-#	add(item_database.make_item("leather gloves"))
-#	add(item_database.make_item("blue blouse"))
-#	add(item_database.make_item("intelligence necklace"))
-#	add(item_database.make_item("leather skirt"))
-#	add(item_database.make_item("leather boots"))
-#	add(item_database.make_item("wooden shield"))
-#	add(item_da
-	#add(item_database.make_item("Sickle"))
-
-
 			
 func quick_change_tool(rev):
 	var item = find_type("tool",rev)

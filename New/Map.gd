@@ -74,6 +74,8 @@ func create_tilled_soils():
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3) :
 			create_world_object("TilledSoil", x)
 
+
+
 func create_daily_objects():
 	randomize()
 	var names = ["branch", "rock", "weed"]

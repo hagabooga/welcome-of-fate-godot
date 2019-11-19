@@ -8,6 +8,10 @@ func _ready():
 	world_globals.connect("next_day", self, "grow")
 
 func clicked(tewl : Item):
+	if plant != null and tewl.type == "sickle":
+		if plant.has_grown():
+			plant_pickup()
+			return
 	if $AnimationPlayer.is_playing() || tewl == null:
 		return
 	if !$Seed.visible and plant == null and tewl.type == "seedbag" and ($Sprite.frame == 1 or $Sprite.frame == 2):

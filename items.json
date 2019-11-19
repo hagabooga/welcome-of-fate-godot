@@ -1,287 +1,255 @@
 {
-    "turnip":
-    {
-        "desc": "A root vegetable grown in temperate climates.",
-        "eff_desc": "Consume item to restore 30 HP.",
-        "cost": 100,
-        "type": "plant",
-        "activate": 0,
-        "stats": {"hp": 30}
-    },
-    "beet":
-    {
-        "desc": "A red vegtable",
-        "eff_desc": "Consume item to restore 50 HP.",
-        "cost": 130,
-        "type": "plant",
-        "activate": 0,
-        "stats": {"hp": 50}
-    },
-    "branch":
-    {
-        "desc": "A branch that fell of a tree.",
-        "eff_desc": "",
-        "cost": 10,
-        "type": "misc.",
-        "activate": -1
-    },
-    "rock":
-    {
-        "desc": "A rock found on the ground.",
-        "eff_desc": "",
-        "cost": 10,
-        "type": "misc.",
-        "activate": -1
-    },
-    "weed":
-    {
-        "desc": "A plant in the wrong place.",
-        "eff_desc": "",
-        "cost": 2,
-        "type": "misc.",
-        "activate": -1
-    },
-    "hoe":
-    {
-        "desc": "Loosen the soil.",
-        "eff_desc": "Allows you to dig the soil for seeds.",
-        "cost": 300,
-        "base": "tool",
-        "type": "hoe",
-        "activate": 1
-    },
-    "watering can":
-    {
-        "desc": "Water the soil.",
-        "eff_desc": "Allows you to water seeds in soil to grow the next day.",
-        "cost": 300,
-        "base": "tool",
-        "type": "watering can",
-        "activate": 1
-    },
-    "sickle":
-    {
-        "desc": "Cut vegetation",
-        "eff_desc": "Cut vegetation to make room",
-        "cost": 300,
-        "base": "tool",
-        "type": "sickle",
-        "activate": 1
-    },
-    "axe":
-    {
-        "desc": "Chop branches",
-        "eff_desc": "Chop branches to turn them into logs",
-        "cost": 300,
-        "base": "tool",
-        "type": "axe",
-        "activate": 1
-    },
-    "hammer":
-    {
-        "desc": "Smash rocks",
-        "eff_desc": "Smash rocks to turn them into",
-        "cost": 300,
-        "base": "tool",
-        "type": "hammer",
-        "activate": 1
-    },
-    "turnip seedbag":
-    {
-        "desc": "Contains turnip seeds",
-        "eff_desc": "Throw turnip seeds in a 3x3 square",
-        "cost": 300,
-        "base": "tool",
-        "type": "seedbag",
-        "activate": 1,
-        "color": 0 
-    },
-    "magic wand":
-    {
-        "desc": "A magical wand",
-        "eff_desc": "Basic attacks shoots a magical projectile.",
-        "cost": 500,
-        "base": "weapon",
-        "type": "wand",
-        "activate": 1,
-        "stats": {"intelligence": 3, "magical": 20}
-    },
-    "katana":
-    {
-        "desc": "A sharp sword",
-        "eff_desc": "",
-        "cost": 750,
-        "base": "weapon",
-        "type": "sword",
-        "activate": 1,
-        "stats": {"strength": 5, "physical": 75}
-    },
-    "leather hat":
-    {
-        "desc": "A simple leather hat",
-        "eff_desc": "",
-        "cost": 500,
-        "base": "armor",
-        "type": "head",
-        "activate": 1,
-        "stats": {"armor": 12, "resist": 40, "mp": 25 }
-    },
-    "leather robe":
-    {
-        "desc": "A simple leather robe",
-        "eff_desc": "",
-        "cost": 500,
-        "base": "armor",
-        "type": "neck",
-        "activate": 1,
-        "stats": {"intelligence": 2, "armor": 10, "resist": 45}
-    },
-    "leather gloves":
-    {
-        "desc": "Simple leather gloves",
-        "eff_desc": "",
-        "cost": 200,
-        "base": "armor",
-        "type": "gloves",
-        "activate": 1,
-        "stats": {"armor": 5, "resist": 10}
-    },
-    "blue blouse":
-    {
-        "desc": "A blue blouse",
-        "eff_desc": "",
-        "cost": 200,
-        "base": "armor",
-        "type": "body",
-        "activate": 1,
-        "stats": {"armor": 25, "resist": 30}
-    },
-    "intelligence necklace":
-    {
-        "desc": "Feel smart",
-        "eff_desc": "",
-        "cost": 1000,
-        "base": "armor",
-        "type": "accessory",
-        "activate": 1,
-        "stats": {"intelligence": 15}
-    },
-    "leather skirt":
-    {
-        "desc": "A simple leather skirt",
-        "eff_desc": "",
-        "cost": 300,
-        "base": "armor",
-        "type": "bottom",
-        "activate": 1,
-        "stats": {"armor": 20, "resist": 20}
-    },
-    "leather boots":
-    {
-        "desc": "Simple leather boots",
-        "eff_desc": "",
-        "cost": 300,
-        "base": "armor",
-        "type": "boots",
-        "activate": 1,
-        "stats": {"armor": 30, "resist": 16}
-    },
-    "wooden shield":
-    {
-        "desc": "A shield made out of wood",
-        "eff_desc": "",
-        "cost": 750,
-        "base": "armor",
-        "type": "shield",
-        "activate": 1,
-        "stats": {"armor": 35, "resist": 54}
-    },
-    "wooden plank":
-    {
-        "desc": "Chopped wood",
-        "eff_desc": "",
-        "cost": 15,
-        "type": "misc.",
-        "activate": -1
-    },
-    "stone":
-    {
-        "desc": "Broken rocks",
-        "eff_desc": "",
-        "cost": 15,
-        "type": "misc.",
-        "activate": -1
-    },
-    "chest":
-    {
-        "desc": "Put stuff in",
-        "eff_desc": "",
-        "cost": 250,
-        "type": "misc.",
-        "activate": -1
-    },
-    "gator skin":
-    {
-        "desc": "Thick but smooth",
-        "eff_desc": "",
-        "cost": 25,
-        "type": "misc.",
-        "activate": -1,
-        "placeable": false
-    },
-    "spirit potion":
-    {
-        "desc": "Restore your spirit",
-        "eff_desc": "Consume item to restore 150 MP and 25 Energy.",
-        "cost": 200,
-        "type": "potion",
-        "activate": 0,
-        "stats": {"mp": 150, "energy": 25}
-    },
-    "health potion":
-    {
-        "desc": "Restore your health",
-        "eff_desc": "Consume item to restore 250 HP.",
-        "cost": 100,
-        "type": "potion",
-        "activate": 0,
-        "stats": {"hp": 250}
-    },
-    "mana potion":
-    {
-        "desc": "Restore your mana",
-        "eff_desc": "Consume item to restore 400 MP.",
-        "cost": 100,
-        "type": "potion",
-        "activate": 0,
-        "stats": {"mp": 400}
-    },
-    "soul potion":
-    {
-        "desc": "Restore your soul",
-        "eff_desc": "Consume item to restore 350 HP and 450 MP.",
-        "cost": 200,
-        "type": "potion",
-        "activate": 0,
-        "stats": {"hp": 300, "mp": 300}
-    },
-    "energy potion":
-    {
-        "desc": "Restore your energy",
-        "eff_desc": "Consume item to restore 25 Energy.",
-        "cost": 100,
-        "type": "potion",
-        "activate": 0,
-        "stats": {"energy": 25}
-    },
-    "vitality potion":
-    {
-        "desc": "Restore your vitality",
-        "eff_desc": "Consume item to restore 300 HP and 30 Energy.",
-        "cost": 200,
-        "type": "potion",
-        "activate": 0,
-        "stats": {"hp": 300, "energy": 25}
-    }
-
+  "turnip": {
+    "desc": "A root vegetable grown in temperate climates.",
+    "eff_desc": "Consume item to restore 30 HP.",
+    "cost": 100,
+    "type": "plant",
+    "activate": 0,
+    "stats": { "hp": 30 }
+  },
+  "beet": {
+    "desc": "A red vegtable",
+    "eff_desc": "Consume item to restore 50 HP.",
+    "cost": 130,
+    "type": "plant",
+    "activate": 0,
+    "stats": { "hp": 50 }
+  },
+  "branch": {
+    "desc": "A branch that fell of a tree.",
+    "eff_desc": "",
+    "cost": 10,
+    "type": "misc.",
+    "activate": -1
+  },
+  "rock": {
+    "desc": "A rock found on the ground.",
+    "eff_desc": "",
+    "cost": 10,
+    "type": "misc.",
+    "activate": -1
+  },
+  "weed": {
+    "desc": "A plant in the wrong place.",
+    "eff_desc": "",
+    "cost": 2,
+    "type": "misc.",
+    "activate": -1
+  },
+  "hoe": {
+    "desc": "Loosen the soil.",
+    "eff_desc": "Allows you to dig the soil for seeds.",
+    "cost": 300,
+    "base": "tool",
+    "type": "hoe",
+    "activate": 1
+  },
+  "watering can": {
+    "desc": "Water the soil.",
+    "eff_desc": "Allows you to water seeds in soil to grow the next day.",
+    "cost": 300,
+    "base": "tool",
+    "type": "watering can",
+    "activate": 1
+  },
+  "sickle": {
+    "desc": "Cut vegetation",
+    "eff_desc": "Cut vegetation to make room",
+    "cost": 300,
+    "base": "tool",
+    "type": "sickle",
+    "activate": 1
+  },
+  "axe": {
+    "desc": "Chop branches",
+    "eff_desc": "Chop branches to turn them into logs",
+    "cost": 300,
+    "base": "tool",
+    "type": "axe",
+    "activate": 1
+  },
+  "hammer": {
+    "desc": "Smash rocks",
+    "eff_desc": "Smash rocks to turn them into",
+    "cost": 300,
+    "base": "tool",
+    "type": "hammer",
+    "activate": 1
+  },
+  "turnip seedbag": {
+    "desc": "Contains turnip seeds",
+    "eff_desc": "Throw turnip seeds in a 3x3 square",
+    "cost": 300,
+    "base": "tool",
+    "type": "seedbag",
+    "activate": 1,
+    "color": 0
+  },
+  "magic wand": {
+    "desc": "A magical wand",
+    "eff_desc": "Basic attacks shoots a magical projectile.",
+    "cost": 500,
+    "base": "weapon",
+    "type": "wand",
+    "activate": 1,
+    "stats": { "intelligence": 3, "magical": 20 }
+  },
+  "katana": {
+    "desc": "A sharp sword",
+    "eff_desc": "",
+    "cost": 750,
+    "base": "weapon",
+    "type": "sword",
+    "activate": 1,
+    "stats": { "strength": 5, "physical": 75 }
+  },
+  "leather hat": {
+    "desc": "A simple leather hat",
+    "eff_desc": "",
+    "cost": 500,
+    "base": "armor",
+    "type": "head",
+    "activate": 1,
+    "stats": { "armor": 12, "resist": 40, "mp": 25 }
+  },
+  "leather robe": {
+    "desc": "A simple leather robe",
+    "eff_desc": "",
+    "cost": 500,
+    "base": "armor",
+    "type": "neck",
+    "activate": 1,
+    "stats": { "intelligence": 2, "armor": 10, "resist": 45 }
+  },
+  "leather gloves": {
+    "desc": "Simple leather gloves",
+    "eff_desc": "",
+    "cost": 200,
+    "base": "armor",
+    "type": "gloves",
+    "activate": 1,
+    "stats": { "armor": 5, "resist": 10 }
+  },
+  "blue blouse": {
+    "desc": "A blue blouse",
+    "eff_desc": "",
+    "cost": 200,
+    "base": "armor",
+    "type": "body",
+    "activate": 1,
+    "stats": { "armor": 25, "resist": 30 }
+  },
+  "intelligence necklace": {
+    "desc": "Feel smart",
+    "eff_desc": "",
+    "cost": 1000,
+    "base": "armor",
+    "type": "accessory",
+    "activate": 1,
+    "stats": { "intelligence": 15 }
+  },
+  "leather skirt": {
+    "desc": "A simple leather skirt",
+    "eff_desc": "",
+    "cost": 300,
+    "base": "armor",
+    "type": "bottom",
+    "activate": 1,
+    "stats": { "armor": 20, "resist": 20 }
+  },
+  "leather boots": {
+    "desc": "Simple leather boots",
+    "eff_desc": "",
+    "cost": 300,
+    "base": "armor",
+    "type": "boots",
+    "activate": 1,
+    "stats": { "armor": 30, "resist": 16 }
+  },
+  "wooden shield": {
+    "desc": "A shield made out of wood",
+    "eff_desc": "",
+    "cost": 750,
+    "base": "armor",
+    "type": "shield",
+    "activate": 1,
+    "stats": { "armor": 35, "resist": 54 }
+  },
+  "wooden plank": {
+    "desc": "Chopped wood",
+    "eff_desc": "",
+    "cost": 15,
+    "type": "misc.",
+    "activate": -1
+  },
+  "stone": {
+    "desc": "Broken rocks",
+    "eff_desc": "",
+    "cost": 15,
+    "type": "misc.",
+    "activate": -1
+  },
+  "chest": {
+    "desc": "Put stuff in",
+    "eff_desc": "",
+    "cost": 250,
+    "type": "misc.",
+    "activate": -1
+  },
+  "gator skin": {
+    "desc": "Thick but smooth",
+    "eff_desc": "",
+    "cost": 25,
+    "type": "misc.",
+    "activate": -1,
+    "placeable": false
+  },
+  "spirit potion": {
+    "desc": "Restore your spirit",
+    "eff_desc": "Consume item to restore 150 MP and 25 Energy.",
+    "cost": 200,
+    "type": "potion",
+    "activate": 0,
+    "stats": { "mp": 150, "energy": 25 }
+  },
+  "health potion": {
+    "desc": "Restore your health",
+    "eff_desc": "Consume item to restore 250 HP.",
+    "cost": 100,
+    "type": "potion",
+    "activate": 0,
+    "stats": { "hp": 250 }
+  },
+  "mana potion": {
+    "desc": "Restore your mana",
+    "eff_desc": "Consume item to restore 400 MP.",
+    "cost": 100,
+    "type": "potion",
+    "activate": 0,
+    "stats": { "mp": 400 }
+  },
+  "soul potion": {
+    "desc": "Restore your soul",
+    "eff_desc": "Consume item to restore 350 HP and 450 MP.",
+    "cost": 200,
+    "type": "potion",
+    "activate": 0,
+    "stats": { "hp": 300, "mp": 300 }
+  },
+  "energy potion": {
+    "desc": "Restore your energy",
+    "eff_desc": "Consume item to restore 25 Energy.",
+    "cost": 100,
+    "type": "potion",
+    "activate": 0,
+    "stats": { "energy": 25 }
+  },
+  "vitality potion": {
+    "desc": "Restore your vitality",
+    "eff_desc": "Consume item to restore 300 HP and 30 Energy.",
+    "cost": 200,
+    "type": "potion",
+    "activate": 0,
+    "stats": { "hp": 300, "energy": 25 }
+  }
 }

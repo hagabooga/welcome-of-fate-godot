@@ -3,7 +3,7 @@ extends Plant
 class_name Soil_Turnip
 
 func _init():
-	stages = [2,4]
+	stages = [1,3]
 	ming = "turnip"
 
 
