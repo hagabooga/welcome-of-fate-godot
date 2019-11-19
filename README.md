@@ -5,6 +5,8 @@
 This game is a port of Booga's Welcome of Fate to Godot.
 The game is a continuation of the Unity port of the game.
 
+A Trello board for what has been done and what needs to be done for the game can be found [here](https://trello.com/b/ogSJhEl4/godot-welcome-of-fate):
+
 ## Update
 
 This project started from 2019 December.
