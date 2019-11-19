@@ -23,11 +23,27 @@ func pay(value):
 
 signal on_hotkey_index_change
 
+func set_watering_can_ui():
+	var watering_can = get_hotkey_item()
+	$WateringCanAmount/TextureProgress.value = \
+	(watering_can.current_amount / float(watering_can.capacity)) * $WateringCanAmount/TextureProgress.max_value
+
+func check_watering_can():
+	var can = get_hotkey_item()
+	var yes = can.type == "watering can"
+	if yes:
+		set_watering_can_ui()
+		if !can.is_connected("on_set_amount", self, "set_watering_can_ui"):
+			can.connect("on_set_amount", self, "set_watering_can_ui")
+	$WateringCanAmount.visible = yes
+
 func set_hotkey_index(val):
 	hotkey_index = val
 	$HotkeyList/HotkeySelection.rect_global_position = $HotkeyList/HBoxContainer.get_child(hotkey_index).rect_global_position
+	check_watering_can()
 	emit_signal("on_hotkey_index_change")
 	
+
 func get_hotkey_holder():
 	return $HotkeyList/HBoxContainer.get_child(hotkey_index)
 	
@@ -40,7 +56,6 @@ func _ready():
 	#set_other_inventory_size(10)
 	inventory_items = $InventoryList/GridContainer.get_children()
 	hotkey_items = $HotkeyList/HBoxContainer.get_children()
-
 	add_item(item_database.make_item("hoe"))
 	add_item(item_database.make_item("watering can"))
 	add_item(item_database.make_item("turnip seedbag"))

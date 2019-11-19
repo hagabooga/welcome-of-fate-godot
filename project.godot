@@ -149,11 +149,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/quests/quest_goal.gd"
 }, {
-"base": "Item",
-"class": "Seedbag",
-"language": "GDScript",
-"path": "res://Seedbag.gd"
-}, {
 "base": "NPC",
 "class": "ShopNPC",
 "language": "GDScript",
@@ -189,7 +184,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ToolItem.gd"
 }, {
-"base": "Item",
+"base": "ToolItem",
 "class": "WateringCan",
 "language": "GDScript",
 "path": "res://WateringCan.gd"
@@ -233,7 +228,6 @@ _global_script_class_icons={
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
-"Seedbag": "",
 "ShopNPC": "",
 "SingleSkillAttack": "",
 "Skill": "",

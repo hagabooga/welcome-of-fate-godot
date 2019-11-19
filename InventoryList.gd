@@ -18,8 +18,6 @@ func _ready():
 		var holder = item_holder.instance()
 		$GridContainer.add_child(holder)
 	self.size = actual_slots
-	#print(list_name, "LIST FINISH")
-	#add_item(item_database.make_item("magic wand"))
 
 func set_item_holder():
 	item_holder = load("res://InventoryUI/InventoryItemHolder.tscn")

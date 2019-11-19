@@ -40,6 +40,7 @@
     "desc": "Loosen the soil.",
     "eff_desc": "Allows you to dig the soil for seeds.",
     "cost": 300,
+    "energy": 5,
     "base": "tool",
     "type": "hoe",
     "activate": 1
@@ -48,14 +49,17 @@
     "desc": "Water the soil.",
     "eff_desc": "Allows you to water seeds in soil to grow the next day.",
     "cost": 300,
+    "energy": 5,
     "base": "tool",
     "type": "watering can",
+    "capacity": 10,
     "activate": 1
   },
   "sickle": {
     "desc": "Cut vegetation",
     "eff_desc": "Cut vegetation to make room",
     "cost": 300,
+    "energy": 8,
     "base": "tool",
     "type": "sickle",
     "activate": 1
@@ -64,6 +68,7 @@
     "desc": "Chop branches",
     "eff_desc": "Chop branches to turn them into logs",
     "cost": 300,
+    "energy": 5,
     "base": "tool",
     "type": "axe",
     "activate": 1
@@ -72,14 +77,16 @@
     "desc": "Smash rocks",
     "eff_desc": "Smash rocks to turn them into",
     "cost": 300,
+    "energy": 5,
     "base": "tool",
     "type": "hammer",
     "activate": 1
   },
   "turnip seedbag": {
     "desc": "Contains turnip seeds",
-    "eff_desc": "Throw turnip seeds in a 3x3 square",
+    "eff_desc": "Throw turnip seeds into the soil",
     "cost": 300,
+    "energy": 5,
     "base": "tool",
     "type": "seedbag",
     "activate": 1,

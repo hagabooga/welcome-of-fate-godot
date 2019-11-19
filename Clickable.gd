@@ -7,13 +7,17 @@ signal right_clicked
 
 var tile_pos : Vector2 setget set_tile_pos
 
-enum {ADD_ITEM, CREATE_QUESTION_BOX, OPEN_DIALOGUE}
+enum {ADD_ITEM, CREATE_QUESTION_BOX, OPEN_DIALOGUE, }
 
 func set_tile_pos(pos : Vector2):
 	tile_pos = pos
 
-func clicked(tewl : Item):
+func clicked(tewl : Item, user : Entity):
 	pass
+	
+func check_clicked(tewl : Item, user : Entity):
+	if user.can_use_energy(tewl.energy_cost):
+		clicked(tewl, user)
 
 func right_clicked():
 	pass

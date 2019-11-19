@@ -10,6 +10,7 @@ radius = 96.0
 [node name="ShopNPC" instance=ExtResource( 1 )]
 z_index = 2500
 script = ExtResource( 2 )
+item_list = null
 
 [node name="ShopRange" type="Area2D" parent="." index="3"]
 editor/display_folded = true

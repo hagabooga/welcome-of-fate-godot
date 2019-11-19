@@ -11,6 +11,7 @@ var tilemap_dirt  : TileMap
 var tilemap_soil : TileMap
 var tilemap_soilObjects : TileMap
 var tilemap_worldObjects : TileMap
+var tilemap_waterCliff : TileMap
 var player : Player
 
 func _ready():
@@ -21,6 +22,8 @@ func _ready():
 	tilemap_dirt = $TileMaps/Dirt
 	tilemap_soil = $TileMaps/Soil
 	tilemap_worldObjects = $TileMaps/WorldObjects
+	tilemap_waterCliff = $TileMaps/WaterCliff
+	# set all tile_pos of world objects set in scene
 	for x in $WorldObjects.get_children():
 		var size : Vector2 = x.get_sprite_map_size()
 		var pos = tilemap_grass.world_to_map(x.global_position)
@@ -35,6 +38,7 @@ func _ready():
 				used_cells.append(pos)
 				pos = tilemap_grass.world_to_map(x.global_position)
 	create_tilled_soils()
+	create_water_source()
 	create_daily_objects()
 	
 			
@@ -63,9 +67,7 @@ func create_world_object(ming : String, pos : Vector2):
 		used_cells.append(obj.tile_pos)
 	else:
 		tilled_soil_objs.append(obj)
-	
-	#else:
-		#print(ming)
+
 	return obj
 
 # tilled soils should be appended to used_cells as it is overlapable
@@ -74,7 +76,9 @@ func create_tilled_soils():
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3) :
 			create_world_object("TilledSoil", x)
 
-
+func create_water_source():
+	for x in tilemap_waterCliff.get_used_cells():
+		create_world_object("WaterSource", x)
 
 func create_daily_objects():
 	randomize()
@@ -83,12 +87,13 @@ func create_daily_objects():
 	for x in tilemap_grass.get_used_cells():
 		var i = randi()%100
 		# Grass - Dirt - Soil - Used
-		if !(x in tilemap_dirt.get_used_cells()) and !(x in tilemap_soil.get_used_cells()) and i < 17 and !(x in used_cells):
+		if !(x in tilemap_dirt.get_used_cells()) \
+		and !(x in tilemap_soil.get_used_cells()) and !(x in tilemap_waterCliff.get_used_cells())\
+		 and i < 17 and !(x in used_cells):
 			var rand_choice = names[randi() % names.size()]
 			create_world_object(rand_choice, x)
 	# Put world objects on soil (not on edges of soil)
 	for x in tilemap_soil.get_used_cells():
-		#print("show")
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
 			var i = randi()%100
 			if !(x in used_cells) and i < 15 and is_tilled_soil_good_has_plant(x):

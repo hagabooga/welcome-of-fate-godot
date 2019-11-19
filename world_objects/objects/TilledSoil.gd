@@ -7,25 +7,38 @@ var plant : Plant = null
 func _ready():
 	world_globals.connect("next_day", self, "grow")
 
-func clicked(tewl : Item):
-	if plant != null and tewl.type == "sickle":
-		if plant.has_grown():
-			plant_pickup()
-			return
+func clicked(tewl : Item, user : Entity):
+	if plant != null:
+		if tewl.type == "sickle":
+			if plant.has_grown():
+				plant_pickup()
+				user.use_energy(tewl.energy_cost)
+				return
+		elif tewl.type == "hoe":
+			if !plant.has_grown():
+				plant_pickup()
+				$Seed.visible = false
+				user.use_energy(tewl.energy_cost)
+				return
 	if $AnimationPlayer.is_playing() || tewl == null:
 		return
 	if !$Seed.visible and plant == null and tewl.type == "seedbag" and ($Sprite.frame == 1 or $Sprite.frame == 2):
 		$Seed.visible = true
-		#get_parent().get_parent().used_cells.append(tile_pos)
 		var pl = load("res://plants/turnip/Soil_Turnip.tscn").instance()
 		$Plant.add_child(pl)
 		plant = pl
 		print("plant seeded: ", pl.ming)
 		$Plant.modulate.a = 1
+		user.use_energy(tewl.energy_cost)
 	else:
 		var count = get_parent().get_parent().used_cells.count(tile_pos)
 		if (count < 1) and (($Sprite.frame == 0 and tewl.type == "hoe") or ($Sprite.frame == 1 and tewl.type == "watering can")):
+			if tewl.type == "watering can":
+				if !tewl.can_pour():
+					return
+				tewl.current_amount -= 1
 			$Sprite.frame += 1
+			user.use_energy(tewl.energy_cost)
 
 func right_clicked():
 	if ready_to_harvest():

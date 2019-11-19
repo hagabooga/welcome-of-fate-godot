@@ -49,10 +49,13 @@ func take_damage(dmg : Damage) -> void:
 func update_stats() -> void:
 	pass
 
-func use_energy(cost) -> bool:
+func use_energy(cost) -> void:
+	if can_use_energy(cost):
+		self.energy -= cost
+
+func can_use_energy(cost) -> bool:
 	if cost > self.energy:
 		return false
-	self.energy -= cost
 	return true
 
 func _on_RegenTimer_timeout():

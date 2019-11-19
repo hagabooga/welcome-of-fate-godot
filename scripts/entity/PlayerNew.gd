@@ -76,8 +76,9 @@ func left_click_obj(obj : Clickable):
 	if $AnimationPlayer.is_playing() or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
+	var item = get_hotkey_item()
 	if (obj.is_self_adjacent(pos)):
-		click_action(obj.clicked(get_hotkey_item()))
+		click_action(obj.check_clicked(item, self))
 		turn_towards_mouse()
 		special_click_effects(obj)
 		
@@ -220,3 +221,6 @@ func item_activation(i):
 					"hp": add_hp(key_vals[v])
 					"mp": add_mp(key_vals[v])
 					"energy": add_energy(key_vals[v])
+
+func water_can_filled():
+	$UI/UIController/Inventory.set_watering_can_ui()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water.png-a183e5371bc8e4a5d2451c606d3b73c3.stex"
+path="res://.import/water.png-bda28d7c50bb63d4456a4e11b6ae45be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test sprites/LPC Base Assets/tiles/water.png"
-dest_files=[ "res://.import/water.png-a183e5371bc8e4a5d2451c606d3b73c3.stex" ]
+source_file="res://tilesets/water.png"
+dest_files=[ "res://.import/water.png-bda28d7c50bb63d4456a4e11b6ae45be.stex" ]
 
 [params]
 

@@ -6,7 +6,7 @@ class_name Chest
 
 
 
-func clicked(tewl: Item):
+func clicked(tewl: Item, user : Entity):
 	if tewl != null and tewl.type == "axe":
 		var items_to_add = ["chest"]
 		for x in $Node2D/Control/InventoryList/GridContainer.get_children():

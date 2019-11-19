@@ -15,14 +15,15 @@ func _on_WorldObject_input_event(viewport, event, shape_idx):
 			#print(tile_pos, " ", get_sprite_map_size())
 
 func get_sprite_map_size() -> Vector2:
-	if $Sprite.region_enabled:
-		return Vector2(int(ceil($Sprite.region_rect.size.x/$Sprite.hframes/float(32))*$Sprite.scale.x), \
-		int(ceil($Sprite.region_rect.size.y/float(32)/$Sprite.vframes)*$Sprite.scale.x))
+	if $Sprite.texture != null:
+		if $Sprite.region_enabled:
+			return Vector2(int(ceil($Sprite.region_rect.size.x/$Sprite.hframes/float(32))*$Sprite.scale.x), \
+			int(ceil($Sprite.region_rect.size.y/float(32)/$Sprite.vframes)*$Sprite.scale.x))
+		else:
+			return Vector2(int(ceil($Sprite.texture.get_width()/float(32))*$Sprite.scale.x),\
+			 int(ceil($Sprite.texture.get_height()/float(32))*$Sprite.scale.x))
 	else:
-		return Vector2(int(ceil($Sprite.texture.get_width()/float(32))*$Sprite.scale.x),\
-		 int(ceil($Sprite.texture.get_height()/float(32))*$Sprite.scale.x))
-
-
+		return Vector2.ONE
 
 func _on_WorldObject_tree_exiting():
 	get_parent().get_parent().remove_cell(tile_pos)

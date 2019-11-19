@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://world_objects/WorldObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world_objects/objects/WaterSource.gd" type="Script" id=2]
+
+[node name="WaterSource" index="0" instance=ExtResource( 1 )]
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="Area2D" parent="." index="0"]
+polygon = PoolVector2Array( -16, -16, -16, 16, 16, 16, 16, -16, -16, -16 )

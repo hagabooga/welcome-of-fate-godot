@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://New/Map.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Grass/grass.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/Dirt/dirt.tres" type="TileSet" id=3]
 [ext_resource path="res://tilesets/Soil/tileset_dirt.tres" type="TileSet" id=4]
-[ext_resource path="res://tilesets/WorldObjects/world_objects.tres" type="TileSet" id=5]
+[ext_resource path="res://tilesets/water_cliff.tres" type="TileSet" id=5]
+[ext_resource path="res://tilesets/WorldObjects/world_objects.tres" type="TileSet" id=6]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 1 )
@@ -41,8 +42,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="WorldObjects" type="TileMap" parent="TileMaps"]
+[node name="WaterCliff" type="TileMap" parent="TileMaps"]
 tile_set = ExtResource( 5 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WorldObjects" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 0
 collision_mask = 2

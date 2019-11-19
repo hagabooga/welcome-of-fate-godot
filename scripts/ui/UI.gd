@@ -18,8 +18,6 @@ func _ready():
 	$Equipment.visible = false
 	$Skills.visible = false
 
-
-
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		close_all_open_ui()

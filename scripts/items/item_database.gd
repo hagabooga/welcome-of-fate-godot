@@ -19,7 +19,10 @@ func make_item(ming) -> Item:
 	var i
 	if x.has("base"):
 		if x.base == "tool":
-				i = ToolItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1)
+			if x.type == "watering can":
+				i = WateringCan.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.energy, x.capacity)
+			else:
+				i = ToolItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.energy)
 		
 		elif x.base == "weapon" || x.base == "armor":
 			i = EquipItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.stats)

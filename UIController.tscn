@@ -162,6 +162,7 @@ margin_right = 733.277
 margin_bottom = 238.403
 
 [node name="Skills" type="Panel" parent="."]
+editor/display_folded = true
 visible = false
 margin_left = 645.0
 margin_right = 960.0

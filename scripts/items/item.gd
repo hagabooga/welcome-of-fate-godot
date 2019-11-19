@@ -11,14 +11,11 @@ var act
 var color
 var base
 var placeable
-
-enum  {BASE_MISC, BASE_TOOL, BASE_CONSUMABLE, BASE_WEAPON, BASE_ARMOR}
-
-
+var energy_cost
 
 enum {consume, equip}
 
-func _init(m, d, ef, c, t, a, p):
+func _init(m, d, ef, c, t, a, p, e=5):
 	ming = m
 	desc = d
 	eff_desc = ef
@@ -27,6 +24,7 @@ func _init(m, d, ef, c, t, a, p):
 	act = a
 	placeable = p
 	base = null
+	energy_cost = e
 	
 func activate():
 	if act == consume:
