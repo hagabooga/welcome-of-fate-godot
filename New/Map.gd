@@ -80,9 +80,10 @@ func create_water_source():
 	for x in tilemap_waterCliff.get_used_cells():
 		create_world_object("WaterSource", x)
 
+# Need to make chance table for these objects
 func create_daily_objects():
 	randomize()
-	var names = ["branch", "rock", "weed"]
+	var names = ["branch", "rock", "weed", "wild berries", "dandelion", "bamboo shoot", "red flower"]
 	# Put world objects on grass thats not on dirt or soil
 	for x in tilemap_grass.get_used_cells():
 		var i = randi()%100

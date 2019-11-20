@@ -274,5 +274,35 @@
     "type": "potion",
     "activate": 0,
     "stats": { "hp": 300, "energy": 25 }
+  },
+  "wild berries": {
+    "desc": "Some berries found on the ground",
+    "eff_desc": "Consume item to restore 75 HP.",
+    "cost": 50,
+    "type": "plant",
+    "activate": 0,
+    "stats": { "hp": 75 }
+  },
+  "dandelion": {
+    "desc": "Stubborn weed.",
+    "eff_desc": "",
+    "cost": 75,
+    "type": "plant",
+    "activate": -1
+  },
+  "bamboo shoot": {
+    "desc": "Edible shoots.",
+    "eff_desc": "Consume item to restore 65 Energy.",
+    "cost": 100,
+    "type": "plant",
+    "activate": 0,
+    "stats": { "energy": 65 }
+  },
+  "red flower": {
+    "desc": "A simple red flower",
+    "eff_desc": "",
+    "cost": 60,
+    "type": "plant",
+    "activate": -1
   }
 }

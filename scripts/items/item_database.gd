@@ -10,11 +10,6 @@ func _ready():
 	item_database = parse_json(file.get_as_text())
 	file.close()
 
-func find_item(mingz):
-	for x in item_database:
-		if x == mingz:
-			return(make_item(x))
-
 func make_item(ming) -> Item:
 	var x = item_database[ming]
 	var i

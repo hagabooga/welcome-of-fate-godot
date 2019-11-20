@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://world_objects/PickableWorldObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/items/bamboo shoot.png" type="Texture" id=2]
+
+[node name="BambooShoot" index="0" instance=ExtResource( 1 )]
+collision_mask = 0
+
+[node name="Area2D" parent="." index="0"]
+polygon = PoolVector2Array( -7.97281, -15.8196, -12.0005, -6.93086, -12.1394, -1.30597, -5.88951, 15.0131, 4.04084, 15.0826, 12.1657, 8.9716, 12.2351, 1.05509, 3.90196, -11.0974, -4.29232, -16.0279 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )

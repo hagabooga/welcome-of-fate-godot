@@ -66,7 +66,6 @@ func _ready():
 	add_item(item_database.make_item("hammer"))
 	add_item(item_database.make_item("sickle"))
 	add_item(item_database.make_item("magic wand"))
-
 	#add_item(item_database.make_item("wooden plank"))
 	#add_item(item_database.make_item("stone"))
 	#add_item(item_database.make_item("weed"))

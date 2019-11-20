@@ -44,12 +44,10 @@ func clicked(tewl : Item, user : Entity):
 
 func right_clicked():
 	if ready_to_harvest():
-		#get_parent().get_parent().used_cells.erase(tile_pos)
 		plant.frame += 1
 		$AnimationPlayer.play("plant_pickup")
 
 func grow():
-	
 	if $Sprite.frame == 2:
 		$Sprite.frame = 1
 		if plant != null:
@@ -65,7 +63,7 @@ func grow():
 			$Sprite.frame = 0
 
 func ready_to_harvest() -> bool:
-	return plant != null and !$Seed.visible and plant.current_stage == len(plant.stages) - 1
+	return plant != null and !$Seed.visible and plant.current_stage == len(plant.stages) - 1 and !plant.dead
 
 func plant_pickup():
 	$Plant.get_child(0).queue_free()

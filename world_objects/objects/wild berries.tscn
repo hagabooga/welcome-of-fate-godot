@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://world_objects/PickableWorldObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/items/wild berries.png" type="Texture" id=2]
+
+[node name="WildBerries" instance=ExtResource( 1 )]
+collision_mask = 0
+
+[node name="Area2D" parent="." index="0"]
+polygon = PoolVector2Array( -6.0518, -15.0022, -14.1401, -6.97045, -13.9704, -0.918337, -5.93867, 12.8827, -1.92279, 12.9393, 12.048, 2.70162, 11.9914, -7.14013, 7.97553, -15.0022 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
