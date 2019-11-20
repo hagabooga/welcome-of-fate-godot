@@ -30,6 +30,8 @@ func set_watering_can_ui():
 
 func check_watering_can():
 	var can = get_hotkey_item()
+	if can == null:
+		return
 	var yes = can.type == "watering can"
 	if yes:
 		set_watering_can_ui()
@@ -59,13 +61,15 @@ func _ready():
 	add_item(item_database.make_item("hoe"))
 	add_item(item_database.make_item("watering can"))
 	add_item(item_database.make_item("turnip seedbag"))
+	add_item(item_database.make_item("radish seedbag"))
 	add_item(item_database.make_item("axe"))
 	add_item(item_database.make_item("hammer"))
 	add_item(item_database.make_item("sickle"))
 	add_item(item_database.make_item("magic wand"))
-	add_item(item_database.make_item("wooden plank"))
-	add_item(item_database.make_item("stone"))
-	add_item(item_database.make_item("weed"))
+
+	#add_item(item_database.make_item("wooden plank"))
+	#add_item(item_database.make_item("stone"))
+	#add_item(item_database.make_item("weed"))
 	
 	for x in range(30):
 		add_item(item_database.make_item("turnip"))

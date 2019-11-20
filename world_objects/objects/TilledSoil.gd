@@ -4,6 +4,8 @@ class_name TilledSoil
 
 var plant : Plant = null
 
+
+
 func _ready():
 	world_globals.connect("next_day", self, "grow")
 
@@ -22,9 +24,9 @@ func clicked(tewl : Item, user : Entity):
 				return
 	if $AnimationPlayer.is_playing() || tewl == null:
 		return
-	if !$Seed.visible and plant == null and tewl.type == "seedbag" and ($Sprite.frame == 1 or $Sprite.frame == 2):
+	if tewl.type == "seedbag" and !$Seed.visible and plant == null and ($Sprite.frame == 1 or $Sprite.frame == 2):
 		$Seed.visible = true
-		var pl = load("res://plants/turnip/Soil_Turnip.tscn").instance()
+		var pl = plant_database.make_plant(tewl.ming.split(" ")[0])
 		$Plant.add_child(pl)
 		plant = pl
 		print("plant seeded: ", pl.ming)
@@ -47,12 +49,16 @@ func right_clicked():
 		$AnimationPlayer.play("plant_pickup")
 
 func grow():
+	
 	if $Sprite.frame == 2:
 		$Sprite.frame = 1
 		if plant != null:
 			plant.grow_one_day()
 			if plant.current_stage != -1:
 				$Seed.visible = false
+	else:
+		if plant != null:
+			plant.no_water()
 	if $Sprite.frame == 1 and plant == null:
 		var i = randi()%100
 		if i < 20:

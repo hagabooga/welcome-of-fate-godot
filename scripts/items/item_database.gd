@@ -8,6 +8,7 @@ func _ready():
 	var file = File.new()
 	file.open("res://items.json", file.READ)
 	item_database = parse_json(file.get_as_text())
+	file.close()
 
 func find_item(mingz):
 	for x in item_database:

@@ -161,9 +161,10 @@ func flip_hitboxes() -> void:
 		flip = 1
 	
 func basic_attack(angle) -> void:
-	if equipped_weapon != null and use_energy(5):
+	if equipped_weapon != null and can_use_energy(5):
 		play_all_body_anims("slash", facing,8,false)
 		equipped_weapon.attack_effect(angle)
+		use_energy(5)
 
 func set_facing(dir) -> void:
 	facing = dir

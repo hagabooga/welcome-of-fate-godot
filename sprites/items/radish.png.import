@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/soil_turnip.png-abe0647053bd62c9844a9a9e6ff3cdce.stex"
+path="res://.import/radish.png-3638227d466d2c37f5d074c8612bd6fd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://plants/turnip/soil_turnip.png"
-dest_files=[ "res://.import/soil_turnip.png-abe0647053bd62c9844a9a9e6ff3cdce.stex" ]
+source_file="res://sprites/items/radish.png"
+dest_files=[ "res://.import/radish.png-3638227d466d2c37f5d074c8612bd6fd.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/turnip.png-610989af3fd08850439a373d2d3b7623.stex"
+path="res://.import/turnip.png-94e5be57a0b248461c2050e4551fdea9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://plants/turnip/turnip.png"
-dest_files=[ "res://.import/turnip.png-610989af3fd08850439a373d2d3b7623.stex" ]
+source_file="res://sprites/plants/turnip.png"
+dest_files=[ "res://.import/turnip.png-94e5be57a0b248461c2050e4551fdea9.stex" ]
 
 [params]
 

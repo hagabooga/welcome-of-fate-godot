@@ -69,7 +69,7 @@ func get_time_as_string():
 	return "%s:%s"%[hour_string,minute_string]
 
 func get_current_season():
-	return season_list[season]
+	return season_list[season% 4] 
 
 func get_current_day_of_week():
 	return day_of_week[(day-1)%7]

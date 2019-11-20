@@ -7,6 +7,14 @@
     "activate": 0,
     "stats": { "hp": 30 }
   },
+  "radish": {
+    "desc": "Grown and consumed throughout the world.",
+    "eff_desc": "Consume item to restore 60 HP and 100 MP.",
+    "cost": 180,
+    "type": "plant",
+    "activate": 0,
+    "stats": { "hp": 60, "mp": 100 }
+  },
   "beet": {
     "desc": "A red vegtable",
     "eff_desc": "Consume item to restore 50 HP.",
@@ -89,8 +97,16 @@
     "energy": 5,
     "base": "tool",
     "type": "seedbag",
-    "activate": 1,
-    "color": 0
+    "activate": 1
+  },
+  "radish seedbag": {
+    "desc": "Contains radish seeds",
+    "eff_desc": "Throw radish seeds into the soil",
+    "cost": 400,
+    "energy": 5,
+    "base": "tool",
+    "type": "seedbag",
+    "activate": 1
   },
   "magic wand": {
     "desc": "A magical wand",

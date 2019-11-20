@@ -1,0 +1,4 @@
+{
+  "turnip": { "stages": [2, 4], "death": 8 },
+  "radish": { "stages": [1, 3], "death": 8 }
+}
