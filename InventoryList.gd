@@ -21,6 +21,7 @@ func _ready():
 
 func set_item_holder():
 	item_holder = load("res://InventoryUI/InventoryItemHolder.tscn")
+	
 
 func set_size(val):
 	size = val

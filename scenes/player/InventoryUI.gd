@@ -60,24 +60,22 @@ func _ready():
 	hotkey_items = $HotkeyList/HBoxContainer.get_children()
 	add_item(item_database.make_item("hoe"))
 	add_item(item_database.make_item("watering can"))
-	add_item(item_database.make_item("turnip seedbag"))
-	add_item(item_database.make_item("radish seedbag"))
+	for x in range(5):
+		add_item(item_database.make_item("turnip seedbag"))
+		add_item(item_database.make_item("radish seedbag"))
 	add_item(item_database.make_item("axe"))
 	add_item(item_database.make_item("hammer"))
 	add_item(item_database.make_item("sickle"))
 	add_item(item_database.make_item("magic wand"))
-	#add_item(item_database.make_item("wooden plank"))
-	#add_item(item_database.make_item("stone"))
-	#add_item(item_database.make_item("weed"))
-	
 	for x in range(30):
-		add_item(item_database.make_item("turnip"))
+		#add_item(item_database.make_item("turnip"))
 		add_item(item_database.make_item("health potion"))
 		add_item(item_database.make_item("mana potion"))
 		add_item(item_database.make_item("energy potion"))
 		add_item(item_database.make_item("soul potion"))
 		add_item(item_database.make_item("vitality potion"))
 		add_item(item_database.make_item("spirit potion"))
+		
 
 	for items in [inventory_items, hotkey_items]:
 		for item in items:
@@ -101,7 +99,6 @@ func resize_inventory():
 func _process(delta):
 	if !owner.owner.can_move:
 		return
-	
 	
 	if Input.is_action_just_released("scroll_down"):
 		if hotkey_index < $HotkeyList/HBoxContainer.get_child_count() - 1:

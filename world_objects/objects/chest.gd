@@ -4,8 +4,6 @@ extends WorldObject
 
 class_name Chest
 
-
-
 func clicked(tewl: Item, user : Entity):
 	if tewl != null and tewl.type == "axe":
 		var items_to_add = ["chest"]
@@ -14,7 +12,9 @@ func clicked(tewl: Item, user : Entity):
 				for y in range(x.count):
 					items_to_add.append(x.item.ming)
 		queue_free()
-		return ClickAction.new(ADD_ITEM, items_to_add)
+		var asd =  ClickAction.new(ADD_ITEM, items_to_add)
+		print(asd.action)
+		return asd
 
 func right_clicked():
 	$Node2D.visible = true

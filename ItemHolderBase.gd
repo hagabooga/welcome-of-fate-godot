@@ -11,7 +11,7 @@ signal holding
 signal hovering(i)
 
 func is_stackable():
-	if item.base != "tool" and item.base != "weapon":
+	if (item.base != "tool" and item.base != "weapon") or item.type == "seedbag":
 		return true
 	return false
 

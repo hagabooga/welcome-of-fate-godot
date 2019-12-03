@@ -7,9 +7,11 @@ var facing = down setget set_facing
 var equipped_weapon : Weapon = null
 
 
-func get_hotkey_item():
+func get_hotkey_item() -> Item:
 	return $UI/UIController/Inventory.get_hotkey_item()
 
+func get_hotkey_holder() -> ItemHolderBase:
+	return $UI/UIController/Inventory.get_hotkey_holder()
 
 func _ready():
 	connect("on_hp_change", $UI/UIController/StatusBar, "update_healthBar")
@@ -48,8 +50,9 @@ func _process(delta):
 	if get_hotkey_item() != null:
 		var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
 		var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
-		if get_hotkey_item().placeable and click_pos != self_pos and world_globals.is_pos_adjacent(click_pos, self_pos) and\
-		 !(click_pos in get_parent().used_cells) and get_hotkey_item().type == "misc." :
+		if get_hotkey_item().placeable and click_pos != self_pos\
+		 and world_globals.is_pos_adjacent(click_pos, self_pos) and\
+		 !(click_pos in get_parent().used_cells) and get_hotkey_item().type == "misc.":
 			ItemHotkeyPreview.visible = true
 
 func _physics_process(delta):
@@ -68,9 +71,9 @@ func click_action(click_action):
 		if click_action.action == Clickable.ADD_ITEM:
 			for item_name in click_action.data:
 				$UI/UIController/Inventory.add_item(item_database.make_item(item_name))
-#		if click_action.action == Clickable.ADD_ITEM:
-#			for item_name in click_action.data:
-#				$UI/UIController/Inventory.add_item(item_database.make_item(item_name))
+		if click_action.action == Clickable.CONSUME:
+			get_hotkey_holder().consume()
+
 				
 func left_click_obj(obj : Clickable):
 	if $AnimationPlayer.is_playing() or !can_move:
@@ -202,7 +205,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 				print("consumed: ", item.ming)
 				$UI/UIController/Inventory.get_hotkey_holder().consume()
 				item_activation(item.ming)
-			elif item.type == "misc.":
+			elif item.placeable:# == "misc.":
 				var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
 				var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
 				if item.placeable and !(click_pos in get_parent().used_cells) and click_pos != self_pos and\
@@ -211,6 +214,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 					$UI/UIController/Inventory.get_hotkey_holder().consume()
 			elif item.base == "weapon":
 				basic_attack(turn_towards_mouse())
+				print("WTF")
 
 func item_activation(i):
 	var data = item_database.item_database

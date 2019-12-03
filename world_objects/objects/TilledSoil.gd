@@ -32,6 +32,7 @@ func clicked(tewl : Item, user : Entity):
 		print("plant seeded: ", pl.ming)
 		$Plant.modulate.a = 1
 		user.use_energy(tewl.energy_cost)
+		return ClickAction.new(CONSUME, null)
 	else:
 		var count = get_parent().get_parent().used_cells.count(tile_pos)
 		if (count < 1) and (($Sprite.frame == 0 and tewl.type == "hoe") or ($Sprite.frame == 1 and tewl.type == "watering can")):
