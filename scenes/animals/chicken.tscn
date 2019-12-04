@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/animals/chicken.gd" type="Script" id=1]
+[ext_resource path="res://sprites/animals/chicken.tres" type="SpriteFrames" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.20239
+
+[node name="Chicken" type="KinematicBody2D"]
+scale = Vector2( 1.7, 1.7 )
+collision_layer = 3
+collision_mask = 10
+script = ExtResource( 1 )
+speed = 75
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 2 )
+animation = "idle_down"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="ChanceTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="MovementTimer" to="." method="_on_MovementTimer_timeout"]
+[connection signal="timeout" from="ChanceTimer" to="." method="_on_ChanceTimer_timeout"]

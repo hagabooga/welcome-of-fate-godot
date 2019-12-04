@@ -4,8 +4,7 @@
 [ext_resource path="res://world_objects/clean booga.gd" type="Script" id=2]
 [ext_resource path="res://sprites/npc/clean booga.png" type="Texture" id=3]
 
-[node name="Clean Booga" instance=ExtResource( 1 )]
-input_pickable = true
+[node name="Clean Booga" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 item_list = [ "Weed", "", null ]
 
