@@ -24,6 +24,7 @@ func set_velocity(angle):
 	velocity = Vector2(cos(angle), sin(angle))
 
 func _on_Hitbox_body_entered(body):
+	print(body)
 	if body is Entity:
 		body.take_damage(self.damage)
 

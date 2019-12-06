@@ -41,11 +41,20 @@ func clicked(tewl : Item, user : Entity):
 					return
 				tewl.current_amount -= 1
 			$Sprite.frame += 1
+			print("GG")
 			user.use_energy(tewl.energy_cost)
 
 func right_clicked():
 	if ready_to_harvest():
-		plant.frame += 1
+		if plant.multi:
+			print("WOW")
+			plant.go_second_last_stage()
+		else:
+			plant.frame += 1
+		var sprite = Sprite.new()
+		sprite.texture = load("res://sprites/items/%s.png"%plant.ming)
+		sprite.centered = false
+		$PlantPickup.add_child(sprite)
 		$AnimationPlayer.play("plant_pickup")
 
 func grow():
@@ -67,5 +76,8 @@ func ready_to_harvest() -> bool:
 	return plant != null and !$Seed.visible and plant.current_stage == len(plant.stages) - 1 and !plant.dead
 
 func plant_pickup():
-	$Plant.get_child(0).queue_free()
-	plant = null
+	if !plant.multi:
+		$Plant.get_child(0).queue_free()
+		plant = null
+	$PlantPickup.get_child(0).queue_free()
+		

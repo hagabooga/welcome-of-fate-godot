@@ -214,7 +214,6 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 					$UI/UIController/Inventory.get_hotkey_holder().consume()
 			elif item.base == "weapon":
 				basic_attack(turn_towards_mouse())
-				print("WTF")
 
 func item_activation(i):
 	var data = item_database.item_database

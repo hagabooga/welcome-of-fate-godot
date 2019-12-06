@@ -11,9 +11,9 @@ func _ready():
 	
 func make_plant(ming) -> Plant:
 	if ming in plant_database:
-		var plant = plant_database[ming]
+		var plant_data = plant_database[ming]
 		var pl = plant_scene.instance()
-		pl.set_plant(ming, plant.stages, plant.death)
+		pl.set_plant(ming, plant_data)#plant.stages, plant.death)
 		return pl
 	print("DIDNT FIND PLANT: " + ming)
 	return null

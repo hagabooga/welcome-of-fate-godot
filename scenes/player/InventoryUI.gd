@@ -63,6 +63,7 @@ func _ready():
 	for x in range(5):
 		add_item(item_database.make_item("turnip seedbag"))
 		add_item(item_database.make_item("radish seedbag"))
+		add_item(item_database.make_item("tomato seedbag"))
 	add_item(item_database.make_item("axe"))
 	add_item(item_database.make_item("hammer"))
 	add_item(item_database.make_item("sickle"))

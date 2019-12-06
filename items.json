@@ -1,4 +1,12 @@
 {
+  "yoonho": {
+    "desc": "Youngest.",
+    "eff_desc": "Aches pee",
+    "cost": 0,
+    "type": "misc",
+    "activate": 0,
+    "placeable": false
+  },
   "turnip": {
     "desc": "A root vegetable grown in temperate climates.",
     "eff_desc": "Consume item to restore 30 HP.",
@@ -14,6 +22,14 @@
     "type": "plant",
     "activate": 0,
     "stats": { "hp": 60, "mp": 100 }
+  },
+  "tomato": {
+    "desc": "A tomato.",
+    "eff_desc": "Consume item to restore 50 HP and 50 MP.",
+    "cost": 135,
+    "type": "plant",
+    "activate": 0,
+    "stats": { "hp": 50, "mp": 50 }
   },
   "beet": {
     "desc": "A red vegtable",
@@ -103,6 +119,15 @@
     "desc": "Contains radish seeds",
     "eff_desc": "Throw radish seeds into the soil",
     "cost": 400,
+    "energy": 5,
+    "base": "tool",
+    "type": "seedbag",
+    "activate": 1
+  },
+  "tomato seedbag": {
+    "desc": "Contains tomato seeds",
+    "eff_desc": "Throw tomato seeds into the soil",
+    "cost": 300,
     "energy": 5,
     "base": "tool",
     "type": "seedbag",

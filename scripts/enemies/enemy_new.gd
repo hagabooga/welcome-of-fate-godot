@@ -13,8 +13,7 @@ var attack_in_range : bool = false
 
 var player_script = load("res://scripts/entity/PlayerNew.gd")
 var item_spit_out_scene = load("res://ItemSpitOut.tscn")
-	
-	
+
 var item_drops = {}
 	
 func _ready():
@@ -31,12 +30,15 @@ func _enter_tree():
 	$AnimationPlayer.play("spawn")
 	
 func _physics_process(delta):
+	velocity = Vector2.ZERO
 	get_target()
 	if $AnimationPlayer.current_animation == "idle" and target != null and !attack_in_range:
+		
 		look(delta)
 	elif attack_in_range and $AnimationPlayer.current_animation == "idle":
 		basic_attack()
 		#print(target.hp)
+	$Sprite.play("idle" if velocity == Vector2.ZERO else "move")
 	
 
 func die() -> void:
@@ -80,7 +82,7 @@ func look(delta):
 	 
 func follow_player(delta) -> void:
 	face_target()
-	var velocity = Vector2.ZERO
+	
 	if !(target.position.x - 5 <= position.x && position.x < target.position.x+5):
 		if position.x < target.position.x:
 			velocity.x = 1

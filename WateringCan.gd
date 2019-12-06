@@ -12,6 +12,7 @@ func set_amount(val):
 	emit_signal("on_set_amount")
 	
 func can_pour():
+	return true
 	return current_amount > 0
 
 func _init(m, d, ef, c, b, t, a, col, e=5, cap = 10).(m, d, ef, c, b, t, a, col, e):
