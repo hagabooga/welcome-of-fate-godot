@@ -4,8 +4,6 @@ class_name TilledSoil
 
 var plant : Plant = null
 
-
-
 func _ready():
 	world_globals.connect("next_day", self, "grow")
 

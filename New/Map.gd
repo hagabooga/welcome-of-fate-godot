@@ -29,19 +29,23 @@ func _ready():
 		var pos = tilemap_grass.world_to_map(x.global_position)
 		x.tile_pos = pos
 		if len(x.get_signal_connection_list("clicked")) == 0:
-			x.connect("clicked", player, "left_click_obj", [x])
-			x.connect("right_clicked", player, "right_click_obj", [x])
+			connect_click_to_player(x)
 		for row in range(size.x):
 			for col in range(size.y):
 				pos.x += row
 				pos.y += col
 				used_cells.append(pos)
 				pos = tilemap_grass.world_to_map(x.global_position)
+	connect_click_to_player($Chicken)
 	create_tilled_soils()
 	create_water_source()
 	create_daily_objects()
 	
-			
+
+func connect_click_to_player(x : Clickable) -> void:
+	x.connect("clicked", player, "left_click_obj", [x])
+	x.connect("right_clicked", player, "right_click_obj", [x])
+
 func _process(delta):
 	pass
 		

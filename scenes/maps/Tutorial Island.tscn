@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/animals/chicken.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/player/PlayerNew.tscn" type="PackedScene" id=7]
 [ext_resource path="res://MonsterSpawner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://New/Worm.tscn" type="PackedScene" id=9]
+[ext_resource path="res://worm/Worm.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.96118, 371.234 )
@@ -81,7 +81,7 @@ position = Vector2( 224, 320 )
 position = Vector2( 64, 256 )
 
 [node name="Chicken" parent="." index="3" instance=ExtResource( 6 )]
-position = Vector2( 365.545, 361.133 )
+position = Vector2( 368.093, 366.829 )
 
 [node name="Player" parent="." index="4" instance=ExtResource( 7 )]
 position = Vector2( 259.344, 303.349 )

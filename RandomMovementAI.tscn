@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/animals/random_movement_ai.gd" type="Script" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="RandomMovementAI" type="Node2D"]
+script = ExtResource( 1 )
+speed = 20
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.7, 1.7 )
+frames = SubResource( 1 )
+animation = "idle_down"
+playing = true
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="ChanceTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="MovementTimer" to="." method="_on_MovementTimer_timeout"]
+[connection signal="timeout" from="ChanceTimer" to="." method="_on_ChanceTimer_timeout"]

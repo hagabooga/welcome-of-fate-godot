@@ -17,7 +17,6 @@ var item_spit_out_scene = load("res://ItemSpitOut.tscn")
 var item_drops = {}
 	
 func _ready():
-	
 	self.atk_spd = 1
 	orig_attackRange = $AttackRange.position.x
 	orig_hurtbox = $Hurtbox.position.x
@@ -33,7 +32,6 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO
 	get_target()
 	if $AnimationPlayer.current_animation == "idle" and target != null and !attack_in_range:
-		
 		look(delta)
 	elif attack_in_range and $AnimationPlayer.current_animation == "idle":
 		basic_attack()
@@ -120,12 +118,12 @@ func follow_player(delta) -> void:
 
 func face_target() -> void:
 	if position.x > target.position.x:
-		$Sprite.scale.x = 1
+		$RandomMovementAI/AnimatedSprite.flip_h = false
 		$CollisionBox.position.x = orig_collisionBox
 		$Hurtbox.position.x =  orig_hurtbox
 		$AttackRange.position.x = orig_attackRange
 	else:
-		$Sprite.scale.x = -1
+		$RandomMovementAI/AnimatedSprite.flip_h = true
 		$CollisionBox.position.x = -orig_collisionBox
 		$Hurtbox.position.x =  -orig_hurtbox
 		$AttackRange.position.x = -orig_attackRange

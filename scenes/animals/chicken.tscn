@@ -1,31 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/animals/chicken.gd" type="Script" id=1]
-[ext_resource path="res://sprites/animals/chicken.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://RandomMovementAI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/animals/chicken.tres" type="SpriteFrames" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 7.20239
+radius = 12.2871
 
 [node name="Chicken" type="KinematicBody2D"]
-scale = Vector2( 1.7, 1.7 )
+position = Vector2( 16.3675, 13.6846 )
+input_pickable = true
 collision_layer = 3
 collision_mask = 10
 script = ExtResource( 1 )
-speed = 75
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = ExtResource( 2 )
-animation = "idle_down"
-playing = true
+[node name="RandomMovementAI" parent="." instance=ExtResource( 2 )]
+
+[node name="AnimatedSprite" parent="RandomMovementAI" index="0"]
+frames = ExtResource( 3 )
+animation = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+[connection signal="input_event" from="." to="." method="_on_Chicken_input_event"]
 
-[node name="MovementTimer" type="Timer" parent="."]
-wait_time = 0.7
-one_shot = true
-
-[node name="ChanceTimer" type="Timer" parent="."]
-autostart = true
-[connection signal="timeout" from="MovementTimer" to="." method="_on_MovementTimer_timeout"]
-[connection signal="timeout" from="ChanceTimer" to="." method="_on_ChanceTimer_timeout"]
+[editable path="RandomMovementAI"]
