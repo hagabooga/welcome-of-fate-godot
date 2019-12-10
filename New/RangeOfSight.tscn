@@ -3,7 +3,7 @@
 [ext_resource path="res://New/RangeOfSight.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 239.052
+radius = 145.719
 
 [node name="RangeOfSight" type="Area2D"]
 editor/display_folded = true

@@ -13,7 +13,8 @@ func clicked(tewl : Item, user : Entity):
 	if plant != null:
 		if tewl.type == "sickle":
 			if plant.has_grown():
-				plant_pickup()
+				$Plant.get_child(0).queue_free()
+				plant = null
 				user.use_energy(tewl.energy_cost)
 				return
 		elif tewl.type == "hoe":
@@ -41,13 +42,11 @@ func clicked(tewl : Item, user : Entity):
 					return
 				tewl.current_amount -= 1
 			$Sprite.frame += 1
-			print("GG")
 			user.use_energy(tewl.energy_cost)
 
 func right_clicked():
 	if ready_to_harvest():
 		if plant.multi:
-			print("WOW")
 			plant.go_second_last_stage()
 		else:
 			plant.frame += 1
@@ -56,6 +55,7 @@ func right_clicked():
 		sprite.centered = false
 		$PlantPickup.add_child(sprite)
 		$AnimationPlayer.play("plant_pickup")
+		return ClickAction.new(ADD_ITEM, [plant.ming])
 
 func grow():
 	if $Sprite.frame == 2:
@@ -75,9 +75,14 @@ func grow():
 func ready_to_harvest() -> bool:
 	return plant != null and !$Seed.visible and plant.current_stage == len(plant.stages) - 1 and !plant.dead
 
+func hide_plant():
+	if !plant.multi:
+		$Plant.visible = false
+
 func plant_pickup():
 	if !plant.multi:
 		$Plant.get_child(0).queue_free()
 		plant = null
+		$Plant.visible = true
 	$PlantPickup.get_child(0).queue_free()
 		

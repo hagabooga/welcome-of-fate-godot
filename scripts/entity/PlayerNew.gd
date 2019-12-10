@@ -24,7 +24,7 @@ func _ready():
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
 	update_stats()
 #
-	
+
 func check_load_hotkey():
 	var item = get_hotkey_item()
 	ItemHotkeyPreview.set_item_holder($UI/UIController/Inventory.get_hotkey_holder())
@@ -41,11 +41,11 @@ func check_load_hotkey():
 	elif (item != null or item == null) and equipped_weapon != null:
 		equipped_weapon.queue_free()
 		equipped_weapon = null
-		
-		
+
+
 func _process(delta):
-	change_z_index_relative_to_tilemap() 
-	
+	change_z_index_relative_to_tilemap()
+
 	ItemHotkeyPreview.visible = false
 	if get_hotkey_item() != null:
 		var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
@@ -74,7 +74,7 @@ func click_action(click_action):
 		if click_action.action == Clickable.CONSUME:
 			get_hotkey_holder().consume()
 
-				
+
 func left_click_obj(obj : Clickable):
 	if $AnimationPlayer.is_playing() or !can_move:
 		return
@@ -84,7 +84,7 @@ func left_click_obj(obj : Clickable):
 		click_action(obj.check_clicked(item, self))
 		turn_towards_mouse()
 		special_click_effects(obj)
-		
+
 func right_click_obj(obj : Clickable):
 	if $AnimationPlayer.is_playing() or !can_move:
 		return
@@ -93,23 +93,24 @@ func right_click_obj(obj : Clickable):
 		click_action(obj.right_clicked())
 		turn_towards_mouse()
 		special_right_click_effects(obj)
-		
+
 func special_click_effects(obj : Clickable):
 	pass
-		
+
 func special_right_click_effects(obj : Clickable):
 	if obj is PickableWorldObject:
 		$UI/UIController/Inventory.add_item(item_database.make_item(obj.ming))
-	elif obj is TilledSoil and obj.ready_to_harvest():
-		$UI/UIController/Inventory.add_item(item_database.make_item(obj.plant.ming))
+	#elif obj is TilledSoil and obj.ready_to_harvest():
+		#print("WOW")
+		#$UI/UIController/Inventory.add_item(item_database.make_item(obj.plant.ming))
 	elif obj is Bed:
 		$UI/UIController.create_question_box("Do you wish to sleep until the next day?", self, "sleep")
 	elif obj is Chest:
 		$UI/UIController.open_close_inventory(false,true)
-		
+
 func sleep():
 	$AnimationPlayer.play("fade_in")
-	
+
 func movement_input() -> void:
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed('move_right'):
@@ -162,7 +163,7 @@ func flip_hitboxes() -> void:
 		flip = -1
 	else:
 		flip = 1
-	
+
 func basic_attack(angle) -> void:
 	if equipped_weapon != null and can_use_energy(5):
 		play_all_body_anims("slash", facing,8,false)
@@ -173,11 +174,11 @@ func set_facing(dir) -> void:
 	facing = dir
 #	change_equip_z()
 	flip_hitboxes()
-	
+
 func turn_towards(dir) -> void:
 	self.facing = dir
 	play_all_body_anims("walk",dir)
-	
+
 func turn_towards_mouse() -> float:
 	var rad_angle = $BodySprites.global_position.angle_to_point(get_global_mouse_position())
 	var angle = rad2deg(rad_angle)
@@ -191,7 +192,7 @@ func turn_towards_mouse() -> float:
 		facing = (up)
 	#print(angle)
 	return rad_angle + PI
-	
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_in":
 		$AnimationPlayer.play("fade_out")
