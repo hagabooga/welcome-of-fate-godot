@@ -17,7 +17,6 @@ speed = 20
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 1 )
-animation = "idle_down"
 playing = true
 
 [node name="MovementTimer" type="Timer" parent="."]

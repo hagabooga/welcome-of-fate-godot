@@ -149,6 +149,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/quests/quest_goal.gd"
 }, {
+"base": "Node2D",
+"class": "RandomMovementAI",
+"language": "GDScript",
+"path": "res://scenes/animals/random_movement_ai.gd"
+}, {
 "base": "NPC",
 "class": "ShopNPC",
 "language": "GDScript",
@@ -223,6 +228,7 @@ _global_script_class_icons={
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
+"RandomMovementAI": "",
 "ShopNPC": "",
 "SingleSkillAttack": "",
 "Skill": "",

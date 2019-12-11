@@ -1,11 +1,11 @@
 extends Node2D
-
-var velocity = Vector2.DOWN
+class_name RandomMovementAI
+var velocity = Vector2.ZERO
 
 export(int) var speed = 10
-const move_chance  = 8
+const move_chance  = 5
 const sit_chance = 6
-const look_chance = 2
+const look_chance = 1
 
 var body : KinematicBody2D
 
@@ -16,11 +16,10 @@ func _ready():
 	$AnimatedSprite.play("idle_down")
 
 
-func _process(delta):
+func _physics_process(delta):
 	if !$MovementTimer.is_stopped():
-		body.move_and_slide(velocity * speed)
-	
-
+		body.move_and_slide(velocity.normalized() * speed)
+		
 func _on_ChanceTimer_timeout():
 	if randi()%move_chance == 0:
 		velocity = [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT,
@@ -44,6 +43,7 @@ func _on_ChanceTimer_timeout():
 #		$ChanceTimer.wait_time = 8
 	elif randi()%look_chance == 0 and (velocity.x > 0 or velocity.x < 0):
 		$AnimatedSprite.play(["idle_side", "idle_down", "idle_up"][randi()%3])
+		$AnimatedSprite.flip_h = randi()%2
 
 func _on_MovementTimer_timeout():
 	if velocity.x > 0 or velocity.x < 0:
@@ -52,4 +52,4 @@ func _on_MovementTimer_timeout():
 		$AnimatedSprite.play("idle_down")
 	else:
 		$AnimatedSprite.play("idle_up")
-
+	velocity = Vector2.ZERO

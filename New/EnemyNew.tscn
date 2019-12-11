@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/general/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/enemies/enemy_new.gd" type="Script" id=2]
 [ext_resource path="res://RandomMovementAI.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sprites/animals/movement_base.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://EnemyMovement.gd" type="Script" id=4]
+[ext_resource path="res://sprites/animals/movement_base.tres" type="SpriteFrames" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.1578
@@ -103,15 +104,17 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource( 2 )
 
-[node name="RandomMovementAI" parent="." index="0" instance=ExtResource( 3 )]
-speed = 10
+[node name="EnemyMovement" parent="." index="0" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
 
-[node name="AnimatedSprite" parent="RandomMovementAI" index="0"]
-frames = ExtResource( 4 )
-animation = "default"
+[node name="AnimatedSprite" parent="EnemyMovement" index="0"]
+frames = ExtResource( 5 )
 
 [node name="CollisionBox" parent="." index="3"]
 self_modulate = Color( 1, 0, 0.92549, 1 )
+
+[node name="Hurtbox" parent="." index="4"]
+editor/display_folded = false
 
 [node name="RangeOfSight" parent="." index="5"]
 editor/display_folded = false
@@ -145,6 +148,6 @@ anims/spawn = SubResource( 5 )
 [connection signal="body_exited" from="AttackRange" to="." method="_on_AttackRange_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
-[editable path="RandomMovementAI"]
+[editable path="EnemyMovement"]
 
 [editable path="RangeOfSight"]
