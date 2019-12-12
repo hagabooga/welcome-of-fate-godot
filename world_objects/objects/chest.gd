@@ -13,7 +13,6 @@ func clicked(tewl: Item, user : Entity):
 					items_to_add.append(x.item.ming)
 		queue_free()
 		var asd =  ClickAction.new(ADD_ITEM, items_to_add)
-		print(asd.action)
 		return asd
 
 func right_clicked():

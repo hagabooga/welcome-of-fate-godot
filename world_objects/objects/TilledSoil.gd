@@ -41,6 +41,7 @@ func clicked(tewl : Item, user : Entity):
 				tewl.current_amount -= 1
 			$Sprite.frame += 1
 			user.use_energy(tewl.energy_cost)
+	return ClickAction.new(NONE, [])
 
 func right_clicked():
 	if ready_to_harvest():

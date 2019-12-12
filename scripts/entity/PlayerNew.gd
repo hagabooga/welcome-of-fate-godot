@@ -5,7 +5,12 @@ class_name Player
 enum {up,down,left,right}
 var facing = down setget set_facing
 var equipped_weapon : Weapon = null
+var body_sprite = preload("res://scenes/SpriteWithBodyAnimation.tscn")
+var did_click_action : bool = false
 
+func check_animation():
+	if $BodySprites/CharacterBody.current_anim != "slash":
+		did_click_action = false
 
 func get_hotkey_item() -> Item:
 	return $UI/UIController/Inventory.get_hotkey_item()
@@ -14,6 +19,7 @@ func get_hotkey_holder() -> ItemHolderBase:
 	return $UI/UIController/Inventory.get_hotkey_holder()
 
 func _ready():
+	$BodySprites/CharacterBody.connect("frame_changed", self, "check_animation")
 	connect("on_hp_change", $UI/UIController/StatusBar, "update_healthBar")
 	connect("on_mp_change", $UI/UIController/StatusBar, "update_manaBar")
 	connect("on_energy_change", $UI/UIController/StatusBar, "update_energyBar")
@@ -28,11 +34,11 @@ func _ready():
 func check_load_hotkey():
 	var item = get_hotkey_item()
 	ItemHotkeyPreview.set_item_holder($UI/UIController/Inventory.get_hotkey_holder())
-	if item != null and item.base == "weapon" and equipped_weapon == null:
+	if item != null and (item.base == "weapon" or item.ming == "hoe") and equipped_weapon == null:
 		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
-	elif item != null and item.base == "weapon" and equipped_weapon != null:
+	elif item != null and (item.base == "weapon" or item.ming == "hoe") and equipped_weapon != null:
 		equipped_weapon.queue_free()
 		equipped_weapon = null
 		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
@@ -75,13 +81,20 @@ func click_action(click_action):
 			get_hotkey_holder().consume()
 
 
+
 func left_click_obj(obj : Clickable):
-	if $AnimationPlayer.is_playing() or !can_move:
+	#print($BodySprites/CharacterBody.current_anim)
+	
+	if did_click_action or $AnimationPlayer.is_playing():# or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	var item = get_hotkey_item()
 	if (obj.is_self_adjacent(pos)):
-		click_action(obj.check_clicked(item, self))
+		var check_click = obj.check_clicked(item, self)
+		if check_click != null:
+			did_click_action = true
+		
+		click_action(check_click)
 		turn_towards_mouse()
 		special_click_effects(obj)
 
@@ -213,7 +226,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 				world_globals.is_pos_adjacent(click_pos, self_pos):
 					var obj = get_parent().create_world_object(item.ming, click_pos)
 					$UI/UIController/Inventory.get_hotkey_holder().consume()
-			elif item.base == "weapon":
+			elif equipped_weapon != null:
 				basic_attack(turn_towards_mouse())
 
 func item_activation(i):
