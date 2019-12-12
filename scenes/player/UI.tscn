@@ -339,6 +339,10 @@ align = 1
 valign = 2
 
 [node name="StatusBar" parent="." instance=ExtResource( 5 )]
+margin_left = 0.0
+margin_top = 500.0
+margin_right = 234.0
+margin_bottom = 660.0
 custom_styles/panel = SubResource( 7 )
 
 [node name="HotkeyNodes" parent="." instance=ExtResource( 6 )]
