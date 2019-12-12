@@ -5,6 +5,7 @@ class_name Weapon
 var damage : Damage setget ,get_damage
 var targets_hit = []
 var pierce = 1
+var item : Item = null
 
 func _ready():
 	$Hitbox/CollisionShape2D.disabled = true

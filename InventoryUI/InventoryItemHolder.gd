@@ -3,6 +3,8 @@ extends ItemHolderBase
 
 var inventory_ui : InventoryUI
 
+signal dropped_data
+
 func get_drag_data(position):
 	return self
 
@@ -45,8 +47,8 @@ func drop_data(position, data):
 			data.set_item(save[0], save[1])
 			print("swap items")
 	
-		
-
-
+	emit_signal("dropped_data")
+	
+	
 func item_dropped_to_another():
 	clear_holder()

@@ -8,6 +8,8 @@ var equipped_weapon : Weapon = null
 var body_sprite = preload("res://scenes/SpriteWithBodyAnimation.tscn")
 var did_click_action : bool = false
 
+
+
 func check_animation():
 	if $BodySprites/CharacterBody.current_anim != "slash":
 		did_click_action = false
@@ -29,19 +31,25 @@ func _ready():
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
 	update_stats()
-#
+	check_load_hotkey()
+	for x in [$UI/UIController/Inventory.inventory_items,$UI/UIController/Inventory.hotkey_items]:
+		for i in x:
+			i.connect("dropped_data", self, "check_load_hotkey")
 
 func check_load_hotkey():
 	var item = get_hotkey_item()
+	print("asd")
 	ItemHotkeyPreview.set_item_holder($UI/UIController/Inventory.get_hotkey_holder())
 	if item != null and (item.base == "weapon" or item.ming == "hoe") and equipped_weapon == null:
 		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
+		obj.item = item
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
 	elif item != null and (item.base == "weapon" or item.ming == "hoe") and equipped_weapon != null:
 		equipped_weapon.queue_free()
 		equipped_weapon = null
 		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
+		obj.item = item
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
 	elif (item != null or item == null) and equipped_weapon != null:
@@ -157,11 +165,11 @@ func play_all_body_anims(anim, dir, speed_ratio = 8, can_mv = true) -> void:
 		x.play_anim(anim, dir, speed_ratio)
 	can_move = can_mv
 
-func get_weapon() -> Weapon:
-	for x in $BodySprites.get_children():
-		if x is Weapon:
-			return x
-	return null
+#func get_weapon() -> Weapon:
+#	for x in $BodySprites.get_children():
+#		if x is Weapon:
+#			return x
+#	return null
 
 #func change_equip_z() -> void:
 #	if self.equipped_weapon != null:
@@ -178,10 +186,10 @@ func flip_hitboxes() -> void:
 		flip = 1
 
 func basic_attack(angle) -> void:
-	if equipped_weapon != null and can_use_energy(5):
+	if equipped_weapon != null:
 		play_all_body_anims("slash", facing,8,false)
 		equipped_weapon.attack_effect(angle)
-		use_energy(5)
+		use_energy(equipped_weapon.item.energy_cost)		
 
 func set_facing(dir) -> void:
 	facing = dir

@@ -10,6 +10,9 @@ var size : int setget set_size
 export(String) var list_name : String
 export(int) var item_column_size = 10
 
+
+
+
 func _ready():
 	set_item_holder()
 	$GridContainer.columns = item_column_size
