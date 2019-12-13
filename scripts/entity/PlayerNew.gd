@@ -11,9 +11,11 @@ var did_click_action : bool = false
 
 
 func check_animation():
-	if $BodySprites/CharacterBody.current_anim != "slash" or \
+	if $BodySprites/CharacterBody.current_anim != "slash" and \
 	$BodySprites/CharacterBody.current_anim != "hack":
 		did_click_action = false
+		print("change")
+	print($BodySprites/CharacterBody.current_anim)
 
 func get_hotkey_item() -> Item:
 	return $UI/UIController/Inventory.get_hotkey_item()
@@ -103,9 +105,9 @@ func left_click_obj(obj : Clickable):
 	var item = get_hotkey_item()
 	if (obj.is_self_adjacent(pos)):
 		var check_click = obj.check_clicked(item, self)
+		print(check_click)
 		if check_click != null:
 			did_click_action = true
-		
 		click_action(check_click)
 		turn_towards_mouse()
 		special_click_effects(obj)
@@ -191,7 +193,7 @@ func flip_hitboxes() -> void:
 	$BodySprites.scale.x = flip
 
 func basic_attack(angle) -> void:
-	if equipped_weapon != null:
+	if equipped_weapon != null and can_use_energy(equipped_weapon.item.energy_cost):
 		
 		play_all_body_anims("slash" if equipped_weapon.item.base != "tool" else "hack", facing,8,false)
 		equipped_weapon.attack_effect(angle)
