@@ -11,7 +11,8 @@ var did_click_action : bool = false
 
 
 func check_animation():
-	if $BodySprites/CharacterBody.current_anim != "slash":
+	if $BodySprites/CharacterBody.current_anim != "slash" or \
+	$BodySprites/CharacterBody.current_anim != "hack":
 		did_click_action = false
 
 func get_hotkey_item() -> Item:
@@ -46,6 +47,9 @@ func check_load_hotkey():
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
 	elif item != null and (item.base == "weapon" or item.ming == "hoe") and equipped_weapon != null:
+		print(equipped_weapon.item.ming == item.ming)
+		if equipped_weapon.item.ming == item.ming:
+			return
 		equipped_weapon.queue_free()
 		equipped_weapon = null
 		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
@@ -180,14 +184,16 @@ func play_all_body_anims(anim, dir, speed_ratio = 8, can_mv = true) -> void:
 
 func flip_hitboxes() -> void:
 	var flip
-	if facing == left:
+	if facing == right:
 		flip = -1
 	else:
 		flip = 1
+	$BodySprites.scale.x = flip
 
 func basic_attack(angle) -> void:
 	if equipped_weapon != null:
-		play_all_body_anims("slash", facing,8,false)
+		
+		play_all_body_anims("slash" if equipped_weapon.item.base != "tool" else "hack", facing,8,false)
 		equipped_weapon.attack_effect(angle)
 		use_energy(equipped_weapon.item.energy_cost)		
 
@@ -204,13 +210,13 @@ func turn_towards_mouse() -> float:
 	var rad_angle = $BodySprites.global_position.angle_to_point(get_global_mouse_position())
 	var angle = rad2deg(rad_angle)
 	if -30 < angle and angle < 30:
-		facing = (left)
+		self.facing = (left)
 	elif -150 < angle and angle <= -30:
-		facing = (down)
+		self.facing = (down)
 	elif (-180 <= angle and angle <= -150) or (150 < angle and angle <= 180):
-		facing = (right)
+		self.facing = (right)
 	elif 30 <= angle and angle <= 150:
-		facing = (up)
+		self.facing = (up)
 	#print(angle)
 	return rad_angle + PI
 

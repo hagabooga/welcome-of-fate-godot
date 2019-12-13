@@ -67,6 +67,7 @@
     "energy": 5,
     "base": "tool",
     "type": "hoe",
+    "hack": true,
     "activate": 1
   },
   "watering can": {

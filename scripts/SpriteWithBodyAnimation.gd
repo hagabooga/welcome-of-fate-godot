@@ -14,7 +14,7 @@ func dir_to_string(dir):
 		down:
 			return "down"
 		right:
-			return "right"
+			return "left"
 
 func play_anim(anim, dir, speed_ratio = 8):
 	current_dir = dir

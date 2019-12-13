@@ -5,3 +5,4 @@
 
 [node name="Weapon" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
+frame = 186
