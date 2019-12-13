@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sprites/player/double_body_area.png" type="Texture" id=1]
 [ext_resource path="res://scripts/SpriteWithBodyAnimation.gd" type="Script" id=2]
@@ -82,6 +82,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 187, 186, 185, 184 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -271.548, -271.548, -291.196, -358.28 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -45.0901, 20.0625 ), Vector2( -52.8192, 28.5277 ), Vector2( -53.1873, 53.1873 ), Vector2( 5.70121, 82.6315 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "hack_left"
@@ -136,23 +172,6 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=19]
-resource_name = "hack_right"
-length = 4.0
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 200, 199, 198, 197 ]
-}
-
 [sub_resource type="Animation" id=20]
 resource_name = "hack_up"
 length = 4.0
@@ -168,6 +187,42 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 161, 160, 159, 158 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -16.0139, 20.4306 ), Vector2( -23.559, 20.4306 ), Vector2( -39.9374, 24.1111 ), Vector2( -54.6595, 26.5034 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -273.957, -271.548 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -366,7 +421,7 @@ tracks/0/keys = {
 texture = ExtResource( 1 )
 vframes = 21
 hframes = 13
-frame = 161
+frame = 31
 region_enabled = true
 region_rect = Rect2( 0, 0, 1664, 2688 )
 script = ExtResource( 2 )
@@ -378,7 +433,6 @@ anims/cast_right = SubResource( 3 )
 anims/cast_up = SubResource( 4 )
 anims/hack_down = SubResource( 18 )
 anims/hack_left = SubResource( 17 )
-anims/hack_right = SubResource( 19 )
 anims/hack_up = SubResource( 20 )
 anims/idle_down = SubResource( 5 )
 anims/idle_left = SubResource( 6 )

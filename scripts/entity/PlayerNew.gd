@@ -14,8 +14,6 @@ func check_animation():
 	if $BodySprites/CharacterBody.current_anim != "slash" and \
 	$BodySprites/CharacterBody.current_anim != "hack":
 		did_click_action = false
-		print("change")
-	print($BodySprites/CharacterBody.current_anim)
 
 func get_hotkey_item() -> Item:
 	return $UI/UIController/Inventory.get_hotkey_item()

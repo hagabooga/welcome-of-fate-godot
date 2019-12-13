@@ -1,8 +1,25 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/body animations/magic wand/magic wand.png" type="Texture" id=2]
 [ext_resource path="res://scripts/weapons/magic wand.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=19]
+resource_name = "hack_right"
+length = 4.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 200, 199, 198, 197 ]
+}
 
 [sub_resource type="Animation" id=1]
 loop = true
@@ -140,9 +157,11 @@ tracks/1/keys = {
 
 [node name="MagicWand" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
+frame = 161
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="0"]
+anims/hack_right = SubResource( 19 )
 anims/idle = SubResource( 1 )
 anims/slash_down = SubResource( 2 )
 anims/slash_left = SubResource( 3 )
