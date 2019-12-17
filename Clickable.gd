@@ -16,7 +16,7 @@ func clicked(tewl : Item, user : Entity):
 	pass
 	
 func check_clicked(tewl : Item, user : Entity):
-	if tewl != null and user.can_use_energy(tewl.energy_cost):
+	if tewl is ToolItem and tewl != null and user.can_use_energy(tewl.energy_cost):
 		return clicked(tewl, user)
 
 func right_clicked():

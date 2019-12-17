@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/weapons/hoe.gd" type="Script" id=3]
 [ext_resource path="res://scenes/hoe_anim.tres" type="Animation" id=4]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "hack_down"
 length = 4.0
 step = 1.0
@@ -111,21 +111,21 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=3]
 
 [node name="Hoe" index="0" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
-frame = 171
+frame = 174
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/hack_down = SubResource( 3 )
+anims/hack_down = SubResource( 1 )
 anims/hack_up = SubResource( 2 )
 anims/hoe_anim = ExtResource( 4 )
 
 [node name="Hitbox" parent="." index="1"]
-position = Vector2( -24.9514, 23.2422 )
-rotation = -4.78145
+position = Vector2( -18.7884, -13.3184 )
+rotation = -3.59981
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )

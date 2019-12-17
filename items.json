@@ -41,21 +41,18 @@
   },
   "branch": {
     "desc": "A branch that fell of a tree.",
-    "eff_desc": "",
     "cost": 10,
     "type": "misc.",
     "activate": -1
   },
   "rock": {
     "desc": "A rock found on the ground.",
-    "eff_desc": "",
     "cost": 10,
     "type": "misc.",
     "activate": -1
   },
   "weed": {
     "desc": "A plant in the wrong place.",
-    "eff_desc": "",
     "cost": 2,
     "type": "misc.",
     "activate": -1

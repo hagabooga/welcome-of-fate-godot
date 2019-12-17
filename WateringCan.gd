@@ -15,6 +15,5 @@ func can_pour():
 	return true
 	return current_amount > 0
 
-func _init(m, d, ef, c, b, t, a, col, e=5, cap = 10).(m, d, ef, c, b, t, a, col, e):
-	base = b
-	capacity = cap
+func _init(ming : String, data : Dictionary).(ming, data):
+	capacity = data.capacity

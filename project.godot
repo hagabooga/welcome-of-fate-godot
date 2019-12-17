@@ -84,7 +84,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/player/InventoryUI.gd"
 }, {
-"base": "Node",
+"base": "Object",
 "class": "Item",
 "language": "GDScript",
 "path": "res://scripts/items/item.gd"
@@ -250,7 +250,6 @@ config/icon="res://icon.png"
 
 world_globals="*res://scripts/general/world_globals.gd"
 item_database="*res://scripts/items/item_database.gd"
-item_activations="*res://scripts/items/item_activations.gd"
 global_id="*res://scripts/general/global_id.gd"
 player_equip="*res://scripts/player/player_equip.gd"
 DayNightCycle="*res://scenes/general/DayNightCycle.tscn"

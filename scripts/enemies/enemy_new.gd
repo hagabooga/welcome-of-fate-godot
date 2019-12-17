@@ -1,12 +1,6 @@
 extends Entity
 class_name Enemy
 
-
-
-
-
-
-
 var item_spit_out_scene = load("res://ItemSpitOut.tscn")
 
 var item_drops = {}

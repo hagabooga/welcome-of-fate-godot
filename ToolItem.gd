@@ -2,6 +2,8 @@ extends Item
 
 class_name ToolItem
 
-func _init(m, d, ef, c, b, t, a, col, e=5).(m, d, ef, c, t, a, col, e):
-	base = b
-	placeable = false
+var energy_cost
+var hack
+func _init(ming : String, data : Dictionary).(ming, data):
+	hack = data.hack if data.has("hack") else false
+	energy_cost = data.energy_cost if data.has("energy_cost") else 5

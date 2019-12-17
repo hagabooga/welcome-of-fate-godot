@@ -8,8 +8,8 @@ var try_timer = 0
 var current_try
 var hit_pos = null
 var target : Entity = null
-var player_script = load("res://scripts/entity/PlayerNew.gd")
 var attack_in_range : bool = false
+
 func basic_attack() -> void:
 	body.find_node("AnimationPlayer").play("attack")
 
@@ -20,7 +20,7 @@ func _ready():
 
 func get_target():
 	for x in body.find_node("RangeOfSight").get_entities():
-		if x is player_script:
+		if x is Player:
 			target = x
 			return
 	if target != null:
@@ -62,8 +62,10 @@ func follow_player(delta) -> void:
 	if !(target.global_position.x <= global_position.x && global_position.x < target.global_position.x):
 		if global_position.x < target.global_position.x:
 			velocity.x = 1
+			velocity.y = 0
 		else:
 			velocity.x = -1
+			velocity.y = 0
 	if !(target.global_position.y < global_position.y && global_position.y < target.global_position.y ):
 		if global_position.y < target.global_position.y:
 			velocity.y = 1

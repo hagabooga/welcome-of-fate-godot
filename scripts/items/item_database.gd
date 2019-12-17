@@ -11,21 +11,31 @@ func _ready():
 	file.close()
 
 func make_item(ming) -> Item:
+	var c = Item
 	var x = item_database[ming]
-	var i
 	if x.has("base"):
 		if x.base == "tool":
 			if x.type == "watering can":
-				i = WateringCan.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.energy, x.capacity)
+				c = WateringCan
 			else:
-				i = ToolItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.energy)
-		
-		elif x.base == "weapon" || x.base == "armor":
-			i = EquipItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.stats)
-	else:
-		if !x.has("placeable"):
-			i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, true)
+				c = ToolItem
 		else:
-			i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, x.placeable)
-	return i
+			c = ToolItem
+	return c.new(ming, x)
+#	var i
+#	if x.has("base"):
+#		if x.base == "tool":
+#			if x.type == "watering can":
+#				i = WateringCan.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.energy, x.capacity)
+#			else:
+#				i = ToolItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.energy)
+#
+#		elif x.base == "weapon" || x.base == "armor":
+#			i = EquipItem.new(ming,x.desc,x.eff_desc,x.cost,x.base, x.type, x.activate, -1, x.stats)
+#	else:
+#		if !x.has("placeable"):
+#			i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, true)
+#		else:
+#			i = Item.new(ming,x.desc,x.eff_desc,x.cost,x.type, x.activate, x.placeable)
+#	return i
 
