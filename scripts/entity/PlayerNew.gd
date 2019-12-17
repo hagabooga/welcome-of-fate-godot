@@ -209,13 +209,15 @@ func turn_towards(dir) -> void:
 func turn_towards_mouse() -> float:
 	var rad_angle = $BodySprites.global_position.angle_to_point(get_global_mouse_position())
 	var angle = rad2deg(rad_angle)
-	if -30 < angle and angle < 30:
+	var cutoff = 45
+	var opp = (180 - cutoff)
+	if -cutoff < angle and angle < cutoff:
 		self.facing = (left)
-	elif -150 < angle and angle <= -30:
+	elif -opp < angle and angle <= -cutoff:
 		self.facing = (down)
-	elif (-180 <= angle and angle <= -150) or (150 < angle and angle <= 180):
+	elif (-180 <= angle and angle <= -opp) or (opp < angle and angle <= 180):
 		self.facing = (right)
-	elif 30 <= angle and angle <= 150:
+	elif cutoff <= angle and angle <= opp:
 		self.facing = (up)
 	#print(angle)
 	return rad_angle + PI
