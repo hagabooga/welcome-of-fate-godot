@@ -27,9 +27,9 @@ func _process(delta):
 	#change_z_index_relative_to_tilemap()
 
 func change_z_index_relative_to_tilemap() -> void:
-	var z = owner.tilemap_soil.world_to_map(global_position).y
+	var z = get_parent().tilemap_soil.world_to_map(global_position).y
 	if z >= 0:
-		z_index = owner.tilemap_soil.world_to_map(global_position).y
+		z_index = get_parent().tilemap_soil.world_to_map(global_position).y
 
 
 func is_actionable() -> bool:

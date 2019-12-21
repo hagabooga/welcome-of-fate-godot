@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hoe_frames1.png-42ecfac524a4b38ee142c51bc77fc2ab.stex"
+path="res://.import/watering can.png-47fe4a242ecf304cabea95568f586d37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://frames/hoe/hoe_frames1.png"
-dest_files=[ "res://.import/hoe_frames1.png-42ecfac524a4b38ee142c51bc77fc2ab.stex" ]
+source_file="res://sprites/player/watering can.png"
+dest_files=[ "res://.import/watering can.png-47fe4a242ecf304cabea95568f586d37.stex" ]
 
 [params]
 

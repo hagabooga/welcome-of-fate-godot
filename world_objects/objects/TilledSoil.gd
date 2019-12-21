@@ -13,14 +13,14 @@ func clicked(tewl : Item, user : Entity):
 	if plant != null:
 		if tewl.type == "sickle":
 			if plant.has_grown():
-				$Plant.get_child(0).queue_free()
 				plant = null
+				$Plant.get_child(0).queue_free()
 				user.use_energy(energy_cost)
 				return
 		elif tewl.type == "hoe":
-			if !plant.has_grown():
-				plant_pickup()
+			if $Seed.visible:
 				$Seed.visible = false
+				plant = null
 				user.use_energy(energy_cost)
 				return
 	if $AnimationPlayer.is_playing() || tewl == null:
@@ -85,5 +85,7 @@ func plant_pickup():
 		$Plant.get_child(0).queue_free()
 		plant = null
 		$Plant.visible = true
-	$PlantPickup.get_child(0).queue_free()
+		return
+	if $PlantPickup.get_child_count() != 0:
+		$PlantPickup.get_child(0).queue_free()
 		

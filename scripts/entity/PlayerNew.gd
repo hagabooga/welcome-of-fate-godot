@@ -39,14 +39,13 @@ func _ready():
 
 func check_load_hotkey():
 	var item = get_hotkey_item()
-	print("asd")
 	ItemHotkeyPreview.set_item_holder($UI/UIController/Inventory.get_hotkey_holder())
-	if item != null and (item.base == "weapon" or item.ming == "hoe") and equipped_weapon == null:
+	if item != null and (item.base == "weapon" or item.base == "tool") and equipped_weapon == null:
 		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
 		obj.item = item
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
-	elif item != null and (item.base == "weapon" or item.ming == "hoe") and equipped_weapon != null:
+	elif item != null and (item.base == "weapon" or item.base == "tool") and equipped_weapon != null:
 		print(equipped_weapon.item.ming == item.ming)
 		if equipped_weapon.item.ming == item.ming:
 			return
@@ -193,7 +192,7 @@ func flip_hitboxes() -> void:
 func basic_attack(angle) -> void:
 	if equipped_weapon != null and can_use_energy(equipped_weapon.item.energy_cost):
 		
-		play_all_body_anims("slash" if equipped_weapon.item.base != "tool" else "hack", facing,8,false)
+		play_all_body_anims("hack" if equipped_weapon.item.hack else "slash", facing,8,false)
 		equipped_weapon.attack_effect(angle)
 		use_energy(equipped_weapon.item.energy_cost)		
 

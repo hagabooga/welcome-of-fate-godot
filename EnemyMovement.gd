@@ -37,6 +37,8 @@ func _physics_process(delta):
 	elif attack_in_range and body.find_node("AnimationPlayer").current_animation == "idle":
 		basic_attack()
 	$AnimatedSprite.play("idle_side" if velocity == Vector2.ZERO else "walk_side")
+	if velocity != Vector2.ZERO:
+		body.change_z_index_relative_to_tilemap()
 
 
 func look(delta):

@@ -113,9 +113,9 @@ tracks/3/keys = {
 
 [sub_resource type="CapsuleShape2D" id=3]
 
-[node name="Hoe" index="0" instance=ExtResource( 1 )]
+[node name="Hoe" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
-frame = 174
+frame = 28
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="0"]
