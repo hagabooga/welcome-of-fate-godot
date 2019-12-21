@@ -4,9 +4,12 @@
 [ext_resource path="res://scripts/weapons/Weapon.gd" type="Script" id=2]
 
 [node name="Weapon" instance=ExtResource( 1 )]
+frame = 174
 script = ExtResource( 2 )
 
 [node name="Hitbox" type="Area2D" parent="." index="1"]
+position = Vector2( -29.5064, 26.7401 )
+rotation = 1.11825
 collision_layer = 4
 collision_mask = 4
 __meta__ = {
