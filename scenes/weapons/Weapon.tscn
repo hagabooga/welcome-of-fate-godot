@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/weapons/Weapon.gd" type="Script" id=2]
 
 [node name="Weapon" instance=ExtResource( 1 )]
-frame = 174
+frame = 30
 script = ExtResource( 2 )
 
 [node name="Hitbox" type="Area2D" parent="." index="1"]

@@ -32,33 +32,38 @@ func _ready():
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
 	update_stats()
-	check_load_hotkey()
+
 	for x in [$UI/UIController/Inventory.inventory_items,$UI/UIController/Inventory.hotkey_items]:
 		for i in x:
 			i.connect("dropped_data", self, "check_load_hotkey")
-
+			var item = i.item
+			if item != null and (item.base == "tool" or item.base == "weapon"):
+				var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
+				obj.item = item
+				$LoadedItems.add_item(obj)
+	check_load_hotkey()
+	
 func check_load_hotkey():
 	var item = get_hotkey_item()
 	ItemHotkeyPreview.set_item_holder($UI/UIController/Inventory.get_hotkey_holder())
 	if item != null and (item.base == "weapon" or item.base == "tool") and equipped_weapon == null:
-		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
-		obj.item = item
+		var obj = $LoadedItems.give_item(item.ming)
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
 	elif item != null and (item.base == "weapon" or item.base == "tool") and equipped_weapon != null:
-		print(equipped_weapon.item.ming == item.ming)
 		if equipped_weapon.item.ming == item.ming:
 			return
-		equipped_weapon.queue_free()
-		equipped_weapon = null
-		var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
-		obj.item = item
+		$BodySprites.remove_child(equipped_weapon)
+		$LoadedItems.add_item(equipped_weapon)
+		var obj = $LoadedItems.give_item(item.ming)
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
 	elif (item != null or item == null) and equipped_weapon != null:
-		equipped_weapon.queue_free()
-		equipped_weapon = null
-
+		$BodySprites.remove_child(equipped_weapon)
+		$LoadedItems.add_item(equipped_weapon)
+	if equipped_weapon != null:
+		set_facing(facing)
+		play_all_body_anims($BodySprites/CharacterBody.current_anim, facing)
 
 func _process(delta):
 	change_z_index_relative_to_tilemap()
@@ -102,7 +107,7 @@ func left_click_obj(obj : Clickable):
 	var item = get_hotkey_item()
 	if (obj.is_self_adjacent(pos)):
 		var check_click = obj.check_clicked(item, self)
-		print(check_click)
+		#print(check_click)
 		if check_click != null:
 			did_click_action = true
 		click_action(check_click)
@@ -198,8 +203,10 @@ func basic_attack(angle) -> void:
 
 func set_facing(dir) -> void:
 	facing = dir
-#	change_equip_z()
 	flip_hitboxes()
+	if equipped_weapon != null:
+		$BodySprites.move_child(equipped_weapon, 1 if facing == down else 0)
+	
 
 func turn_towards(dir) -> void:
 	self.facing = dir
@@ -208,7 +215,7 @@ func turn_towards(dir) -> void:
 func turn_towards_mouse() -> float:
 	var rad_angle = $BodySprites.global_position.angle_to_point(get_global_mouse_position())
 	var angle = rad2deg(rad_angle)
-	var cutoff = 45
+	var cutoff = 60
 	var opp = (180 - cutoff)
 	if -cutoff < angle and angle < cutoff:
 		self.facing = (left)

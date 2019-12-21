@@ -154,6 +154,8 @@ margin_bottom = 0.0
 
 [node name="InventoryList" parent="Inventory" index="0"]
 visible = false
+actual_slots = 50
+item_column_size = 10
 
 [node name="CashAmount" parent="Inventory" index="2"]
 margin_left = 654.277
@@ -277,12 +279,7 @@ focus_mode = 0
 icon = ExtResource( 14 )
 
 [node name="StatusBar" parent="." instance=ExtResource( 15 )]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 0.0
 margin_top = -183.0
-margin_right = 200.0
-margin_bottom = 0.0
 [connection signal="pressed" from="Skills/CloseButton" to="Skills" method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Dialogue/Button" to="Dialogue" method="_on_Button_pressed"]
 

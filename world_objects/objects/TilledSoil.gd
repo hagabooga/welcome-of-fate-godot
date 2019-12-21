@@ -15,13 +15,11 @@ func clicked(tewl : Item, user : Entity):
 			if plant.has_grown():
 				plant = null
 				$Plant.get_child(0).queue_free()
-				user.use_energy(energy_cost)
 				return
 		elif tewl.type == "hoe":
 			if $Seed.visible:
 				$Seed.visible = false
 				plant = null
-				user.use_energy(energy_cost)
 				return
 	if $AnimationPlayer.is_playing() || tewl == null:
 		return
@@ -32,7 +30,6 @@ func clicked(tewl : Item, user : Entity):
 		plant = pl
 		print("plant seeded: ", pl.ming)
 		$Plant.modulate.a = 1
-		user.use_energy(energy_cost)
 		return ClickAction.new(CONSUME, null)
 	else:
 		var count = get_parent().get_parent().used_cells.count(tile_pos)
@@ -42,7 +39,6 @@ func clicked(tewl : Item, user : Entity):
 					return
 				tewl.current_amount -= 1
 			$Sprite.frame += 1
-			user.use_energy(energy_cost)
 	return ClickAction.new(NONE, [])
 
 func right_clicked():

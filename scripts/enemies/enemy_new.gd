@@ -64,7 +64,7 @@ func _on_Enemy_input_event(viewport, event, shape_idx):
 			
 func spit_out_item():
 	for x in item_drops.keys():
-		var i = 0 #randi()%100
+		var i = randi()%100
 		if i < item_drops[x]:
 			var spit = item_spit_out_scene.instance()
 			get_parent().add_child(spit)

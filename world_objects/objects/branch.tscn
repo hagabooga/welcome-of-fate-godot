@@ -74,6 +74,5 @@ anims/idle = SubResource( 1 )
 anims/pick_up = SubResource( 2 )
 
 [node name="UsedSprite" parent="." index="3"]
-visible = false
 texture = ExtResource( 4 )
 vframes = 2

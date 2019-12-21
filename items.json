@@ -69,7 +69,7 @@
   },
   "watering can": {
     "desc": "Water the soil.",
-    "eff_desc": "Allows you to water seeds in soil to grow the next day.",
+    "eff_desc": "Allows you to water tilled soil.",
     "cost": 300,
     "energy": 5,
     "base": "tool",
@@ -83,6 +83,7 @@
     "cost": 300,
     "energy": 8,
     "base": "tool",
+    "hack": true,
     "type": "sickle",
     "activate": 1
   },
@@ -93,6 +94,7 @@
     "energy": 5,
     "base": "tool",
     "type": "axe",
+    "hack": true,
     "activate": 1
   },
   "hammer": {
@@ -102,6 +104,7 @@
     "energy": 5,
     "base": "tool",
     "type": "hammer",
+    "hack": true,
     "activate": 1
   },
   "turnip seedbag": {

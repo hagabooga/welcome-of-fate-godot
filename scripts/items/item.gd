@@ -12,7 +12,6 @@ var base
 var placeable
 
 func _init(ming : String, data : Dictionary):
-	print(ming)
 	self.ming = ming
 	desc = data.desc
 	eff_desc = data.eff_desc if data.has("eff_desc") else ""
