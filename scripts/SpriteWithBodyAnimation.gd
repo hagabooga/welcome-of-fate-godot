@@ -19,7 +19,7 @@ func dir_to_string(dir):
 func play_anim(anim, dir, speed_ratio = 8):
 	current_dir = dir
 	current_anim = anim
-	$AnimationPlayer.play("%s_%s"%[anim,dir_to_string(dir)])
+	$AnimationPlayer.play(anim if anim == "die" else "%s_%s"%[anim,dir_to_string(dir)])
 	$AnimationPlayer.playback_speed = speed_ratio
 
 

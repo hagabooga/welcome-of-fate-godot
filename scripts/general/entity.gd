@@ -36,15 +36,16 @@ func is_actionable() -> bool:
 	return $Hitstun.in_hitstun() || !$Sprite/AnimationPlayer.is_playing()
 
 func is_dead() -> bool:
-	return hp > 0
-	
+	return hp <= 0
+
+
 func take_damage(dmg : Damage) -> void:
-	#print(dmg.dealer.name,dmg.damage)
 	add_hp(-dmg.damage)
-	#print("yo")
-	#var dmgpop = damage_popup.instance()
-	#dmgpop.set_text_and_play(dmg.damage)
-	#add_child(dmgpop)
+	if is_dead():
+		die()
+
+func die() -> void:
+	pass
 
 func update_stats() -> void:
 	pass
@@ -53,10 +54,8 @@ func use_energy(cost) -> void:
 	if can_use_energy(cost):
 		self.energy -= cost
 
-func can_use_energy(cost) -> bool:
-	if cost > self.energy:
-		return false
-	return true
+func can_use_energy(cost, offset = 0) -> bool:
+	return self.energy > cost - offset
 
 func _on_RegenTimer_timeout():
 	if self.energy < self.max_energy: 

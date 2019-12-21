@@ -20,7 +20,7 @@ func create_question_box(question : String, target : Object, yes_func : String =
 	if yes_func != "":
 		$QuestionBox/Buttons/YesButton.connect("pressed", target, yes_func)
 	if no_func != "":
-		pass
+		$QuestionBox/Buttons/NoButton.connect("pressed", target, no_func)
 		#button_connect_and_delete($QuestionBox/NoButton, "pressed", target, no_func)
 	for x in buttons:
 		x.connect("pressed", $QuestionBox, "button_press")

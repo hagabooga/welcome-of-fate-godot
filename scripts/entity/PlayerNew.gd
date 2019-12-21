@@ -8,6 +8,9 @@ var equipped_weapon : Weapon = null
 var body_sprite = preload("res://scenes/SpriteWithBodyAnimation.tscn")
 var did_click_action : bool = false
 
+func die() -> void:
+	if $BodySprites/CharacterBody.current_anim != "die":
+		play_all_body_anims("die", 8)
 
 
 func check_animation():
@@ -21,6 +24,12 @@ func get_hotkey_item() -> Item:
 func get_hotkey_holder() -> ItemHolderBase:
 	return $UI/UIController/Inventory.get_hotkey_holder()
 
+func anim_finished(anim_name : String):
+	if anim_name != "die":
+		play_all_idle(facing)
+	elif anim_name == "die":
+		$AnimationPlayer.play("fade_in")
+
 func _ready():
 	$BodySprites/CharacterBody.connect("frame_changed", self, "check_animation")
 	connect("on_hp_change", $UI/UIController/StatusBar, "update_healthBar")
@@ -29,7 +38,7 @@ func _ready():
 	get_parent().player = self
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
-	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"play_all_idle")
+	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
 	update_stats()
 
@@ -61,13 +70,13 @@ func check_load_hotkey():
 	elif (item != null or item == null) and equipped_weapon != null:
 		$BodySprites.remove_child(equipped_weapon)
 		$LoadedItems.add_item(equipped_weapon)
+		equipped_weapon = null
 	if equipped_weapon != null:
 		set_facing(facing)
 		play_all_body_anims($BodySprites/CharacterBody.current_anim, facing)
 
 func _process(delta):
 	change_z_index_relative_to_tilemap()
-
 	ItemHotkeyPreview.visible = false
 	if get_hotkey_item() != null:
 		var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
@@ -78,6 +87,8 @@ func _process(delta):
 			ItemHotkeyPreview.visible = true
 
 func _physics_process(delta):
+	if is_dead():
+		return
 	if $UI/UIController/QuestionBox.visible || $AnimationPlayer.is_playing():
 		play_all_idle("")
 		return
@@ -96,18 +107,16 @@ func click_action(click_action):
 		if click_action.action == Clickable.CONSUME:
 			get_hotkey_holder().consume()
 
-
-
 func left_click_obj(obj : Clickable):
+	if is_dead():
+		return
 	#print($BodySprites/CharacterBody.current_anim)
-	
 	if did_click_action or $AnimationPlayer.is_playing():# or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	var item = get_hotkey_item()
 	if (obj.is_self_adjacent(pos)):
 		var check_click = obj.check_clicked(item, self)
-		#print(check_click)
 		if check_click != null:
 			did_click_action = true
 		click_action(check_click)
@@ -115,6 +124,8 @@ func left_click_obj(obj : Clickable):
 		special_click_effects(obj)
 
 func right_click_obj(obj : Clickable):
+	if is_dead():
+		return
 	if $AnimationPlayer.is_playing() or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
@@ -173,19 +184,6 @@ func play_all_body_anims(anim, dir, speed_ratio = 8, can_mv = true) -> void:
 		x.play_anim(anim, dir, speed_ratio)
 	can_move = can_mv
 
-#func get_weapon() -> Weapon:
-#	for x in $BodySprites.get_children():
-#		if x is Weapon:
-#			return x
-#	return null
-
-#func change_equip_z() -> void:
-#	if self.equipped_weapon != null:
-#		if facing == up:
-#			self.equipped_weapon.z_index = -1
-#		else:
-#			self.equipped_weapon.z_index = 1
-
 func flip_hitboxes() -> void:
 	var flip
 	if facing == right:
@@ -196,10 +194,9 @@ func flip_hitboxes() -> void:
 
 func basic_attack(angle) -> void:
 	if equipped_weapon != null and can_use_energy(equipped_weapon.item.energy_cost):
-		
 		play_all_body_anims("hack" if equipped_weapon.item.hack else "slash", facing,8,false)
 		equipped_weapon.attack_effect(angle)
-		use_energy(equipped_weapon.item.energy_cost)		
+		use_energy(equipped_weapon.item.energy_cost)
 
 func set_facing(dir) -> void:
 	facing = dir
@@ -230,10 +227,22 @@ func turn_towards_mouse() -> float:
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_in":
-		$AnimationPlayer.play("fade_out")
-		world_globals.next_day()
+		if !is_dead():
+			$AnimationPlayer.play("fade_out")
+			world_globals.next_day()
+		else:
+			$UI/UIController.create_question_box("You Died! Respawn at your bed?", self, "respawn", "quit_game")
+			
+func respawn():
+	print("RESPAWN")			
+
+func quit_game():
+	print("QUIT")
+	get_tree().quit()
 
 func _on_ClickableArea_input_event(viewport, event, shape_idx):
+	if is_dead():
+		return
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		var item = get_hotkey_item()
 		if item != null and can_move:

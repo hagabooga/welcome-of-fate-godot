@@ -3,7 +3,7 @@ extends Weapon
 var projectile = load("res://scenes/projectiles/MagicShot.tscn")
 
 func get_damage() -> Damage:
-	return Damage.new(owner,69)
+	return Damage.new(owner,20)
 
 
 func attack_effect(angle) -> void:

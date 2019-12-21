@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/风水.png-25a8dc1a409ba361cbb83d821c40f4bc.stex"
+path="res://.import/Ascend.png-2d49d9e7693e828f5c2ea02bef3d623c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/skills/风水.png"
-dest_files=[ "res://.import/风水.png-25a8dc1a409ba361cbb83d821c40f4bc.stex" ]
+source_file="res://sprites/skills/Ascend.png"
+dest_files=[ "res://.import/Ascend.png-2d49d9e7693e828f5c2ea02bef3d623c.stex" ]
 
 [params]
 

@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/body animations/magic wand/magic wand.png" type="Texture" id=2]
 [ext_resource path="res://scripts/weapons/magic wand.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=1]
 resource_name = "hack_right"
 length = 4.0
 step = 1.0
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ 200, 199, 198, 197 ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 loop = true
 step = 1.0
 tracks/0/type = "value"
@@ -37,8 +37,7 @@ tracks/0/keys = {
 "values": [ null ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "slash_down"
+[sub_resource type="Animation" id=3]
 length = 5.0
 step = 1.0
 tracks/0/type = "value"
@@ -66,8 +65,7 @@ tracks/1/keys = {
 "values": [ Vector2( -2, 16 ), Vector2( -6, 8 ), Vector2( -4, 18 ), Vector2( 9, 20 ), Vector2( 17, 21 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "slash_left"
+[sub_resource type="Animation" id=4]
 length = 5.0
 step = 1.0
 tracks/0/type = "value"
@@ -95,8 +93,7 @@ tracks/1/keys = {
 "values": [ Vector2( -17, 15 ), Vector2( -15, 11 ), Vector2( -20, 7 ), Vector2( -24, -3 ), Vector2( -20, -5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "slash_right"
+[sub_resource type="Animation" id=5]
 length = 5.0
 step = 1.0
 tracks/0/type = "value"
@@ -124,8 +121,7 @@ tracks/1/keys = {
 "values": [ Vector2( 17, 15 ), Vector2( 16, 13 ), Vector2( 21, 6 ), Vector2( 24, -3 ), Vector2( 20, -7 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "slash_up"
+[sub_resource type="Animation" id=6]
 length = 5.0
 step = 1.0
 tracks/0/type = "value"
@@ -153,7 +149,7 @@ tracks/1/keys = {
 "values": [ Vector2( -12, 0 ), Vector2( -13, -8 ), Vector2( -3, -15 ), Vector2( 13, -11 ), Vector2( 20, -8 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 
 [node name="MagicWand" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
@@ -161,15 +157,15 @@ frame = 161
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/hack_right = SubResource( 19 )
-anims/idle = SubResource( 1 )
-anims/slash_down = SubResource( 2 )
-anims/slash_left = SubResource( 3 )
-anims/slash_right = SubResource( 4 )
-anims/slash_up = SubResource( 5 )
+anims/hack_right = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/slash_down = SubResource( 3 )
+anims/slash_left = SubResource( 4 )
+anims/slash_right = SubResource( 5 )
+anims/slash_up = SubResource( 6 )
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2( -20, -5 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )

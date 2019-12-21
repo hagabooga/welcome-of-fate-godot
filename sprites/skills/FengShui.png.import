@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/升天.png-bd38d8a5a3e86ec251d3847c965e4731.stex"
+path="res://.import/FengShui.png-9f421cf93a99c29e03e00dd0b15f713e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/skills/升天.png"
-dest_files=[ "res://.import/升天.png-bd38d8a5a3e86ec251d3847c965e4731.stex" ]
+source_file="res://sprites/skills/FengShui.png"
+dest_files=[ "res://.import/FengShui.png-9f421cf93a99c29e03e00dd0b15f713e.stex" ]
 
 [params]
 

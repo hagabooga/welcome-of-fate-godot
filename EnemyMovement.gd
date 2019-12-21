@@ -21,7 +21,11 @@ func _ready():
 func get_target():
 	for x in body.find_node("RangeOfSight").get_entities():
 		if x is Player:
-			target = x
+			if x.is_dead():
+				target = null
+				body.find_node("AnimationPlayer").stop()
+			else:
+				target = x
 			return
 	if target != null:
 		target = null

@@ -204,6 +204,5 @@ The same item type cannot be consumed a within 5 minutes.
 "
 align = 1
 autowrap = true
-
 [connection signal="item_activated" from="InventoryItemList" to="." method="_on_ItemList_item_activated"]
 [connection signal="item_selected" from="InventoryItemList" to="." method="_on_ItemList_item_selected"]

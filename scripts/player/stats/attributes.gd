@@ -132,6 +132,8 @@ func add_hp(val):
 	self.hp += val
 	if self.hp > self.max_hp:
 		self.hp = self.max_hp
+	elif self.hp < 0:
+		self.hp = 0
 	emit_signal("on_hp_add", val, Color.green, Color.red)
 	emit_signal("on_hp_change", self.max_hp, hp)
 

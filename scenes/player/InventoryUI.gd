@@ -20,7 +20,6 @@ func set_cash(x):
 func pay(value):
 	self.cash -= value
 
-
 signal on_hotkey_index_change
 
 func set_watering_can_ui():
@@ -60,22 +59,19 @@ func _ready():
 	hotkey_items = $HotkeyList/HBoxContainer.get_children()
 	add_item(item_database.make_item("hoe"))
 	add_item(item_database.make_item("watering can"))
-	for x in range(5):
-		add_item(item_database.make_item("turnip seedbag"))
-		add_item(item_database.make_item("radish seedbag"))
-		add_item(item_database.make_item("tomato seedbag"))
+	add_item(item_database.make_item("turnip seedbag"))
 	add_item(item_database.make_item("axe"))
 	add_item(item_database.make_item("hammer"))
 	add_item(item_database.make_item("sickle"))
 	add_item(item_database.make_item("magic wand"))
-	for x in range(30):
-		#add_item(item_database.make_item("turnip"))
-		add_item(item_database.make_item("health potion"))
-		add_item(item_database.make_item("mana potion"))
-		add_item(item_database.make_item("energy potion"))
-		add_item(item_database.make_item("soul potion"))
-		add_item(item_database.make_item("vitality potion"))
-		add_item(item_database.make_item("spirit potion"))
+#	for x in range(30):
+#		#add_item(item_database.make_item("turnip"))
+#		add_item(item_database.make_item("health potion"))
+#		add_item(item_database.make_item("mana potion"))
+#		add_item(item_database.make_item("energy potion"))
+#		add_item(item_database.make_item("soul potion"))
+#		add_item(item_database.make_item("vitality potion"))
+#		add_item(item_database.make_item("spirit potion"))
 		
 
 	for items in [inventory_items, hotkey_items]:
