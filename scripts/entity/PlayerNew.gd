@@ -76,6 +76,8 @@ func check_load_hotkey():
 		play_all_body_anims($BodySprites/CharacterBody.current_anim, facing)
 
 func _process(delta):
+	if get_parent() == get_tree().get_root():
+		return
 	change_z_index_relative_to_tilemap()
 	ItemHotkeyPreview.visible = false
 	if get_hotkey_item() != null:

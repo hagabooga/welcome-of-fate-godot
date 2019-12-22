@@ -36,7 +36,7 @@ func _ready():
 				pos.y += col
 				used_cells.append(pos)
 				pos = tilemap_grass.world_to_map(x.global_position)
-	connect_click_to_player($Chicken)
+	#connect_click_to_player($Chicken)
 	create_tilled_soils()
 	create_water_source()
 	create_daily_objects()
