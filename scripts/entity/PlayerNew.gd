@@ -40,6 +40,7 @@ func _ready():
 	set_script(load("res://scripts/player/stats/mage.gd"))
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
+	$UI/UIController/Inventory.connect("on_item_add", self, "check_load_hotkey")
 	update_stats()
 
 	for x in [$UI/UIController/Inventory.inventory_items,$UI/UIController/Inventory.hotkey_items]:
@@ -85,7 +86,7 @@ func _process(delta):
 		var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
 		if get_hotkey_item().placeable and click_pos != self_pos\
 		 and world_globals.is_pos_adjacent(click_pos, self_pos) and\
-		 !(click_pos in get_parent().used_cells) and get_hotkey_item().type == "misc.":
+		 !(click_pos in get_parent().used_cells):
 			ItemHotkeyPreview.visible = true
 
 func _physics_process(delta):

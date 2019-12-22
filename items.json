@@ -43,6 +43,7 @@
     "desc": "A branch that fell of a tree.",
     "cost": 10,
     "type": "misc.",
+    "placeable": true,
     "activate": -1
   },
   "rock": {
@@ -55,6 +56,7 @@
     "desc": "A plant in the wrong place.",
     "cost": 2,
     "type": "misc.",
+    "placeable": true,
     "activate": -1
   },
   "hoe": {
@@ -141,7 +143,7 @@
     "base": "weapon",
     "type": "wand",
     "activate": 1,
-    "stats": { "intelligence": 3, "magical": 20 }
+    "stats": { "intelligence": 3, "mp": 150, "magical": 20, "physical": 7 }
   },
   "katana": {
     "desc": "A sharp sword",
@@ -243,7 +245,8 @@
     "eff_desc": "",
     "cost": 250,
     "type": "misc.",
-    "activate": -1
+    "activate": -1,
+    "placeable": true
   },
   "gator skin": {
     "desc": "Thick but smooth",
@@ -314,6 +317,7 @@
     "eff_desc": "",
     "cost": 75,
     "type": "plant",
+    "placeable": true,
     "activate": -1
   },
   "bamboo shoot": {
@@ -329,6 +333,7 @@
     "eff_desc": "",
     "cost": 60,
     "type": "plant",
+    "placeable": true,
     "activate": -1
   }
 }

@@ -11,8 +11,8 @@ var act
 var base
 var placeable
 
-func _init(ming : String, data : Dictionary):
-	self.ming = ming
+func _init(m : String, data : Dictionary):
+	self.ming = m
 	desc = data.desc
 	eff_desc = data.eff_desc if data.has("eff_desc") else ""
 	cost = data.cost

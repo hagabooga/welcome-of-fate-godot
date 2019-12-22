@@ -66,7 +66,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 collision_layer = 3
 collision_mask = 10
 script = ExtResource( 2 )
@@ -81,10 +81,6 @@ position = Vector2( 0, -20 )
 
 [node name="CharacterBody" parent="BodySprites" index="0" instance=ExtResource( 4 )]
 frame = 26
-
-[node name="HotkeyItem" parent="BodySprites" index="1" instance=ExtResource( 4 )]
-visible = false
-texture = null
 
 [node name="PosAboveHead" parent="." index="2"]
 position = Vector2( 0, -50 )
@@ -145,7 +141,6 @@ anims/fade_in = SubResource( 5 )
 anims/fade_out = SubResource( 6 )
 
 [node name="UI" type="Node2D" parent="." index="10"]
-editor/display_folded = true
 z_index = 4094
 z_as_relative = false
 

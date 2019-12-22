@@ -4,21 +4,15 @@ var current_map : Map = null
 
 var item_holder : ItemHolderBase = null
 
-func _ready():
-	for x in get_parent().get_children():
-		if x is Map:
-			current_map = x
-			break
+func set_map(map : Map):
+	current_map = map
 
 func _process(delta):
 	if item_holder != null:
 		var item = item_holder.item
 		if item != null:
-			if item.type == "misc.":
-				var pos = current_map.tilemap_soil.world_to_map(get_global_mouse_position())
-				global_position = current_map.tilemap_soil.map_to_world(pos)
-			else:
-				global_position = get_global_mouse_position()
+			var pos = current_map.tilemap_soil.world_to_map(get_global_mouse_position())
+			global_position = current_map.tilemap_soil.map_to_world(pos)
 		
 func set_item_holder(holder):
 	item_holder = holder

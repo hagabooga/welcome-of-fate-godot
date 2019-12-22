@@ -34,6 +34,15 @@ func hovering_item(item : Item):
 		$Tooltip/VBoxContainer/Desc.text = "%s (%s)"%[item.desc, item.type.capitalize()]
 		$Tooltip/VBoxContainer/Cost.text = "Cost: $%d"%item.cost
 		$Tooltip/VBoxContainer/Eff_Desc.text = item.eff_desc
+		var s = ""
+		if item is ToolItem:
+			for x in item.stats.stats:
+				if x.final_val != 0:
+					s += "%s: %d\n"%[global_id.stat_idToName[x.type].capitalize(), x.final_val]
+		$Tooltip/VBoxContainer/Stats.text = s
+		$Tooltip.rect_size.y = 150 
+		if $Tooltip.rect_size.y< $Tooltip/VBoxContainer.rect_size.y:
+			 $Tooltip.rect_size.y = $Tooltip/VBoxContainer.rect_size.y 
 		var pos = get_local_mouse_position()
 		pos.y -= $Tooltip.rect_size.y
 		$Tooltip.rect_position = pos

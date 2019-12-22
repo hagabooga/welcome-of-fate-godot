@@ -237,7 +237,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Booga's Welcome of Fate"
-run/main_scene="res://scenes/maps/Tutorial Island.tscn"
+run/main_scene="res://New/Main Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

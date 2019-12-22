@@ -5,7 +5,7 @@ class_name Map
 var used_cells = []
 var tilled_soil_objs = []
 
-
+var last_level : String = ""
 var tilemap_grass : TileMap
 var tilemap_dirt  : TileMap
 var tilemap_soil : TileMap
@@ -15,6 +15,10 @@ var tilemap_waterCliff : TileMap
 var player : Player
 
 func _ready():
+	call_deferred("setup")
+	
+func setup():
+	ItemHotkeyPreview.set_map(self)
 	world_globals.player = find_node("Player")
 	world_globals.current_map = self
 	world_globals.connect("next_day", self, "create_daily_objects")
@@ -40,6 +44,8 @@ func _ready():
 	create_tilled_soils()
 	create_water_source()
 	create_daily_objects()
+	if last_level != "":
+		player.global_position = $Warps.find_node(last_level).global_position
 	
 
 func connect_click_to_player(x : Clickable) -> void:
@@ -50,7 +56,7 @@ func _process(delta):
 	pass
 		
 func remove_cell(pos : Vector2):
-	print("erasing: ", pos)
+	#print("erasing: ", pos)
 	used_cells.erase(pos)
 
 func create_world_object(ming : String, pos : Vector2):

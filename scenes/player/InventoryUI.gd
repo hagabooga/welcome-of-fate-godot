@@ -13,6 +13,8 @@ var hotkey_index = 0 setget set_hotkey_index
 
 var cash  : int setget set_cash
 
+signal on_item_add
+
 func set_cash(x):
 	cash = x
 	$CashAmount.text = "Cash: %s"%cash
@@ -128,3 +130,4 @@ func add_item(item : Item):
 					x.count += 1
 					return
 	first_null.set_item(item)
+	emit_signal("on_item_add")

@@ -28,9 +28,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
-margin_top = -216.0
+margin_top = -260.0
 margin_right = -708.0
-margin_bottom = -66.0
+margin_bottom = -110.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
@@ -77,5 +77,14 @@ margin_bottom = 125.0
 custom_fonts/font = SubResource( 4 )
 custom_constants/line_spacing = -5
 text = "Consume item to restore 30 HP. "
+align = 1
+autowrap = true
+
+[node name="Stats" type="Label" parent="VBoxContainer"]
+margin_top = 125.0
+margin_right = 208.0
+margin_bottom = 150.0
+custom_fonts/font = SubResource( 4 )
+custom_constants/line_spacing = -5
 align = 1
 autowrap = true
