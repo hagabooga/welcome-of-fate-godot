@@ -17,6 +17,8 @@ func check_animation():
 	if $BodySprites/CharacterBody.current_anim != "slash" and \
 	$BodySprites/CharacterBody.current_anim != "hack":
 		did_click_action = false
+	else:
+		check_load_hotkey()
 
 func get_hotkey_item() -> Item:
 	return $UI/UIController/Inventory.get_hotkey_item()
@@ -55,7 +57,6 @@ func _ready():
 				var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
 				obj.item = item
 				$LoadedItems.add_item(obj)
-	add_ap(5)
 	check_load_hotkey()
 	
 func check_load_hotkey():
@@ -65,21 +66,28 @@ func check_load_hotkey():
 		var obj = $LoadedItems.give_item(item.ming)
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
+		print("YO")
+		add_attrib(equipped_weapon.item.stats)
+		
 	elif item != null and (item.base == "weapon" or item.base == "tool") and equipped_weapon != null:
 		if equipped_weapon.item.ming == item.ming:
 			return
 		$BodySprites.remove_child(equipped_weapon)
+		remove_attrib(equipped_weapon.item.stats)
 		$LoadedItems.add_item(equipped_weapon)
 		var obj = $LoadedItems.give_item(item.ming)
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
+		add_attrib(equipped_weapon.item.stats)
 	elif (item != null or item == null) and equipped_weapon != null:
 		$BodySprites.remove_child(equipped_weapon)
+		remove_attrib(equipped_weapon.item.stats)
 		$LoadedItems.add_item(equipped_weapon)
 		equipped_weapon = null
 	if equipped_weapon != null:
 		set_facing(facing)
 		play_all_body_anims($BodySprites/CharacterBody.current_anim, facing)
+		
 
 func _process(delta):
 	if Input.is_action_just_pressed("v"):
@@ -204,7 +212,7 @@ func flip_hitboxes() -> void:
 
 func basic_attack(angle) -> void:
 	if equipped_weapon != null and can_use_energy(equipped_weapon.item.energy_cost):
-		play_all_body_anims("hack" if equipped_weapon.item.hack else "slash", facing,8,false)
+		play_all_body_anims("hack" if equipped_weapon.item.hack else "slash", facing,self.atk_spd,false)
 		equipped_weapon.attack_effect(angle)
 		use_energy(equipped_weapon.item.energy_cost)
 
@@ -217,7 +225,7 @@ func set_facing(dir) -> void:
 
 func turn_towards(dir) -> void:
 	self.facing = dir
-	play_all_body_anims("walk",dir)
+	play_all_body_anims("walk",dir,move_speed/150.0)
 
 func turn_towards_mouse() -> float:
 	var rad_angle = $BodySprites.global_position.angle_to_point(get_global_mouse_position())

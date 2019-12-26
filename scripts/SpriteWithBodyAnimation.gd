@@ -16,10 +16,12 @@ func dir_to_string(dir):
 		right:
 			return "left"
 
-func play_anim(anim, dir, speed_ratio = 8):
+# 5 / 5 = 1.6
+
+func play_anim(anim, dir, speed_ratio = 5):
 	current_dir = dir
 	current_anim = anim
 	$AnimationPlayer.play(anim if anim == "die" else "%s_%s"%[anim,dir_to_string(dir)])
-	$AnimationPlayer.playback_speed = speed_ratio
+	$AnimationPlayer.playback_speed = speed_ratio*$AnimationPlayer.current_animation_length 
 
 

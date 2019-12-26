@@ -13,6 +13,8 @@ func _ready():
 	increasers.append($VBoxContainer/StatIncreaser4)
 
 func able_use_ap():
+	for x in increasers:
+		x.show_increasers(true)
 	$ApplyButton.visible = true
 	update_text()
 
@@ -30,7 +32,10 @@ func update_text():
 		if 2 <= i and i < 6:
 			label = label.get_child(0)
 		var x = stats.stats[i-2]
-		label.text = "%s: %d"%[global_id.stat_idToName[x.type].capitalize(),x.final_val]
+		if int(x.final_val) == x.final_val:
+			label.text = "%s: %d"%[global_id.stat_idToName[x.type].capitalize(),x.final_val]
+		else:
+			label.text = "%s: %.1f"%[global_id.stat_idToName[x.type].capitalize(),x.final_val]
 		#label.add_color_override("font_color", global_id.stat_idToColor[x.type])
 
 func _on_ApplyButton_pressed():
@@ -40,7 +45,7 @@ func _on_ApplyButton_pressed():
 		x.update_amount()
 	if stats.ap == 0:
 		for x in increasers:
-			x.hide_increasers()
+			x.show_increasers(false)
 		$ApplyButton.visible = false
 			
 			

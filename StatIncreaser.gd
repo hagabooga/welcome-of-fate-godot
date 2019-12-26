@@ -5,7 +5,6 @@ var stats  = null
 
 var used_ap : int = 0
 
-
 func apply_increase():
 	match type:
 		0:
@@ -20,10 +19,10 @@ func apply_increase():
 func update_amount():
 	$Amount.text = "+%d"%used_ap
 	
-func hide_increasers():
-	$Amount.visible = false
-	$Dec.visible = false
-	$Inc.visible = false
+func show_increasers(yes):
+	$Amount.visible = yes
+	$Dec.visible = yes
+	$Inc.visible = yes
 	
 func _on_Dec_pressed():
 	if !used_ap:

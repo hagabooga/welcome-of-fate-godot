@@ -285,7 +285,6 @@ icon = ExtResource( 14 )
 
 [node name="StatusBar" parent="." instance=ExtResource( 16 )]
 margin_top = -183.0
-margin_bottom = -35.2657
 [connection signal="pressed" from="Skills/CloseButton" to="Skills" method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Dialogue/Button" to="Dialogue" method="_on_Button_pressed"]
 

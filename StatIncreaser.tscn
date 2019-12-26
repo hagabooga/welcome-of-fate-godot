@@ -23,6 +23,7 @@ text = "Level: 5"
 valign = 1
 
 [node name="Amount" type="Label" parent="."]
+visible = false
 margin_left = 65.0
 margin_right = 88.0
 margin_bottom = 28.0
@@ -31,14 +32,16 @@ text = "+0"
 valign = 1
 
 [node name="Dec" type="TextureButton" parent="."]
-margin_left = 92.0
-margin_right = 114.0
+visible = false
+margin_left = 65.0
+margin_right = 87.0
 margin_bottom = 28.0
 texture_normal = ExtResource( 3 )
 
 [node name="Inc" type="TextureButton" parent="."]
-margin_left = 118.0
-margin_right = 140.0
+visible = false
+margin_left = 65.0
+margin_right = 87.0
 margin_bottom = 28.0
 texture_normal = ExtResource( 4 )
 [connection signal="pressed" from="Dec" to="." method="_on_Dec_pressed"]

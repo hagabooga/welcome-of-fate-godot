@@ -37,8 +37,13 @@ func hovering_item(item : Item):
 		var s = ""
 		if item is ToolItem:
 			for x in item.stats.stats:
-				if x.final_val != 0:
-					s += "%s: %d\n"%[global_id.stat_idToName[x.type].capitalize(), x.final_val]
+				var final = x.final_val
+				if final != 0:
+					if int(final) == final:
+						s += "%s: %d\n"%[global_id.stat_idToName[x.type].capitalize(), final]
+					else:	
+						s += "%s: %.1f\n"%[global_id.stat_idToName[x.type].capitalize(), final]
+					
 		$Tooltip/VBoxContainer/Stats.text = s
 		$Tooltip.rect_size.y = 150 
 		if $Tooltip.rect_size.y< $Tooltip/VBoxContainer.rect_size.y:

@@ -70,7 +70,7 @@ tracks/1/keys = {
 collision_layer = 3
 collision_mask = 10
 script = ExtResource( 2 )
-move_speed = 150
+move_speed = 125
 
 [node name="LoadedItems" type="Node2D" parent="." index="0"]
 visible = false
@@ -150,7 +150,6 @@ margin_left = -480.0
 margin_top = -270.0
 margin_right = 480.0
 margin_bottom = 270.0
-mouse_filter = 2
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="UI" index="1"]
 stream = ExtResource( 7 )
