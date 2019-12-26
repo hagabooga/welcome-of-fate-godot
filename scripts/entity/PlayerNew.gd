@@ -31,11 +31,13 @@ func anim_finished(anim_name : String):
 		$AnimationPlayer.play("fade_in")
 
 func _ready():
+	$UI/UIController/Stats.set_stats(self)
 	$BodySprites/CharacterBody.connect("frame_changed", self, "check_animation")
 	connect("on_hp_change", $UI/UIController/StatusBar, "update_healthBar")
 	connect("on_mp_change", $UI/UIController/StatusBar, "update_manaBar")
 	connect("on_energy_change", $UI/UIController/StatusBar, "update_energyBar")
 	connect("on_xp_change", $UI/UIController/StatusBar, "update_xpBar")
+	connect("stat_changed", $UI/UIController/Stats, "update_text")
 	get_parent().player = self
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
@@ -44,6 +46,7 @@ func _ready():
 	$UI/UIController/Inventory.connect("on_item_add", self, "check_load_hotkey")
 	update_stats()
 
+	connect("on_ap_change", $UI/UIController/Stats, "able_use_ap")
 	for x in [$UI/UIController/Inventory.inventory_items,$UI/UIController/Inventory.hotkey_items]:
 		for i in x:
 			i.connect("dropped_data", self, "check_load_hotkey")
@@ -52,6 +55,7 @@ func _ready():
 				var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
 				obj.item = item
 				$LoadedItems.add_item(obj)
+	add_ap(5)
 	check_load_hotkey()
 	
 func check_load_hotkey():
@@ -79,8 +83,7 @@ func check_load_hotkey():
 
 func _process(delta):
 	if Input.is_action_just_pressed("v"):
-		add_xp(1)
-		print_stats()
+		add_xp(20)
 	if get_parent() == get_tree().get_root():
 		return
 	change_z_index_relative_to_tilemap()

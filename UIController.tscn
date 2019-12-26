@@ -14,7 +14,8 @@
 [ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=12]
 [ext_resource path="res://Dialogue.gd" type="Script" id=13]
 [ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=14]
-[ext_resource path="res://scripts/ui/StatusBar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://StatsPanel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scripts/ui/StatusBar.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -88,20 +89,14 @@ font_data = ExtResource( 4 )
 size = 32
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxTexture" id=13]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 100, 100 )
-margin_left = 13.0
-margin_right = 17.0
-margin_top = 17.0
-margin_bottom = 20.0
-
 [node name="UIController" type="Control"]
 margin_right = 960.0
 margin_bottom = 540.0
+mouse_filter = 2
 script = ExtResource( 1 )
 
 [node name="Date" type="Panel" parent="."]
+editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -115,6 +110,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Date"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = -5
@@ -285,17 +281,11 @@ margin_bottom = -10.0
 focus_mode = 0
 icon = ExtResource( 14 )
 
-[node name="StatusBar" parent="." instance=ExtResource( 15 )]
+[node name="Stats" parent="." instance=ExtResource( 15 )]
+
+[node name="StatusBar" parent="." instance=ExtResource( 16 )]
 margin_top = -183.0
-
-[node name="Stats" type="Panel" parent="."]
-margin_right = 232.0
-margin_bottom = 331.0
-custom_styles/panel = SubResource( 13 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Stats"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_bottom = -35.2657
 [connection signal="pressed" from="Skills/CloseButton" to="Skills" method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Dialogue/Button" to="Dialogue" method="_on_Button_pressed"]
 

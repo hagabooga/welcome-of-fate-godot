@@ -25,6 +25,17 @@ var energy setget set_eng
 var hp setget set_hp, get_hp
 var mp setget set_mp
 var level : int = 1
+var ap : int = 0 setget set_ap
+var max_ap : int = 0
+
+func set_ap(val):
+	ap = val
+	print(ap)
+func add_ap(val : int):
+	ap += val
+	max_ap += val
+	emit_signal("on_ap_change")
+	
 var job = "Attributes Job: No Name"
 
 var xp setget set_xp,get_xp
@@ -39,11 +50,15 @@ signal on_hp_change(max_hp, current_hp)
 signal on_mp_change(max_mo, current_mp)
 signal on_energy_change(max_energy, current_energy)
 signal on_xp_change(max_xp, current_xp)
+signal on_ap_change
+
+
+signal stat_changed
 
 
 func set_xp(val):
 	xp = val
-	emit_signal("on_xp_change", self.max_xp, xp)
+	emit_signal("on_xp_change", self.max_xp, xp, self.level)
 
 func get_xp():
 	return xp
@@ -66,42 +81,59 @@ func set_eng(val):
 	
 func set_str(val):
 	find_stat(0).base = val
+	update_stats()
 func set_int(val):
 	find_stat(1).base = val
+	update_stats()
 func set_agi(val):
 	find_stat(2).base = val
+	update_stats()
 func set_lck(val):
 	find_stat(3).base = val
+	update_stats()
 func set_phys(val):
 	find_stat(4).base = val
+	emit_signal("stat_changed")
 func set_magic(val):
 	find_stat(5).base = val
+	emit_signal("stat_changed")
 func set_armor(val):
 	find_stat(6).base = val
+	emit_signal("stat_changed")
 func set_res(val):
 	find_stat(7).base = val
+	emit_signal("stat_changed")
 func set_hit(val):
 	find_stat(8).base = val
+	emit_signal("stat_changed")
 func set_dodge(val):
 	find_stat(9).base = val
+	emit_signal("stat_changed")
 func set_crit(val):
 	find_stat(10).base = val
+	emit_signal("stat_changed")
 func set_critmulti(val):
 	find_stat(11).base = val
+	emit_signal("stat_changed")
 func set_atkspd(val):
 	find_stat(12).base = val
+	emit_signal("stat_changed")
 func set_maxhp(val):
 	find_stat(13).base = val
+	emit_signal("stat_changed")
 	emit_signal("on_hp_change", self.max_hp, hp)
 func set_maxmp(val):
 	find_stat(14).base = val
+	emit_signal("stat_changed")
 	emit_signal("on_mp_change", self.max_mp, mp)
 func set_energy(val):
 	find_stat(15).base = val
+	emit_signal("stat_changed")
 	emit_signal("on_energy_change", self.max_energy, energy)
 func set_max_xp(val):
 	find_stat(16).base = val
-	emit_signal("on_xp_change", self.max_xp, xp)
+	emit_signal("stat_changed")
+	emit_signal("on_xp_change", self.max_xp, xp, self.level)
 	
 func get_str():
 	return find_stat(0).get_final_value()
@@ -145,10 +177,12 @@ func _init():
 	mp = 0
 	energy = 0
 
-func find_stat(type):
+func find_stat(type) -> BaseStat:
 	for x in stats:
 		if x.type == type:
 			return x
+	print("DID NOT FIND STAT!!!!!!!!!!!!")
+	return null
 
 func add_hp(val):
 	self.hp += val
@@ -174,12 +208,14 @@ func add_energy(val):
 	emit_signal("on_energy_change", self.max_energy, energy)
 
 func add_xp(val):
+	var leftover = val - self.max_xp + self.xp
 	self.xp += val
 	if self.xp >= self.max_xp:
-		self.xp = 0
-		self.level += 1
+		level_up()
+		if leftover > 0:
+			add_xp(leftover)
 	emit_signal("on_xp_add", val, Color.yellow, Color.darkolivegreen)
-	emit_signal("on_xp_change", self.max_xp, self.xp)
+	emit_signal("on_xp_change", self.max_xp, self.xp, self.level)
 
 func set_stat(type, val):
 	find_stat(type).base = val
@@ -208,9 +244,29 @@ func remove_attrib(a):
 				remove_buff_stat(x.type, y.final_val)
 				break
 	update_stats()
-				
+
 func update_stats():
 	pass
+
+func level_up():
+	self.xp = 0
+	level += 1
+	add_ap(5)
+	update_stats()
+	full_hp()
+	full_mp()
+	full_energy()
+	print_stats()
+	
+	
+func full_hp():
+	self.hp = self.max_hp
+
+func full_mp():
+	self.mp = self.max_mp
+	
+func full_energy():
+	self.energy = self.max_energy
 
 func print_stats():
 	print("level: %d"%level)

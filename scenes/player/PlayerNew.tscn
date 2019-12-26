@@ -105,7 +105,6 @@ position = Vector2( 0, 20 )
 shape = SubResource( 3 )
 
 [node name="ClickableArea" type="Area2D" parent="." index="7"]
-editor/display_folded = true
 position = Vector2( -570, -296 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" index="0"]

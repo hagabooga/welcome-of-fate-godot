@@ -4,10 +4,16 @@ extends Control
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		open_close_inventory(false)
-	if Input.is_action_just_pressed("inventory") and !$QuestionBox.visible:
-		open_close_inventory()
-	if Input.is_action_just_pressed("skill") and !$QuestionBox.visible:
-		open_close_skill()
+	if !$QuestionBox.visible:
+		if Input.is_action_just_pressed("inventory"):
+			open_close_inventory()
+		if Input.is_action_just_pressed("skill"):
+			open_close_skill()
+		if Input.is_action_just_pressed("stats"):
+			open_close_stats()
+	
+	
+		
 	# hotkey 1-9-0 keyboard
 	
 
@@ -46,6 +52,12 @@ func open_close_skill(opposite = true, yes=false):
 				page.visible = false
 				break
 
+func open_close_stats(opposite = true, yes=false):
+	if opposite:
+		$Stats.visible = !$Stats.visible
+	else:
+		$Stats.visible = yes
+	
 
 func unfreeze_time():
 	$Date.unfreeze_time()

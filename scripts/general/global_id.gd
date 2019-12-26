@@ -20,6 +20,26 @@ var stats_nameToid = {
 	"xp" : 16
 }
 
+var stat_idToColor = {
+	0: Color.red,
+	1: Color.blue,
+	2: Color.green,
+	3: Color.cyan,
+	4: Color.blanchedalmond,
+	5: Color.violet,
+	6: Color.orangered,
+	7: Color.purple,
+	8: Color.greenyellow,
+	9: Color.lightcoral,
+	10: Color.aquamarine,
+	11: Color.aqua,
+	12: Color.gainsboro,
+	13: Color.red,
+	14: Color.blue,
+	15: Color.orange,
+	16: Color.yellow
+}
+
 
 
 var stat_idToName = {
@@ -39,7 +59,8 @@ var stat_idToName = {
 	13:"hp",
 	14:"mp",
 	15:"energy",
-	16:"xp"}
+	16:"xp"
+	}
 
 var item_base = {
 	0:"Neutral",

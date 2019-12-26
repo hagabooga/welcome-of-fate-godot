@@ -20,16 +20,17 @@ func _init():
 
 func update_stats():
 	self.max_hp = 225 + self.strength * 28 + level * (32 + level)
-	self.max_mp = 475 + self.intelligence * (35 + level) + level * (55 * level)
+	self.max_mp = 300 + self.intelligence * (26 + level) + level * (12 * level)
 	self.physical = 35 + self.strength + level * 3
 	self.magical = 70 + self.intelligence * 8 + level * 9
 	
 	self.armor = 15 + self.strength * 4 + self.agility * 2
-	self.resist = 25 + self.intelligence * 5
+	self.resist = 25 + self.intelligence * 5 + self.agility * 2
 	
 	self.hit = 90 + int(self.agility / 6 + self.luck / 5)
 	self.dodge = 1 + int(self.agility / 4 + self.luck / 6)
 	self.crit = 2 + int(self.agility / 6 + self.luck / 6); 
 	self.max_energy = 100
-	self.max_xp = (9+self.level) * self.level + 11*self.level
+	self.max_xp = pow(self.level,2) + 20*self.level
+	
 
