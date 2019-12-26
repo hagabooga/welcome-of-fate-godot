@@ -4,7 +4,10 @@
 [ext_resource path="res://scenes/player/PlayerNew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Warp.tscn" type="PackedScene" id=3]
 
-[node name="Main Menu" instance=ExtResource( 1 )]
+[node name="Main Menu" index="0" instance=ExtResource( 1 )]
+
+[node name="TileMaps" parent="." index="1"]
+editor/display_folded = true
 
 [node name="Player" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 0, 32 )
@@ -13,3 +16,5 @@ position = Vector2( 0, 32 )
 editor/display_folded = false
 position = Vector2( 0, 32 )
 map = "tutorial island"
+
+[editable path="Warp"]

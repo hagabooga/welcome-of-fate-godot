@@ -17,6 +17,12 @@ func update_energyBar(max_energy,energy):
 	$VBoxContainer/EnergyBar.value = energy
 	$VBoxContainer/EnergyBar/Label.text = "%s / %s"%[energy, max_energy]
 	$VBoxContainer/EnergyBar.max_value = max_energy
+	
+func update_xpBar(max_energy,energy):
+	$VBoxContainer/EXPBar.max_value = max_energy
+	$VBoxContainer/EXPBar.value = energy
+	$VBoxContainer/EXPBar/Label.text = "%s / %s"%[energy, max_energy]
+	$VBoxContainer/EXPBar.max_value = max_energy
 
 #func update_allBars():
 #	update_healthBar()

@@ -35,6 +35,7 @@ func _ready():
 	connect("on_hp_change", $UI/UIController/StatusBar, "update_healthBar")
 	connect("on_mp_change", $UI/UIController/StatusBar, "update_manaBar")
 	connect("on_energy_change", $UI/UIController/StatusBar, "update_energyBar")
+	connect("on_xp_change", $UI/UIController/StatusBar, "update_xpBar")
 	get_parent().player = self
 	can_move = true
 	set_script(load("res://scripts/player/stats/mage.gd"))
@@ -77,6 +78,9 @@ func check_load_hotkey():
 		play_all_body_anims($BodySprites/CharacterBody.current_anim, facing)
 
 func _process(delta):
+	if Input.is_action_just_pressed("v"):
+		add_xp(1)
+		print_stats()
 	if get_parent() == get_tree().get_root():
 		return
 	change_z_index_relative_to_tilemap()

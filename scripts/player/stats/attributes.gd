@@ -19,18 +19,35 @@ var atk_spd setget set_atkspd, get_atkspd
 var max_hp setget set_maxhp, get_maxhp
 var max_mp setget set_maxmp, get_maxmp
 var max_energy setget set_energy, get_energy
+var max_xp setget set_max_xp, get_max_xp
+
 var energy setget set_eng
 var hp setget set_hp, get_hp
 var mp setget set_mp
-var level = 1
-var job = "Attributes: No Name"
+var level : int = 1
+var job = "Attributes Job: No Name"
+
+var xp setget set_xp,get_xp
+
 
 signal on_hp_add(value, color_pos, color_neg)
 signal on_mp_add(value, color_pos, color_neg)
 signal on_energy_add(value, color_pos, color_neg)
+signal on_xp_add(value, color_pos, color_neg)
+
 signal on_hp_change(max_hp, current_hp)
 signal on_mp_change(max_mo, current_mp)
 signal on_energy_change(max_energy, current_energy)
+signal on_xp_change(max_xp, current_xp)
+
+
+func set_xp(val):
+	xp = val
+	emit_signal("on_xp_change", self.max_xp, xp)
+
+func get_xp():
+	return xp
+
 
 func get_hp():
 	return hp
@@ -82,6 +99,9 @@ func set_maxmp(val):
 func set_energy(val):
 	find_stat(15).base = val
 	emit_signal("on_energy_change", self.max_energy, energy)
+func set_max_xp(val):
+	find_stat(16).base = val
+	emit_signal("on_xp_change", self.max_xp, xp)
 	
 func get_str():
 	return find_stat(0).get_final_value()
@@ -115,9 +135,11 @@ func get_maxmp():
 	return find_stat(14).get_final_value()
 func get_energy():
 	return find_stat(15).get_final_value()
+func get_max_xp():
+	return find_stat(16).get_final_value()
 
 func _init():
-	for x in range(16):
+	for x in range(17):
 		stats.append(BaseStat.new(x))
 	hp = 0
 	mp = 0
@@ -148,8 +170,16 @@ func add_energy(val):
 	self.energy += val
 	if self.energy > self.max_energy:
 		self.energy = self.max_energy
-	emit_signal("on_energy_add", val, Color.yellow, Color.darkolivegreen)
+	emit_signal("on_energy_add", val, Color.orange, Color.darkolivegreen)
 	emit_signal("on_energy_change", self.max_energy, energy)
+
+func add_xp(val):
+	self.xp += val
+	if self.xp >= self.max_xp:
+		self.xp = 0
+		self.level += 1
+	emit_signal("on_xp_add", val, Color.yellow, Color.darkolivegreen)
+	emit_signal("on_xp_change", self.max_xp, self.xp)
 
 func set_stat(type, val):
 	find_stat(type).base = val
@@ -183,6 +213,7 @@ func update_stats():
 	pass
 
 func print_stats():
+	print("level: %d"%level)
 	for x in stats:
 		print("%s: %d"%[global_id.stat_idToName[x.type],x.final_val])
 		

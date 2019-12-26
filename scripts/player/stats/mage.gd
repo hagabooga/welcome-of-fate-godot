@@ -15,6 +15,8 @@ func _init():
 	mp = self.max_mp
 	energy = self.max_energy 
 	move_speed = 150
+	xp = 0
+	print_stats_bonuses()
 
 func update_stats():
 	self.max_hp = 225 + self.strength * 28 + level * (32 + level)
@@ -29,4 +31,5 @@ func update_stats():
 	self.dodge = 1 + int(self.agility / 4 + self.luck / 6)
 	self.crit = 2 + int(self.agility / 6 + self.luck / 6); 
 	self.max_energy = 100
+	self.max_xp = (9+self.level) * self.level + 11*self.level
 

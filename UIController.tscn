@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scenes/player/UIController.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=2]
@@ -87,6 +87,14 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=12]
 size = 32
 font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 13.0
+margin_right = 17.0
+margin_top = 17.0
+margin_bottom = 20.0
 
 [node name="UIController" type="Control"]
 margin_right = 960.0
@@ -279,6 +287,15 @@ icon = ExtResource( 14 )
 
 [node name="StatusBar" parent="." instance=ExtResource( 15 )]
 margin_top = -183.0
+
+[node name="Stats" type="Panel" parent="."]
+margin_right = 232.0
+margin_bottom = 331.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 [connection signal="pressed" from="Skills/CloseButton" to="Skills" method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Dialogue/Button" to="Dialogue" method="_on_Button_pressed"]
 

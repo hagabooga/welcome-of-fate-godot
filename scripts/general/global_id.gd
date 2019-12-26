@@ -16,7 +16,8 @@ var stats_nameToid = {
 	"atk speed" : 12,
 	"hp" : 13,
 	"mp" : 14,
-	"energy" : 15
+	"energy" : 15,
+	"xp" : 16
 }
 
 
@@ -37,7 +38,8 @@ var stat_idToName = {
 	12:"atk speed",
 	13:"hp",
 	14:"mp",
-	15:"energy"}
+	15:"energy",
+	16:"xp"}
 
 var item_base = {
 	0:"Neutral",
