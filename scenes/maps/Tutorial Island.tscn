@@ -84,7 +84,7 @@ position = Vector2( 64, 256 )
 position = Vector2( 900, 330 )
 
 [node name="Main Menu" type="Position2D" parent="Warps" index="1"]
-position = Vector2( 900, 330 )
+position = Vector2( 168.555, 269.156 )
 
 [node name="Warp" parent="Warps" index="2" instance=ExtResource( 6 )]
 map = "worm desert"

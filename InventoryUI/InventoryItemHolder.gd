@@ -32,6 +32,7 @@ func can_drop_data(position, data):
 
 func drop_data(position, data):
 	if data.cost_money_drop:
+		sound_player.play_sound(57,self)
 		inventory_ui.cash -= data.item.cost
 	if item == null:
 		set_item(data.item, data.count)
@@ -48,6 +49,7 @@ func drop_data(position, data):
 			print("swap items")
 	
 	emit_signal("dropped_data")
+	inventory_ui.emit_signal("on_item_add", item)
 	
 	
 func item_dropped_to_another():

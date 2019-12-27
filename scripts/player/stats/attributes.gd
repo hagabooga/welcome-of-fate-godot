@@ -30,7 +30,6 @@ var max_ap : int = 0
 
 func set_ap(val):
 	ap = val
-	print(ap)
 func add_ap(val : int):
 	ap += val
 	max_ap += val

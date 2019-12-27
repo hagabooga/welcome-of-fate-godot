@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/28_water.wav-f8a2e75960b7954079ce6ac9a267c977.sample"
+
+[deps]
+
+source_file="res://music/sound/28_water.wav"
+dest_files=[ "res://.import/28_water.wav-f8a2e75960b7954079ce6ac9a267c977.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -25,7 +25,6 @@ func learn_skill(skill : Skill):
 	emit_signal("on_skill_changed")
 	
 func update_skills():
-	print("YO")
 	for x in learned_skills:
 		match x.ming:
 			"fireball":

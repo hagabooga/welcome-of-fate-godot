@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/27_thunder.wav-262df6f836f0e8f0b31387502be32ead.sample"
+
+[deps]
+
+source_file="res://music/sound/27_thunder.wav"
+dest_files=[ "res://.import/27_thunder.wav-262df6f836f0e8f0b31387502be32ead.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

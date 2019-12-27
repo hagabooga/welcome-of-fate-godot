@@ -13,9 +13,6 @@ func _process(delta):
 			open_close_stats()
 	
 	
-		
-	# hotkey 1-9-0 keyboard
-	
 
 func create_question_box(question : String, target : Object, yes_func : String = "", no_func : String = ""):
 	$QuestionBox/Buttons/NoButton.emit_signal("pressed")

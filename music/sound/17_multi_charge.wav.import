@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/17_multi_charge.wav-9b47cf1260d1ed6057ac36aa8b6635f2.sample"
+
+[deps]
+
+source_file="res://music/sound/17_multi_charge.wav"
+dest_files=[ "res://.import/17_multi_charge.wav-9b47cf1260d1ed6057ac36aa8b6635f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -7,4 +7,4 @@ func _ready():
 
 func right_clicked():
 	$AnimationPlayer.play("pick_up")
-	
+	sound_player.play_sound(16, self)

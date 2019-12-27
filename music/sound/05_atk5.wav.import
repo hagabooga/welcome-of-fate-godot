@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/05_atk5.wav-3daba28b93ccdfcdb1ed336347e4f9a3.sample"
+
+[deps]
+
+source_file="res://music/sound/05_atk5.wav"
+dest_files=[ "res://.import/05_atk5.wav-3daba28b93ccdfcdb1ed336347e4f9a3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

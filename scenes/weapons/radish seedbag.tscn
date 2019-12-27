@@ -445,7 +445,7 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=20]
 radius = 22.9151
 
-[node name="Turnip Seedbag" index="0" instance=ExtResource( 1 )]
+[node name="Radish Seedbag" index="0" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
 frame = 161
 script = ExtResource( 3 )
@@ -476,4 +476,3 @@ position = Vector2( 33.5179, -10.361 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 20 )
-disabled = true

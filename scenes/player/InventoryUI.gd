@@ -13,7 +13,8 @@ var hotkey_index = 0 setget set_hotkey_index
 
 var cash  : int setget set_cash
 
-signal on_item_add
+signal on_item_add(item)
+signal on_inv_change
 
 func set_cash(x):
 	cash = x
@@ -54,7 +55,7 @@ func get_hotkey_item() -> Item:
 	return $HotkeyList/HBoxContainer.get_child(hotkey_index).item
 
 func _ready():
-	self.cash = 3500
+	self.cash = 500
 	set_new_inventory_size(30)
 	#set_other_inventory_size(10)
 	inventory_items = $InventoryList/GridContainer.get_children()
@@ -130,4 +131,5 @@ func add_item(item : Item):
 					x.count += 1
 					return
 	first_null.set_item(item)
-	emit_signal("on_item_add")
+	emit_signal("on_item_add", item)
+	emit_signal("on_inv_change")

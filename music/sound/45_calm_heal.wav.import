@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/45_calm_heal.wav-0604f095f4b102f523e6f0fb31541bee.sample"
+
+[deps]
+
+source_file="res://music/sound/45_calm_heal.wav"
+dest_files=[ "res://.import/45_calm_heal.wav-0604f095f4b102f523e6f0fb31541bee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

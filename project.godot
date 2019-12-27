@@ -257,6 +257,7 @@ world_objects_database="*res://world_objects/world_objects_database.gd"
 ItemHoldTexture="*res://ItemHoldTexture.tscn"
 ItemHotkeyPreview="*res://ItemHotkeyPreview.tscn"
 plant_database="*res://plant_database.gd"
+sound_player="*res://scenes/player/SoundPlayer.gd"
 
 [debug]
 

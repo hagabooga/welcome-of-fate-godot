@@ -16,7 +16,6 @@ func _init():
 	energy = self.max_energy 
 	move_speed = 150
 	xp = 0
-	print_stats_bonuses()
 
 func update_stats():
 	self.max_hp = 225 + self.strength * 28 + level * (32 + level)

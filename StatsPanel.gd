@@ -47,6 +47,4 @@ func _on_ApplyButton_pressed():
 		for x in increasers:
 			x.show_increasers(false)
 		$ApplyButton.visible = false
-			
-			
-			
+	sound_player.play_sound(43,self)

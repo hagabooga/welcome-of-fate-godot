@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/20_rank_up.wav-d5512b8584b78d40a64c0023fc0a893f.sample"
+
+[deps]
+
+source_file="res://music/sound/20_rank_up.wav"
+dest_files=[ "res://.import/20_rank_up.wav-d5512b8584b78d40a64c0023fc0a893f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

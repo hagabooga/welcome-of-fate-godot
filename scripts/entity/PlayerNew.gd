@@ -45,7 +45,8 @@ func _ready():
 	set_script(load("res://scripts/player/stats/mage.gd"))
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
-	$UI/UIController/Inventory.connect("on_item_add", self, "check_load_hotkey")
+	$UI/UIController/Inventory.connect("on_inv_change", self, "check_load_hotkey")
+	$UI/UIController/Inventory.connect("on_item_add", $LoadedItems, "add_item")
 	update_stats()
 
 	connect("on_ap_change", $UI/UIController/Stats, "able_use_ap")
@@ -66,7 +67,6 @@ func check_load_hotkey():
 		var obj = $LoadedItems.give_item(item.ming)
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
-		print("YO")
 		add_attrib(equipped_weapon.item.stats)
 		
 	elif item != null and (item.base == "weapon" or item.base == "tool") and equipped_weapon != null:
@@ -107,7 +107,8 @@ func _process(delta):
 func _physics_process(delta):
 	if is_dead():
 		return
-	if $UI/UIController/QuestionBox.visible || $AnimationPlayer.is_playing():
+	if $UI/UIController/QuestionBox.visible || $AnimationPlayer.current_animation == "fade_in" or\
+	$AnimationPlayer.current_animation == "fade_out":
 		play_all_idle("")
 		return
 	if can_move:
@@ -268,6 +269,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 				print("consumed: ", item.ming)
 				$UI/UIController/Inventory.get_hotkey_holder().consume()
 				item_activation(item.ming)
+				sound_player.play_sound(51,self)
 			elif item.placeable:# == "misc.":
 				var click_pos = get_parent().tilemap_soil.world_to_map(get_global_mouse_position())
 				var self_pos = get_parent().tilemap_soil.world_to_map(global_position)
@@ -275,6 +277,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 				world_globals.is_pos_adjacent(click_pos, self_pos):
 					var obj = get_parent().create_world_object(item.ming, click_pos)
 					$UI/UIController/Inventory.get_hotkey_holder().consume()
+					sound_player.play_sound(34,self)
 			elif equipped_weapon != null:
 				basic_attack(turn_towards_mouse())
 
@@ -291,3 +294,11 @@ func item_activation(i):
 
 func water_can_filled():
 	$UI/UIController/Inventory.set_watering_can_ui()
+
+func level_up():
+	.level_up()
+	$AnimationPlayer.play("level_up")
+
+
+func play_sound(id : int):
+	sound_player.play_sound(id, self)

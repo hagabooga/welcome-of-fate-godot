@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/06_atk6.wav-6a2b0d02b420f3e545922b7be49e8332.sample"
+
+[deps]
+
+source_file="res://music/sound/06_atk6.wav"
+dest_files=[ "res://.import/06_atk6.wav-6a2b0d02b420f3e545922b7be49e8332.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

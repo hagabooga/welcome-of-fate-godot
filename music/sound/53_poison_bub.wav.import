@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/53_poison_bub.wav-5eaf762f3d7ba6994322d15eefe14023.sample"
+
+[deps]
+
+source_file="res://music/sound/53_poison_bub.wav"
+dest_files=[ "res://.import/53_poison_bub.wav-5eaf762f3d7ba6994322d15eefe14023.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

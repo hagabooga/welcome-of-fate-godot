@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/03_atk3.wav-1c1858d1681b2fac82ce12255910290d.sample"
+
+[deps]
+
+source_file="res://music/sound/03_atk3.wav"
+dest_files=[ "res://.import/03_atk3.wav-1c1858d1681b2fac82ce12255910290d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
