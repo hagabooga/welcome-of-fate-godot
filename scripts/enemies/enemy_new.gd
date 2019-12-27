@@ -5,8 +5,6 @@ var item_spit_out_scene = load("res://ItemSpitOut.tscn")
 
 var item_drops = {}
 
-	
-
 func _ready():
 	self.atk_spd = 1
 

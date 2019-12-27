@@ -10,7 +10,7 @@ var did_click_action : bool = false
 
 func die() -> void:
 	if $BodySprites/CharacterBody.current_anim != "die":
-		play_all_body_anims("die", 8)
+		play_all_body_anims("die", 0,1)
 
 
 func check_animation():
@@ -31,6 +31,9 @@ func anim_finished(anim_name : String):
 		play_all_idle(facing)
 	elif anim_name == "die":
 		$AnimationPlayer.play("fade_in")
+
+func add_cash(val):
+	$UI/UIController/Inventory.cash += val
 
 func _ready():
 	$UI/UIController/Stats.set_stats(self)
@@ -68,6 +71,7 @@ func check_load_hotkey():
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
 		add_attrib(equipped_weapon.item.stats)
+		equipped_weapon.stats = self
 		
 	elif item != null and (item.base == "weapon" or item.base == "tool") and equipped_weapon != null:
 		if equipped_weapon.item.ming == item.ming:
@@ -79,6 +83,7 @@ func check_load_hotkey():
 		$BodySprites.add_child(obj)
 		equipped_weapon = obj
 		add_attrib(equipped_weapon.item.stats)
+		equipped_weapon.stats = self
 	elif (item != null or item == null) and equipped_weapon != null:
 		$BodySprites.remove_child(equipped_weapon)
 		remove_attrib(equipped_weapon.item.stats)
@@ -130,6 +135,7 @@ func left_click_obj(obj : Clickable):
 	if is_dead():
 		return
 	#print($BodySprites/CharacterBody.current_anim)
+	print(did_click_action)
 	if did_click_action or $AnimationPlayer.is_playing():# or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)

@@ -49,8 +49,10 @@ func drop_data(position, data):
 			print("swap items")
 	
 	emit_signal("dropped_data")
-	inventory_ui.emit_signal("on_item_add", item)
+	if inventory_ui  != null:
+		inventory_ui.emit_signal("on_item_add", item)
 	
 	
 func item_dropped_to_another():
 	clear_holder()
+	emit_signal("dropped_data")

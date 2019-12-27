@@ -20,8 +20,8 @@ func _init():
 func update_stats():
 	self.max_hp = 225 + self.strength * 28 + level * (32 + level)
 	self.max_mp = 300 + self.intelligence * (26 + level) + level * (12 * level)
-	self.physical = 35 + self.strength + level * 3
-	self.magical = 70 + self.intelligence * 8 + level * 9
+	self.physical = 1 + self.strength + level * 2
+	self.magical = 5 + self.intelligence * 2 + level * 3
 	
 	self.armor = 15 + self.strength * 4 + self.agility * 2
 	self.resist = 25 + self.intelligence * 5 + self.agility * 2

@@ -12,8 +12,9 @@ func clicked(tewl: Item, user : Entity):
 				for y in range(x.count):
 					items_to_add.append(x.item.ming)
 		queue_free()
-		var asd =  ClickAction.new(ADD_ITEM, items_to_add)
-		return asd
+	
+		sound_player.play_sound(58,self, false)
+		return ClickAction.new(ADD_ITEM, items_to_add)
 
 func right_clicked():
 	$Node2D.visible = true

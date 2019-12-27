@@ -32,9 +32,11 @@ func hovering_item(item : Item):
 		$Tooltip.visible = true
 		$Tooltip/VBoxContainer/Ming.text = item.ming.capitalize() 
 		$Tooltip/VBoxContainer/Desc.text = "%s (%s)"%[item.desc, item.type.capitalize()]
-		$Tooltip/VBoxContainer/Cost.text = "Cost: $%d"%item.cost
+		$Tooltip/VBoxContainer/Cost.text = "Cost: $%d"%item.cost 
+		if item.placeable:
+			$Tooltip/VBoxContainer/Cost.text += " (Placeable)" 
 		$Tooltip/VBoxContainer/Eff_Desc.text = item.eff_desc
-		var s = ""
+		var s = "\n"
 		if item is ToolItem:
 			for x in item.stats.stats:
 				var final = x.final_val

@@ -64,8 +64,7 @@ func create_world_object(ming : String, pos : Vector2):
 	$WorldObjects.add_child(obj)
 	obj.global_position = tilemap_grass.map_to_world(pos)
 	obj.z_index = pos.y - 1
-	obj.connect("clicked", player, "left_click_obj", [obj])
-	obj.connect("right_clicked", player, "right_click_obj", [obj])
+	connect_click_to_player(obj)
 	obj.tile_pos = pos
 	var size : Vector2 = obj.get_sprite_map_size()
 	for row in range(size.x):

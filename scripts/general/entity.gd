@@ -55,7 +55,7 @@ func use_energy(cost) -> void:
 		self.energy -= cost
 
 func can_use_energy(cost, offset = 0) -> bool:
-	return self.energy > cost - offset
+	return self.energy >= cost - offset
 
 func _on_RegenTimer_timeout():
 	if self.energy < self.max_energy: 

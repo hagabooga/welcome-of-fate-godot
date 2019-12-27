@@ -5,13 +5,15 @@ class_name Weapon
 var damage : Damage setget ,get_damage
 var targets_hit = []
 var pierce = 1
+
+var stats : Entity = null
 var item : Item = null
 
 func _ready():
 	$Hitbox/CollisionShape2D.disabled = true
 
 func get_damage() -> Damage:
-	return null
+	return Damage.new(stats, stats.physical)
 	
 func attack_effect(a):
 	pass

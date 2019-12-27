@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/player/hoe.png" type="Texture" id=2]
 [ext_resource path="res://scenes/weapons/hoe.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "cast_down"
 length = 6.0
 tracks/0/type = "value"
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 27, 32 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -35,7 +35,7 @@ tracks/0/keys = {
 "values": [ 14, 19 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "cast_right"
 length = 6.0
 tracks/0/type = "value"
@@ -51,7 +51,7 @@ tracks/0/keys = {
 "values": [ 40, 45 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 length = 6.0
 step = 1.0
 tracks/0/type = "value"
@@ -67,7 +67,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "hack_down"
 length = 4.0
 step = 1.0
@@ -120,7 +120,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 resource_name = "hack_left"
 length = 4.0
 step = 1.0
@@ -173,7 +173,7 @@ tracks/3/keys = {
 "values": [ -180.359, -231.426, -257.216, -293.321 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 resource_name = "hack_up"
 length = 5.0
 step = 1.0
@@ -226,7 +226,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "cast_down"
 length = 6.0
 tracks/0/type = "value"
@@ -242,7 +242,7 @@ tracks/0/keys = {
 "values": [ 27, 32 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=9]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -257,7 +257,7 @@ tracks/0/keys = {
 "values": [ 26 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -272,7 +272,7 @@ tracks/0/keys = {
 "values": [ 13 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=11]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -287,7 +287,7 @@ tracks/0/keys = {
 "values": [ 39 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -302,7 +302,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=13]
 length = 5.0
 step = 1.0
 tracks/0/type = "value"
@@ -318,7 +318,7 @@ tracks/0/keys = {
 "values": [ 183, 184, 185, 186, 187 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=14]
 length = 5.0
 step = 1.0
 tracks/0/type = "value"
@@ -334,7 +334,7 @@ tracks/0/keys = {
 "values": [ 170, 171, 172, 173, 174 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=15]
 length = 5.0
 step = 1.0
 tracks/0/type = "value"
@@ -350,7 +350,7 @@ tracks/0/keys = {
 "values": [ 196, 197, 198, 199, 200 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=16]
 length = 5.0
 step = 1.0
 tracks/0/type = "value"
@@ -366,7 +366,7 @@ tracks/0/keys = {
 "values": [ 157, 158, 159, 160, 160, 161 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=17]
 length = 8.0
 loop = true
 step = 1.0
@@ -383,7 +383,7 @@ tracks/0/keys = {
 "values": [ 131, 132, 133, 134, 135, 136, 137, 138 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=18]
 length = 8.0
 loop = true
 step = 1.0
@@ -400,7 +400,7 @@ tracks/0/keys = {
 "values": [ 118, 119, 120, 121, 122, 123, 124, 125 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=19]
 length = 8.0
 loop = true
 step = 1.0
@@ -417,7 +417,7 @@ tracks/0/keys = {
 "values": [ 144, 145, 146, 147, 148, 149, 150, 151 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=20]
 length = 8.0
 loop = true
 step = 1.0
@@ -434,39 +434,39 @@ tracks/0/keys = {
 "values": [ 105, 106, 107, 108, 109, 110, 111, 112 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=21]
 radius = 12.2459
 
-[node name="Hoe" index="0" instance=ExtResource( 1 )]
+[node name="Hoe" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
 frame = 171
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/cast_down = SubResource( 4 )
-anims/cast_left = SubResource( 5 )
-anims/cast_right = SubResource( 6 )
-anims/cast_up = SubResource( 7 )
-anims/hack_down = SubResource( 8 )
-anims/hack_left = SubResource( 9 )
-anims/hack_up = SubResource( 10 )
-anims/hoe_anim = SubResource( 11 )
-anims/idle_down = SubResource( 12 )
-anims/idle_left = SubResource( 13 )
-anims/idle_right = SubResource( 14 )
-anims/idle_up = SubResource( 15 )
-anims/slash_down = SubResource( 16 )
-anims/slash_left = SubResource( 17 )
-anims/slash_right = SubResource( 18 )
-anims/slash_up = SubResource( 19 )
-anims/walk_down = SubResource( 20 )
-anims/walk_left = SubResource( 21 )
-anims/walk_right = SubResource( 22 )
-anims/walk_up = SubResource( 23 )
+anims/cast_down = SubResource( 1 )
+anims/cast_left = SubResource( 2 )
+anims/cast_right = SubResource( 3 )
+anims/cast_up = SubResource( 4 )
+anims/hack_down = SubResource( 5 )
+anims/hack_left = SubResource( 6 )
+anims/hack_up = SubResource( 7 )
+anims/hoe_anim = SubResource( 8 )
+anims/idle_down = SubResource( 9 )
+anims/idle_left = SubResource( 10 )
+anims/idle_right = SubResource( 11 )
+anims/idle_up = SubResource( 12 )
+anims/slash_down = SubResource( 13 )
+anims/slash_left = SubResource( 14 )
+anims/slash_right = SubResource( 15 )
+anims/slash_up = SubResource( 16 )
+anims/walk_down = SubResource( 17 )
+anims/walk_left = SubResource( 18 )
+anims/walk_right = SubResource( 19 )
+anims/walk_up = SubResource( 20 )
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2( -23.6668, 21.069 )
 rotation = -5.11941
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 21 )

@@ -43,8 +43,6 @@ mouse_filter = 2
 script = ExtResource( 1 )
 
 [node name="InventoryList" parent="." instance=ExtResource( 2 )]
-actual_slots = 50
-item_column_size = 10
 
 [node name="HotkeyList" type="Panel" parent="."]
 editor/display_folded = true

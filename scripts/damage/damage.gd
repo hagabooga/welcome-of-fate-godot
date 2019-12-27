@@ -9,7 +9,7 @@ var knockback
 var hitstun_multi
 var stun
 var type
-var dealer
+var dealer 
 
 enum {physical, magical}
 

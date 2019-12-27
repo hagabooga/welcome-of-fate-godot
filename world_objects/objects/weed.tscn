@@ -67,13 +67,11 @@ polygon = PoolVector2Array( -8.99159, -9.92149, -14.9984, -1.89315, -14.9014, 6.
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 3 )
-vframes = 1
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/fade_away = SubResource( 1 )
 
 [node name="UsedSprite" parent="." index="3"]
-visible = false
 texture = ExtResource( 5 )
 vframes = 2
 region_rect = Rect2( 0, 0, 32, 56 )

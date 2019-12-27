@@ -101,7 +101,7 @@
     "base": "tool",
     "type": "axe",
     "hack": true,
-    "stats": { "physical": 8, "atk speed": 1.3 },
+    "stats": { "physical": 16, "atk speed": 1.3 },
     "activate": 1
   },
   "hammer": {
@@ -112,7 +112,7 @@
     "base": "tool",
     "type": "hammer",
     "hack": true,
-    "stats": { "physical": 10, "atk speed": 1 },
+    "stats": { "physical": 20, "atk speed": 1 },
     "activate": 1
   },
   "turnip seedbag": {
@@ -150,11 +150,11 @@
     "type": "wand",
     "activate": 1,
     "stats": {
-      "intelligence": 3,
-      "mp": 150,
-      "magical": 20,
-      "physical": 7,
-      "atk speed": 1
+      "intelligence": 1,
+      "mp": 50,
+      "magical": 8,
+      "physical": 4,
+      "atk speed": 1.1
     }
   },
   "katana": {

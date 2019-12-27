@@ -67,7 +67,8 @@ func _ready():
 	add_item(item_database.make_item("hammer"))
 	add_item(item_database.make_item("sickle"))
 	add_item(item_database.make_item("magic wand"))
-#	for x in range(30):
+	for x in range(30):
+		add_item(item_database.make_item("red flower"))
 #		#add_item(item_database.make_item("turnip"))
 #		add_item(item_database.make_item("health potion"))
 #		add_item(item_database.make_item("mana potion"))
