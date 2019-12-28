@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://world_objects/objects/chest.gd"
 }, {
+"base": "Reference",
+"class": "ClickAction",
+"language": "GDScript",
+"path": "res://ClickAction.gd"
+}, {
 "base": "CollisionObject2D",
 "class": "Clickable",
 "language": "GDScript",
@@ -205,6 +210,7 @@ _global_script_class_icons={
 "BaseStat": "",
 "Bed": "",
 "Chest": "",
+"ClickAction": "",
 "Clickable": "",
 "Damage": "",
 "DamagePopup": "",

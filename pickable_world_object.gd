@@ -11,6 +11,4 @@ func right_clicked():
 	remove_from_map()
 	$AnimationPlayer.play("pick_up")
 	sound_player.play_sound(16, self)
-	
-	
-
+	return [ClickAction.new(ClickAction.PLAY_ANIM, ["slash", 2])]

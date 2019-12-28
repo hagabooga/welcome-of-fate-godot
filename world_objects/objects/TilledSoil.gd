@@ -15,12 +15,12 @@ func clicked(tewl : Item, user : Entity):
 			if plant.has_grown():
 				plant = null
 				$Plant.get_child(0).queue_free()
-				return ClickAction.new(NONE)
+				return [ClickAction.new(ClickAction.NONE)]
 		elif tewl.type == "hoe":
 			if $Seed.visible:
 				$Seed.visible = false
 				plant = null
-				return ClickAction.new(NONE)
+				return [ClickAction.new(ClickAction.NONE)]
 	if $AnimationPlayer.is_playing() || tewl == null:
 		return
 	if tewl.type == "seedbag" and !$Seed.visible and plant == null and ($Sprite.frame == 1 or $Sprite.frame == 2):
@@ -30,7 +30,7 @@ func clicked(tewl : Item, user : Entity):
 		plant = pl
 		print("plant seeded: ", pl.ming)
 		$Plant.modulate.a = 1
-		return ClickAction.new(CONSUME)
+		return [ClickAction.new(ClickAction.CONSUME)]
 	else:
 		#var count = get_parent().get_parent().used_cells.count(tile_pos)
 		#if (count < 1) and
@@ -43,7 +43,7 @@ func clicked(tewl : Item, user : Entity):
 				sound_player.play_sound(28,self)
 				tewl.current_amount -= 1
 			$Sprite.frame += 1
-			return ClickAction.new(NONE)
+			return [ClickAction.new(ClickAction.NONE)]
 	return null
 
 func right_clicked():
@@ -57,7 +57,8 @@ func right_clicked():
 		sprite.centered = false
 		$PlantPickup.add_child(sprite)
 		$AnimationPlayer.play("plant_pickup")
-		return ClickAction.new(ADD_ITEM, [plant.ming])
+		sound_player.play_sound(16,self)
+		return [ClickAction.new(ClickAction.ADD_ITEM, [plant.ming]), ClickAction.new(ClickAction.PLAY_ANIM, ["slash", 2])]
 
 func grow():
 	if $Sprite.frame == 2:

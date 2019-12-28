@@ -123,13 +123,21 @@ func _physics_process(delta):
 func add_item(ming):
 	$UI/UIController/Inventory.add_item(item_database.make_item(ming))
 
-func click_action(click_action):
-	if click_action != null:
-		if click_action.action == Clickable.ADD_ITEM:
-			for item_name in click_action.data:
+func check_click_actions(actions):
+	if actions != null:
+		for x in actions:
+			click_action(x)
+
+func click_action(ca : ClickAction):
+	match ca.action:
+		ClickAction.ADD_ITEM:
+			for item_name in ca.data:
 				$UI/UIController/Inventory.add_item(item_database.make_item(item_name))
-		if click_action.action == Clickable.CONSUME:
+		ClickAction.CONSUME:
 			get_hotkey_holder().consume()
+		ClickAction.PLAY_ANIM:
+			play_all_body_anims(ca.data[0],facing,ca.data[1],false)
+		
 
 func left_click_obj(obj : Clickable):
 	if is_dead():
@@ -144,7 +152,7 @@ func left_click_obj(obj : Clickable):
 		var check_click = obj.check_clicked(item, self)
 		if check_click != null:
 			did_click_action = true
-		click_action(check_click)
+		check_click_actions(check_click)
 		turn_towards_mouse()
 		special_click_effects(obj)
 
@@ -155,7 +163,7 @@ func right_click_obj(obj : Clickable):
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	if (obj.is_self_adjacent(pos)):
-		click_action(obj.right_clicked())
+		check_click_actions(obj.right_clicked())
 		turn_towards_mouse()
 		special_right_click_effects(obj)
 
@@ -204,7 +212,7 @@ func play_all_idle(last_anim) -> void:
 			x.play_anim("idle", facing)
 	can_move = true
 
-func play_all_body_anims(anim, dir, speed_ratio = 8, can_mv = true) -> void:
+func play_all_body_anims(anim, dir, speed_ratio = 1, can_mv = true) -> void:
 	for x in $BodySprites.get_children():
 		x.play_anim(anim, dir, speed_ratio)
 	can_move = can_mv

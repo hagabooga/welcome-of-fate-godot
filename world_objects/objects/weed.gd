@@ -5,4 +5,4 @@ func clicked(tewl: Item, user : Entity):
 		.clicked(tewl, user)
 		$AnimationPlayer.play("used")
 		sound_player.play_sound(18,self,false)
-		return ClickAction.new(NONE)
+		return [ClickAction.new(ClickAction.NONE)]

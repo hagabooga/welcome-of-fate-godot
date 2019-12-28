@@ -13,7 +13,7 @@ func clicked(tewl: Item, user : Entity):
 					items_to_add.append(x.item.ming)
 		destroy_and_remove_from_map()
 		sound_player.play_sound(58,self, false)
-		return ClickAction.new(ADD_ITEM, items_to_add)
+		return [ClickAction.new(ClickAction.ADD_ITEM, items_to_add)]
 
 func right_clicked():
 	$Node2D.visible = true

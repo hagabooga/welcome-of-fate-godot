@@ -53,7 +53,7 @@ func setup():
 		player.global_position = $Warps.find_node(last_level).global_position
 		#map_data.add_map_data(self)
 	#print(map_data.data)
-	print(used_cells)
+	#print(used_cells)
 
 func connect_scene_world_objects():
 	for x in $WorldObjects.get_children():
@@ -81,7 +81,7 @@ func _process(delta):
 		
 func remove_cell(pos : Vector2):
 	#print("erasing: ", pos)
-	#used_cells.erase(pos)
+	used_cells.erase(pos)
 	world_objs.erase(pos)
 
 func create_world_object(ming : String, pos : Vector2) -> WorldObject:

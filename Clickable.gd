@@ -7,22 +7,20 @@ signal right_clicked
 
 var tile_pos : Vector2 setget set_tile_pos
 
-enum {NONE, ADD_ITEM, CREATE_QUESTION_BOX, OPEN_DIALOGUE, CONSUME}
-
 func set_tile_pos(pos : Vector2):
 	tile_pos = pos
 
 # if clicked returns null, sdsno action occurs, allowing the player to cancel the animation
 # with another click right away
-func clicked(tewl : Item, user : Entity) -> ClickAction:
-	return ClickAction.new()
+func clicked(tewl : Item, user : Entity) -> Array:
+	return [ClickAction.new()]
 	
 func check_clicked(tewl : Item, user : Entity):
 	if tewl is ToolItem and tewl != null and user.can_use_energy(tewl.energy_cost):
 		return clicked(tewl, user)
 
-func right_clicked():
-	pass
+func right_clicked() -> Array:
+	return [ClickAction.new()]
 
 func is_self_adjacent(pos : Vector2) -> bool:
 	var size = get_sprite_map_size()
@@ -53,10 +51,3 @@ func get_sprite_map_size() -> Vector2:
 	else:
 		return Vector2($Sprite.texture.get_width()/32, $Sprite.texture.get_height()/32)
 		
-class ClickAction:
-	var action
-	var data
-	
-	func _init(a:=NONE,d = null):
-		action = a
-		data = d
