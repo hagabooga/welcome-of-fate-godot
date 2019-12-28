@@ -29,6 +29,7 @@ func play_sound(id : int, node : Node, keep := true):
 	var sfx := AudioStreamPlayer2D.new()
 	sfx.set_stream(sounds[id])
 	sfx.connect("finished",sfx,"queue_free")
+	sfx.volume_db = -10
 	if keep:
 		node.add_child(sfx)
 	else:

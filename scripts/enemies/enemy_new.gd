@@ -24,6 +24,7 @@ func take_damage(dmg : Damage) -> void:
 		.take_damage(dmg)
 		if hp <= 0:
 			die()
+			dmg.dealer.add_xp(5)
 	
 func deal_damage_to_target() -> void:
 	if $EnemyMovement.target == null:

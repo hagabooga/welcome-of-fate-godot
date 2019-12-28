@@ -1,8 +1,7 @@
 extends Clickable
 
 class_name WorldObject
-
-var ming : String
+var ming := "World Object: No Name"
 
 func _on_WorldObject_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -25,8 +24,25 @@ func get_sprite_map_size() -> Vector2:
 	else:
 		return Vector2.ONE
 
-func _on_WorldObject_tree_exiting():
+func destroy_and_remove_from_map():
+	remove_from_map()
+	queue_free()
+	
+func remove_from_map():
 	get_parent().get_parent().remove_cell(tile_pos)
+
+
+func save_data() -> Array:
+	return []
+
+func load_data(data : Array) -> void:
+	pass
+
+
+func _on_WorldObject_tree_exiting():
+
+	pass
+	
 
 
 func _on_WorldObject_tree_exited():

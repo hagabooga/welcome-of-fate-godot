@@ -32,8 +32,11 @@ func clicked(tewl : Item, user : Entity):
 		$Plant.modulate.a = 1
 		return ClickAction.new(CONSUME)
 	else:
-		var count = get_parent().get_parent().used_cells.count(tile_pos)
-		if (count < 1) and (($Sprite.frame == 0 and tewl.type == "hoe") or ($Sprite.frame == 1 and tewl.type == "watering can")):
+		#var count = get_parent().get_parent().used_cells.count(tile_pos)
+		#if (count < 1) and
+		#print(get_parent().get_parent().used_cells)
+		var something_ontop = !tile_pos in get_parent().get_parent().used_cells
+		if  something_ontop and (($Sprite.frame == 0 and tewl.type == "hoe") or ($Sprite.frame == 1 and tewl.type == "watering can")):
 			if tewl.type == "watering can":
 				if !tewl.can_pour():
 					return
@@ -86,4 +89,22 @@ func plant_pickup():
 		return
 	if $PlantPickup.get_child_count() != 0:
 		$PlantPickup.get_child(0).queue_free()
-		
+
+
+func save_data() -> Array:
+	if $Plant.get_child_count() > 0:
+		var dup = $Plant.get_child(0).duplicate()
+		print(dup)
+		print(dup.get_meta("death"))
+	return [
+		$Plant.get_child(0).duplicate() if $Plant.get_child_count() > 0 else null,
+		$Seed.visible,
+		$Sprite.frame
+	]
+	
+func load_data(data : Array) -> void:
+	if data[0] != null:
+		$Plant.add_child(data[0])
+		#print(data[0].days_past)
+	$Seed.visible = data[1]
+	$Sprite.frame = data[2]

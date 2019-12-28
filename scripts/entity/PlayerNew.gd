@@ -95,8 +95,8 @@ func check_load_hotkey():
 		
 
 func _process(delta):
-	if Input.is_action_just_pressed("v"):
-		add_xp(20)
+#	if Input.is_action_just_pressed("v"):
+#		add_xp(20)
 	if get_parent() == get_tree().get_root():
 		return
 	change_z_index_relative_to_tilemap()

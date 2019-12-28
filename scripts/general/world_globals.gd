@@ -31,7 +31,7 @@ signal next_day
 signal time_increased
 signal hour_increased
 
-var time_delta = 5
+var time_delta = 3
 var time = time_delta
 var player 
 
@@ -41,8 +41,8 @@ func _ready():
 	pass
 
 func _process(delta):
-#	if Input.is_action_just_pressed("ctrl"):
-#		next_day()
+	if Input.is_action_just_pressed("ctrl"):
+		next_day()
 	#i(time)
 	if time_stop:
 		return

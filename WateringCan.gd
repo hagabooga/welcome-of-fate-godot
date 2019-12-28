@@ -12,7 +12,7 @@ func set_amount(val):
 	emit_signal("on_set_amount")
 	
 func can_pour():
-#	return true
+	return true
 	return current_amount > 0
 
 func _init(ming : String, data : Dictionary).(ming, data):

@@ -11,8 +11,7 @@ func clicked(tewl: Item, user : Entity):
 			if x.item != null:
 				for y in range(x.count):
 					items_to_add.append(x.item.ming)
-		queue_free()
-	
+		destroy_and_remove_from_map()
 		sound_player.play_sound(58,self, false)
 		return ClickAction.new(ADD_ITEM, items_to_add)
 
@@ -21,6 +20,7 @@ func right_clicked():
 
 func _ready():
 	$Node2D/Control/InventoryList.resize_to_holder_amount(Control.PRESET_CENTER)
+	ming = "chest"
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -33,4 +33,10 @@ func _on_Button_pressed():
 func _on_CloseInvArea_body_exited(body):
 	if body.name == "Player":
 		_on_Button_pressed()
+
+func save_data() -> Array:
+	return []
+
+func load_data(data : Array) -> void:
+	pass
 

@@ -152,8 +152,8 @@
     "stats": {
       "intelligence": 1,
       "mp": 50,
-      "magical": 8,
-      "physical": 4,
+      "magical": 4,
+      "physical": 2,
       "atk speed": 1.1
     }
   },

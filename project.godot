@@ -258,6 +258,7 @@ ItemHoldTexture="*res://ItemHoldTexture.tscn"
 ItemHotkeyPreview="*res://ItemHotkeyPreview.tscn"
 plant_database="*res://plant_database.gd"
 sound_player="*res://scenes/player/SoundPlayer.gd"
+map_data="*res://map_data.gd"
 
 [debug]
 
@@ -514,6 +515,10 @@ stats={
 2d_physics/layer_1="Enviroment"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=999999
 
 [rendering]
 

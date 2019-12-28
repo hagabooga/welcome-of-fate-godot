@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/maps/Tutorial Island.gd" type="Script" id=2]
 [ext_resource path="res://world_objects/objects/bed.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world_objects/objects/chest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://world_objects/clean booga.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world_objects/objects/clean booga.tscn" type="PackedScene" id=5]
 [ext_resource path="res://world_objects/objects/sell bin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Warp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/animals/chicken.tscn" type="PackedScene" id=8]
@@ -80,13 +80,12 @@ position = Vector2( 64, 256 )
 
 [node name="Sell Bin" parent="WorldObjects" index="4" instance=ExtResource( 6 )]
 position = Vector2( 320, 160 )
-input_pickable = true
 
 [node name="Worm Desert" type="Position2D" parent="Warps" index="0"]
 position = Vector2( 900, 330 )
 
 [node name="Main Menu" type="Position2D" parent="Warps" index="1"]
-position = Vector2( 923.357, 335.012 )
+position = Vector2( 541.105, 163.42 )
 
 [node name="Warp" parent="Warps" index="2" instance=ExtResource( 7 )]
 map = "worm desert"
