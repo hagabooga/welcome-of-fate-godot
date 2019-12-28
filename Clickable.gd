@@ -12,10 +12,10 @@ func set_tile_pos(pos : Vector2):
 
 # if clicked returns null, sdsno action occurs, allowing the player to cancel the animation
 # with another click right away
-func clicked(tewl : Item, user : Entity) -> Array:
+func clicked(tewl : Item, user : Attributes) -> Array:
 	return [ClickAction.new()]
 	
-func check_clicked(tewl : Item, user : Entity):
+func check_clicked(tewl : Item, user : Attributes):
 	if tewl is ToolItem and tewl != null and user.can_use_energy(tewl.energy_cost):
 		return clicked(tewl, user)
 

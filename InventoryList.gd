@@ -11,8 +11,6 @@ export(String) var list_name : String
 export(int) var item_column_size = 10
 
 
-
-
 func _ready():
 	set_item_holder()
 	$GridContainer.columns = item_column_size
@@ -25,7 +23,6 @@ func _ready():
 func set_item_holder():
 	item_holder = load("res://InventoryUI/InventoryItemHolder.tscn")
 	
-
 func set_size(val):
 	size = val
 	for x in range(size):
@@ -42,6 +39,10 @@ func resize_to_holder_amount(preset):
 	rect_position.y -= rect_size.y
 	
 	set_anchors_and_margins_preset(preset,3)
+
+func get_holders() -> Array:
+	return $GridContainer.get_children()
+	
 
 func add_item(item : Item):
 	var first_null = null

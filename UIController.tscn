@@ -151,6 +151,7 @@ margin_bottom = 227.0
 mouse_filter = 2
 
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -243.0
@@ -158,6 +159,15 @@ margin_bottom = 0.0
 
 [node name="InventoryList" parent="Inventory" index="0"]
 visible = false
+
+[node name="HotkeyList" parent="Inventory" index="1"]
+editor/display_folded = false
+
+[node name="HBoxContainer" parent="Inventory/HotkeyList" index="0"]
+editor/display_folded = false
+
+[node name="ItemHolder" parent="Inventory/HotkeyList/HBoxContainer" index="0"]
+editor/display_folded = false
 
 [node name="CashAmount" parent="Inventory" index="2"]
 margin_left = 654.277

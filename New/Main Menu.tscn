@@ -6,15 +6,13 @@
 
 [node name="Main Menu" instance=ExtResource( 1 )]
 
-[node name="TileMaps" parent="." index="1"]
-editor/display_folded = true
-
 [node name="Player" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 0, 32 )
 
 [node name="Warp" parent="." index="5" instance=ExtResource( 3 )]
 editor/display_folded = false
 position = Vector2( 0, 32 )
+instant = true
 map = "tutorial island"
 
 [editable path="Warp"]

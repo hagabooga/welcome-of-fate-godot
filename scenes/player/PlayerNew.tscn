@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/general/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/player/stats/mage.gd" type="Script" id=2]
@@ -38,6 +38,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "on_full_fade_in" ],
+"method": "emit_signal"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 3.0
@@ -60,7 +74,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2 ),
+"times": PoolRealArray( 3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -110,6 +124,50 @@ tracks/2/keys = {
 }, {
 "args": [ 20 ],
 "method": "play_sound"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "next_day_fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D/Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "fade_out", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_next_day"
 } ]
 }
 
@@ -188,6 +246,7 @@ visible = false
 texture = ExtResource( 7 )
 vframes = 6
 hframes = 10
+frame = 53
 region_enabled = true
 region_rect = Rect2( 0, 64, 1280, 1536 )
 
@@ -195,6 +254,7 @@ region_rect = Rect2( 0, 64, 1280, 1536 )
 anims/fade_in = SubResource( 5 )
 anims/fade_out = SubResource( 6 )
 anims/level_up = SubResource( 7 )
+anims/next_day_fade_in = SubResource( 8 )
 
 [node name="UI" type="Node2D" parent="." index="10"]
 z_index = 4094
@@ -214,6 +274,7 @@ volume_db = -5.0
 script = ExtResource( 10 )
 [connection signal="input_event" from="ClickableArea" to="." method="_on_ClickableArea_input_event"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
 [connection signal="finished" from="UI/BGM" to="UI/BGM" method="_on_BGM_finished"]
 
 [editable path="RangeOfSight"]

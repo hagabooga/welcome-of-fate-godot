@@ -250,7 +250,7 @@ func update_stats():
 func level_up():
 	self.xp = 0
 	level += 1
-	add_ap(5)
+	add_ap(3)
 	update_stats()
 	full_hp()
 	full_mp()

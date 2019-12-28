@@ -8,7 +8,7 @@ var plant : Plant = null
 func _ready():
 	world_globals.connect("next_day", self, "grow")
 
-func clicked(tewl : Item, user : Entity):
+func clicked(tewl : Item, user : Attributes):
 	var energy_cost = 4
 	if plant != null:
 		if tewl.type == "sickle":

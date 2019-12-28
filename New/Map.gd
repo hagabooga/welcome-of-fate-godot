@@ -51,9 +51,11 @@ func setup():
 	create_water_source()
 	if last_level != "":
 		player.global_position = $Warps.find_node(last_level).global_position
+	visible = true
 		#map_data.add_map_data(self)
 	#print(map_data.data)
 	#print(used_cells)
+	print(used_cells)
 
 func connect_scene_world_objects():
 	for x in $WorldObjects.get_children():
@@ -104,7 +106,7 @@ func create_world_object(ming : String, pos : Vector2) -> WorldObject:
 	if ming != "WaterSource": #and ming != "TilledSoil"
 		world_objs[pos] = obj.ming
 		world_objs_ref[pos] = obj
-	else:
+	if ming == "TilledSoil":
 		tilled_soil_objs.append(obj)
 	return obj
 
@@ -133,15 +135,18 @@ func create_daily_objects():
 			create_world_object(rand_choice, x)
 	# Put world objects on soil (not on edges of soil)
 	for x in tilemap_soil.get_used_cells():
+		#print(x)
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
 			var i = randi()%100
-			if !(x in used_cells) and i < 1 and is_tilled_soil_good_has_plant(x):
+			print(!(x in used_cells) and is_tilled_soil_good_has_plant(x))
+			if !(x in used_cells) and i < 5 and is_tilled_soil_good_has_plant(x):
+				names = ["branch", "rock", "weed"]
 				var rand_choice = names[randi() % names.size()]
 				create_world_object(rand_choice, x)
 
 func is_tilled_soil_good_has_plant(pos):
 	var plants = []
 	for x in tilled_soil_objs:
-		if pos == x.tile_pos and x.plant == null and x.find_node("Seed").visible == false:
+		if pos == x.tile_pos and x.plant == null and !x.find_node("Seed").visible:
 			return true
 	return false

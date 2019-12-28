@@ -25,3 +25,20 @@ func _on_Button_pressed():
 func _on_CloseInvArea_body_exited(body):
 	if body.name == "Player":
 		_on_Button_pressed()
+
+func save_data() -> Array:
+	var items = []
+	var holders = $Node2D/Control/InventoryList.get_holders()
+	for i in range(len(holders)):
+		var holder = holders[i]
+		items.append([holder.item, holder.count] if holder.item != null else null)
+	return items
+
+func load_data(data : Array) -> void:
+	var holders = $Node2D/Control/InventoryList.get_holders()
+	for i in range(len(data)):
+		var holder_data = data[i]
+		if holder_data != null:
+			var holder = holders[i]
+			holder.item = data[i][0]
+			holder.count = data[i][1]

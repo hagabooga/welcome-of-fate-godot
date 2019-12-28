@@ -55,6 +55,9 @@ func clear_holder():
 	$ItemTexture.modulate.a = 1
 	$ItemTexture.texture = null
 
+func disable(yes : bool):
+	disabled = yes
+
 
 func _on_ItemHolder_gui_input(event):
 	if event is InputEventMouseButton:

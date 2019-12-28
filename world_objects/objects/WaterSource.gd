@@ -1,6 +1,6 @@
 extends WorldObject
 
-func clicked(tewl : Item, user : Entity):
+func clicked(tewl : Item, user : Attributes):
 	if tewl.type == "watering can" and tewl.current_amount != tewl.capacity:
 		tewl.current_amount = tewl.capacity
 		user.use_energy(tewl.energy_cost)

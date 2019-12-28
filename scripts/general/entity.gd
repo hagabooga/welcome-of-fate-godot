@@ -7,8 +7,12 @@ var damage_popup = load("res://scenes/general/DamagePopup.tscn")
 
 var ming = "Entity No Name"
 export(int) var move_speed
-var can_move : bool = true
+var can_move := true setget set_can_move
 var velocity = Vector2.ZERO
+
+
+func set_can_move(val : bool):
+	can_move = val
 
 func _ready():
 	connect("on_hp_add", self, "make_damage_popup")

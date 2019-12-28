@@ -7,6 +7,8 @@ var facing = down setget set_facing
 var equipped_weapon : Weapon = null
 var body_sprite = preload("res://scenes/SpriteWithBodyAnimation.tscn")
 var did_click_action : bool = false
+signal on_full_fade_in
+
 
 func die() -> void:
 	if $BodySprites/CharacterBody.current_anim != "die":
@@ -27,15 +29,17 @@ func get_hotkey_holder() -> ItemHolderBase:
 	return $UI/UIController/Inventory.get_hotkey_holder()
 
 func anim_finished(anim_name : String):
+	print(anim_name)
 	if anim_name != "die":
 		play_all_idle(facing)
 	elif anim_name == "die":
-		$AnimationPlayer.play("fade_in")
+		$AnimationPlayer.play("sleep")
 
 func add_cash(val):
 	$UI/UIController/Inventory.cash += val
 
 func _ready():
+	connect("on_full_fade_in", self, "fade_out")
 	$UI/UIController/Stats.set_stats(self)
 	$BodySprites/CharacterBody.connect("frame_changed", self, "check_animation")
 	connect("on_hp_change", $UI/UIController/StatusBar, "update_healthBar")
@@ -95,9 +99,10 @@ func check_load_hotkey():
 		
 
 func _process(delta):
-#	if Input.is_action_just_pressed("v"):
-#		add_xp(20)
+	if Input.is_action_just_pressed("v"):
+		add_xp(20)
 	if get_parent() == get_tree().get_root():
+		z_index = 2048
 		return
 	change_z_index_relative_to_tilemap()
 	ItemHotkeyPreview.visible = false
@@ -112,8 +117,8 @@ func _process(delta):
 func _physics_process(delta):
 	if is_dead():
 		return
-	if $UI/UIController/QuestionBox.visible || $AnimationPlayer.current_animation == "fade_in" or\
-	$AnimationPlayer.current_animation == "fade_out":
+	if $UI/UIController/QuestionBox.visible ||\
+	 $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"]:
 		play_all_idle("")
 		return
 	if can_move:
@@ -137,6 +142,8 @@ func click_action(ca : ClickAction):
 			get_hotkey_holder().consume()
 		ClickAction.PLAY_ANIM:
 			play_all_body_anims(ca.data[0],facing,ca.data[1],false)
+		ClickAction.GAIN_EXP:
+			add_xp(ca.data[0])
 		
 
 func left_click_obj(obj : Clickable):
@@ -144,7 +151,7 @@ func left_click_obj(obj : Clickable):
 		return
 	#print($BodySprites/CharacterBody.current_anim)
 	print(did_click_action)
-	if did_click_action or $AnimationPlayer.is_playing():# or !can_move:
+	if did_click_action or $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"]:# or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	var item = get_hotkey_item()
@@ -159,7 +166,7 @@ func left_click_obj(obj : Clickable):
 func right_click_obj(obj : Clickable):
 	if is_dead():
 		return
-	if $AnimationPlayer.is_playing() or !can_move:
+	if $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"] or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	if (obj.is_self_adjacent(pos)):
@@ -181,9 +188,22 @@ func special_right_click_effects(obj : Clickable):
 	elif obj is Chest:
 		$UI/UIController.open_close_inventory(false,true)
 
-func sleep():
-	$AnimationPlayer.play("fade_in")
 
+func sleep():
+	$AnimationPlayer.play("next_day_fade_in")
+	
+	if is_dead():
+		$UI/UIController.create_question_box("You Died! Respawn at your bed?", self, "respawn", "quit_game")
+		
+func on_next_day():
+	world_globals.next_day()
+
+func fade_in(speed := 1.0):
+	$AnimationPlayer.play("fade_in",-1,speed)
+
+func fade_out():
+	$AnimationPlayer.play("fade_out",-1,5)
+	
 func movement_input() -> void:
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed('move_right'):
@@ -258,13 +278,7 @@ func turn_towards_mouse() -> float:
 	#print(angle)
 	return rad_angle + PI
 
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "fade_in":
-		if !is_dead():
-			$AnimationPlayer.play("fade_out")
-			world_globals.next_day()
-		else:
-			$UI/UIController.create_question_box("You Died! Respawn at your bed?", self, "respawn", "quit_game")
+
 			
 func respawn():
 	print("RESPAWN")			
@@ -292,7 +306,7 @@ func _on_ClickableArea_input_event(viewport, event, shape_idx):
 					var obj = get_parent().create_world_object(item.ming, click_pos)
 					$UI/UIController/Inventory.get_hotkey_holder().consume()
 					sound_player.play_sound(34,self)
-			elif equipped_weapon != null:
+			elif equipped_weapon != null and can_move:
 				basic_attack(turn_towards_mouse())
 
 func item_activation(i):
@@ -312,7 +326,21 @@ func water_can_filled():
 func level_up():
 	.level_up()
 	$AnimationPlayer.play("level_up")
+	$UI/UIController.open_close_stats(false, true)
 
 
 func play_sound(id : int):
 	sound_player.play_sound(id, self)
+	
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	match anim_name:
+		"fade_in", "next_day_fade_in":
+			$UI/UIController/Inventory.visible = false
+			can_move = false
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	match anim_name:
+		"fade_out":
+			$UI/UIController/Inventory.visible = true
+			can_move = true
