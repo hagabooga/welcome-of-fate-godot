@@ -93,17 +93,16 @@ func plant_pickup():
 
 func save_data() -> Array:
 	if $Plant.get_child_count() > 0:
-		var dup = $Plant.get_child(0).duplicate()
-		print(dup)
-		print(dup.get_meta("death"))
+		var a = Utility.deep_copy_node($Plant.get_child(0))
 	return [
-		$Plant.get_child(0).duplicate() if $Plant.get_child_count() > 0 else null,
+		Utility.deep_copy_node($Plant.get_child(0)) if $Plant.get_child_count() > 0 else null,
 		$Seed.visible,
 		$Sprite.frame
 	]
 	
 func load_data(data : Array) -> void:
 	if data[0] != null:
+		plant = data[0]
 		$Plant.add_child(data[0])
 		#print(data[0].days_past)
 	$Seed.visible = data[1]
