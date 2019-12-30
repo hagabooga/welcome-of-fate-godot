@@ -255,7 +255,7 @@
   "chest": {
     "desc": "Put stuff in",
     "eff_desc": "",
-    "cost": 250,
+    "cost": 150,
     "type": "misc.",
     "activate": -1,
     "placeable": true
@@ -345,6 +345,14 @@
     "eff_desc": "",
     "cost": 60,
     "type": "plant",
+    "placeable": true,
+    "activate": -1
+  },
+  "torch": {
+    "desc": "Make the area brighter.",
+    "eff_desc": "",
+    "cost": 30,
+    "type": "Misc.",
     "placeable": true,
     "activate": -1
   }

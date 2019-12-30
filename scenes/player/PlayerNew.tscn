@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/general/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/player/stats/mage.gd" type="Script" id=2]
-[ext_resource path="res://scenes/player/LoadedItems.gd" type="Script" id=3]
-[ext_resource path="res://scenes/SpriteWithBodyAnimation.tscn" type="PackedScene" id=4]
-[ext_resource path="res://sprites/player/sara.png" type="Texture" id=5]
-[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=6]
-[ext_resource path="res://level up.png" type="Texture" id=7]
-[ext_resource path="res://UIController.tscn" type="PackedScene" id=8]
-[ext_resource path="res://00_training.wav" type="AudioStream" id=9]
-[ext_resource path="res://scenes/player/BGM.gd" type="Script" id=10]
+[ext_resource path="res://2DLight.png" type="Texture" id=3]
+[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=4]
+[ext_resource path="res://level up.png" type="Texture" id=5]
+[ext_resource path="res://UIController.tscn" type="PackedScene" id=6]
+[ext_resource path="res://00_training.wav" type="AudioStream" id=7]
+[ext_resource path="res://scenes/player/BGM.gd" type="Script" id=8]
+[ext_resource path="res://scenes/player/LoadedItems.gd" type="Script" id=9]
+[ext_resource path="res://scenes/SpriteWithBodyAnimation.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/player/sara.png" type="Texture" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0416
@@ -177,52 +178,16 @@ collision_mask = 10
 script = ExtResource( 2 )
 move_speed = 500
 
-[node name="LoadedItems" type="Node2D" parent="." index="0"]
+[node name="Light2D" type="Light2D" parent="." index="0"]
 visible = false
-script = ExtResource( 3 )
+texture = ExtResource( 3 )
+texture_scale = 0.5
+color = Color( 0.92549, 0.92549, 0.92549, 1 )
+shadow_enabled = true
+shadow_color = Color( 1, 1, 1, 0 )
 
-[node name="BodySprites" type="Node2D" parent="." index="1"]
+[node name="Camera2D" type="Camera2D" parent="." index="1"]
 editor/display_folded = true
-position = Vector2( 0, -20 )
-
-[node name="CharacterBody" parent="BodySprites" index="0" instance=ExtResource( 4 )]
-texture = ExtResource( 5 )
-frame = 26
-
-[node name="PosAboveHead" parent="." index="2"]
-position = Vector2( 0, -50 )
-
-[node name="CollisionBox" parent="." index="4"]
-z_index = 1
-shape = SubResource( 1 )
-
-[node name="Hurtbox" parent="." index="5"]
-position = Vector2( 0, -20 )
-
-[node name="HurtboxShape" parent="Hurtbox" index="0"]
-position = Vector2( 0, 5 )
-shape = SubResource( 2 )
-
-[node name="RangeOfSight" parent="." index="6"]
-position = Vector2( 0, -20 )
-
-[node name="CollisionShape2D" parent="RangeOfSight" index="0"]
-modulate = Color( 0.980392, 1, 0, 0.439216 )
-position = Vector2( 0, 20 )
-shape = SubResource( 3 )
-
-[node name="ClickableArea" type="Area2D" parent="." index="7"]
-position = Vector2( -570, -296 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" index="0"]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 477, 266 )
-shape = SubResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Camera2D" type="Camera2D" parent="." index="8"]
 current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
@@ -239,42 +204,88 @@ self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -17.8199, 9.67404 )
 scale = Vector2( 22.3419, 14.5761 )
 z_index = 200
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LevelUpAnimation" type="Sprite" parent="Camera2D" index="1"]
 visible = false
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 vframes = 6
 hframes = 10
 frame = 53
 region_enabled = true
 region_rect = Rect2( 0, 64, 1280, 1536 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
+[node name="UI" type="Node2D" parent="." index="2"]
+z_index = 4094
+z_as_relative = false
+
+[node name="UIController" parent="UI" index="0" instance=ExtResource( 6 )]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="UI" index="1"]
+stream = ExtResource( 7 )
+volume_db = -5.0
+script = ExtResource( 8 )
+
+[node name="LoadedItems" type="Node2D" parent="." index="3"]
+visible = false
+script = ExtResource( 9 )
+
+[node name="BodySprites" type="Node2D" parent="." index="4"]
+editor/display_folded = true
+position = Vector2( 0, -20 )
+
+[node name="CharacterBody" parent="BodySprites" index="0" instance=ExtResource( 10 )]
+texture = ExtResource( 11 )
+frame = 26
+
+[node name="PosAboveHead" parent="." index="5"]
+position = Vector2( 0, -50 )
+
+[node name="CollisionBox" parent="." index="7"]
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="Hurtbox" parent="." index="8"]
+position = Vector2( 0, -20 )
+
+[node name="HurtboxShape" parent="Hurtbox" index="0"]
+position = Vector2( 0, 5 )
+shape = SubResource( 2 )
+
+[node name="RangeOfSight" parent="." index="9"]
+position = Vector2( 0, -20 )
+
+[node name="CollisionShape2D" parent="RangeOfSight" index="0"]
+modulate = Color( 0.980392, 1, 0, 0.439216 )
+position = Vector2( 0, 20 )
+shape = SubResource( 3 )
+
+[node name="ClickableArea" type="Area2D" parent="." index="10"]
+editor/display_folded = true
+position = Vector2( -570, -296 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" index="0"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 477, 266 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="11"]
 anims/fade_in = SubResource( 5 )
 anims/fade_out = SubResource( 6 )
 anims/level_up = SubResource( 7 )
 anims/next_day_fade_in = SubResource( 8 )
-
-[node name="UI" type="Node2D" parent="." index="10"]
-z_index = 4094
-z_as_relative = false
-
-[node name="UIController" parent="UI" index="0" instance=ExtResource( 8 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -480.0
-margin_top = -270.0
-margin_right = 480.0
-margin_bottom = 270.0
-
-[node name="BGM" type="AudioStreamPlayer2D" parent="UI" index="1"]
-stream = ExtResource( 9 )
-volume_db = -5.0
-script = ExtResource( 10 )
+[connection signal="finished" from="UI/BGM" to="UI/BGM" method="_on_BGM_finished"]
 [connection signal="input_event" from="ClickableArea" to="." method="_on_ClickableArea_input_event"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
-[connection signal="finished" from="UI/BGM" to="UI/BGM" method="_on_BGM_finished"]
 
 [editable path="RangeOfSight"]

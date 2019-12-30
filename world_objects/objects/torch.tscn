@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://world_objects/PickableWorldObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world_objects/objects/torch.gd" type="Script" id=2]
+[ext_resource path="res://sprites/items/torch.png" type="Texture" id=3]
+[ext_resource path="res://2DLight.png" type="Texture" id=4]
+
+[node name="PickableWorldObject" index="0" instance=ExtResource( 1 )]
+collision_layer = 524288
+collision_mask = 524288
+script = ExtResource( 2 )
+
+[node name="Area2D" parent="." index="0"]
+polygon = PoolVector2Array( -14.8387, -1.97895, -14.7341, 9.74455, -8.66296, 14.3502, 2.74652, 14.0362, 14.8887, 4.19682, 14.8887, -8.15472, 7.03815, -13.9118, -3.11523, -14.3305 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="." index="4"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 4 )
+texture_scale = 0.5
+color = Color( 0.376471, 0.376471, 0.376471, 1 )
+shadow_enabled = true

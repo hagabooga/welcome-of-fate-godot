@@ -1,21 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://night_day_cycle.shader" type="Shader" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://scripts/general/DayNightCycle.gd" type="Script" id=3]
-
-
-
+[ext_resource path="res://scripts/general/DayNightCycle.gd" type="Script" id=2]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 shader_param/color = Plane( 1, 1, 1, 0 )
 
-[node name="DayNightCycle" type="Sprite"]
+[node name="DayNightCycle" type="CanvasModulate"]
 material = SubResource( 1 )
 position = Vector2( 288, 224 )
 scale = Vector2( 88.3863, 50.3371 )
 z_index = 300
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+script = ExtResource( 2 )
 
+[node name="Tween" type="Tween" parent="."]

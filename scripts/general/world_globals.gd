@@ -31,7 +31,7 @@ signal next_day
 signal time_increased
 signal hour_increased
 
-var time_delta = 3
+var time_delta = 2
 var time = time_delta
 var player 
 
@@ -43,7 +43,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ctrl"):
 		next_day()
-	#i(time)
 	if time_stop:
 		return
 	time -= delta
@@ -81,11 +80,11 @@ func next_day():
 	day += 1
 	hour = 6
 	minute = 0
-	time = 5
-	time_stop = true
+	time = 7
+	time_stop = false
 	emit_signal("next_day")
 
-func is_pos_adjacent(a : Vector2, b : Vector2) -> bool:
+static func is_pos_adjacent(a : Vector2, b : Vector2) -> bool:
 	return a == b or \
 	(a.x == b.x and (a.y + 1 == b.y or a.y - 1 == b.y)) or \
 	(a.y == b.y and (a.x + 1 == b.x or a.x - 1 == b.x)) or \

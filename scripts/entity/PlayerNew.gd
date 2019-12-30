@@ -33,7 +33,7 @@ func anim_finished(anim_name : String):
 	if anim_name != "die":
 		play_all_idle(facing)
 	elif anim_name == "die":
-		$AnimationPlayer.play("sleep")
+		$AnimationPlayer.play("fade_in")
 
 func add_cash(val):
 	$UI/UIController/Inventory.cash += val

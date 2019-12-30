@@ -14,9 +14,12 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.12 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.12 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "remove_from_map"
+}, {
 "args": [  ],
 "method": "queue_free"
 } ]

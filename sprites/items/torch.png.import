@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hoe.png-69f6fc78bc8b5500228328ade0e995a3.stex"
+path="res://.import/torch.png-2acef3bc9ecbeb1c3c9ed1947de2763b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/items/hoe.png"
-dest_files=[ "res://.import/hoe.png-69f6fc78bc8b5500228328ade0e995a3.stex" ]
+source_file="res://sprites/items/torch.png"
+dest_files=[ "res://.import/torch.png-2acef3bc9ecbeb1c3c9ed1947de2763b.stex" ]
 
 [params]
 
