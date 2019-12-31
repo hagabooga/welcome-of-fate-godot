@@ -23,6 +23,7 @@ func start_game():
 		rogue: $Player.set_script(load("res://scripts/player/stats/rogue.gd"))
 	$Player.ming = ming
 	$Player.update_stats()
+	$Player.get_hotkey_item()
 	$Warp.load_stuff()
 	
 # CHOOSE JOB

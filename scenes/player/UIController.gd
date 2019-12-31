@@ -4,6 +4,9 @@ extends CanvasLayer
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		open_close_inventory(false)
+		open_close_skill(false)
+		open_close_stats(false)
+		open_close_options(false)
 	if !$QuestionBox.visible:
 		if Input.is_action_just_pressed("inventory"):
 			open_close_inventory()

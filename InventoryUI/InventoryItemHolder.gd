@@ -12,7 +12,7 @@ func get_drag_data(position):
 	return self
 
 func can_drop_data(position, data):
-	if data.item == null:
+	if data.item == null or get_tree().paused:
 		return false
 	else:
 		if item == null:

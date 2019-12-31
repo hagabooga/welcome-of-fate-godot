@@ -16,7 +16,8 @@ func _init():
 	energy = self.max_energy 
 	move_speed = 150
 	xp = 0
-
+	check_load_hotkey()
+	
 func update_stats():
 	self.max_hp = 175 + self.strength * 18 + level * (20 + level)
 	self.max_mp = 300 + self.intelligence * (26 + level) + level * (12 * level)

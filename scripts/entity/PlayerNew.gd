@@ -41,7 +41,6 @@ func add_cash(val):
 	$UI/UIController/Inventory.cash += val
 
 func _ready():
-	
 	connect("on_full_fade_in", self, "fade_out")
 	$UI/UIController/Stats.set_stats(self)
 	$BodySprites/CharacterBody.connect("frame_changed", self, "check_animation")
@@ -58,7 +57,6 @@ func _ready():
 	$UI/UIController/Inventory.connect("on_inv_change", self, "check_load_hotkey")
 	$UI/UIController/Inventory.connect("on_item_add", $LoadedItems, "add_item")
 	#update_stats()
-
 	connect("on_ap_change", $UI/UIController/Stats, "able_use_ap")
 	for x in [$UI/UIController/Inventory.inventory_items,$UI/UIController/Inventory.hotkey_items]:
 		for i in x:
@@ -68,7 +66,6 @@ func _ready():
 				var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
 				obj.item = item
 				$LoadedItems.add_item(obj)
-	check_load_hotkey()
 	
 func check_load_hotkey():
 	var item = get_hotkey_item()
