@@ -13,5 +13,5 @@ func _init(ming : String, data : Dictionary).(ming, data):
 	if data.has("stats"):
 		for x in data.stats.keys():
 			stats.buff_stat(global_id.stats_nameToid[x], data.stats[x])
-	if stats.atk_spd == 0 and data["base"] == "weapon":
+	if stats.atk_spd == 0 and (data["base"] == "weapon" or data["base"] == "tool"):
 		stats.atk_spd = 1

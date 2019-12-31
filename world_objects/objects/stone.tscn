@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://world_objects/PickableWorldObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/items/stone.png" type="Texture" id=2]
+
+[node name="Stone" instance=ExtResource( 1 )]
+
+[node name="Area2D" parent="." index="0"]
+polygon = PoolVector2Array( -12.1803, 9.98562, -12.4637, -10.2306, -6.41776, -14.1983, 5.9576, -14.1983, 12.287, -9.56933, 12.098, 10.3635, 6.05206, 14.1422, -6.22882, 14.1422 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )

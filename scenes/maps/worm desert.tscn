@@ -110,7 +110,7 @@ points = PoolVector2Array( 0, 0, 15.7712, -0.319763, 12.0501, 10.1458, -0.508522
 } ]
 0/z_index = 0
 
-[node name="Worm Desert" index="0" instance=ExtResource( 1 )]
+[node name="Worm Desert" instance=ExtResource( 1 )]
 bgm_id = 6
 
 [node name="Dirt" parent="TileMaps" index="1"]

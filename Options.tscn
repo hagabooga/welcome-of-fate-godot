@@ -42,7 +42,6 @@ custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -84,6 +83,7 @@ custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+pressed = true
 text = "Fullscreen"
 
 [node name="VolumeSettings" type="Label" parent="VBoxContainer"]

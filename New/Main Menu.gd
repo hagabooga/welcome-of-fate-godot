@@ -74,6 +74,7 @@ func _on_select_Timer_timeout():
 
 func _on_LineEdit_text_entered(new_text):
 	if len(new_text) > 0:
+		$Player.play_bgm(5)
 		sound_player.play_sound(43,$Player)
 		ming = new_text
 		$CanvasLayer/MainMenu.visible = false
@@ -87,7 +88,7 @@ func _on_LineEdit_text_entered(new_text):
 	
 func _on_Play_pressed():
 	_on_LineEdit_text_entered($CanvasLayer/MainMenu/NameInput/LineEdit.text)
-	$Player.play_bgm(5)
+	
 
 func _on_Load_pressed():
 	sound_player.play_sound(43,self)
