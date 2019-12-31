@@ -131,7 +131,7 @@ func create_daily_objects():
 		# Grass - Dirt - Soil - Used
 		if !(x in tilemap_dirt.get_used_cells()) \
 		and !(x in tilemap_soil.get_used_cells()) and !(x in tilemap_waterCliff.get_used_cells())\
-		 and i < 2 and !(x in used_cells):
+		 and i < 5 and !(x in used_cells):
 			var rand_choice = names[randi() % names.size()]
 			create_world_object(rand_choice, x)
 	# Put world objects on soil (not on edges of soil)
@@ -140,7 +140,7 @@ func create_daily_objects():
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
 			var i = randi()%100
 			#print(!(x in used_cells) and is_tilled_soil_good_has_plant(x))
-			if !(x in used_cells) and i < 5 and is_tilled_soil_good_has_plant(x):
+			if !(x in used_cells) and i < 8 and is_tilled_soil_good_has_plant(x):
 				names = ["branch", "rock", "weed"]
 				var rand_choice = names[randi() % names.size()]
 				create_world_object(rand_choice, x)

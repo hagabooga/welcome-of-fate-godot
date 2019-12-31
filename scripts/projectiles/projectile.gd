@@ -27,6 +27,7 @@ func _on_Hitbox_body_entered(body):
 	print(body)
 	if body is Entity:
 		body.take_damage(self.damage)
+		sound_player.play_sound(56,body)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()

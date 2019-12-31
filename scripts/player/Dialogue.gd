@@ -5,27 +5,30 @@ var arrow_texture = load("res://sprites/ui/Arrow Right.png")
 var current_info
 var showing_dialogue = false
 var current_dialogue
-var dialogue_pos
+var dialogue_pos = 0
 var asking_quest = false
 var quest_item_index
 var can_next_dialogue = false
 
 func _ready():
-	$DialogueText/TextureRect/AnimationPlayer.play("moving")
+	$AnimationPlayer.play("move_arrow")
 
 func _process(delta):
-	if $Timer.time_left > 0:
-		visible = false
-	elif (showing_dialogue and can_next_dialogue):
+#	if $Timer.time_left > 0:
+#		visible = false
+	if (showing_dialogue and can_next_dialogue):
 		if Input.is_action_just_pressed("z"):
 			print(dialogue_pos)
-			dialogue_pos += 1
-			if dialogue_pos <= len(current_dialogue) - 1:
-				if asking_quest and dialogue_pos == len(current_dialogue) - 1:
-					show_quest_ask()
-				set_dialogue()
-			else:
-				close_dialogue()
+			next_dialogue()
+				
+func next_dialogue():
+	dialogue_pos += 1
+	if dialogue_pos <= len(current_dialogue) - 1:
+		if asking_quest and dialogue_pos == len(current_dialogue) - 1:
+			show_quest_ask()
+		set_dialogue()
+	else:
+		close_dialogue()
 
 func make_dialogue_options(info):
 	if (!$Timer.time_left > 0):

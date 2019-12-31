@@ -19,6 +19,7 @@ func _ready():
 		$VBoxContainer/Resolutions.set_item_metadata(i, data)
 	$VBoxContainer/Resolutions.select(1)
 	_on_Resolutions_item_selected(1)
+	_on_FullscreenToggle_pressed()
 		
 func _on_Resolutions_item_selected(ID):
 	var data = $VBoxContainer/Resolutions.get_item_metadata(ID)
@@ -39,6 +40,7 @@ func _on_VolumeSlider_value_changed(value):
 
 func _on_BGMToggle_pressed():
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("bgm"), $VBoxContainer/BGMToggle.pressed)
+	$VBoxContainer/BGMSlider.editable = !$VBoxContainer/BGMToggle.pressed
 	
 
 
@@ -48,6 +50,7 @@ func _on_BGMSlider_value_changed(value):
 	
 func _on_SoundToggle_pressed():
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("sound"), $VBoxContainer/SoundToggle.pressed)
+	$VBoxContainer/SoundSlider.editable = !$VBoxContainer/SoundToggle.pressed
 
 
 
@@ -61,3 +64,7 @@ func _on_PauseToggle_pressed():
 
 
 
+
+
+func _on_CloseButton_pressed():
+	visible = !visible

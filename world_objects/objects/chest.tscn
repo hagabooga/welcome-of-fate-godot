@@ -20,6 +20,7 @@ texture = ExtResource( 3 )
 normal_map = ExtResource( 4 )
 
 [node name="Node2D" type="Node2D" parent="." index="3"]
+visible = false
 z_index = 4096
 
 [node name="Control" type="Control" parent="Node2D" index="0"]
@@ -31,12 +32,10 @@ margin_right = 41.1923
 margin_bottom = -9.87756
 
 [node name="InventoryList" parent="Node2D/Control" index="0" instance=ExtResource( 5 )]
-anchor_top = 0.0
-anchor_bottom = 0.0
-margin_left = -33.0393
-margin_top = -1.72481
-margin_right = 72.9607
-margin_bottom = 104.275
+margin_left = -53.0
+margin_top = -53.0
+margin_right = 53.0
+margin_bottom = 53.0
 actual_slots = 9
 list_name = "Chest"
 item_column_size = 3

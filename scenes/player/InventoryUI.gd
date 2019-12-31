@@ -66,10 +66,11 @@ func _ready():
 	add_item(item_database.make_item("hammer"))
 	add_item(item_database.make_item("sickle"))
 	add_item(item_database.make_item("magic wand"))
-	for x in range(30):
-		add_item(item_database.make_item("red flower"))
-		add_item(item_database.make_item("turnip seedbag"))
-		add_item(item_database.make_item("torch"))
+	for i in range(5):add_item(item_database.make_item("turnip seedbag"))
+#	for x in range(30):
+#		add_item(item_database.make_item("red flower"))
+#a
+#		add_item(item_database.make_item("torch"))
 #		add_item(item_database.make_item("health potion"))
 #		add_item(item_database.make_item("mana potion"))
 #		add_item(item_database.make_item("energy potion"))
@@ -100,19 +101,19 @@ func resize_inventory():
 func _process(delta):
 	if !owner.owner.can_move:
 		return
-	
-	if Input.is_action_just_released("scroll_down"):
-		if hotkey_index < $HotkeyList/HBoxContainer.get_child_count() - 1:
-			self.hotkey_index += 1
-		else:
-			self.hotkey_index = 0
-		#emit_signal("on_hotkey_index_change")
-	if Input.is_action_just_released("scroll_up"):
-		if hotkey_index > 0:
-			self.hotkey_index -= 1
-		else:
-			self.hotkey_index = $HotkeyList/HBoxContainer.get_child_count() - 1
-		#emit_signal("on_hotkey_index_change")
+	if !get_parent().quest.visible:
+		if Input.is_action_just_released("scroll_down"):
+			if hotkey_index < $HotkeyList/HBoxContainer.get_child_count() - 1:
+				self.hotkey_index += 1
+			else:
+				self.hotkey_index = 0
+			#emit_signal("on_hotkey_index_change")
+		if Input.is_action_just_released("scroll_up"):
+			if hotkey_index > 0:
+				self.hotkey_index -= 1
+			else:
+				self.hotkey_index = $HotkeyList/HBoxContainer.get_child_count() - 1
+			#emit_signal("on_hotkey_index_change")
 	for x in range(10):
 		if Input.is_action_just_pressed("inv_hotkey_" + str(x)):
 			if x == 0:

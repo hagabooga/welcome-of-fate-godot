@@ -22,4 +22,3 @@ func _on_Button_pressed():
 func _on_ShopRange_body_exited(body):
 	if body is Player:
  		_on_Button_pressed()
-		

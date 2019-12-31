@@ -10,6 +10,7 @@ export(int) var move_speed
 var can_move := true setget set_can_move
 var velocity = Vector2.ZERO
 
+signal on_kill_enemy
 
 func set_can_move(val : bool):
 	can_move = val

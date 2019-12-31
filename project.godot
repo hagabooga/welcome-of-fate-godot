@@ -54,6 +54,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/general/DamagePopup.gd"
 }, {
+"base": "Button",
+"class": "DialogueOption",
+"language": "GDScript",
+"path": "res://DialogueOption.gd"
+}, {
+"base": "Panel",
+"class": "DialogueUI",
+"language": "GDScript",
+"path": "res://Dialogue.gd"
+}, {
 "base": "Entity",
 "class": "Enemy",
 "language": "GDScript",
@@ -109,11 +119,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://world_objects/NPC.gd"
 }, {
-"base": "Actionable",
-"class": "Npc",
-"language": "GDScript",
-"path": "res://scripts/npc/NPC.gd"
-}, {
 "base": "WorldObject",
 "class": "PickableWorldObject",
 "language": "GDScript",
@@ -148,6 +153,11 @@ _global_script_classes=[ {
 "class": "QuestGoal",
 "language": "GDScript",
 "path": "res://scripts/quests/quest_goal.gd"
+}, {
+"base": "Panel",
+"class": "QuestsUI",
+"language": "GDScript",
+"path": "res://Quests.gd"
 }, {
 "base": "Node2D",
 "class": "RandomMovementAI",
@@ -224,6 +234,8 @@ _global_script_class_icons={
 "Clickable": "",
 "Damage": "",
 "DamagePopup": "",
+"DialogueOption": "",
+"DialogueUI": "",
 "Enemy": "",
 "Entity": "",
 "EquipItem": "",
@@ -235,7 +247,6 @@ _global_script_class_icons={
 "Mage": "",
 "Map": "",
 "NPC": "",
-"Npc": "",
 "PickableWorldObject": "",
 "Plant": "",
 "Player": "",
@@ -243,6 +254,7 @@ _global_script_class_icons={
 "Projectile": "",
 "Quest": "",
 "QuestGoal": "",
+"QuestsUI": "",
 "RandomMovementAI": "",
 "Rogue": "",
 "ShopNPC": "",
@@ -299,6 +311,8 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=960
 window/size/height=540
+window/size/resizable=false
+window/size/always_on_top=true
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
@@ -425,7 +439,7 @@ attack={
 }
 quest={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":89,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
  ]
 }
 equipment={

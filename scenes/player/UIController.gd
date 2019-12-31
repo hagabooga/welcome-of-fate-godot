@@ -1,12 +1,13 @@
 extends CanvasLayer
 
+onready var inventory : InventoryUI = get_node("Inventory")
+onready var quest : QuestsUI = get_node("Quests")
+onready var dialogue : DialogueUI = get_node("Dialogue")
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
-		open_close_inventory(false)
-		open_close_skill(false)
-		open_close_stats(false)
-		open_close_options(false)
+		close_all()
 	if !$QuestionBox.visible:
 		if Input.is_action_just_pressed("inventory"):
 			open_close_inventory()
@@ -16,7 +17,9 @@ func _process(delta):
 			open_close_stats()
 		if Input.is_action_just_pressed("options"):
 			open_close_options()
-	
+		if Input.is_action_just_pressed("quest"):
+			open_close_quests()
+
 
 func create_question_box(question : String, target : Object, yes_func : String = "", no_func : String = ""):
 	$QuestionBox/Buttons/NoButton.emit_signal("pressed")
@@ -64,5 +67,20 @@ func open_close_options(opposite = true, yes=false):
 		$Options.visible = !$Options.visible
 	else:
 		$Options.visible = yes
+
+func open_close_quests(opposite = true, yes=false):
+	if opposite:
+		$Quests.visible = !$Quests.visible
+	else:
+		$Quests.visible = yes
+		
 func unfreeze_time():
 	$Date.unfreeze_time()
+	
+
+func close_all():
+	open_close_inventory(false)
+	open_close_skill(false)
+	open_close_stats(false)
+	open_close_options(false)
+	open_close_quests(false)

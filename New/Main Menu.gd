@@ -14,9 +14,7 @@ func _ready():
 func start_game():
 	
 	$Player.visible = true
-	$Player/UI/UIController.open_close_stats(false, false)
-	$Player/UI/UIController.open_close_skill(false, false)
-	$Player/UI/UIController.open_close_inventory(false, false)
+	$Player/UI/UIController.close_all()
 	match selected_job:
 		warrior: $Player.set_script(load("res://scripts/player/stats/warrior.gd"))
 		mage: $Player.set_script(load("res://scripts/player/stats/mage.gd"))
@@ -42,7 +40,7 @@ func _on_Mage_pressed():
 	$CanvasLayer/ChooseJob/JobDescription/SelectedClass.bbcode_text =\
 	 "[center][color=black]Selected Class: [/color][color=#16d3f0]Mage[/color][/center]"
 	$CanvasLayer/ChooseJob/JobDescription/ProsCons.text = \
-	"Excels with magic.\n+ High Mana\n+ High Magical Damage\n- Low Health and Armor\n- Low Physical Damage\n"
+	"Excels with magic.\n+ High Mana and Magical Damage\n+ Long range\n- Low Health and Armor\n- Low Physical Damage\n"
 	selected_job = mage
 	sound_player.play_sound(43,$Player)
 
@@ -59,8 +57,10 @@ func _on_Rogue_pressed():
 
 func _on_Select_pressed():
 	if selected_job != none:
+		$CanvasLayer/ChooseJob.visible = false
+		$CanvasLayer/Instructions/StartGameButton/ReadInstructionsTimer.start()
 		sound_player.play_sound(43,$Player)
-		start_game()
+		
 	else:
 		$CanvasLayer/ChooseJob/Error.visible = true
 		$CanvasLayer/ChooseJob/Error/Timer.start()
@@ -87,6 +87,7 @@ func _on_LineEdit_text_entered(new_text):
 	
 func _on_Play_pressed():
 	_on_LineEdit_text_entered($CanvasLayer/MainMenu/NameInput/LineEdit.text)
+	$Player.play_bgm(5)
 
 func _on_Load_pressed():
 	sound_player.play_sound(43,self)
@@ -98,4 +99,10 @@ func _on_Timer_timeout():
 	$CanvasLayer/MainMenu/Error.visible = false
 
 
+func _on_ReadInstructionsTimer_timeout():
+	$CanvasLayer/Instructions/StartGameButton.visible = true
 
+
+func _on_StartGameButton_pressed():
+	sound_player.play_sound(43,$Player)
+	start_game()

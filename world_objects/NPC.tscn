@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://world_objects/WorldObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world_objects/NPC.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 85.1135
 
 [node name="NPC" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Area2D" parent="." index="0"]
 polygon = PoolVector2Array( -16, -16, -16, 48, 48, 48, 48, -16 )
+
+[node name="LeaveArea" type="Area2D" parent="." index="3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveArea" index="0"]
+position = Vector2( 31.3607, 32.7867 )
+shape = SubResource( 1 )
+[connection signal="body_exited" from="LeaveArea" to="." method="_on_LeaveArea_body_exited"]

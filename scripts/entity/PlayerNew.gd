@@ -9,12 +9,17 @@ var body_sprite = preload("res://scenes/SpriteWithBodyAnimation.tscn")
 var did_click_action := false
 signal on_full_fade_in
 
+func take_damage(dmg : Damage):
+	.take_damage(dmg)
+	play_sound(randi()%7+1)
+
 func play_bgm(id : int, prev := false):
 	$UI/BGM.play_bgm(id, prev)
 
 func die() -> void:
 	if $BodySprites/CharacterBody.current_anim != "die":
 		play_all_body_anims("die", 0,1)
+		play_bgm(4)
 
 
 func check_animation():
@@ -35,7 +40,7 @@ func anim_finished(anim_name : String):
 	if anim_name != "die":
 		play_all_idle(facing)
 	elif anim_name == "die":
-		$AnimationPlayer.play("fade_in")
+		$AnimationPlayer.play("dead")
 
 func add_cash(val):
 	$UI/UIController/Inventory.cash += val
@@ -66,6 +71,7 @@ func _ready():
 				var obj = load("res://scenes/weapons/" +item.ming+".tscn").instance()
 				obj.item = item
 				$LoadedItems.add_item(obj)
+	connect("on_kill_enemy", $UI/UIController/Quests, "check_kill_goal")
 	
 func check_load_hotkey():
 	var item = get_hotkey_item()
@@ -144,6 +150,8 @@ func click_action(ca : ClickAction):
 			play_all_body_anims(ca.data[0],facing,ca.data[1],false)
 		ClickAction.GAIN_EXP:
 			add_xp(ca.data[0])
+		ClickAction.OPEN_DIALOGUE:
+			$UI/UIController/Dialogue.set_dialogue(ca.data[0],ca.data[1])
 		
 
 func left_click_obj(obj : Clickable):
@@ -190,10 +198,7 @@ func special_right_click_effects(obj : Clickable):
 
 
 func sleep():
-	$AnimationPlayer.play("next_day_fade_in")
-	
-	if is_dead():
-		$UI/UIController.create_question_box("You Died! Respawn at your bed?", self, "respawn", "quit_game")
+		$UI/UIController.create_question_box("You Died! Respawn to lose all money?", self, "respawn", "quit_game")
 		
 func on_next_day():
 	world_globals.next_day()
@@ -279,9 +284,12 @@ func turn_towards_mouse() -> float:
 	return rad_angle + PI
 
 
-			
 func respawn():
-	print("RESPAWN")			
+	play_sound(19)
+	play_bgm(get_parent().bgm_id)
+	add_hp(self.max_hp)
+	play_all_idle("")
+	fade_out()
 
 func quit_game():
 	print("QUIT")
@@ -344,3 +352,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"fade_out":
 			$UI/UIController/Inventory.visible = true
 			can_move = true
+		"dead":
+			$UI/UIController.create_question_box("You Died! Respawn to lose all money?", self, "respawn", "quit_game")
+
+func close_dialogue():
+	$UI/UIController/Dialogue.close()

@@ -1,7 +1,19 @@
 {
-    "clean booga":
-    {
-        "quests": ["slay the gators"],
-        "default": ["Welcome to Booga's Welcome of Fate."]
-    }
+  "clean booga": {
+    "quests": ["slay the gators"],
+    "default": ["Welcome to Booga's Welcome of Fate."]
+  },
+  "princess booga": {
+    "quests": ["slay the gators"],
+    "default": [
+      "Welcome to Booga's Welcome of Fate.",
+      "Allow me to show you how to farm.",
+      "Use your hoe to make a hole in the soil.",
+      "Then plant a seed using a seedbag.",
+      "After you need to water the soil.",
+      "Fill up your watering can at a water source.",
+      "Keep repeating until it's fully grown!",
+      "You can right click the bed to sleep till the next day."
+    ]
+  }
 }

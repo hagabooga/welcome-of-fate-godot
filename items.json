@@ -9,16 +9,16 @@
   },
   "turnip": {
     "desc": "A root vegetable grown in temperate climates.",
-    "eff_desc": "Consume item to restore 30 HP.",
-    "cost": 100,
+    "eff_desc": "Consume item to restore 60 HP.",
+    "cost": 125,
     "type": "plant",
     "activate": 0,
-    "stats": { "hp": 30 }
+    "stats": { "hp": 60 }
   },
   "radish": {
     "desc": "Grown and consumed throughout the world.",
     "eff_desc": "Consume item to restore 60 HP and 100 MP.",
-    "cost": 180,
+    "cost": 225,
     "type": "plant",
     "activate": 0,
     "stats": { "hp": 60, "mp": 100 }
@@ -63,7 +63,7 @@
   "hoe": {
     "desc": "Loosen the soil.",
     "eff_desc": "Allows you to dig the soil for seeds.",
-    "cost": 300,
+    "cost": 0,
     "energy": 5,
     "base": "tool",
     "type": "hoe",
@@ -74,7 +74,7 @@
   "watering can": {
     "desc": "Water the soil.",
     "eff_desc": "Allows you to water tilled soil.",
-    "cost": 300,
+    "cost": 0,
     "energy": 5,
     "base": "tool",
     "type": "watering can",
@@ -85,7 +85,7 @@
   "sickle": {
     "desc": "Cut vegetation",
     "eff_desc": "Cut vegetation to make room",
-    "cost": 300,
+    "cost": 0,
     "energy": 8,
     "base": "tool",
     "hack": true,
@@ -95,8 +95,8 @@
   },
   "axe": {
     "desc": "Chop branches",
-    "eff_desc": "Chop branches to turn them into logs",
-    "cost": 300,
+    "eff_desc": "Chop branches",
+    "cost": 0,
     "energy": 5,
     "base": "tool",
     "type": "axe",
@@ -106,8 +106,8 @@
   },
   "hammer": {
     "desc": "Smash rocks",
-    "eff_desc": "Smash rocks to turn them into",
-    "cost": 300,
+    "eff_desc": "Smash rocks",
+    "cost": 0,
     "energy": 5,
     "base": "tool",
     "type": "hammer",
@@ -118,7 +118,7 @@
   "turnip seedbag": {
     "desc": "Contains turnip seeds",
     "eff_desc": "Throw turnip seeds into the soil",
-    "cost": 300,
+    "cost": 50,
     "energy": 5,
     "base": "tool",
     "type": "seedbag",
@@ -127,7 +127,7 @@
   "radish seedbag": {
     "desc": "Contains radish seeds",
     "eff_desc": "Throw radish seeds into the soil",
-    "cost": 400,
+    "cost": 100,
     "energy": 5,
     "base": "tool",
     "type": "seedbag",
@@ -136,7 +136,7 @@
   "tomato seedbag": {
     "desc": "Contains tomato seeds",
     "eff_desc": "Throw tomato seeds into the soil",
-    "cost": 300,
+    "cost": 200,
     "energy": 5,
     "base": "tool",
     "type": "seedbag",
@@ -152,7 +152,7 @@
     "stats": {
       "intelligence": 1,
       "mp": 50,
-      "magical": 4,
+      "magical": 3,
       "physical": 2,
       "atk speed": 1.1
     }
@@ -243,6 +243,7 @@
     "eff_desc": "",
     "cost": 15,
     "type": "misc.",
+    "placeable": true,
     "activate": -1
   },
   "stone": {
@@ -250,6 +251,7 @@
     "eff_desc": "",
     "cost": 15,
     "type": "misc.",
+    "placeable": true,
     "activate": -1
   },
   "chest": {
@@ -351,7 +353,7 @@
   "torch": {
     "desc": "Make the area brighter.",
     "eff_desc": "",
-    "cost": 30,
+    "cost": 750,
     "type": "Misc.",
     "placeable": true,
     "activate": -1

@@ -1,6 +1,6 @@
 extends Node
 
-var npc_database
+var npc_database : Dictionary
 
 
 func _ready():

@@ -31,7 +31,7 @@ signal next_day
 signal time_increased
 signal hour_increased
 
-var time_delta = 2
+const time_delta = 3.5
 var time = time_delta
 var player 
 

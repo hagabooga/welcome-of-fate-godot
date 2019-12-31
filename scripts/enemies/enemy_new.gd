@@ -7,7 +7,6 @@ var item_drops = {}
 
 func _ready():
 	self.atk_spd = 1
-
 	starting_stats()
 	final_stats()
 	
@@ -22,9 +21,11 @@ func die() -> void:
 func take_damage(dmg : Damage) -> void:
 	if $AnimationPlayer.current_animation != "die":
 		.take_damage(dmg)
+		sound_player.play_sound(randi()%7+1, self)
 		if hp <= 0:
 			die()
 			dmg.dealer.add_xp(5)
+			dmg.dealer.emit_signal("on_kill_enemy", ming)
 	
 func deal_damage_to_target() -> void:
 	if $EnemyMovement.target == null:

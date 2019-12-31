@@ -32,5 +32,10 @@ func _init(npc_ming, x):
 #	for x in goals:
 #		print(x.object_ming)
 	
-	
+
+func is_all_goals_completed() -> bool:
+	for x in goals:
+		if !x.is_complete():
+			return false
+	return true
 
