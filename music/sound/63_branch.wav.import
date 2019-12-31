@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/63_branch.wav-6fadc6075a1a1d02172d0ea5c5da2a97.sample"
+
+[deps]
+
+source_file="res://music/sound/63_branch.wav"
+dest_files=[ "res://.import/63_branch.wav-6fadc6075a1a1d02172d0ea5c5da2a97.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

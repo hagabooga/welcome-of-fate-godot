@@ -154,6 +154,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/animals/random_movement_ai.gd"
 }, {
+"base": "Player",
+"class": "Rogue",
+"language": "GDScript",
+"path": "res://scripts/player/stats/rogue.gd"
+}, {
 "base": "NPC",
 "class": "ShopNPC",
 "language": "GDScript",
@@ -188,6 +193,11 @@ _global_script_classes=[ {
 "class": "Utility",
 "language": "GDScript",
 "path": "res://utility.gd"
+}, {
+"base": "Player",
+"class": "Warrior",
+"language": "GDScript",
+"path": "res://scripts/player/stats/warrior.gd"
 }, {
 "base": "ToolItem",
 "class": "WateringCan",
@@ -234,6 +244,7 @@ _global_script_class_icons={
 "Quest": "",
 "QuestGoal": "",
 "RandomMovementAI": "",
+"Rogue": "",
 "ShopNPC": "",
 "SingleSkillAttack": "",
 "Skill": "",
@@ -241,6 +252,7 @@ _global_script_class_icons={
 "TilledSoil": "",
 "ToolItem": "",
 "Utility": "",
+"Warrior": "",
 "WateringCan": "",
 "Weapon": "",
 "WorldObject": ""
@@ -372,10 +384,6 @@ ui_home={
 "events": [  ]
 }
 ui_end={
-"deadzone": 0.5,
-"events": [  ]
-}
-action={
 "deadzone": 0.5,
 "events": [  ]
 }
@@ -518,6 +526,11 @@ skill={
 stats={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+options={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"unicode":0,"echo":false,"script":null)
  ]
 }
 

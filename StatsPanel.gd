@@ -25,13 +25,14 @@ func set_stats(s : Attributes):
 
 func update_text():
 	$AP.text = "AP: %d"%stats.ap
-	$VBoxContainer/Name.text = "Name: " + stats.name
+	$VBoxContainer/Name.text = "Name: " + stats.ming
 	$VBoxContainer/Level.text = "Level: %d"%stats.level
-	for i in range(2, $VBoxContainer.get_child_count()):
+	$VBoxContainer/Job.text = "Class: " + stats.job
+	for i in range(3, $VBoxContainer.get_child_count()):
 		var label = $VBoxContainer.get_child(i) 
-		if 2 <= i and i < 6:
+		if 3 <= i and i < 7:
 			label = label.get_child(0)
-		var x = stats.stats[i-2]
+		var x = stats.stats[i-3]
 		if int(x.final_val) == x.final_val:
 			label.text = "%s: %d"%[global_id.stat_idToName[x.type].capitalize(),x.final_val]
 		else:

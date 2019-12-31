@@ -6,8 +6,8 @@ func _init():
 	job = "Mage"
 	self.strength = 3
 	self.intelligence = 8
-	self.agility = 4
-	self.luck = 5
+	self.agility = 5
+	self.luck = 4
 	self.crit_multi = 225
 	self.max_energy = 100
 	update_stats()
@@ -18,10 +18,10 @@ func _init():
 	xp = 0
 
 func update_stats():
-	self.max_hp = 225 + self.strength * 28 + level * (32 + level)
+	self.max_hp = 175 + self.strength * 18 + level * (20 + level)
 	self.max_mp = 300 + self.intelligence * (26 + level) + level * (12 * level)
 	self.physical = 1 + self.strength + level * 2
-	self.magical = 5 + self.intelligence * 2 + level * 3
+	self.magical = 6 + self.intelligence * 2 + level * 3
 	
 	self.armor = 15 + self.strength * 4 + self.agility * 2
 	self.resist = 25 + self.intelligence * 5 + self.agility * 2

@@ -34,6 +34,6 @@ func next_color():
 	if (world_globals.hour in day_night_cycle_times):
 		var new_col = cycle[day_night_cycle_times.find(world_globals.hour)]
 		new_col.a = 1
-		$Tween.interpolate_property(self, "color", current_col, new_col, world_globals.time_delta*5, Tween.TRANS_SINE, Tween.EASE_OUT)
+		$Tween.interpolate_property(self, "color", current_col, new_col, world_globals.time_delta*3, Tween.TRANS_SINE, Tween.EASE_OUT)
 		$Tween.start()
 		current_col = new_col

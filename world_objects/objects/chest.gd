@@ -5,7 +5,7 @@ extends WorldObject
 class_name Chest
 
 
-export(PoolStringArray) var items
+
 
 func clicked(tewl: Item, user : Attributes):
 	if tewl != null and tewl.type == "axe":
@@ -24,8 +24,7 @@ func right_clicked():
 func _ready():
 	$Node2D/Control/InventoryList.resize_to_holder_amount(Control.PRESET_CENTER)
 	ming = "chest"
-	for x in items:
-		$Node2D/Control/InventoryList.add_item(item_database.make_item(x))
+
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):

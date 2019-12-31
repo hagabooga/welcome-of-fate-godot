@@ -5,4 +5,5 @@ func clicked(tewl : Item, user : Attributes):
 		tewl.current_amount = tewl.capacity
 		user.use_energy(tewl.energy_cost)
 		user.water_can_filled()
+		sound_player.play_sound(61,self)
 		return [ClickAction.new()]

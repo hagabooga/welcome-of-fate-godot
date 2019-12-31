@@ -90,7 +90,7 @@
     "base": "tool",
     "hack": true,
     "type": "sickle",
-    "stats": { "physical": 1, "atk speed": 1.8 },
+    "stats": { "physical": 7, "atk speed": 1.8 },
     "activate": 1
   },
   "axe": {

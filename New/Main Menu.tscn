@@ -1,18 +1,323 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://New/Map.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/player/PlayerNew.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Warp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://New/Main Menu.gd" type="Script" id=2]
+[ext_resource path="res://scenes/player/PlayerNew.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Warp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 48
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.913725, 0.913725, 0.913725, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+font_data = ExtResource( 5 )
 
 [node name="Main Menu" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+bgm_id = 1
 
-[node name="Player" parent="." index="4" instance=ExtResource( 2 )]
+[node name="TileMaps" parent="." index="1"]
+editor/display_folded = true
+
+[node name="Player" parent="." index="4" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 0, 32 )
 
-[node name="Warp" parent="." index="5" instance=ExtResource( 3 )]
-editor/display_folded = false
+[node name="Warp" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 0, 32 )
 instant = true
 map = "tutorial island"
+
+[node name="CollisionShape2D" parent="Warp" index="0"]
+disabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6"]
+layer = 3
+
+[node name="ChooseJob" type="ColorRect" parent="CanvasLayer" index="0"]
+margin_right = 960.0
+margin_bottom = 540.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="JobButtons" type="Control" parent="CanvasLayer/ChooseJob" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -253.0
+margin_top = -192.0
+margin_right = 253.0
+margin_bottom = -87.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/ChooseJob/JobButtons" index="0"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -167.0
+margin_top = -64.1494
+margin_right = 167.0
+margin_bottom = 0.850601
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Select Your Class"
+
+[node name="Warrior" type="Button" parent="CanvasLayer/ChooseJob/JobButtons" index="1"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -25.0
+margin_right = 150.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0.376471, 0.376471, 1 )
+custom_colors/font_color_pressed = Color( 0.705882, 0, 0, 1 )
+text = "Warrior"
+
+[node name="Mage" type="Button" parent="CanvasLayer/ChooseJob/JobButtons" index="2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -25.0
+margin_right = 75.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.0862745, 0.686275, 0.941176, 1 )
+custom_colors/font_color_hover = Color( 0.309804, 0.737255, 0.917647, 1 )
+custom_colors/font_color_pressed = Color( 0.0588235, 0.431373, 0.588235, 1 )
+text = "Mage"
+
+[node name="Rogue" type="Button" parent="CanvasLayer/ChooseJob/JobButtons" index="3"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -25.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+custom_colors/font_color_hover = Color( 0.407843, 1, 0.407843, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.572549, 0, 1 )
+text = "Rogue"
+
+[node name="JobDescription" type="Control" parent="CanvasLayer/ChooseJob" index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 168.0
+margin_bottom = -143.0
+
+[node name="SelectedClass" type="RichTextLabel" parent="CanvasLayer/ChooseJob/JobDescription" index="0"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -480.0
+margin_right = 480.0
+margin_bottom = 52.0
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+scroll_active = false
+
+[node name="ProsCons" type="Label" parent="CanvasLayer/ChooseJob/JobDescription" index="1"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -177.0
+margin_right = 480.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+
+[node name="Select" type="Button" parent="CanvasLayer/ChooseJob" index="2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -74.4312
+margin_top = 138.935
+margin_right = 75.5688
+margin_bottom = 188.935
+custom_fonts/font = SubResource( 2 )
+text = "Select"
+
+[node name="Error" type="Label" parent="CanvasLayer/ChooseJob" index="3"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -76.376
+margin_bottom = -11.376
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Please select a class!"
+align = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Timer" type="Timer" parent="CanvasLayer/ChooseJob/Error" index="0"]
+
+[node name="MainMenu" type="ColorRect" parent="CanvasLayer" index="1"]
+margin_right = 960.0
+margin_bottom = 540.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="CanvasLayer/MainMenu" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -343.0
+margin_top = -154.381
+margin_right = 343.0
+margin_bottom = -67.3811
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 1, 1 )
+text = "Booga's Welcome of Fate"
+align = 1
+
+[node name="NameInput" type="Control" parent="CanvasLayer/MainMenu" index="1"]
+editor/display_folded = true
+margin_left = 223.0
+margin_top = 230.868
+margin_right = 735.0
+margin_bottom = 304.868
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/NameInput" index="0"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -16.5
+margin_right = 180.0
+margin_bottom = 16.5
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Enter your name: "
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/MainMenu/NameInput" index="1"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 190.0
+margin_top = -16.5
+margin_bottom = 16.5
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+max_length = 12
+
+[node name="Error" type="Label" parent="CanvasLayer/MainMenu" index="2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -106.0
+margin_top = 23.0274
+margin_right = 106.0
+margin_bottom = 56.0274
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Please enter a name!"
+align = 1
+
+[node name="Timer" type="Timer" parent="CanvasLayer/MainMenu/Error" index="0"]
+
+[node name="Buttons" type="Control" parent="CanvasLayer/MainMenu" index="3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -206.5
+margin_top = 64.1011
+margin_right = 206.5
+margin_bottom = 156.101
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Play" type="Button" parent="CanvasLayer/MainMenu/Buttons" index="0"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -27.0
+margin_right = 112.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 9 )
+text = "Play"
+
+[node name="Load" type="Button" parent="CanvasLayer/MainMenu/Buttons" index="1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -27.0
+margin_right = 56.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 9 )
+text = "Load"
+
+[node name="Quit" type="Button" parent="CanvasLayer/MainMenu/Buttons" index="2"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = -27.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 9 )
+text = "Quit"
+[connection signal="pressed" from="CanvasLayer/ChooseJob/JobButtons/Warrior" to="." method="_on_Warrior_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChooseJob/JobButtons/Mage" to="." method="_on_Mage_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChooseJob/JobButtons/Rogue" to="." method="_on_Rogue_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChooseJob/Select" to="." method="_on_Select_pressed"]
+[connection signal="timeout" from="CanvasLayer/ChooseJob/Error/Timer" to="." method="_on_select_Timer_timeout"]
+[connection signal="text_entered" from="CanvasLayer/MainMenu/NameInput/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="timeout" from="CanvasLayer/MainMenu/Error/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Quit" to="." method="_on_Quit_pressed"]
 
 [editable path="Warp"]

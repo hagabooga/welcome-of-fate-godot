@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/64_good_hap.wav-7ed1179443db42bfe8845c6e71f97145.sample"
+
+[deps]
+
+source_file="res://music/sound/64_good_hap.wav"
+dest_files=[ "res://.import/64_good_hap.wav-7ed1179443db42bfe8845c6e71f97145.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

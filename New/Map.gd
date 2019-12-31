@@ -2,6 +2,7 @@ extends Node2D
 
 class_name Map
 
+export(int) var bgm_id
 
 var world_objs = {}
 var world_objs_ref = {}
@@ -15,13 +16,14 @@ var tilemap_soil : TileMap
 var tilemap_soilObjects : TileMap
 var tilemap_worldObjects : TileMap
 var tilemap_waterCliff : TileMap
-var player : Player
+var player 
 
 func _ready():
 	call_deferred("setup")
 	
 func setup():
 	ItemHotkeyPreview.set_map(self)
+	player.play_bgm(bgm_id)
 	world_globals.player = find_node("Player")
 	world_globals.current_map = self
 	world_globals.connect("next_day", self, "create_daily_objects")
@@ -55,7 +57,6 @@ func setup():
 		#map_data.add_map_data(self)
 	#print(map_data.data)
 	#print(used_cells)
-	print(used_cells)
 
 func connect_scene_world_objects():
 	for x in $WorldObjects.get_children():
@@ -138,7 +139,7 @@ func create_daily_objects():
 		#print(x)
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
 			var i = randi()%100
-			print(!(x in used_cells) and is_tilled_soil_good_has_plant(x))
+			#print(!(x in used_cells) and is_tilled_soil_good_has_plant(x))
 			if !(x in used_cells) and i < 5 and is_tilled_soil_good_has_plant(x):
 				names = ["branch", "rock", "weed"]
 				var rand_choice = names[randi() % names.size()]

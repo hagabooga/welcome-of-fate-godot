@@ -6,6 +6,9 @@ var inventory_ui : InventoryUI
 signal dropped_data
 
 func get_drag_data(position):
+#	var tr = TextureRect.new()
+#	tr.texture = $ItemTexture.texture
+#	set_drag_preview(tr)
 	return self
 
 func can_drop_data(position, data):

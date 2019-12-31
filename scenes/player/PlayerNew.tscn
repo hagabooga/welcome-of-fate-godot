@@ -1,16 +1,15 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/general/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/player/stats/mage.gd" type="Script" id=2]
 [ext_resource path="res://2DLight.png" type="Texture" id=3]
-[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=4]
-[ext_resource path="res://level up.png" type="Texture" id=5]
-[ext_resource path="res://UIController.tscn" type="PackedScene" id=6]
-[ext_resource path="res://00_training.wav" type="AudioStream" id=7]
-[ext_resource path="res://scenes/player/BGM.gd" type="Script" id=8]
-[ext_resource path="res://scenes/player/LoadedItems.gd" type="Script" id=9]
-[ext_resource path="res://scenes/SpriteWithBodyAnimation.tscn" type="PackedScene" id=10]
-[ext_resource path="res://sprites/player/sara.png" type="Texture" id=11]
+[ext_resource path="res://UIController.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/player/BGM.gd" type="Script" id=5]
+[ext_resource path="res://scenes/player/LoadedItems.gd" type="Script" id=6]
+[ext_resource path="res://scenes/SpriteWithBodyAnimation.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/player/sara.png" type="Texture" id=8]
+[ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=9]
+[ext_resource path="res://level up.png" type="Texture" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0416
@@ -117,14 +116,25 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ 36 ],
-"method": "play_sound"
-}, {
 "args": [ 20 ],
 "method": "play_sound"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("UI/BGM")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 2, true ],
+"method": "play_bgm"
 } ]
 }
 
@@ -176,7 +186,7 @@ tracks/2/keys = {
 collision_layer = 3
 collision_mask = 10
 script = ExtResource( 2 )
-move_speed = 500
+move_speed = 150
 
 [node name="Light2D" type="Light2D" parent="." index="0"]
 visible = false
@@ -186,7 +196,29 @@ color = Color( 0.92549, 0.92549, 0.92549, 1 )
 shadow_enabled = true
 shadow_color = Color( 1, 1, 1, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="1"]
+[node name="UI" type="Node2D" parent="." index="1"]
+z_index = 4094
+z_as_relative = false
+
+[node name="UIController" parent="UI" index="0" instance=ExtResource( 4 )]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="UI" index="1"]
+volume_db = -10.0
+script = ExtResource( 5 )
+
+[node name="LoadedItems" type="Node2D" parent="." index="2"]
+visible = false
+script = ExtResource( 6 )
+
+[node name="BodySprites" type="Node2D" parent="." index="3"]
+editor/display_folded = true
+position = Vector2( 0, -20 )
+
+[node name="CharacterBody" parent="BodySprites" index="0" instance=ExtResource( 7 )]
+texture = ExtResource( 8 )
+frame = 26
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
 editor/display_folded = true
 current = true
 drag_margin_h_enabled = false
@@ -204,14 +236,14 @@ self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -17.8199, 9.67404 )
 scale = Vector2( 22.3419, 14.5761 )
 z_index = 200
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="LevelUpAnimation" type="Sprite" parent="Camera2D" index="1"]
 visible = false
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 vframes = 6
 hframes = 10
 frame = 53
@@ -220,29 +252,6 @@ region_rect = Rect2( 0, 64, 1280, 1536 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="UI" type="Node2D" parent="." index="2"]
-z_index = 4094
-z_as_relative = false
-
-[node name="UIController" parent="UI" index="0" instance=ExtResource( 6 )]
-
-[node name="BGM" type="AudioStreamPlayer2D" parent="UI" index="1"]
-stream = ExtResource( 7 )
-volume_db = -5.0
-script = ExtResource( 8 )
-
-[node name="LoadedItems" type="Node2D" parent="." index="3"]
-visible = false
-script = ExtResource( 9 )
-
-[node name="BodySprites" type="Node2D" parent="." index="4"]
-editor/display_folded = true
-position = Vector2( 0, -20 )
-
-[node name="CharacterBody" parent="BodySprites" index="0" instance=ExtResource( 10 )]
-texture = ExtResource( 11 )
-frame = 26
 
 [node name="PosAboveHead" parent="." index="5"]
 position = Vector2( 0, -50 )

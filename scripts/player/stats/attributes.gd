@@ -37,7 +37,7 @@ func add_ap(val : int):
 	
 var job = "Attributes Job: No Name"
 
-var xp setget set_xp,get_xp
+var xp = 0 setget set_xp,get_xp
 
 
 signal on_hp_add(value, color_pos, color_neg)

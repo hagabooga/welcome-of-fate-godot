@@ -11,7 +11,8 @@ func _process(delta):
 			open_close_skill()
 		if Input.is_action_just_pressed("stats"):
 			open_close_stats()
-	
+		if Input.is_action_just_pressed("options"):
+			open_close_options()
 	
 
 func create_question_box(question : String, target : Object, yes_func : String = "", no_func : String = ""):
@@ -55,6 +56,10 @@ func open_close_stats(opposite = true, yes=false):
 	else:
 		$Stats.visible = yes
 	
-
+func open_close_options(opposite = true, yes=false):
+	if opposite:
+		$Options.visible = !$Options.visible
+	else:
+		$Options.visible = yes
 func unfreeze_time():
 	$Date.unfreeze_time()

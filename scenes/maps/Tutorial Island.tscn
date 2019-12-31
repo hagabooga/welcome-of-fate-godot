@@ -3,9 +3,9 @@
 [ext_resource path="res://New/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/maps/Tutorial Island.gd" type="Script" id=2]
 [ext_resource path="res://world_objects/objects/bed.tscn" type="PackedScene" id=3]
-[ext_resource path="res://world_objects/objects/chest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://world_objects/objects/clean booga.tscn" type="PackedScene" id=5]
-[ext_resource path="res://world_objects/objects/sell bin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world_objects/objects/clean booga.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world_objects/objects/sell bin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world_objects/objects/chest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Warp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/animals/chicken.tscn" type="PackedScene" id=8]
 
@@ -72,24 +72,17 @@ tile_data = PoolIntArray( 65547, 2, 131072, 65548, 2, 131073, 65549, 2, 131073, 
 cell_size = Vector2( 32, 32 )
 tile_data = PoolIntArray( 65537, 0, 131072, 65538, 0, 131073, 65539, 0, 131073, 65540, 0, 131074, 131073, 0, 196608, 131074, 0, 196609, 131075, 0, 196609, 131076, 0, 196610, 196609, 0, 262144, 196610, 0, 262145, 196611, 0, 262145, 196612, 0, 262146 )
 
-[node name="WorldObjects" parent="." index="2"]
-editor/display_folded = true
-
 [node name="Bed" parent="WorldObjects" index="0" instance=ExtResource( 3 )]
 position = Vector2( 224, 32 )
 
-[node name="Chest" parent="WorldObjects" index="1" instance=ExtResource( 4 )]
-position = Vector2( 224, 160 )
-
-[node name="Chest2" parent="WorldObjects" index="2" instance=ExtResource( 4 )]
-position = Vector2( 224, 320 )
-
-[node name="Clean Booga" parent="WorldObjects" index="3" instance=ExtResource( 5 )]
+[node name="Clean Booga" parent="WorldObjects" index="1" instance=ExtResource( 4 )]
 position = Vector2( 64, 256 )
 
-[node name="Sell Bin" parent="WorldObjects" index="4" instance=ExtResource( 6 )]
+[node name="Sell Bin" parent="WorldObjects" index="2" instance=ExtResource( 5 )]
 position = Vector2( 320, 160 )
 input_pickable = true
+
+[node name="Chest" parent="WorldObjects" index="3" instance=ExtResource( 6 )]
 
 [node name="Warps" parent="." index="3"]
 editor/display_folded = true
@@ -98,7 +91,7 @@ editor/display_folded = true
 position = Vector2( 900, 330 )
 
 [node name="Main Menu" type="Position2D" parent="Warps" index="1"]
-position = Vector2( 541.105, 163.42 )
+position = Vector2( 319.887, 306.78 )
 
 [node name="Warp" parent="Warps" index="2" instance=ExtResource( 7 )]
 map = "worm desert"

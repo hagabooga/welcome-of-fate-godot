@@ -60,7 +60,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Branch" instance=ExtResource( 1 )]
+[node name="Branch" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Area2D" parent="." index="0"]

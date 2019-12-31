@@ -6,9 +6,11 @@ enum {up,down,left,right}
 var facing = down setget set_facing
 var equipped_weapon : Weapon = null
 var body_sprite = preload("res://scenes/SpriteWithBodyAnimation.tscn")
-var did_click_action : bool = false
+var did_click_action := false
 signal on_full_fade_in
 
+func play_bgm(id : int, prev := false):
+	$UI/BGM.play_bgm(id, prev)
 
 func die() -> void:
 	if $BodySprites/CharacterBody.current_anim != "die":
@@ -29,7 +31,7 @@ func get_hotkey_holder() -> ItemHolderBase:
 	return $UI/UIController/Inventory.get_hotkey_holder()
 
 func anim_finished(anim_name : String):
-	print(anim_name)
+	#print(anim_name)
 	if anim_name != "die":
 		play_all_idle(facing)
 	elif anim_name == "die":
@@ -39,6 +41,7 @@ func add_cash(val):
 	$UI/UIController/Inventory.cash += val
 
 func _ready():
+	
 	connect("on_full_fade_in", self, "fade_out")
 	$UI/UIController/Stats.set_stats(self)
 	$BodySprites/CharacterBody.connect("frame_changed", self, "check_animation")
@@ -49,12 +52,12 @@ func _ready():
 	connect("stat_changed", $UI/UIController/Stats, "update_text")
 	get_parent().player = self
 	can_move = true
-	set_script(load("res://scripts/player/stats/mage.gd"))
+	#set_script(load("res://scripts/player/stats/mage.gd"))
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
 	$UI/UIController/Inventory.connect("on_inv_change", self, "check_load_hotkey")
 	$UI/UIController/Inventory.connect("on_item_add", $LoadedItems, "add_item")
-	update_stats()
+	#update_stats()
 
 	connect("on_ap_change", $UI/UIController/Stats, "able_use_ap")
 	for x in [$UI/UIController/Inventory.inventory_items,$UI/UIController/Inventory.hotkey_items]:
@@ -150,7 +153,7 @@ func left_click_obj(obj : Clickable):
 	if is_dead():
 		return
 	#print($BodySprites/CharacterBody.current_anim)
-	print(did_click_action)
+	#print(did_click_action)
 	if did_click_action or $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"]:# or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)

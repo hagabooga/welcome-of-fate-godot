@@ -40,9 +40,12 @@ func clicked(tewl : Item, user : Attributes):
 			if tewl.type == "watering can":
 				if !tewl.can_pour():
 					return
-				sound_player.play_sound(28,self)
+				sound_player.play_sound(60,self)
 				tewl.current_amount -= 1
-			$Sprite.frame += 1
+				$Sprite.frame += 1
+			else:
+				sound_player.play_sound(62,self)
+				$Sprite.frame += 1
 			return [ClickAction.new(ClickAction.NONE)]
 	return null
 

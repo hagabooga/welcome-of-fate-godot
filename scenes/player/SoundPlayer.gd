@@ -1,12 +1,14 @@
 extends Node
 
 var sounds = {}
+var bgm = {}
 
 func _ready():
-	load_sounds("res://music/sound/")
+	load_sounds("res://music/sound/", sounds)
+	load_sounds("res://music/bgm/", bgm)
 
 
-func load_sounds(path):
+func load_sounds(path, dict):
 	var dir = Directory.new()
 	if dir.open(path) == OK:
 		dir.list_dir_begin()
@@ -18,7 +20,7 @@ func load_sounds(path):
 			else:
 				if file_name.ends_with(".import"): #export workaround for sound files
 					var actual = file_name.replace(".import", "")
-					sounds[i] = load("res://music/sound/" + actual)
+					dict[i] = load(path + actual)
 					i+=1
 			file_name = dir.get_next()
 	else:
@@ -36,4 +38,6 @@ func play_sound(id : int, node : Node, keep := true):
 		sfx.global_position = node.global_position
 		get_tree().get_current_scene().add_child(sfx)
 	sfx.play()
-	
+
+func get_bgm(id : int) -> AudioStream:
+	return bgm[id]

@@ -1,21 +1,22 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/player/UIController.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/PanelBeige.png" type="Texture" id=2]
 [ext_resource path="res://Date.gd" type="Script" id=3]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://scenes/ui/InteractKey.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Inventory.tscn" type="PackedScene" id=6]
-[ext_resource path="res://SkillsPage.gd" type="Script" id=7]
-[ext_resource path="res://sprites/ui/Cross Brown.png" type="Texture" id=8]
-[ext_resource path="res://MageFirePage.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sprites/ui/buttonBeige.png" type="Texture" id=10]
-[ext_resource path="res://QuestionBox.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=12]
-[ext_resource path="res://Dialogue.gd" type="Script" id=13]
-[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=14]
-[ext_resource path="res://StatsPanel.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scripts/ui/StatusBar.tscn" type="PackedScene" id=16]
+[ext_resource path="res://SkillsPage.gd" type="Script" id=6]
+[ext_resource path="res://sprites/ui/Cross Brown.png" type="Texture" id=7]
+[ext_resource path="res://MageFirePage.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sprites/ui/buttonBeige.png" type="Texture" id=9]
+[ext_resource path="res://QuestionBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/ui/PanelBrown.png" type="Texture" id=11]
+[ext_resource path="res://Dialogue.gd" type="Script" id=12]
+[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=13]
+[ext_resource path="res://StatsPanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/ui/StatusBar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Options.gd" type="Script" id=16]
+[ext_resource path="res://Inventory.tscn" type="PackedScene" id=17]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -58,7 +59,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxTexture" id=8]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 22.0
 margin_right = 41.0
@@ -74,7 +75,7 @@ margin_top = 34.0
 margin_bottom = 25.0
 
 [sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 30.0
 margin_right = 24.0
@@ -87,6 +88,18 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 14.0
+margin_right = 32.0
+margin_top = 25.0
+margin_bottom = 29.0
+
+[sub_resource type="DynamicFont" id=14]
+size = 24
 font_data = ExtResource( 4 )
 
 [node name="UIController" type="CanvasLayer"]
@@ -147,31 +160,6 @@ margin_top = 150.0
 margin_bottom = 227.0
 mouse_filter = 2
 
-[node name="Inventory" parent="." instance=ExtResource( 6 )]
-editor/display_folded = true
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -243.0
-margin_bottom = 0.0
-
-[node name="InventoryList" parent="Inventory" index="0"]
-visible = false
-
-[node name="HotkeyList" parent="Inventory" index="1"]
-editor/display_folded = false
-
-[node name="HBoxContainer" parent="Inventory/HotkeyList" index="0"]
-editor/display_folded = false
-
-[node name="ItemHolder" parent="Inventory/HotkeyList/HBoxContainer" index="0"]
-editor/display_folded = false
-
-[node name="CashAmount" parent="Inventory" index="2"]
-margin_left = 654.277
-margin_top = 205.403
-margin_right = 733.277
-margin_bottom = 238.403
-
 [node name="Skills" type="Panel" parent="."]
 editor/display_folded = true
 visible = false
@@ -179,14 +167,14 @@ margin_left = 645.0
 margin_right = 960.0
 margin_bottom = 540.0
 custom_styles/panel = SubResource( 5 )
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="CloseButton" type="TextureButton" parent="Skills"]
 margin_left = 275.062
 margin_top = 10.5688
 margin_right = 307.062
 margin_bottom = 42.5688
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 7 )
 expand = true
 
 [node name="SP" type="Label" parent="Skills"]
@@ -202,7 +190,7 @@ text = "SP: 15
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="MageFirePage" parent="Skills/Pages" instance=ExtResource( 9 )]
+[node name="MageFirePage" parent="Skills/Pages" instance=ExtResource( 8 )]
 
 [node name="LearnedSkills" type="TextureButton" parent="Skills"]
 editor/display_folded = true
@@ -210,7 +198,7 @@ margin_left = 11.376
 margin_top = 488.031
 margin_right = 158.376
 margin_bottom = 528.031
-texture_normal = ExtResource( 10 )
+texture_normal = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_group_": true
@@ -224,7 +212,7 @@ text = "Learned Skills"
 align = 1
 valign = 1
 
-[node name="QuestionBox" parent="." instance=ExtResource( 11 )]
+[node name="QuestionBox" parent="." instance=ExtResource( 10 )]
 visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -245,7 +233,7 @@ margin_left = -300.0
 margin_top = -130.0
 margin_right = 300.0
 custom_styles/panel = SubResource( 9 )
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="Name" type="Panel" parent="Dialogue"]
 editor/display_folded = true
@@ -285,12 +273,77 @@ margin_top = -37.0
 margin_right = -26.0
 margin_bottom = -10.0
 focus_mode = 0
-icon = ExtResource( 14 )
+icon = ExtResource( 13 )
 
-[node name="Stats" parent="." instance=ExtResource( 15 )]
+[node name="Stats" parent="." instance=ExtResource( 14 )]
 
-[node name="StatusBar" parent="." instance=ExtResource( 16 )]
+[node name="StatusBar" parent="." instance=ExtResource( 15 )]
 margin_top = -183.0
+
+[node name="Options" type="Panel" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -200.0
+margin_right = 150.0
+margin_bottom = 200.0
+custom_styles/panel = SubResource( 13 )
+script = ExtResource( 16 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+custom_constants/separation = 8
+
+[node name="Title" type="Label" parent="Options/VBoxContainer"]
+margin_right = 280.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 14 )
+text = "Options Menu"
+align = 1
+
+[node name="OptionButton" type="OptionButton" parent="Options/VBoxContainer"]
+margin_top = 41.0
+margin_right = 280.0
+margin_bottom = 61.0
+
+[node name="OptionButton2" type="OptionButton" parent="Options/VBoxContainer"]
+margin_top = 69.0
+margin_right = 280.0
+margin_bottom = 89.0
+text = "asdasd"
+
+[node name="Inventory" parent="." instance=ExtResource( 17 )]
+editor/display_folded = true
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -243.0
+margin_bottom = 0.0
+
+[node name="InventoryList" parent="Inventory" index="0"]
+visible = false
+
+[node name="HotkeyList" parent="Inventory" index="1"]
+editor/display_folded = false
+
+[node name="HBoxContainer" parent="Inventory/HotkeyList" index="0"]
+editor/display_folded = false
+
+[node name="ItemHolder" parent="Inventory/HotkeyList/HBoxContainer" index="0"]
+editor/display_folded = false
+
+[node name="CashAmount" parent="Inventory" index="2"]
+margin_left = 654.277
+margin_top = 205.403
+margin_right = 733.277
+margin_bottom = 238.403
 [connection signal="pressed" from="Skills/CloseButton" to="Skills" method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Dialogue/Button" to="Dialogue" method="_on_Button_pressed"]
 
