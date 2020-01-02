@@ -1,9 +1,9 @@
 {
-  "slay the gators": {
+  "slay the worms": {
     "ask": [
       "Hey, I need you to kill those Worms.",
       "There should be a lot on the right side.",
-      "Compelete this quest and I'll reward you."
+      "Complete this quest and I'll reward you."
     ],
     "accept": [
       "OK. Let me teach you how to fight.",

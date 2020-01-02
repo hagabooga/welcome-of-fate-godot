@@ -1,10 +1,7 @@
 {
-  "clean booga": {
-    "quests": ["slay the gators"],
-    "default": ["Welcome to Booga's Welcome of Fate."]
-  },
+  "clean booga": {},
   "princess booga": {
-    "quests": ["slay the gators"],
+    "quests": ["slay the worms"],
     "default": [
       "Welcome to Booga's Welcome of Fate.",
       "Allow me to show you how to farm.",

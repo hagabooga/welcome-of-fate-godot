@@ -15,7 +15,7 @@ func _ready():
 		$Area2D/CollisionShape2D.shape.radius = spawn_radius
 	else:
 		$Area2D/CollisionShape2D.shape.radius = spawn_radius
-		$Timer.wait_time = randi()%4+3
+		$Timer.wait_time = randi()%7+7
 		#spawn()
 
 func _process(delta):

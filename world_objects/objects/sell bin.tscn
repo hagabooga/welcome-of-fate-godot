@@ -4,12 +4,15 @@
 [ext_resource path="res://world_objects/objects/sell bin.gd" type="Script" id=2]
 [ext_resource path="res://sprites/items/sell bin.png" type="Texture" id=3]
 
-[node name="Sell Bin" instance=ExtResource( 1 )]
+[node name="Sell Bin" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 3 )
 
 [node name="InventoryList" parent="Node2D/Control" index="0"]
+margin_left = -101.0
+margin_right = 101.0
 actual_slots = 18
+list_name = "Sell Bin"
 item_column_size = 6

@@ -99,7 +99,8 @@ func resize_inventory():
 
 	
 func _process(delta):
-	if !owner.owner.can_move:
+	if !get_parent().get_parent().get_parent().can_move:
+		print(!get_parent().get_parent().get_parent().can_move)
 		return
 	if !get_parent().quest.visible:
 		if Input.is_action_just_released("scroll_down"):

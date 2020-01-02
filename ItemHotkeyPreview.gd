@@ -13,7 +13,8 @@ func _process(delta):
 		if item != null:
 			var pos = current_map.tilemap_soil.world_to_map(get_global_mouse_position())
 			global_position = current_map.tilemap_soil.map_to_world(pos)
-		
+
+
 func set_item_holder(holder):
 	item_holder = holder
 	texture = holder.get_texture()

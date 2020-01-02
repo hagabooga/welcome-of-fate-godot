@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/07_wake_up.ogg-d46721cbd991074788d8a7b8e5e51334.oggstr"
+
+[deps]
+
+source_file="res://music/bgm/07_wake_up.ogg"
+dest_files=[ "res://.import/07_wake_up.ogg-d46721cbd991074788d8a7b8e5e51334.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

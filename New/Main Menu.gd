@@ -7,6 +7,7 @@ enum {none, warrior, mage, rogue}
 var selected_job = none
 
 func _ready():
+	ItemHotkeyPreview.item_holder = null
 	pass
 
 
@@ -58,8 +59,8 @@ func _on_Rogue_pressed():
 func _on_Select_pressed():
 	if selected_job != none:
 		$CanvasLayer/ChooseJob.visible = false
-		$CanvasLayer/Instructions/StartGameButton/ReadInstructionsTimer.start()
 		sound_player.play_sound(43,$Player)
+		start_game()
 		
 	else:
 		$CanvasLayer/ChooseJob/Error.visible = true
@@ -78,6 +79,7 @@ func _on_LineEdit_text_entered(new_text):
 		sound_player.play_sound(43,$Player)
 		ming = new_text
 		$CanvasLayer/MainMenu.visible = false
+		
 	else:
 		$CanvasLayer/MainMenu/Error.visible = true
 		$CanvasLayer/MainMenu/Error/Timer.start()
@@ -88,6 +90,7 @@ func _on_LineEdit_text_entered(new_text):
 	
 func _on_Play_pressed():
 	_on_LineEdit_text_entered($CanvasLayer/MainMenu/NameInput/LineEdit.text)
+	
 	
 
 func _on_Load_pressed():

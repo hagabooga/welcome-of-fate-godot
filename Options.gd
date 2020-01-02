@@ -18,30 +18,33 @@ func _ready():
 		$VBoxContainer/Resolutions.add_item(str(data), i)
 		$VBoxContainer/Resolutions.set_item_metadata(i, data)
 	$VBoxContainer/Resolutions.select(1)
-	_on_Resolutions_item_selected(1)
-	_on_FullscreenToggle_pressed()
+	var data = $VBoxContainer/Resolutions.get_item_metadata(1)
+	OS.window_size = data
 		
 func _on_Resolutions_item_selected(ID):
 	var data = $VBoxContainer/Resolutions.get_item_metadata(ID)
 	OS.window_size = data
+	sound_player.play_sound(43, self)
 
 func _on_FullscreenToggle_pressed():
 	var full = !OS.window_fullscreen
 	OS.window_fullscreen = full
 	$VBoxContainer/Resolutions.disabled = full
+	sound_player.play_sound(43, self)
 
 func _on_VolumeToggle_pressed():
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), $VBoxContainer/VolumeToggle.pressed)
-	$VBoxContainer/VolumeSlider.editable = !$VBoxContainer/VolumeToggle.pressed
-
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), !$VBoxContainer/VolumeToggle.pressed)
+	$VBoxContainer/VolumeSlider.editable = $VBoxContainer/VolumeToggle.pressed
+	sound_player.play_sound(43, self)
+	
 func _on_VolumeSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
 
 
 func _on_BGMToggle_pressed():
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("bgm"), $VBoxContainer/BGMToggle.pressed)
-	$VBoxContainer/BGMSlider.editable = !$VBoxContainer/BGMToggle.pressed
-	
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("bgm"), !$VBoxContainer/BGMToggle.pressed)
+	$VBoxContainer/BGMSlider.editable = $VBoxContainer/BGMToggle.pressed
+	sound_player.play_sound(43, self)
 
 
 func _on_BGMSlider_value_changed(value):
@@ -49,22 +52,25 @@ func _on_BGMSlider_value_changed(value):
 	
 	
 func _on_SoundToggle_pressed():
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("sound"), $VBoxContainer/SoundToggle.pressed)
-	$VBoxContainer/SoundSlider.editable = !$VBoxContainer/SoundToggle.pressed
-
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("sound"), !$VBoxContainer/SoundToggle.pressed)
+	$VBoxContainer/SoundSlider.editable = $VBoxContainer/SoundToggle.pressed
+	sound_player.play_sound(43, self)
 
 
 func _on_SoundSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("sound"), value)
-
+	
 
 
 func _on_PauseToggle_pressed():
 	get_tree().paused = !get_tree().paused
 
-
-
-
-
 func _on_CloseButton_pressed():
 	visible = !visible
+	sound_player.play_sound(43, self)
+
+
+func _on_InstructionsButton_pressed():
+	$Instructions.visible = true
+	sound_player.play_sound(43, self)
+	

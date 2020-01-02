@@ -36,11 +36,13 @@ func get_hotkey_holder() -> ItemHolderBase:
 	return $UI/UIController/Inventory.get_hotkey_holder()
 
 func anim_finished(anim_name : String):
-	#print(anim_name)
+	print(anim_name)
 	if anim_name != "die":
 		play_all_idle(facing)
+		can_move = true
 	elif anim_name == "die":
 		$AnimationPlayer.play("dead")
+	
 
 func add_cash(val):
 	$UI/UIController/Inventory.cash += val
@@ -105,8 +107,10 @@ func check_load_hotkey():
 		
 
 func _process(delta):
-#	if Input.is_action_just_pressed("v"):
-#		add_xp(20)
+	if Input.is_action_just_pressed("v"):
+		add_xp(20)
+	if Input.is_action_just_pressed("shift"):
+		self.take_damage(Damage.new(self,1000))
 	if get_parent() == get_tree().get_root():
 		z_index = 2048
 		return
@@ -125,7 +129,7 @@ func _physics_process(delta):
 		return
 	if $UI/UIController/QuestionBox.visible ||\
 	 $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"]:
-		play_all_idle("")
+		can_move = false
 		return
 	if can_move:
 		movement_input()
@@ -185,6 +189,10 @@ func right_click_obj(obj : Clickable):
 func special_click_effects(obj : Clickable):
 	pass
 
+func sleep():
+	$AnimationPlayer.play("next_day_fade_in")
+	$UI/BGM.stop()
+
 func special_right_click_effects(obj : Clickable):
 	if obj is PickableWorldObject:
 		$UI/UIController/Inventory.add_item(item_database.make_item(obj.ming))
@@ -193,15 +201,17 @@ func special_right_click_effects(obj : Clickable):
 		#$UI/UIController/Inventory.add_item(item_database.make_item(obj.plant.ming))
 	elif obj is Bed:
 		$UI/UIController.create_question_box("Do you wish to sleep until the next day?", self, "sleep")
+		play_all_idle("")
 	elif obj is Chest:
 		$UI/UIController.open_close_inventory(false,true)
 
 
-func sleep():
-		$UI/UIController.create_question_box("You Died! Respawn to lose all money?", self, "respawn", "quit_game")
+func dead():
+	$UI/UIController.create_question_box("You Died! Respawn to lose all money?", self, "respawn", "quit_game")
 		
 func on_next_day():
 	world_globals.next_day()
+	play_bgm(7,true)
 
 func fade_in(speed := 1.0):
 	$AnimationPlayer.play("fade_in",-1,speed)
@@ -235,7 +245,6 @@ func play_all_idle(last_anim) -> void:
 	for x in $BodySprites.get_children():
 		if x.get_script() != null:
 			x.play_anim("idle", facing)
-	can_move = true
 
 func play_all_body_anims(anim, dir, speed_ratio = 1, can_mv = true) -> void:
 	for x in $BodySprites.get_children():
@@ -296,7 +305,7 @@ func quit_game():
 	get_tree().quit()
 
 func _on_ClickableArea_input_event(viewport, event, shape_idx):
-	if is_dead():
+	if is_dead() or !can_move:
 		return
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		var item = get_hotkey_item()
@@ -339,7 +348,7 @@ func level_up():
 
 func play_sound(id : int):
 	sound_player.play_sound(id, self)
-	
+
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	match anim_name:
@@ -353,7 +362,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			$UI/UIController/Inventory.visible = true
 			can_move = true
 		"dead":
-			$UI/UIController.create_question_box("You Died! Respawn to lose all money?", self, "respawn", "quit_game")
+			$UI/UIController.create_question_box("You Died! Respawn to lose all money?", self, "respawn", "go_to_main_menu")
 
 func close_dialogue():
 	$UI/UIController/Dialogue.close()
+
+func go_to_main_menu():
+	get_tree().change_scene("res://New/Main Menu.tscn")

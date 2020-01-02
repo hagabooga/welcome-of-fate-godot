@@ -24,7 +24,7 @@ radius = 264.002
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 490, 290 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 resource_name = "dead"
 length = 3.0
 tracks/0/type = "value"
@@ -51,7 +51,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D/Fade:modulate")
@@ -80,7 +80,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D/Fade:modulate")
@@ -109,8 +109,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "level_up"
+[sub_resource type="Animation" id=8]
 length = 2.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D/LevelUpAnimation:frame")
@@ -165,8 +164,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "next_day_fade_in"
+[sub_resource type="Animation" id=9]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D/Fade:modulate")
@@ -315,11 +313,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="11"]
-anims/dead = SubResource( 9 )
-anims/fade_in = SubResource( 5 )
-anims/fade_out = SubResource( 6 )
-anims/level_up = SubResource( 7 )
-anims/next_day_fade_in = SubResource( 8 )
+anims/dead = SubResource( 5 )
+anims/fade_in = SubResource( 6 )
+anims/fade_out = SubResource( 7 )
+anims/level_up = SubResource( 8 )
+anims/next_day_fade_in = SubResource( 9 )
 [connection signal="finished" from="UI/BGM" to="UI/BGM" method="_on_BGM_finished"]
 [connection signal="input_event" from="ClickableArea" to="." method="_on_ClickableArea_input_event"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
