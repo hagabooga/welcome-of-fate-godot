@@ -41,7 +41,7 @@ anchor_bottom = 0.5
 margin_left = -150.0
 margin_top = -263.0
 margin_right = 150.0
-margin_bottom = 149.0
+margin_bottom = 174.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
@@ -202,6 +202,13 @@ margin_bottom = 400.0
 custom_fonts/font = SubResource( 7 )
 text = "Read Game Instructions"
 
+[node name="SaveButton" type="Button" parent="VBoxContainer"]
+margin_top = 399.0
+margin_right = 280.0
+margin_bottom = 428.0
+custom_fonts/font = SubResource( 7 )
+text = "Save Game and Go to Title Screen"
+
 [node name="CloseButton" type="Button" parent="."]
 margin_left = 260.0
 margin_top = 20.0
@@ -225,4 +232,5 @@ margin_bottom = 533.0
 [connection signal="value_changed" from="VBoxContainer/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/PauseToggle" to="." method="_on_PauseToggle_pressed"]
 [connection signal="pressed" from="VBoxContainer/InstructionsButton" to="." method="_on_InstructionsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]

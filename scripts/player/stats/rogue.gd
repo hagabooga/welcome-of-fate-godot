@@ -14,7 +14,7 @@ func _init():
 	hp = self.max_hp
 	mp = self.max_mp
 	energy = self.max_energy 
-	move_speed = 180
+	move_speed = 175
 	xp = 0
 
 func update_stats():

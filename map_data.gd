@@ -12,3 +12,7 @@ func deep_copy_dict_with_save(objs : Dictionary, refs : Dictionary):
 	for k in objs:
 		copy[k] = [objs[k], refs[k].save_data()]
 	return copy
+
+
+func clear_data():
+	data = {}

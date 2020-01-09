@@ -6,42 +6,42 @@
 [ext_resource path="res://Warp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 48
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 24
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 24
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 48
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 64
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 size = 24
 font_data = ExtResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.913725, 0.913725, 0.913725, 1 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 24
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 size = 24
 font_data = ExtResource( 5 )
 
@@ -95,7 +95,7 @@ margin_left = -167.0
 margin_top = -64.1494
 margin_right = 167.0
 margin_bottom = 0.850601
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Select Your Class"
 
@@ -105,7 +105,7 @@ anchor_bottom = 0.5
 margin_top = -25.0
 margin_right = 150.0
 margin_bottom = 25.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0.376471, 0.376471, 1 )
 custom_colors/font_color_pressed = Color( 0.705882, 0, 0, 1 )
@@ -120,7 +120,7 @@ margin_left = -75.0
 margin_top = -25.0
 margin_right = 75.0
 margin_bottom = 25.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0.0862745, 0.686275, 0.941176, 1 )
 custom_colors/font_color_hover = Color( 0.309804, 0.737255, 0.917647, 1 )
@@ -135,7 +135,7 @@ anchor_bottom = 0.5
 margin_left = -150.0
 margin_top = -25.0
 margin_bottom = 25.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 1, 0, 1 )
 custom_colors/font_color_hover = Color( 0.407843, 1, 0.407843, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.572549, 0, 1 )
@@ -155,7 +155,7 @@ margin_left = -480.0
 margin_top = 5.54016
 margin_right = 480.0
 margin_bottom = 57.5402
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 scroll_active = false
 
@@ -168,7 +168,7 @@ margin_left = -480.0
 margin_top = -161.488
 margin_right = 480.0
 margin_bottom = 15.5125
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
@@ -181,7 +181,7 @@ margin_left = -74.4312
 margin_top = 159.988
 margin_right = 75.5688
 margin_bottom = 209.988
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Select"
 
 [node name="Error" type="Label" parent="CanvasLayer/ChooseJob" index="3"]
@@ -192,7 +192,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -67.216
 margin_bottom = -2.216
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Please select a class!"
 align = 1
@@ -218,7 +218,7 @@ margin_left = -343.0
 margin_top = -176.464
 margin_right = 343.0
 margin_bottom = -89.4638
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 1, 1 )
 text = "Booga's Welcome of Fate"
 align = 1
@@ -240,7 +240,7 @@ anchor_bottom = 0.5
 margin_top = -16.5
 margin_right = 180.0
 margin_bottom = 16.5
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Enter your name: "
 
@@ -251,8 +251,8 @@ anchor_bottom = 0.5
 margin_left = 190.0
 margin_top = -16.5
 margin_bottom = 16.5
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 max_length = 12
@@ -268,7 +268,7 @@ margin_left = -106.0
 margin_top = 31.1453
 margin_right = 106.0
 margin_bottom = 64.1453
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Please enter a name!"
 align = 1
@@ -294,7 +294,7 @@ anchor_bottom = 0.5
 margin_top = -27.0
 margin_right = 112.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 text = "Play"
 
 [node name="Load" type="Button" parent="CanvasLayer/MainMenu/Buttons" index="1"]
@@ -307,7 +307,7 @@ margin_left = -56.0
 margin_top = -27.0
 margin_right = 56.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 text = "Load"
 
 [node name="Quit" type="Button" parent="CanvasLayer/MainMenu/Buttons" index="2"]
@@ -318,7 +318,7 @@ anchor_bottom = 0.5
 margin_left = -112.0
 margin_top = -27.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 text = "Quit"
 [connection signal="pressed" from="CanvasLayer/ChooseJob/JobButtons/Warrior" to="." method="_on_Warrior_pressed"]
 [connection signal="pressed" from="CanvasLayer/ChooseJob/JobButtons/Mage" to="." method="_on_Mage_pressed"]

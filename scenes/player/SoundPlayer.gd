@@ -27,14 +27,17 @@ func load_sounds(path, dict):
 		print("An error occurred when trying to access the path.")
 
 
-func play_sound(id : int, node : Node, keep := true):
+func play_sound(id : int, node : Node, keep := true, on_player = false):
 	var sfx := AudioStreamPlayer2D.new()
 	sfx.set_stream(sounds[id])
 	sfx.connect("finished",sfx,"queue_free")
 	sfx.bus = "sound"
 	sfx.volume_db = -10
 	if keep:
-		node.add_child(sfx)
+		if on_player:
+			get_tree().current_scene.player.add_child(sfx)
+		else:
+			node.add_child(sfx)
 	else:
 		sfx.global_position = node.global_position
 		get_tree().get_current_scene().add_child(sfx)

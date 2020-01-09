@@ -19,12 +19,12 @@ func add_quest(q : Quest):
 
 func complete_quest(ming : String):
 	var quest_button = quests[ming]
-	print(quest_button)
+	#print(quest_button)
 	$InProgress/VBoxContainer.remove_child(quest_button)
 	$Completed/VBoxContainer.add_child(quest_button)
 	completed[ming] = quest_button
 	quests.erase(ming)
-	print(completed[ming])
+	#print(completed[ming])
 
 
 func show_details(q : Quest):
@@ -37,17 +37,22 @@ func show_details(q : Quest):
 		s += "- " + goal.desc + " (%d/%d)"%[goal.did,goal.need] + ("\n" if x != l - 1 else "") 
 	$VBoxContainer/Goals.text = s
 	$VBoxContainer/Memory.text = q.memory # "[i]%s[/i]"
+	sound_player.play_sound(43, self, true, true)
 
 func _on_InProgressButton_pressed():
 	$Which.text = "In Progress"
 	$Completed.visible = false
 	$InProgress.visible = true
+	$CompletedLabel.visible = false
+	sound_player.play_sound(43, self, true, true)
 	clear_details()
 	
 func _on_Completed_pressed():
 	$Which.text = "Completed"
 	$Completed.visible = true
 	$InProgress.visible = false
+	$CompletedLabel.visible = true
+	sound_player.play_sound(43, self, true, true)
 	clear_details()
 
 func clear_details():

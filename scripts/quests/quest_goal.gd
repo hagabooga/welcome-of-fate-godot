@@ -15,6 +15,7 @@ func _init(x):
 	need = x[1]
 	type = x[2]
 	desc = x[3]
+	print(need)
 
 func is_complete():
 	return did >= need
