@@ -18,6 +18,15 @@ var tilemap_worldObjects : TileMap
 var tilemap_waterCliff : TileMap
 var player 
 
+func _process(delta):
+	if Input.is_action_just_pressed("shift"):
+		print(world_objs)
+		var a = []
+		for x in tilled_soil_objs:
+			a.append(x.tile_pos)
+		print(a)
+	
+	
 func _ready():
 	call_deferred("setup")
 	
@@ -42,6 +51,7 @@ func setup():
 		create_daily_objects()
 		
 	else:
+		# NEED TO ALSO ADD TILLED SOIL OBJECTS
 		# delete preset scene objects
 		for x in $WorldObjects.get_children():
 			x.queue_free()
@@ -79,11 +89,7 @@ func connect_click_to_player(x : Clickable) -> void:
 	x.connect("clicked", player, "left_click_obj", [x])
 	x.connect("right_clicked", player, "right_click_obj", [x])
 
-func _process(delta):
-	pass
-		
 func remove_cell(pos : Vector2):
-	#print("erasing: ", pos)
 	used_cells.erase(pos)
 	world_objs.erase(pos)
 
