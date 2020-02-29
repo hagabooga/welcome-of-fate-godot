@@ -72,5 +72,18 @@ func _on_CloseButton_pressed():
 
 func _on_InstructionsButton_pressed():
 	$Instructions.visible = true
+#	var save_game = File.new()
+#	save_game.open("user://savegame.save", File.READ)
+#	var dx = parse_json(save_game.get_line())["Worm Desert"]
+#	for x in dx.keys():
+#		print(dx[x][1][0][0].ming)
 	sound_player.play_sound(43, self)
 	
+
+func _on_SaveButton_pressed():
+	sound_player.play_sound(43, self)
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
+	save_game.store_line(to_json(map_data.data))
+	save_game.close()
+

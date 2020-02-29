@@ -8,6 +8,7 @@ onready var dialogue : DialogueUI = get_node("Dialogue")
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		close_all()
+		
 	if !$QuestionBox.visible:
 		if Input.is_action_just_pressed("inventory"):
 			open_close_inventory()

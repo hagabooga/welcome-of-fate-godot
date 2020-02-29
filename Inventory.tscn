@@ -18,13 +18,13 @@ margin_right = 37.0
 margin_top = 36.0
 margin_bottom = 29.0
 
-[sub_resource type="DynamicFont" id=2]
-size = 10
+[sub_resource type="DynamicFont" id=3]
+size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 outline_size = 1
 outline_color = Color( 1, 1, 0, 1 )
@@ -43,9 +43,10 @@ mouse_filter = 2
 script = ExtResource( 1 )
 
 [node name="InventoryList" parent="." instance=ExtResource( 2 )]
+actual_slots = 50
+item_column_size = 10
 
 [node name="HotkeyList" type="Panel" parent="."]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -74,14 +75,12 @@ margin_left = 0.0
 margin_right = 32.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "1"
 
@@ -90,14 +89,12 @@ margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder2"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "2"
 
@@ -106,14 +103,12 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder3"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "3"
 
@@ -122,14 +117,12 @@ margin_left = 96.0
 margin_right = 128.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder4"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "4"
 
@@ -138,14 +131,12 @@ margin_left = 128.0
 margin_right = 160.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder5"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "5"
 
@@ -154,14 +145,12 @@ margin_left = 160.0
 margin_right = 192.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder6"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "6"
 
@@ -170,14 +159,12 @@ margin_left = 192.0
 margin_right = 224.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder7"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "7"
 
@@ -186,14 +173,12 @@ margin_left = 224.0
 margin_right = 256.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder8"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "8"
 
@@ -202,30 +187,27 @@ margin_left = 256.0
 margin_right = 288.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder9"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "9"
 
 [node name="ItemHolder10" parent="HotkeyList/HBoxContainer" instance=ExtResource( 4 )]
+editor/display_folded = true
 margin_left = 288.0
 margin_right = 320.0
 margin_bottom = 32.0
 
-[node name="Key" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.03522
-margin_top = -1.01216
-margin_right = -2.96478
-margin_bottom = -1.01216
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="HotkeyList/HBoxContainer/ItemHolder10"]
+margin_left = 3.2262
+margin_top = -0.804138
+margin_right = 43.2262
+margin_bottom = 22.1959
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "0"
 
@@ -245,7 +227,7 @@ margin_left = 655.587
 margin_top = 505.554
 margin_right = 734.587
 margin_bottom = 538.554
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "casdasd"
 

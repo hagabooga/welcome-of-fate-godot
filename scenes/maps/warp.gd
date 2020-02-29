@@ -10,6 +10,7 @@ func load_stuff():
 	once = true
 	var root = get_tree().root
 	var player = get_tree().get_current_scene().player
+	
 	get_tree().get_current_scene().remove_child(player)
 	var level = get_tree().get_current_scene()
 	map_data.add_map_data(level)
@@ -30,5 +31,6 @@ func _on_ToWormDesert_body_entered(body):
 		if instant:
 			load_stuff()
 		else:
+			body.play_all_idle("")
 			body.fade_in(5)
 			body.connect("on_full_fade_in", self, "load_stuff")

@@ -13,7 +13,8 @@ func _ready():
 
 	
 func start_game():
-	
+	world_globals.reset_time()
+	map_data.clear_data()
 	$Player.visible = true
 	$Player/UI/UIController.close_all()
 	match selected_job:

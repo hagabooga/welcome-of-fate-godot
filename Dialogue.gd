@@ -85,9 +85,10 @@ func start_quest(q : Quest):
 			get_parent().get_parent().get_parent().add_xp(50)
 			get_parent().get_parent().get_parent().add_cash(500)
 			start_dialogue(q.complete)
-			
 		else:
 			start_dialogue(q.in_prog)
+	elif q.ming in get_parent().quest.completed:
+		start_dialogue(q.complete)
 	else:
 		current_quest = q
 		asking = true

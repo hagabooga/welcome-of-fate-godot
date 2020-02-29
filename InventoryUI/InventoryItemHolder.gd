@@ -12,6 +12,8 @@ func get_drag_data(position):
 	return self
 
 func can_drop_data(position, data):
+	if !get_tree().current_scene.player.can_move:
+		return false
 	if data.item == null or get_tree().paused:
 		return false
 	else:
@@ -35,7 +37,7 @@ func can_drop_data(position, data):
 
 func drop_data(position, data):
 	if data.cost_money_drop:
-		sound_player.play_sound(57,self)
+		sound_player.play_sound(57,self,true,true)
 		inventory_ui.cash -= data.item.cost
 	if item == null:
 		set_item(data.item, data.count)

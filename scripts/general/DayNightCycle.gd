@@ -27,6 +27,7 @@ var current_col : Color = cycle[day_night_cycle_times.find(6)]
 
 func _ready():
 	world_globals.connect("hour_increased", self, "next_color")
+	world_globals.connect("next_day", self, "next_color")
 	current_col.a = 1
 	set_color(current_col)
 	

@@ -6,7 +6,11 @@ class_name InventoryList
 var item_holder = load("res://InventoryUI/InventoryItemHolder.tscn")
 
 export (int) var actual_slots = 50
+<<<<<<< HEAD
 var size : int setget set_panel_size
+=======
+var size : int setget set_holder_size
+>>>>>>> b153df5b8bf69ecf7f23cf589b6ececa6bb8adb3
 export(String) var list_name : String
 export(int) var item_column_size = 10
 
@@ -22,8 +26,8 @@ func _ready():
 
 func set_item_holder():
 	item_holder = load("res://InventoryUI/InventoryItemHolder.tscn")
-	
-func set_panel_size(val):
+
+func set_holder_size(val):
 	size = val
 	for x in range(size):
 		$GridContainer.get_child(x).visible = true

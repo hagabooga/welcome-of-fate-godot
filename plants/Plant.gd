@@ -45,7 +45,7 @@ func no_water():
 		return
 	if current_stage != -1:
 		death_counter += 1
-	print(death_counter)
+	#print(death_counter)
 	if death_counter >= death: 
 		frame = vframes*hframes - 1
 		dead = true

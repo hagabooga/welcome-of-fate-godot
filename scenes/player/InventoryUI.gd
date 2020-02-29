@@ -42,6 +42,8 @@ func check_watering_can():
 	$WateringCanAmount.visible = yes
 
 func set_hotkey_index(val):
+	if !get_parent().get_parent().get_parent().can_move:
+		return
 	hotkey_index = val
 	$HotkeyList/HotkeySelection.rect_global_position = $HotkeyList/HBoxContainer.get_child(hotkey_index).rect_global_position
 	check_watering_can()
@@ -77,8 +79,6 @@ func _ready():
 #		add_item(item_database.make_item("soul potion"))
 #		add_item(item_database.make_item("vitality potion"))
 #		add_item(item_database.make_item("spirit potion"))
-		
-
 	for items in [inventory_items, hotkey_items]:
 		for item in items:
 			item.inventory_ui = self
@@ -99,8 +99,8 @@ func resize_inventory():
 
 	
 func _process(delta):
+	#print(!get_parent().get_parent().get_parent().can_move)
 	if !get_parent().get_parent().get_parent().can_move:
-		print(!get_parent().get_parent().get_parent().can_move)
 		return
 	if !get_parent().quest.visible:
 		if Input.is_action_just_released("scroll_down"):

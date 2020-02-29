@@ -10,6 +10,9 @@ var did_click_action := false
 
 signal on_full_fade_in
 
+func set_can_move(val : bool):
+	.set_can_move(val)
+
 func take_damage(dmg : Damage):
 	.take_damage(dmg)
 	play_sound(randi()%7+1)
@@ -36,7 +39,7 @@ func get_hotkey_holder() -> ItemHolderBase:
 	return $UI/UIController/Inventory.get_hotkey_holder()
 
 func anim_finished(anim_name : String):
-	print(anim_name)
+	#print(anim_name)
 	if anim_name != "die":
 		play_all_idle(facing)
 		can_move = true
@@ -48,6 +51,7 @@ func add_cash(val):
 	$UI/UIController/Inventory.cash += val
 
 func _ready():
+
 	connect("on_full_fade_in", self, "fade_out")
 	$UI/UIController/Stats.set_stats(self)
 	$BodySprites/CharacterBody.connect("frame_changed", self, "check_animation")
@@ -57,7 +61,7 @@ func _ready():
 	connect("on_xp_change", $UI/UIController/StatusBar, "update_xpBar")
 	connect("stat_changed", $UI/UIController/Stats, "update_text")
 	get_parent().player = self
-	can_move = true
+	self.can_move = true
 	#set_script(load("res://scripts/player/stats/mage.gd"))
 	$BodySprites/CharacterBody/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 	$UI/UIController/Inventory.connect("on_hotkey_index_change", self, "check_load_hotkey")
@@ -128,9 +132,9 @@ func _process(delta):
 func _physics_process(delta):
 	if is_dead():
 		return
-	if $UI/UIController/QuestionBox.visible ||\
-	 $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"]:
-		can_move = false
+	if $UI/UIController/QuestionBox.visible: self.can_move = false
+	if $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"]:
+		self.can_move = false
 		return
 	if can_move:
 		movement_input()
@@ -165,7 +169,7 @@ func click_action(ca : ClickAction):
 func left_click_obj(obj : Clickable):
 	if is_dead():
 		return
-	#print($BodySprites/CharacterBody.current_anim)
+	#printsad($BodySprites/CharacterBody.current_anim)
 	#print(did_click_action)
 	if did_click_action or $AnimationPlayer.current_animation in\
 			["fade_in", "next_day_fade_in", "fade_out"]:# or !can_move:
@@ -195,6 +199,9 @@ func special_click_effects(obj : Clickable):
 	pass
 
 func sleep():
+	add_hp(self.max_hp)
+	add_mp(self.max_mp)
+	add_energy(self.max_energy)
 	$AnimationPlayer.play("next_day_fade_in")
 	$UI/BGM.stop()
 
@@ -205,11 +212,13 @@ func special_right_click_effects(obj : Clickable):
 		#print("WOW")
 		#$UI/UIController/Inventory.add_item(item_database.make_item(obj.plant.ming))
 	elif obj is Bed:
-		$UI/UIController.create_question_box("Do you wish to sleep until the next day?", self, "sleep")
+		$UI/UIController.create_question_box("Do you wish to sleep until the next day?", self, "sleep", "allow_move")
 		play_all_idle("")
 	elif obj is Chest:
 		$UI/UIController.open_close_inventory(false,true)
 
+func allow_move():
+	self.can_move = true
 
 func dead():
 	$UI/UIController.create_question_box("You Died! Respawn to lose all money?", self, "respawn", "quit_game")
@@ -254,7 +263,7 @@ func play_all_idle(last_anim) -> void:
 func play_all_body_anims(anim, dir, speed_ratio = 1, can_mv = true) -> void:
 	for x in $BodySprites.get_children():
 		x.play_anim(anim, dir, speed_ratio)
-	can_move = can_mv
+	self.can_move = can_mv
 
 func flip_hitboxes() -> void:
 	var flip
@@ -359,13 +368,13 @@ func _on_AnimationPlayer_animation_started(anim_name):
 	match anim_name:
 		"fade_in", "next_day_fade_in":
 			$UI/UIController/Inventory.visible = false
-			can_move = false
+			self.can_move = false
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
 		"fade_out":
 			$UI/UIController/Inventory.visible = true
-			can_move = true
+			self.can_move = true
 		"dead":
 			$UI/UIController.create_question_box("You Died! Respawn to lose all money?", self, "respawn", "go_to_main_menu")
 

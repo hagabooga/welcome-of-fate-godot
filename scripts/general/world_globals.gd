@@ -37,8 +37,12 @@ var player
 
 var time_stop = false
 
-func _ready():
-	pass
+func reset_time():
+	season = 0
+	day = 1
+	hour = 6
+	minute = 0
+	emit_signal("time_increased")
 
 func _process(delta):
 #	if Input.is_action_just_pressed("ctrl"):

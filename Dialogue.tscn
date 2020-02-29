@@ -46,19 +46,19 @@ tracks/0/keys = {
 "values": [ Vector2( 565.453, 96.0945 ), Vector2( 560, 96.094 ), Vector2( 565.453, 96.0945 ) ]
 }
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=6]
 flags = 4
 load_path = "res://.import/PanelBrown.png-3b5e42cd0f804351b4d832839e81b510.stex"
 
-[sub_resource type="StyleBoxTexture" id=9]
-texture = SubResource( 8 )
+[sub_resource type="StyleBoxTexture" id=7]
+texture = SubResource( 6 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 8.0
 margin_right = 29.0
 margin_top = 21.0
 margin_bottom = 19.0
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 8.0
@@ -66,11 +66,11 @@ margin_right = 29.0
 margin_top = 21.0
 margin_bottom = 19.0
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 24
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=10]
 size = 18
 font_data = ExtResource( 4 )
 
@@ -147,7 +147,7 @@ margin_left = -150.0
 margin_top = -449.19
 margin_right = 150.0
 margin_bottom = -99.1902
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 7 )
 
 [node name="Name" type="Panel" parent="QuestAccept"]
 editor/display_folded = true
@@ -157,7 +157,7 @@ margin_left = -127.0
 margin_top = -16.0
 margin_right = 128.0
 margin_bottom = 31.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -165,7 +165,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="QuestAccept/Name"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Slay The Gators"
 align = 1
@@ -178,7 +178,7 @@ margin_left = -127.0
 margin_top = 41.6176
 margin_right = 128.0
 margin_bottom = 186.618
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -187,7 +187,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 2.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Objectives
 - Slay 5 Gators"
@@ -202,7 +202,7 @@ margin_left = -127.0
 margin_top = -150.77
 margin_right = 128.0
 margin_bottom = -75.7704
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -211,7 +211,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 2.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Reward
 100 Cash / 50 EXP"
