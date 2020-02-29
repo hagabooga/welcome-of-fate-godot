@@ -7,6 +7,7 @@ var facing = down setget set_facing
 var equipped_weapon : Weapon = null
 var body_sprite = preload("res://scenes/SpriteWithBodyAnimation.tscn")
 var did_click_action := false
+
 signal on_full_fade_in
 
 func take_damage(dmg : Damage):
@@ -23,8 +24,7 @@ func die() -> void:
 
 
 func check_animation():
-	if $BodySprites/CharacterBody.current_anim != "slash" and \
-	$BodySprites/CharacterBody.current_anim != "hack":
+	if not $BodySprites/CharacterBody.current_anim in ["slash","hack"]:
 		did_click_action = false
 	else:
 		check_load_hotkey()
@@ -85,7 +85,8 @@ func check_load_hotkey():
 		add_attrib(equipped_weapon.item.stats)
 		equipped_weapon.stats = self
 		
-	elif item != null and (item.base == "weapon" or item.base == "tool") and equipped_weapon != null:
+	elif item != null and (item.base == "weapon" or item.base == "tool")\
+		and equipped_weapon != null:
 		if equipped_weapon.item.ming == item.ming:
 			return
 		$BodySprites.remove_child(equipped_weapon)
@@ -107,10 +108,10 @@ func check_load_hotkey():
 		
 
 func _process(delta):
-	if Input.is_action_just_pressed("v"):
-		add_xp(20)
-	if Input.is_action_just_pressed("shift"):
-		self.take_damage(Damage.new(self,1000))
+#	if Input.is_action_just_pressed("v"):
+#		add_xp(20)
+#	if Input.is_action_just_pressed("shift"):
+#		self.take_damage(Damage.new(self,1000))
 	if get_parent() == get_tree().get_root():
 		z_index = 2048
 		return
@@ -156,6 +157,9 @@ func click_action(ca : ClickAction):
 			add_xp(ca.data[0])
 		ClickAction.OPEN_DIALOGUE:
 			$UI/UIController/Dialogue.set_dialogue(ca.data[0],ca.data[1])
+		ClickAction.ADD_SKILL_POINT:
+			pass
+			#add_skill_point()
 		
 
 func left_click_obj(obj : Clickable):
@@ -163,7 +167,8 @@ func left_click_obj(obj : Clickable):
 		return
 	#print($BodySprites/CharacterBody.current_anim)
 	#print(did_click_action)
-	if did_click_action or $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"]:# or !can_move:
+	if did_click_action or $AnimationPlayer.current_animation in\
+			["fade_in", "next_day_fade_in", "fade_out"]:# or !can_move:
 		return
 	var pos = get_parent().tilemap_grass.world_to_map(global_position)
 	var item = get_hotkey_item()

@@ -18,6 +18,3 @@ func _init(m,d,mx):
 	desc = d
 	max_rank = mx
 	rank = 0
-	
-
-	
