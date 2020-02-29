@@ -45,6 +45,21 @@ _global_script_classes=[ {
 "path": "res://Clickable.gd"
 }, {
 "base": "Node",
+"class": "Collectible",
+"language": "GDScript",
+"path": "res://skills/collectible.gd"
+}, {
+"base": "Collectibles",
+"class": "CollectibleResources",
+"language": "GDScript",
+"path": "res://skills/collectibles_resources.gd"
+}, {
+"base": "Node",
+"class": "Collectibles",
+"language": "GDScript",
+"path": "res://skills/collectibles.gd"
+}, {
+"base": "Node",
 "class": "Damage",
 "language": "GDScript",
 "path": "res://scripts/damage/damage.gd"
@@ -175,21 +190,6 @@ _global_script_classes=[ {
 "path": "res://world_objects/ShopNPC.gd"
 }, {
 "base": "Sprite",
-"class": "SingleSkillAttack",
-"language": "GDScript",
-"path": "res://scripts/skill/SingleSkillAttack.gd"
-}, {
-"base": "Node",
-"class": "Skill",
-"language": "GDScript",
-"path": "res://scripts/skill/skill.gd"
-}, {
-"base": "Node",
-"class": "SkillPoints",
-"language": "GDScript",
-"path": "res://skill_points.gd"
-}, {
-"base": "Sprite",
 "class": "SpriteWithBodyAnimation",
 "language": "GDScript",
 "path": "res://scripts/SpriteWithBodyAnimation.gd"
@@ -237,6 +237,9 @@ _global_script_class_icons={
 "Chest": "",
 "ClickAction": "",
 "Clickable": "",
+"Collectible": "",
+"CollectibleResources": "",
+"Collectibles": "",
 "Damage": "",
 "DamagePopup": "",
 "DialogueOption": "",
@@ -263,9 +266,6 @@ _global_script_class_icons={
 "RandomMovementAI": "",
 "Rogue": "",
 "ShopNPC": "",
-"SingleSkillAttack": "",
-"Skill": "",
-"SkillPoints": "",
 "SpriteWithBodyAnimation": "",
 "TilledSoil": "",
 "ToolItem": "",
@@ -292,9 +292,6 @@ DayNightCycle="*res://scenes/general/DayNightCycle.tscn"
 npc_database="*res://scripts/npc/npc_database.gd"
 quest_database="*res://scripts/quests/quest_database.gd"
 ui_maker="*res://scripts/general/ui_maker.gd"
-skill_database="*res://scripts/skill/skill_database.gd"
-player_skills="*res://scripts/skill/player_skills.gd"
-skill_activations="*res://skill_activations.gd"
 world_objects_database="*res://world_objects/world_objects_database.gd"
 ItemHoldTexture="*res://ItemHoldTexture.tscn"
 ItemHotkeyPreview="*res://ItemHotkeyPreview.tscn"

@@ -1,6 +1,5 @@
 extends Map
 
-
 var ming : String = ""
 
 enum {none, warrior, mage, rogue}

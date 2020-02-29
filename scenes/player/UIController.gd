@@ -12,8 +12,8 @@ func _process(delta):
 	if !$QuestionBox.visible:
 		if Input.is_action_just_pressed("inventory"):
 			open_close_inventory()
-		if Input.is_action_just_pressed("skill"):
-			open_close_skill()
+#		if Input.is_action_just_pressed("skill"):
+#			open_close_skill()
 		if Input.is_action_just_pressed("stats"):
 			open_close_stats()
 		if Input.is_action_just_pressed("options"):
@@ -45,17 +45,17 @@ func open_close_inventory(opposite = true, yes=false):
 		$Inventory/InventoryList.visible = yes
 	$Inventory/CashAmount.visible = $Inventory/InventoryList.visible
 
-func open_close_skill(opposite = true, yes=false):
-	if opposite:
-		$Skills.visible = !$Skills.visible
-	else:
-		$Skills.visible = yes
-	if !$Skills.visible:
-		for x in $Skills/Pages.get_children():
-			var page = x.find_node("SkillTree")
-			if page.visible:
-				page.visible = false
-				break
+#func open_close_skill(opposite = true, yes=false):
+#	if opposite:
+#		$Skills.visible = !$Skills.visible
+#	else:
+#		$Skills.visible = yes
+#	if !$Skills.visible:
+#		for x in $Skills/Pages.get_children():
+#			var page = x.find_node("SkillTree")
+#			if page.visible:
+#				page.visible = false
+#				break
 
 func open_close_stats(opposite = true, yes=false):
 	if opposite:
@@ -81,7 +81,7 @@ func unfreeze_time():
 
 func close_all():
 	open_close_inventory(false)
-	open_close_skill(false)
+#	open_close_skill(false)
 	open_close_stats(false)
 	open_close_options(false)
 	open_close_quests(false)

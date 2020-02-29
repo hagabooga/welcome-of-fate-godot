@@ -6,11 +6,7 @@ class_name InventoryList
 var item_holder = load("res://InventoryUI/InventoryItemHolder.tscn")
 
 export (int) var actual_slots = 50
-<<<<<<< HEAD
-var size : int setget set_panel_size
-=======
 var size : int setget set_holder_size
->>>>>>> b153df5b8bf69ecf7f23cf589b6ececa6bb8adb3
 export(String) var list_name : String
 export(int) var item_column_size = 10
 
