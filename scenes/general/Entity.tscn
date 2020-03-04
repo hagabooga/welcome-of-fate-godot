@@ -20,7 +20,6 @@ __meta__ = {
 }
 
 [node name="Hurtbox" type="Area2D" parent="."]
-editor/display_folded = true
 modulate = Color( 1, 0, 0, 1 )
 self_modulate = Color( 1, 0, 0, 1 )
 __meta__ = {

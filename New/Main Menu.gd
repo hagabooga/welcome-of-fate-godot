@@ -7,8 +7,6 @@ var selected_job = none
 
 func _ready():
 	ItemHotkeyPreview.item_holder = null
-	pass
-
 
 	
 func start_game():

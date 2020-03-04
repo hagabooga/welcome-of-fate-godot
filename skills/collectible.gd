@@ -19,11 +19,12 @@ func _init(m: String, d: String, pg: int, pm: int, em: int):
 	
 	
 func get_desc() -> String:
-	return desc%[rank]
+	return desc%[rank * eff_multiplier]
 
 func add_point(v : int = 1):
 	points += v
-	if points == points_goal * points_multiplier * (rank + 1):
+	if points == points_goal:
+		points_goal *= points_multiplier
 		print("Rank Up!")
 		rank += 1
 	print(get_desc())
