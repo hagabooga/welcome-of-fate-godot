@@ -33,5 +33,5 @@ func _on_AnimationPlayer_animation_started(anim_name):
 		$Hitbox/CollisionShape2D.disabled = true
 
 func _on_Hitbox_body_entered(body):
-	if body is Entity:
+	if body is Enemy:
 		body.take_damage(self.damage)
