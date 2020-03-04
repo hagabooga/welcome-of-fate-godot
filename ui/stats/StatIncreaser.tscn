@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprites/ui/Arrow Right.png" type="Texture" id=2]
+[ext_resource path="res://sprites/ui/Arrow Left.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends HBoxContainer
+
+export(int) var type
+var stats  = null
+
+var used_ap : int = 0
+
+func apply_increase():
+	match type:
+		0:
+			stats.strength += used_ap
+		1:
+			stats.intelligence += used_ap
+		2:
+			stats.agility += used_ap
+		3:
+			stats.luck += used_ap
+
+func update_amount():
+	$Amount.text = \"+%d\"%used_ap
+	
+func show_increasers(yes):
+	$Amount.visible = yes
+	$Dec.visible = yes
+	$Inc.visible = yes
+	
+func _on_Dec_pressed():
+	if !used_ap:
+		return
+	stats.ap += 1
+	used_ap -= 1
+	$Inc.visible = true
+	update_amount()
+	get_parent().get_parent().find_node(\"AP\").text = \"AP: %d\"%stats.ap
+	sound_player.play_sound(41,self)
+
+func _on_Inc_pressed():
+	if !stats.ap:
+		return
+	stats.ap -= 1
+	used_ap += 1
+	update_amount()
+	get_parent().get_parent().find_node(\"AP\").text = \"AP: %d\"%stats.ap
+	sound_player.play_sound(42,self)"
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 1 )
+
+[node name="StatIncreaser" type="HBoxContainer"]
+margin_top = 52.0
+margin_right = 211.0
+margin_bottom = 80.0
+script = SubResource( 2 )
+
+[node name="Stat" type="Label" parent="."]
+margin_top = 1.0
+margin_right = 56.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 1 )
+text = "Level: 5"
+valign = 1
+
+[node name="Amount" type="Label" parent="."]
+visible = false
+margin_left = 60.0
+margin_top = 1.0
+margin_right = 81.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 1 )
+text = "+0"
+valign = 1
+
+[node name="Dec" type="TextureButton" parent="."]
+visible = false
+margin_left = 65.0
+margin_right = 87.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 3 )
+
+[node name="Inc" type="TextureButton" parent="."]
+visible = false
+margin_left = 65.0
+margin_right = 87.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 2 )
+[connection signal="pressed" from="Dec" to="." method="_on_Dec_pressed"]
+[connection signal="pressed" from="Inc" to="." method="_on_Inc_pressed"]

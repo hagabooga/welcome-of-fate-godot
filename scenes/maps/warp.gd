@@ -17,7 +17,8 @@ func load_stuff():
 	#print(map_data.data)
 	var level_name = level.name
 	level.call_deferred("free")
-	var next_level : Map = load("res://scenes/maps/%s.tscn"%map).instance()
+	var next_level = load("res://scenes/maps/%s.tscn"%map)
+	next_level = next_level.instance()
 	next_level.visible = false
 	next_level.last_level = level_name
 	root.call_deferred("add_child", (next_level))

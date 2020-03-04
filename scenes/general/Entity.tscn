@@ -2,7 +2,10 @@
 
 [ext_resource path="res://scripts/general/entity.gd" type="Script" id=1]
 [ext_resource path="res://scripts/entity/Hitstun.gd" type="Script" id=2]
-[ext_resource path="res://New/RangeOfSight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemy/RangeOfSight.tscn" type="PackedScene" id=3]
+
+
+
 
 [node name="Entity" type="KinematicBody2D"]
 script = ExtResource( 1 )
