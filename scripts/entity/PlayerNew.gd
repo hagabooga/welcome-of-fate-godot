@@ -204,6 +204,7 @@ func sleep():
 	add_energy(self.max_energy)
 	$AnimationPlayer.play("next_day_fade_in")
 	$UI/BGM.stop()
+	sound_player.play_sound(65, self)
 
 func special_right_click_effects(obj : Clickable):
 	if obj is PickableWorldObject:

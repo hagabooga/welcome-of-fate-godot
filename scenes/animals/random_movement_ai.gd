@@ -17,7 +17,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if !$MovementTimer.is_stopped():
+	if !$MovementTimer.paused:
 		body.move_and_slide(velocity.normalized() * speed)
 		
 func _on_ChanceTimer_timeout():

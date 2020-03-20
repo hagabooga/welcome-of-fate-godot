@@ -6,7 +6,6 @@
 extents = Vector2( 10, 61.666 )
 
 [node name="Warp" type="Area2D"]
-editor/display_folded = true
 position = Vector2( 950.029, 330.056 )
 z_index = 500
 script = ExtResource( 1 )

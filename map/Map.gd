@@ -18,13 +18,13 @@ var tilemap_worldObjects : TileMap
 var tilemap_waterCliff : TileMap
 var player 
 
-func _process(delta):
-	if Input.is_action_just_pressed("shift"):
-		print(world_objs)
-		var a = []
-		for x in tilled_soil_objs:
-			a.append(x.tile_pos)
-		print(a)
+#func _process(delta):
+#	if Input.is_action_just_pressed("shift"):
+#		#print(world_objs)
+#		var a = []
+#		for x in tilled_soil_objs:
+#			a.append(x.tile_pos)
+#		print(a)
 	
 	
 func _ready():
@@ -42,29 +42,36 @@ func setup():
 	tilemap_worldObjects = $TileMaps/WorldObjects
 	tilemap_waterCliff = $TileMaps/WaterCliff
 	
-
 	if !name in map_data.data:
 		connect_scene_world_objects()
 		# create objects if first time load
 		#connect_click_to_player($Chicken)
 		create_tilled_soils()
 		create_daily_objects()
-		
 	else:
 		# NEED TO ALSO ADD TILLED SOIL OBJECTS
-		# delete preset scene objects
 		for x in $WorldObjects.get_children():
 			x.queue_free()
+#		print("GOING INTO SAVED MAP: ", tilled_soil_objs)
+#		create_tilled_soils()
+		# delete preset scene objects
+		
 		# LOAD DATA
 		var data = map_data.data[name]
-		for pos in data:
-			var obj := create_world_object(data[pos][0], pos)
-			obj.load_data(data[pos][1])
+		for pos in data :
+			if pos is Vector2:
+				var obj = create_world_object(data[pos][0], pos)
+				obj.load_data(data[pos][1])
+			else:
+				for pos in data["TilledSoil"]:
+					var obj = create_world_object("TilledSoil", pos)
+					obj.load_data(data["TilledSoil"][pos])
+
 	create_water_source()
+	
 	if last_level != "":
 		player.global_position = $Warps.find_node(last_level).global_position
 	visible = true
-		#map_data.add_map_data(self)
 	#print(map_data.data)
 	#print(used_cells)
 
@@ -110,7 +117,7 @@ func create_world_object(ming : String, pos : Vector2) -> WorldObject:
 				used_cells[pos] = obj.ming
 			pos = tilemap_grass.world_to_map(obj.global_position)
 	
-	if ming != "WaterSource": #and ming != "TilledSoil"
+	if ming != "WaterSource" and ming != "TilledSoil":
 		world_objs[pos] = obj.ming
 		world_objs_ref[pos] = obj
 	if ming == "TilledSoil":
@@ -142,10 +149,9 @@ func create_daily_objects():
 			create_world_object(rand_choice, x)
 	# Put world objects on soil (not on edges of soil)
 	for x in tilemap_soil.get_used_cells():
-		#print(x)
 		if tilemap_soil.get_cell_autotile_coord(x.x,x.y) == Vector2(1,3):
 			var i = randi()%100
-			#print(!(x in used_cells) and is_tilled_soil_good_has_plant(x))
+			print(!(x in used_cells) and is_tilled_soil_good_has_plant(x))
 			if !(x in used_cells) and i < 8 and is_tilled_soil_good_has_plant(x):
 				names = ["branch", "rock", "weed"]
 				var rand_choice = names[randi() % names.size()]

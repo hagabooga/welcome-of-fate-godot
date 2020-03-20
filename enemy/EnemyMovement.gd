@@ -33,6 +33,12 @@ func get_target():
 
 
 func _physics_process(delta):
+#	if target != null:
+#		$MovementTimer.stop()
+#		$ChanceTimer.stop()
+#	else:
+#		$MovementTimer.start()
+#		$ChanceTimer.stop()
 	$MovementTimer.paused = target != null
 	$ChanceTimer.paused = target != null
 	get_target()
