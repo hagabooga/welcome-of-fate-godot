@@ -13,7 +13,7 @@ func add_quest(q : Quest):
 	var tr  = quest_ui_button.instance()
 	tr.text = q.ming.capitalize()
 	tr.quest = q
-	tr.connect("pressed", self, "show_details", [q])
+	tr.connect("pressed", self, "show_details", [q, true])
 	quests[q.ming] = tr
 	$InProgress/VBoxContainer.add_child(tr)
 
@@ -27,7 +27,7 @@ func complete_quest(ming : String):
 	#print(completed[ming])
 
 
-func show_details(q : Quest):
+func show_details(q : Quest, play_sound = false):
 	showing_quest = q
 	$VBoxContainer/Ming.text = q.ming.capitalize()
 	var s = "Goals:\n"
@@ -37,7 +37,8 @@ func show_details(q : Quest):
 		s += "- " + goal.desc + " (%d/%d)"%[goal.did,goal.need] + ("\n" if x != l - 1 else "") 
 	$VBoxContainer/Goals.text = s
 	$VBoxContainer/Memory.text = q.memory # "[i]%s[/i]"
-	sound_player.play_sound(43, self, true, true)
+	if play_sound:
+		sound_player.play_sound(43, self, true, true)
 
 func _on_InProgressButton_pressed():
 	$Which.text = "In Progress"

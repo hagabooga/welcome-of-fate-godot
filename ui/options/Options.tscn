@@ -203,6 +203,7 @@ custom_fonts/font = SubResource( 7 )
 text = "Read Game Instructions"
 
 [node name="SaveButton" type="Button" parent="VBoxContainer"]
+visible = false
 margin_top = 399.0
 margin_right = 280.0
 margin_bottom = 428.0

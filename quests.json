@@ -19,6 +19,6 @@
     ],
     "reward": "500 Cash / 50 EXP",
     "memory": "Princess Booga wants me to slay the Worms around here.",
-    "goals": [["worm", 0, 0, "Slay 5 Worms"]]
+    "goals": [["worm", 8, 0, "Slay 5 Worms"]]
   }
 }

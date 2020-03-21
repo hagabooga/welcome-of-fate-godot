@@ -1,7 +1,7 @@
 extends Entity
 class_name Enemy
 
-var item_spit_out_scene = load("rres://item/ItemSpitOut.tscn")
+var item_spit_out_scene = load("res://item/ItemSpitOut.tscn")
 
 var item_drops = {}
 

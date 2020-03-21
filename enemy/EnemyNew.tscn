@@ -6,9 +6,6 @@
 [ext_resource path="res://enemy/EnemyMovement.gd" type="Script" id=4]
 [ext_resource path="res://sprites/animals/movement_base.tres" type="SpriteFrames" id=5]
 
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.1578
 
@@ -128,11 +125,7 @@ frames = ExtResource( 5 )
 [node name="CollisionBox" parent="." index="3"]
 self_modulate = Color( 1, 0, 0.92549, 1 )
 
-[node name="Hurtbox" parent="." index="4"]
-editor/display_folded = false
-
 [node name="RangeOfSight" parent="." index="5"]
-editor/display_folded = false
 self_modulate = Color( 0.584314, 0.454902, 0.454902, 1 )
 position = Vector2( -32, -32 )
 
@@ -140,7 +133,6 @@ position = Vector2( -32, -32 )
 modulate = Color( 0.980392, 1, 0, 0.301961 )
 
 [node name="AttackRange" type="Area2D" parent="." index="6"]
-editor/display_folded = true
 position = Vector2( 32, -32 )
 __meta__ = {
 "_edit_group_": true
