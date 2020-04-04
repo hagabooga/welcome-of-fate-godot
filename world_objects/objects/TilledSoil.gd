@@ -13,13 +13,12 @@ func clicked(tewl : Item, user : Attributes):
 	if plant != null:
 		if tewl.type == "sickle":
 			if plant.has_grown():
-				plant = null
-				$Plant.get_child(0).queue_free()
+				plant_remove()
 				return [ClickAction.new(ClickAction.NONE)]
 		elif tewl.type == "hoe":
 			if $Seed.visible:
 				$Seed.visible = false
-				plant = null
+				plant_remove()
 				return [ClickAction.new(ClickAction.NONE)]
 	if $AnimationPlayer.is_playing() || tewl == null:
 		return
@@ -61,6 +60,7 @@ func right_clicked():
 		$PlantPickup.add_child(sprite)
 		$AnimationPlayer.play("plant_pickup")
 		sound_player.play_sound(16,self)
+		get_tree().current_scene.generate_item(plant.ming, self)
 		return [ClickAction.new(ClickAction.ADD_ITEM, [plant.ming]), ClickAction.new(ClickAction.PLAY_ANIM, ["slash", 2])]
 
 func grow():
@@ -87,13 +87,15 @@ func hide_plant():
 
 func plant_pickup():
 	if !plant.multi:
-		$Plant.get_child(0).queue_free()
-		plant = null
+		plant_remove()
 		$Plant.visible = true
 		return
 	if $PlantPickup.get_child_count() != 0:
 		$PlantPickup.get_child(0).queue_free()
 
+func plant_remove():
+	$Plant.get_child(0).queue_free()
+	plant = null
 
 func save_data() -> Array:
 	if $Plant.get_child_count() > 0:

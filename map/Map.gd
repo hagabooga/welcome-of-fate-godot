@@ -4,6 +4,9 @@ class_name Map
 
 export(int) var bgm_id
 
+
+var item_drop = load("res://item/ItemDrop.tscn")
+
 var world_objs = {}
 var world_objs_ref = {}
 var used_cells = {}#= []
@@ -18,6 +21,9 @@ var tilemap_worldObjects : TileMap
 var tilemap_waterCliff : TileMap
 var player 
 
+
+var floating_items = []
+
 #func _process(delta):
 #	if Input.is_action_just_pressed("shift"):
 #		#print(world_objs)
@@ -25,8 +31,21 @@ var player
 #		for x in tilled_soil_objs:
 #			a.append(x.tile_pos)
 #		print(a)
-	
-	
+
+
+func generate_item(ming: String, obj: Node2D):
+	var x = item_drop.instance()
+	var x0 = x.get_child(0)
+	var x1 = x.get_child(1)
+	for i in floating_items:
+		i.add_collision_exception_with(x0)
+		i.add_collision_exception_with(x1)
+	x.setup_item(ming)
+	x.global_position = obj.global_position
+	x.add_ignore_other_items(floating_items)
+	floating_items.append(x0)
+	floating_items.append(x1)
+	add_child(x)
 func _ready():
 	call_deferred("setup")
 	

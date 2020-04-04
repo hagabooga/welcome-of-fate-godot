@@ -11,10 +11,6 @@
 [ext_resource path="res://sprites/ui/box_outline.png" type="Texture" id=9]
 [ext_resource path="res://level up.png" type="Texture" id=10]
 
-
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0416
 
@@ -212,6 +208,7 @@ tracks/2/keys = {
 }
 
 [node name="Player" instance=ExtResource( 1 )]
+position = Vector2( -16.2452, -0.902527 )
 collision_layer = 3
 collision_mask = 10
 script = ExtResource( 2 )
@@ -287,6 +284,8 @@ shape = SubResource( 1 )
 
 [node name="Hurtbox" parent="." index="8"]
 position = Vector2( 0, -20 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="HurtboxShape" parent="Hurtbox" index="0"]
 position = Vector2( 0, 5 )

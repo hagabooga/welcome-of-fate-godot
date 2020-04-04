@@ -51,7 +51,6 @@ func add_cash(val):
 	$UI/UIController/Inventory.cash += val
 
 func _ready():
-
 	connect("on_full_fade_in", self, "fade_out")
 	$UI/UIController/Stats.set_stats(self)
 	$BodySprites/CharacterBody.connect("frame_changed", self, "check_animation")
@@ -78,6 +77,8 @@ func _ready():
 				obj.item = item
 				$LoadedItems.add_item(obj)
 	connect("on_kill_enemy", $UI/UIController/Quests, "check_kill_goal")
+	for i in range(50):
+		add_item("rock")
 	
 func check_load_hotkey():
 	var item = get_hotkey_item()
@@ -112,6 +113,7 @@ func check_load_hotkey():
 		
 
 func _process(delta):
+	
 #	if Input.is_action_just_pressed("v"):
 #		add_xp(20)
 #	if Input.is_action_just_pressed("shift"):
@@ -130,9 +132,14 @@ func _process(delta):
 			ItemHotkeyPreview.visible = true
 
 func _physics_process(delta):
+
 	if is_dead():
 		return
+
 	if $UI/UIController/QuestionBox.visible: self.can_move = false
+	
+	if self.can_move and $BodySprites/CharacterBody.current_anim == "idle":
+		turn_towards_mouse()
 	if $AnimationPlayer.current_animation in ["fade_in", "next_day_fade_in", "fade_out"]:
 		self.can_move = false
 		return

@@ -109,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://item/item.gd"
 }, {
+"base": "Node2D",
+"class": "ItemDrop",
+"language": "GDScript",
+"path": "res://item/ItemDrop.gd"
+}, {
 "base": "TextureButton",
 "class": "ItemHolderBase",
 "language": "GDScript",
@@ -245,6 +250,7 @@ _global_script_class_icons={
 "InventoryList": "",
 "InventoryUI": "",
 "Item": "",
+"ItemDrop": "",
 "ItemHolderBase": "",
 "Mage": "",
 "Map": "",
@@ -554,6 +560,7 @@ options={
 2d_physics/layer_1="Enviroment"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_6="ItemDrop"
 
 [network]
 

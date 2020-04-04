@@ -45,8 +45,8 @@ func reset_time():
 	emit_signal("time_increased")
 
 func _process(delta):
-#	if Input.is_action_just_pressed("ctrl"):
-#		next_day()
+	if Input.is_action_just_pressed("ctrl"):
+		next_day()
 	if time_stop:
 		return
 	time -= delta
