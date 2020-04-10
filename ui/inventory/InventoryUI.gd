@@ -69,6 +69,7 @@ func _ready():
 	add_item(item_database.make_item("sickle"))
 	add_item(item_database.make_item("magic wand"))
 	for i in range(5):add_item(item_database.make_item("turnip seedbag"))
+	emit_signal("on_hotkey_index_change")
 #	for x in range(30):
 #		add_item(item_database.make_item("red flower"))
 #a

@@ -80,6 +80,7 @@ func _ready():
 	for i in range(50):
 		add_item("rock")
 	
+	
 func check_load_hotkey():
 	var item = get_hotkey_item()
 	ItemHotkeyPreview.set_item_holder($UI/UIController/Inventory.get_hotkey_holder())
