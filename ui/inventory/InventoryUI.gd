@@ -28,7 +28,8 @@ signal on_hotkey_index_change
 func set_watering_can_ui():
 	var watering_can = get_hotkey_item()
 	$WateringCanAmount/TextureProgress.value = \
-	(watering_can.current_amount / float(watering_can.capacity)) * $WateringCanAmount/TextureProgress.max_value
+	(watering_can.current_amount / float(watering_can.capacity)) * \
+		$WateringCanAmount/TextureProgress.max_value
 
 func check_watering_can():
 	var can = get_hotkey_item()
@@ -45,7 +46,8 @@ func set_hotkey_index(val):
 	if !get_parent().get_parent().get_parent().can_move:
 		return
 	hotkey_index = val
-	$HotkeyList/HotkeySelection.rect_global_position = $HotkeyList/HBoxContainer.get_child(hotkey_index).rect_global_position
+	$HotkeyList/HotkeySelection.rect_global_position = \
+		$HotkeyList/HBoxContainer.get_child(hotkey_index).rect_global_position
 	check_watering_can()
 	emit_signal("on_hotkey_index_change")
 	
@@ -68,8 +70,8 @@ func _ready():
 	add_item(item_database.make_item("hammer"))
 	add_item(item_database.make_item("sickle"))
 	add_item(item_database.make_item("magic wand"))
-	for i in range(5):add_item(item_database.make_item("turnip seedbag"))
-	emit_signal("on_hotkey_index_change")
+	for i in range(5):
+		add_item(item_database.make_item("turnip seedbag"))
 #	for x in range(30):
 #		add_item(item_database.make_item("red flower"))
 #a

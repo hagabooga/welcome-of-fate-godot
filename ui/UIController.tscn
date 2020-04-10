@@ -13,17 +13,6 @@
 [ext_resource path="res://ui/UIController.gd" type="Script" id=11]
 [ext_resource path="res://ui/Date.gd" type="Script" id=12]
 
-
-
-
-
-
-
-
-
-
-
-
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 100, 100 )

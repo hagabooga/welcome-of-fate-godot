@@ -79,6 +79,7 @@ func _ready():
 	connect("on_kill_enemy", $UI/UIController/Quests, "check_kill_goal")
 	for i in range(50):
 		add_item("rock")
+	print(equipped_weapon)
 	
 	
 func check_load_hotkey():

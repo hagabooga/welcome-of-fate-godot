@@ -10,10 +10,6 @@
 [ext_resource path="res://ui/inventory/InventoryItemHolder.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/inventory/InventoryUI.gd" type="Script" id=9]
 
-
-
-
-
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 100, 100 )

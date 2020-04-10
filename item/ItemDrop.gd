@@ -5,6 +5,11 @@ class_name ItemDrop
 var count = 0
 var ming: String
 
+const IMPULSE_X = 0.4
+const IMPULSE_Y_LOWER = -1.5
+const IMPULSE_Y_UPPER = -1.0
+const IMPULSE_MULTIPLIER = 200
+
 func setup_item(ming):
 	self.ming = ming
 	$RigidBody2D/Area2D/Sprite.texture = load("res://sprites/items/" + ming + ".png")
@@ -14,7 +19,9 @@ func _ready():
 	randomize()
 	$RigidBody2D.friction = 0.02
 	$RigidBody2D.bounce = 0.5
-	$RigidBody2D.apply_central_impulse(Vector2(rand_range(-.4,.4),rand_range(-1.5,-1.0)) * 200)
+	$RigidBody2D.apply_central_impulse(\
+		Vector2(rand_range(-IMPULSE_X, IMPULSE_X), rand_range(-IMPULSE_Y_LOWER, -IMPULSE_Y_UPPER)) \
+		* IMPULSE_MULTIPLIER)
  
 func _physics_process(delta):
 	if not $RigidBody2D.sleeping:
