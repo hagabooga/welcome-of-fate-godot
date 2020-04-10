@@ -1,10 +1,7 @@
 extends Entity
 class_name Enemy
 
-var item_drop_scene = load("res://item/ItemDrop.tscn")
-
 var item_drops = {}
-
 
 func _ready():
 	self.atk_spd = 1
@@ -67,6 +64,4 @@ func spit_out_item():
 	for x in item_drops.keys():
 		var i = randi()%100
 		if i < item_drops[x]:
-			var drop = item_drop_scene.instance()
-			get_tree().current_scene.add_child(drop)
-			drop.setup_item(x)
+			get_tree().current_scene.generate_item(x, self)

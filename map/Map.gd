@@ -46,6 +46,7 @@ func generate_item(ming: String, obj: Node2D):
 	floating_items.append(x0)
 	floating_items.append(x1)
 	add_child(x)
+	
 func _ready():
 	call_deferred("setup")
 	
