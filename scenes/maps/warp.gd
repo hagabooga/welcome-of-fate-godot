@@ -23,6 +23,8 @@ func load_stuff():
 	next_level.last_level = level_name
 	root.call_deferred("add_child", (next_level))
 	next_level.player = player
+	player.find_node("Camera2D").find_node("LevelUpAnimation").visible = false
+	
 	next_level.call_deferred("add_child", player)
 	get_tree().call_deferred("set_current_scene",next_level)
 

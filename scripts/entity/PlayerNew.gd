@@ -16,6 +16,8 @@ func set_can_move(val : bool):
 func take_damage(dmg : Damage):
 	.take_damage(dmg)
 	play_sound(randi()%7+1)
+	if self.hp <= 0:
+		can_move = false
 
 func play_bgm(id : int, prev := false):
 	$UI/BGM.play_bgm(id, prev)
@@ -116,8 +118,9 @@ func check_load_hotkey():
 
 func _process(delta):
 	
-#	if Input.is_action_just_pressed("v"):
-#		add_xp(20)
+	if Input.is_action_just_pressed("v"):
+		add_xp(20)
+#		take_damage(Damage.new(self, 100))
 #	if Input.is_action_just_pressed("shift"):
 #		self.take_damage(Damage.new(self,1000))
 	if get_parent() == get_tree().get_root():
@@ -392,4 +395,4 @@ func close_dialogue():
 	$UI/UIController/Dialogue.close()
 
 func go_to_main_menu():
-	get_tree().change_scene("res://New/Main Menu.tscn")
+	get_tree().change_scene("res://scenes/maps/Main Menu.tscn")

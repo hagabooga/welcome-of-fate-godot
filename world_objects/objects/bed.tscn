@@ -5,6 +5,7 @@
 [ext_resource path="res://bed.png" type="Texture" id=3]
 
 [node name="Bed" instance=ExtResource( 1 )]
+collision_layer = 33
 script = ExtResource( 2 )
 
 [node name="Area2D" parent="." index="0"]
