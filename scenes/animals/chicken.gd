@@ -1,6 +1,8 @@
 extends Clickable
 
 
+
+
 func right_clicked():
 	print("picked up chicken")
 

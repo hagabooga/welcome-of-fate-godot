@@ -72,7 +72,7 @@ func get_time_as_string():
 	return "%s:%s"%[hour_string,minute_string]
 
 func get_current_season():
-	return season_list[season% 4] 
+	return season_list[season % 4] 
 
 func get_current_day_of_week():
 	return day_of_week[(day-1)%7]
@@ -87,7 +87,8 @@ func next_day():
 	time = 7
 	time_stop = false
 	emit_signal("next_day")
-
+	
+	
 static func is_pos_adjacent(a : Vector2, b : Vector2) -> bool:
 	return a == b or \
 	(a.x == b.x and (a.y + 1 == b.y or a.y - 1 == b.y)) or \

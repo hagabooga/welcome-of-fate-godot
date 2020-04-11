@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world_objects/WorldObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world_objects/ore.png" type="Texture" id=2]
+[ext_resource path="res://world_objects/objects/ore.gd" type="Script" id=3]
+
+[node name="Ore" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Area2D" parent="." index="0"]
+polygon = PoolVector2Array( -12.6943, -9.61469, -15.7769, 4.20755, -15.7769, 9.87566, -2.84966, 16.1404, 3.9123, 16.1404, 16.3424, 9.17958, 16.1435, 3.41203, 14.0552, -8.9186, 0.929085, -15.9789, -7.02616, -15.8794 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )

@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/maps/Map.gd" type="Script" id=1]
+[ext_resource path="res://tilesets/Grass/grass.tres" type="TileSet" id=2]
+[ext_resource path="res://tilesets/Dirt/dirt.tres" type="TileSet" id=3]
+[ext_resource path="res://tilesets/Soil/tileset_dirt.tres" type="TileSet" id=4]
+[ext_resource path="res://tilesets/water_cliff.tres" type="TileSet" id=5]
+[ext_resource path="res://tilesets/WorldObjects/world_objects.tres" type="TileSet" id=6]
+[ext_resource path="res://tilesets/rocks.tres" type="TileSet" id=7]
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="TileMaps" type="Node2D" parent="."]
+
+[node name="Grass" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dirt" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Soil" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WaterCliff" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 5 )
+collision_layer = 33
+collision_mask = 33
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WorldObjects" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 2
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rocks" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 33
+collision_mask = 33
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WorldObjects" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Warps" type="Node2D" parent="."]
+scale = Vector2( 1, 1.05071 )
+__meta__ = {
+"_edit_lock_": true
+}

@@ -8,22 +8,21 @@
 radius = 12.2871
 
 [node name="Chicken" type="KinematicBody2D"]
-position = Vector2( 16.3675, 13.6846 )
+position = Vector2( -1.213, -2.43086 )
 input_pickable = true
 collision_layer = 3
 collision_mask = 10
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="RandomMovementAI" parent="." instance=ExtResource( 2 )]
 
 [node name="AnimatedSprite" parent="RandomMovementAI" index="0"]
 frames = ExtResource( 3 )
 animation = "idle_down"
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 13.6737, 15.6271 )
 shape = SubResource( 1 )
 [connection signal="input_event" from="." to="." method="_on_Chicken_input_event"]
 

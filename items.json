@@ -357,5 +357,12 @@
     "type": "Misc.",
     "placeable": true,
     "activate": -1
+  },
+  "egg": {
+    "desc": "An egg from a chicken.",
+    "eff_desc": "",
+    "cost": 100,
+    "type": "food",
+    "activate": -1
   }
 }
