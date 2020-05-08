@@ -11,6 +11,7 @@ var world_objs = {}
 var world_objs_ref = {}
 var used_cells = {}#= []
 var tilled_soil_objs = []
+var can_place = true
 
 var last_level : String = ""
 var tilemap_grass : TileMap

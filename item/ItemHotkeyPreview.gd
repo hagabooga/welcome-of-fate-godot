@@ -8,7 +8,7 @@ func set_map(map : Map):
 	current_map = map
 
 func _process(delta):
-	if item_holder != null:
+	if item_holder != null and current_map.can_place:
 		var item = item_holder.item
 		if item != null:
 			var pos = current_map.tilemap_soil.world_to_map(get_global_mouse_position())

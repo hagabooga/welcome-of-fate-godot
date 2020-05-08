@@ -364,5 +364,19 @@
     "cost": 100,
     "type": "food",
     "activate": -1
+  },
+  "scrap": {
+    "desc": "Junk but may be useful.",
+    "eff_desc": "",
+    "cost": 5,
+    "type": "Ore",
+    "activate": -1
+  },
+  "iron": {
+    "desc": "Silver-gray metal",
+    "eff_desc": "",
+    "cost": 100,
+    "type": "Ore",
+    "activate": -1
   }
 }
