@@ -32,7 +32,7 @@ func _on_Dec_pressed():
 	$Inc.visible = true
 	update_amount()
 	get_parent().get_parent().find_node("AP").text = "AP: %d"%stats.ap
-	sound_player.play_sound(41,self)
+	sound_player.play_sound(41,self, true, true)
 
 func _on_Inc_pressed():
 	if !stats.ap:
@@ -41,4 +41,4 @@ func _on_Inc_pressed():
 	used_ap += 1
 	update_amount()
 	get_parent().get_parent().find_node("AP").text = "AP: %d"%stats.ap
-	sound_player.play_sound(42,self)
+	sound_player.play_sound(42,self, true, true)

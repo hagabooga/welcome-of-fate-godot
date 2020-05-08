@@ -13,15 +13,19 @@ const IMPULSE_MULTIPLIER = 275
 const FRICTION = 0.02
 const BOUNCE = 0.5
 
-func setup_item(ming):
-	self.ming = ming
-	$RigidBody2D/Area2D/Sprite.texture = load("res://sprites/items/" + ming + ".png")
+func setup_item(mingz):
+	self.ming = mingz
+	$RigidBody2D/Area2D/Sprite.texture = load("res://sprites/items/" + mingz + ".png")
 
 func _ready():
 	$Stopper/CollisionShape2D.disabled = false
 	randomize()
-	$RigidBody2D.friction = FRICTION
-	$RigidBody2D.bounce = BOUNCE
+	var phys_mat = PhysicsMaterial.new()
+	phys_mat.friction = FRICTION
+	phys_mat.bounce = BOUNCE
+	$RigidBody2D.physics_material_override = phys_mat
+#	$RigidBody2D.friction = FRICTION
+#	$RigidBody2D.bounce = BOUNCE
 	$RigidBody2D.apply_central_impulse(\
 		Vector2(rand_range(-IMPULSE_X, IMPULSE_X), rand_range(-IMPULSE_Y_LOWER, -IMPULSE_Y_UPPER)) \
 		* IMPULSE_MULTIPLIER)
