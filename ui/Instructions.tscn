@@ -3,7 +3,6 @@
 [ext_resource path="res://ui/Instructions.gd" type="Script" id=1]
 [ext_resource path="res://segoeuil.ttf" type="DynamicFontData" id=2]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 2 )
@@ -48,10 +47,10 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "WASD: Move
 Left Mouse Button: Use Item
 Right Mouse Button: Interact With the World
-Q: Toggle Quests Panel
-E: Toggle Inventory Panel
-R: Toggle Stats Panel
-T: Toggle Options Panel
+Q: Open/Close Quests Panel
+E: Open/Close Inventory Panel
+R: Open/Close Stats Panel
+T: Open/Close Options Panel
 Esc: Close all Panels"
 align = 1
 
