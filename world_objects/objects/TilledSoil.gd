@@ -54,14 +54,18 @@ func right_clicked():
 			plant.go_second_last_stage()
 		else:
 			plant.frame += 1
-		var sprite = Sprite.new()
-		sprite.texture = load("res://sprites/items/%s.png"%plant.ming)
-		sprite.centered = false
-		$PlantPickup.add_child(sprite)
-		$AnimationPlayer.play("plant_pickup")
+#		var sprite = Sprite.new()
+#		sprite.texture = load("res://sprites/items/%s.png"%plant.ming)
+#		sprite.centered = false
+#		$PlantPickup.add_child(sprite)
+#		$AnimationPlayer.play("plant_pickup")
 		sound_player.play_sound(16,self)
-		get_tree().current_scene.generate_item(plant.ming, self)
-		return [ClickAction.new(ClickAction.ADD_ITEM, [plant.ming]), ClickAction.new(ClickAction.PLAY_ANIM, ["slash", 2])]
+		var plat_ming = plant.ming
+		plant_pickup()
+		get_tree().current_scene.generate_item(plat_ming, self)
+		
+		return [#ClickAction.new(ClickAction.ADD_ITEM, [plat_ming.ming]),
+				ClickAction.new(ClickAction.PLAY_ANIM, ["slash", 2])]
 
 func grow():
 	if $Sprite.frame == 2:
@@ -90,8 +94,8 @@ func plant_pickup():
 		plant_remove()
 		$Plant.visible = true
 		return
-	if $PlantPickup.get_child_count() != 0:
-		$PlantPickup.get_child(0).queue_free()
+#	if $PlantPickup.get_child_count() != 0:
+#		$PlantPickup.get_child(0).queue_free()
 
 func plant_remove():
 	$Plant.get_child(0).queue_free()

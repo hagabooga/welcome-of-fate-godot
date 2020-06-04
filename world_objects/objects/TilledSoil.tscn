@@ -110,4 +110,3 @@ centered = false
 [node name="Plant" type="Node2D" parent="." index="4"]
 
 [node name="PlantPickup" type="Node2D" parent="." index="5"]
-modulate = Color( 1, 1, 1, 0 )

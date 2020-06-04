@@ -16,6 +16,7 @@ func load_sounds(path, dict):
 		var i = 0
 		while (file_name != ""):
 			if dir.current_is_dir():
+# warning-ignore:standalone_expression
 				("Found directory: " + file_name)
 			else:
 				if file_name.ends_with(".import"): #export workaround for sound files
