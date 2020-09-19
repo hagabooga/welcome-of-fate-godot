@@ -84,9 +84,9 @@ func setup():
 				var obj = create_world_object(data[pos][0], pos)
 				obj.load_data(data[pos][1])
 			else:
-				for pos in data["TilledSoil"]:
-					var obj = create_world_object("TilledSoil", pos)
-					obj.load_data(data["TilledSoil"][pos])
+				for pos2 in data["TilledSoil"]:
+					var obj = create_world_object("TilledSoil", pos2)
+					obj.load_data(data["TilledSoil"][pos2])
 
 	create_water_source()
 	

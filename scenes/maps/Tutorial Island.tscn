@@ -83,19 +83,27 @@ position = Vector2( 480, 288 )
 [node name="Worm Desert" type="Position2D" parent="Warps" index="0"]
 position = Vector2( 900, 330 )
 
-[node name="Small Cave" type="Position2D" parent="Warps" index="1"]
+[node name="Dog Forest" type="Position2D" parent="Warps" index="1"]
+position = Vector2( 359.167, 285.039 )
+
+[node name="Small Cave" type="Position2D" parent="Warps" index="2"]
 position = Vector2( 128.102, 461.477 )
 
-[node name="Main Menu" type="Position2D" parent="Warps" index="2"]
+[node name="Main Menu" type="Position2D" parent="Warps" index="3"]
 position = Vector2( 288, 330.056 )
 
-[node name="Warp" parent="Warps" index="3" instance=ExtResource( 7 )]
+[node name="Warp" parent="Warps" index="4" instance=ExtResource( 7 )]
 map = "worm desert"
 
-[node name="Warp2" parent="Warps" index="4" instance=ExtResource( 7 )]
+[node name="Warp2" parent="Warps" index="5" instance=ExtResource( 7 )]
 position = Vector2( 128.469, 509.361 )
 rotation = 1.5708
 map = "small cave"
+
+[node name="Warp3" parent="Warps" index="6" instance=ExtResource( 7 )]
+position = Vector2( 347.496, 272.002 )
+rotation = 1.5708
+map = "dog forest"
 
 [node name="Chicken" parent="." index="4" instance=ExtResource( 8 )]
 position = Vector2( 368.093, 366.829 )
